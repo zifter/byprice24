@@ -1,0 +1,3 @@
+redisAddress: redis://redis-master.default.svc:6379
+serviceMonitor:
+  enabled: true

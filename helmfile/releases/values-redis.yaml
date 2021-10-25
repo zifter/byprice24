@@ -1,0 +1,24 @@
+configmap: |-
+  appendonly no
+  save ""
+
+architecture: standalone
+auth:
+  enabled: false
+
+cluster:
+  enabled: false
+
+serviceAccount:
+  create: true
+  name: redis
+
+master:
+  persistence:
+    enabled: false
+  configmap: >-
+    notify-keyspace-events Ex
+
+  service:
+    type: NodePort
+    nodePort: 30102

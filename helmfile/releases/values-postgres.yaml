@@ -1,0 +1,12 @@
+postgresqlUsername: root
+postgresqlPassword: "1234"
+postgresqlDatabase: byprice24
+
+service:
+  type: NodePort
+  nodePort: 30101
+
+resources:
+  requests:
+    memory: "0"
+    cpu: "0"

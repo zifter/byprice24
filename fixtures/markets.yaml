@@ -1,0 +1,17 @@
+- model: marketplace.marketplace
+  pk: 1
+  fields:
+    domain: www.21vek.by
+- model: crawler.scrapingstate
+  fields:
+    marketplace: 1
+    spider_name: schema.org
+
+- model: marketplace.marketplace
+  pk: 2
+  fields:
+    domain: www.ilp.by
+- model: crawler.scrapingstate
+  fields:
+    marketplace: 2
+    spider_name: schema.org
