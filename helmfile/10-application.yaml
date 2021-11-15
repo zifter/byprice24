@@ -12,10 +12,20 @@ releases:
       - image:
           tag: {{ .Values.backend.tag }}
 
-  - name: worker
+  - name: worker-crawler
     namespace: default
     chart: ../charts/worker
     values:
       - releases/backend/values-worker.yaml
+      - releases/backend/values-worker-crawler.yaml
+      - image:
+          tag: {{ .Values.backend.tag }}
+
+  - name: worker-etc
+    namespace: default
+    chart: ../charts/worker
+    values:
+      - releases/backend/values-worker.yaml
+      - releases/backend/values-worker-etc.yaml
       - image:
           tag: {{ .Values.backend.tag }}

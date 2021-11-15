@@ -6,7 +6,7 @@
 # from itemadapter import ItemAdapter
 import os
 
-from run_scrapy import signals
+from scrapy import signals
 # useful for handling different item types with a single interface
 
 

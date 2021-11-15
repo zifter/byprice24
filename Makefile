@@ -78,10 +78,14 @@ load-image:
 restart-deployment:
 	$(info Restart deployment in order to use latest version of docker image)
 	kubectl rollout restart deployment cms
-	kubectl rollout restart deployment worker
+	kubectl rollout restart deployment worker-crawler
+	kubectl rollout restart deployment worker-etc
 
-# Run cluster from scratch
-run-cluster: delete-cluster create-cluster install-infra print-urls
+# Run cluster from scratch for dev, without application
+run-dev-cluster: delete-cluster create-cluster install-infra print-urls
+
+# Run cluster with full setup
+run-full-cluster: delete-cluster create-cluster install-infra install-backend print-urls
 
 # Update Docker Image in kind cluster
 update-image: IMAGE_TAG := zifter/byprice24-cms:test
