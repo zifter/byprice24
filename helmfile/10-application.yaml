@@ -1,0 +1,21 @@
+{{ readFile "defaults.yaml" }}
+
+commonLabels:
+  tier: "backend"
+
+releases:
+  - name: cms
+    namespace: default
+    chart: ../charts/cms
+    values:
+      - releases/backend/values-cms.yaml
+      - image:
+          tag: {{ .Values.backend.tag }}
+
+  - name: worker
+    namespace: default
+    chart: ../charts/worker
+    values:
+      - releases/backend/values-worker.yaml
+      - image:
+          tag: {{ .Values.backend.tag }}

@@ -1,0 +1,12 @@
+redis:
+  url: "redis://redis-master:6379/0"
+
+rqQueues:
+  - crawler-feed
+  - crawler-result
+
+postgres:
+  dbname: "byprice24"
+  username: "root"
+  password: "1234"
+  host: "postgres-postgresql"

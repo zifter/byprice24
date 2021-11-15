@@ -1,0 +1,27 @@
+name: ci
+on: push
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_USER: ${{ secrets.DOCKER_USER }}
+      DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Login to DockerHub
+        run: make docker-login DOCKER_USER=$DOCKER_USER DOCKER_PASS=$DOCKER_PASS
+
+      - name: Build Docker Image
+        run: make build-image IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
+
+      - name: Test Docker Image
+        run: make test-image IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
+
+      - name: Publish Docker Image
+        if: github.ref == 'refs/heads/master'
+        run: |
+          make publish-image IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}

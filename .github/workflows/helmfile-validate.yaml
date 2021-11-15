@@ -1,0 +1,24 @@
+name: Helmfile Validate
+on: push
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Setup helmfile
+        uses: mamezou-tech/setup-helmfile@v0.8.0
+        with:
+          install-kubectl: no
+          helm: "v3.6.3"
+          helmfile-version: "v0.140.1"
+
+      - name: Validate
+        run: |
+          helmfile build
+          helmfile -e prod build
+          helmfile template

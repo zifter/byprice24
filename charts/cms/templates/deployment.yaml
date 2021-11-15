@@ -1,0 +1,104 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "cms.fullname" . }}
+  labels:
+    {{- include "cms.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "cms.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "cms.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "cms.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args:
+            - runserver
+            - 0.0.0.0:8080
+          env:
+            - name: DJANGO_CONFIGURATION
+              value: {{ .Values.configuration | quote }}
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: RQ_REDIS_URL
+              value: {{ .Values.redis.url | quote }}
+            - name: DB_NAME
+              value: {{ .Values.postgres.dbname | quote }}
+            - name: DB_USERNAME
+              value: {{ .Values.postgres.username | quote }}
+            - name: DB_PASSWORD
+              value: {{ .Values.postgres.password | quote }}
+            - name: DB_HOST
+              value: {{ .Values.postgres.host | quote }}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+#          livenessProbe:
+#            httpGet:
+#              path: /health-check/
+#              port: http
+          readinessProbe:
+            httpGet:
+              path: /health-check/
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      initContainers:
+        - name: {{ .Chart.Name }}-migrate
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args:
+            - migrate
+          env:
+            - name: RQ_REDIS_URL
+              value: {{ .Values.redis.domain | quote }}
+            - name: DJANGO_CONFIGURATION
+              value: {{ .Values.configuration | quote }}
+            - name: DB_NAME
+              value: {{ .Values.postgres.dbname | quote }}
+            - name: DB_USERNAME
+              value: {{ .Values.postgres.username | quote }}
+            - name: DB_PASSWORD
+              value: {{ .Values.postgres.password | quote }}
+            - name: DB_HOST
+              value: {{ .Values.postgres.host | quote }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
