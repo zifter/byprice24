@@ -12,6 +12,7 @@ class SchemaOrgSpider(CrawlSpider):
     name: str = 'schema.org'
 
     rules = (
+        Rule(LinkExtractor(unique=True)),
         Rule(LinkExtractor(unique=True), callback='parse_item'),
     )
 

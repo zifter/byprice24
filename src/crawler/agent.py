@@ -19,6 +19,8 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.crawler import CrawlerRunner
 from scrapy.utils.project import get_project_settings
 from twisted.internet import reactor
+from twisted.internet.defer import Deferred
+from twisted.python.failure import Failure
 
 
 class Agent:
@@ -63,17 +65,39 @@ class Agent:
             ],
         }
 
+        scrapy_failure = None
+        run_crawler = None
         if spawn_process:
             process = CrawlerProcess(settings=get_project_settings())
-            process.crawl(spider, **settings)
-            process.start()  # the script will block here until all crawling jobs are finished
+            stats: Deferred = process.crawl(spider, **settings)
+
+            def _run():
+                process.start()  # the script will block here until all crawling jobs are finished
+
+            run_crawler = _run
         else:
             runner = CrawlerRunner(get_project_settings())
-            d = runner.crawl(spider, **settings)
-            d.addBoth(lambda _: reactor.stop())
-            reactor.run()
+            stats: Deferred = runner.crawl(spider, **settings)
+            stats.addBoth(lambda _: reactor.stop())
 
-        return None
+            def _run():
+                reactor.run()
+
+            run_crawler = _run
+
+        def errback(failure: Failure):
+            global scrapy_failure
+            print(failure)
+            scrapy_failure = failure
+
+        stats.addErrback(errback)
+
+        run_crawler()
+
+        if scrapy_failure:
+            raise RuntimeError(scrapy_failure)
+
+        return stats.result
 
     def process_product(self, item: ProductItem):
         data = ProductData(item)

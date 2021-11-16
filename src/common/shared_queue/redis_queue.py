@@ -14,7 +14,7 @@ CRAWLER_RESULT = 'crawler-result'
 def crawler_feed() -> Queue:
     url = os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0')
     redis = Redis.from_url(url)
-    return Queue(name=CRAWLER_FEED, connection=redis, default_timeout=-1)
+    return Queue(name=CRAWLER_FEED, connection=redis)
 
 
 def crawler_result() -> Queue:
@@ -31,7 +31,7 @@ class FlowQueueRedis(FlowQueueBase):
         self.result = result
 
     def scrape(self, target: ScrapingTarget):
-        self.feed.enqueue('crawler.tasks.scrape_target', target)
+        self.feed.enqueue('crawler.tasks.scrape_target', target, job_timeout=-1)
 
     def process_product(self, product):
-        self.result.enqueue('crawler.tasks.process_product', product)
+        self.result.enqueue('crawler.tasks.process_product', product, job_timeout=30)
