@@ -104,7 +104,7 @@ class ScraperDownloaderMiddleware:
 
 class ScraperAPIMiddleware:
     def __init__(self):
-        self.api_key = os.environ['SCRAPER_API_KEY']
+        self.api_key = os.environ.get('SCRAPER_API_KEY')
 
     def process_request(self, request, spider):
         if self.api_key and hasattr(spider, 'use_proxy'):

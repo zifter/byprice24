@@ -1,3 +1,4 @@
+import logging
 from typing import Generator
 
 import extruct
@@ -22,6 +23,8 @@ class SchemaOrgSpider(CrawlSpider):
             self.start_urls.append(kwargs['target_url'])
 
     def parse_item(self, response: Response) -> Generator[ProductItem, None, None]:
+        logging.info('parse %s', response.url)
+
         data = extruct.extract(response.text, base_url=response.url)
 
         if 'microdata' not in data:
