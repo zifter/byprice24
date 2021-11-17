@@ -37,12 +37,23 @@ publish-image:
 # Create kind cluster with kubernetes
 delete-cluster:
 	$(info Delete kind cluster)
-	kind delete cluster || true
+	kind delete cluster --name byprice24 || true
 
 # Delete kind cluster with kubernetes
 create-cluster:
 	$(info Create kind cluster)
 	kind create cluster -v 1 --config kind-config.yaml
+
+pause-cluster:
+	$(info Pause kind cluster)
+	docker pause byprice24-control-plane
+
+unpause-cluster:
+	$(info Pause kind cluster)
+	docker unpause byprice24-control-plane
+
+cluster-images:
+	docker exec -it byprice24-control-plane crictl images
 
 # Install all helm releases
 install-infra:
@@ -65,6 +76,7 @@ helmfile-sync:
 print-urls:
 	$(info ===========================================================)
 	$(info CMS: 			http://localhost:1080/)
+	$(info Admin: 			http://localhost:1080/admin/)
 	$(info Grafana: 		http://localhost:1080/grafana (admin - admin))
 	$(info Prometheus: 		http://localhost:1080/prometheus)
 	$(info AlertManager: 	http://localhost:1080/alertmanager)
@@ -73,7 +85,7 @@ print-urls:
 load-image: IMAGE_TAG := zifter/byprice24-cms:test
 load-image:
 	$(info Load docker to kind cluster)
-	kind load docker-image ${IMAGE_TAG}
+	kind load docker-image --name byprice24 ${IMAGE_TAG}
 
 restart-deployment:
 	$(info Restart deployment in order to use latest version of docker image)

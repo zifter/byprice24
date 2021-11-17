@@ -52,7 +52,7 @@ class Agent:
             scraping.last_scraping = now
             scraping.save()
 
-    def scrape(self, target: ScrapingTarget, spawn_process=False):
+    def scrape(self, target: ScrapingTarget, spawn_process=True):
         logging.info('Scrape %s', target)
 
         spider = get_spider(target.spider_name)
@@ -87,7 +87,7 @@ class Agent:
 
         def errback(failure: Failure):
             global scrapy_failure
-            print(failure)
+            logging.error(failure)
             scrapy_failure = failure
 
         stats.addErrback(errback)

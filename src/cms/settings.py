@@ -118,23 +118,23 @@ class Base(Configuration):
         'version': 1,
         'disable_existing_loggers': False,
         'formatters': {
-            'rq_console': {
+            'console': {
                 'format': '%(asctime)s %(message)s',
                 'datefmt': '%H:%M:%S',
             },
         },
         'handlers': {
-            'rq_console': {
+            'console': {
                 'level': 'DEBUG',
                 'class': 'rq.utils.ColorizingStreamHandler',
-                'formatter': 'rq_console',
+                'formatter': 'console',
                 'exclude': ['%(asctime)s'],
             },
         },
         'loggers': {
-            'rq.worker': {
-                'handlers': ['rq_console'],
-                'level': 'DEBUG'
+            'root': {
+                'handlers': ['console'],
+                'level': 'DEBUG',
             },
         }
     }
