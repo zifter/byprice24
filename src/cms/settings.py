@@ -40,6 +40,7 @@ class Base(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+        'rest_framework',
         'health_check',
         'health_check.db',
         'health_check.storage',
@@ -143,6 +144,8 @@ class Base(Configuration):
     # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
     STATIC_URL = '/static/'
+
+    STATIC_ROOT = os.path.join(REPO_DIR, 'static')
 
     # Default primary key field type
     # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
