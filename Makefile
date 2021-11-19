@@ -1,4 +1,44 @@
 ####################
+# Setup toolset for contributing
+setup-toolset: setup-pipenv setup-helm setup-helm-diff-plugin setup-helmfile setup-kind setup-pre-commit-hook pipenv-install
+
+setup-pipenv:
+	$(info Install pipenv)
+	python3 -m pip install pipenv
+
+setup-helm:
+	$(info Install helm)
+	curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 && \
+	chmod 700 get_helm.sh && \
+	./get_helm.sh --version v3.6.3 \
+	&& rm -f ./get_helm.sh
+
+setup-helm-diff-plugin:
+	$(info Install helm diff plugin)
+	helm plugin uninstall diff || true
+	helm plugin install https://github.com/databus23/helm-diff --version 3.1.3
+
+setup-helmfile:
+	$(info Install helmfile)
+	sudo wget "https://github.com/roboll/helmfile/releases/download/v0.140.0/helmfile_linux_amd64" -O /usr/bin/helmfile \
+	&& sudo chmod +x /usr/bin/helmfile
+
+setup-kind:
+	$(info Install kind)
+	sudo wget "https://github.com/kubernetes-sigs/kind/releases/download/v0.11.1/kind-linux-amd64" -O /usr/bin/kind \
+	&& sudo chmod +x /usr/bin/kind
+
+setup-pre-commit-hook:
+	$(info Install pre commit hook)
+	python3 -m pip install pre-commit==2.15.0
+	pre-commit install
+
+pipenv-install:
+	$(info Setup pipenv dependencies)
+	pipenv install
+
+
+####################
 # Image
 
 # Build image of CMS
@@ -96,7 +136,7 @@ restart-deployment:
 # Run cluster from scratch for dev, without application
 run-dev-cluster: delete-cluster create-cluster install-infra print-urls
 
-# Run cluster with full setup
+# Run cluster with full deployment
 run-full-cluster: delete-cluster create-cluster install-infra install-backend print-urls
 
 # Update Docker Image in kind cluster
