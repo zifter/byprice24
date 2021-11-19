@@ -1,0 +1,4 @@
+- model: marketplace.marketplace
+  pk: 1
+  fields:
+    domain: localhost

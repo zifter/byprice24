@@ -10,6 +10,6 @@ class MarketplaceViewSet(viewsets.ModelViewSet):
     model = Marketplace
     queryset = Marketplace.objects
     serializer_class = MarketplaceSerializer
-    lookup_field = 'Domain'
-    ordering_fields = ('Domain', )
-    ordering = ('Domain',)
+    lookup_field = 'domain'
+    ordering_fields = ('domain', )
+    ordering = ('domain',)

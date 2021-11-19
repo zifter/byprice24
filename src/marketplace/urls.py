@@ -12,5 +12,5 @@ marketplace_detail = MarketplaceViewSet.as_view({
 
 urlpatterns = [
     path('v1/marketplaces/', marketplace_list, name='marketplace-list'),
-    path('v1/marketplaces/<str:Domain>', marketplace_detail, name='marketplace-detail'),
+    path('v1/marketplaces/<str:domain>', marketplace_detail, name='marketplace-detail'),
 ]
