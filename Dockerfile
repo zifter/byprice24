@@ -43,7 +43,6 @@ COPY --chown=appuser testdata testdata
 COPY --chown=appuser src src
 
 WORKDIR /home/appuser/src
-ENTRYPOINT ["python3", "manage.py"]
 CMD ["runserver", "0.0.0.0:8080"]
 
 EXPOSE 8080

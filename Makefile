@@ -35,7 +35,7 @@ setup-pre-commit-hook:
 
 pipenv-install:
 	$(info Setup pipenv dependencies)
-	pipenv install
+	pipenv install --dev
 
 
 ####################
@@ -53,8 +53,8 @@ test-image: IMAGE_TAG := zifter/byprice24-cms:test
 test-image: DJANGO_CONFIGURATION := Test
 test-image:
 	$(info Run tests for docker image)
-	docker run $(IMAGE_TAG) check --configuration=${DJANGO_CONFIGURATION}
-	docker run $(IMAGE_TAG) test -p "*_test.py" --configuration=${DJANGO_CONFIGURATION}
+	docker run $(IMAGE_TAG) python3 manage.py check --configuration=${DJANGO_CONFIGURATION}
+	docker run $(IMAGE_TAG) pytest
 
 # Before publishing you must perform login to DockerHub
 docker-login: DOCKER_USER ?= ""
@@ -67,7 +67,7 @@ docker-login:
 publish-image: IMAGE_TAG := zifter/byprice24-cms:test
 publish-image: PUBLISH_IMAGE_TAG := zifter/byprice24-cms:latest
 publish-image:
-	$(info Publis docker imgage $(PUBLISH_IMAGE_TAG))
+	$(info Publish docker imgage $(PUBLISH_IMAGE_TAG))
 	docker tag $(IMAGE_TAG) $(PUBLISH_IMAGE_TAG)
 	docker push $(PUBLISH_IMAGE_TAG)
 
@@ -147,7 +147,7 @@ update-image: build-image load-image restart-deployment
 # Local Dev
 test:
 	$(info Run tests locally)
-	pipenv run ./src/manage.py test -p "*_test.py" --configuration=Test
+	cd src && pipenv run pytest
 	pipenv run ./src/manage.py check --configuration=Test
 
 makemigrations:
