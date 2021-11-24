@@ -26,9 +26,6 @@ def fake_response_from_file(filepath, url=None):
 
     returns: A scrapy HTTP response which can be used for unittesting.
     """
-    if not url:
-        url = 'http://www.example.com'
-
     with open(filepath) as f:
         return TextResponse(url=url,
                             request=Request(url=url),

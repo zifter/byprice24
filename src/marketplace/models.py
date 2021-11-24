@@ -58,4 +58,4 @@ class ProductState(models.Model):
     price_currency = models.CharField(max_length=8)
 
     def __str__(self):
-        return f'{self.product_page} [{self.price}{self.price_currency}]'
+        return f'{self.product_page} [{self.price} {self.price_currency}]'

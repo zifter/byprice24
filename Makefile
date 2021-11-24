@@ -54,7 +54,11 @@ test-image: DJANGO_CONFIGURATION := Test
 test-image:
 	$(info Run tests for docker image)
 	docker run $(IMAGE_TAG) python3 manage.py check --configuration=${DJANGO_CONFIGURATION}
-	docker run $(IMAGE_TAG) pytest
+	docker run $(IMAGE_TAG) /bin/bash -c "\
+		pytest . --cov=. && \
+		coverage report --include="*_tests.py" --rcfile=pytest.ini --fail-under=100 && \
+		coverage report --include="*" --rcfile=pytest.ini --fail-under=90 \
+		"
 
 # Before publishing you must perform login to DockerHub
 docker-login: DOCKER_USER ?= ""
@@ -145,10 +149,24 @@ update-image: build-image load-image restart-deployment
 
 ###########
 # Local Dev
+pytest:
+	$(info Run pytest)
+	pipenv run pytest src --cov=src
+
 test:
-	$(info Run tests locally)
-	cd src && pipenv run pytest
+	$(info Run all necessary tests locally)
 	pipenv run ./src/manage.py check --configuration=Test
+	make pytest
+	make coverage-report
+
+coverage-report:
+	coverage report --include="src/**_tests.py" --rcfile=src/pytest.ini --fail-under=100
+	coverage report --include="src/*" --rcfile=src/pytest.ini --fail-under=90
+
+open-coverage:
+	make pytest
+	coverage html --rcfile=src/pytest.ini
+	xdg-open htmlcov/index.html || open htmlcov/index.html
 
 makemigrations:
 	$(info Make migrations for all applications)

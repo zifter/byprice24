@@ -1,4 +1,3 @@
-import pytest
 from common.paths import TEST_DATA_DIR
 
 from ..items import ProductItem
@@ -27,23 +26,23 @@ def test_check_parser_21vek_by():
     assert results[0] == expected
 
 
-@pytest.mark.skip(reason='TODO make it works')
-def test_check_parser_amd_by():
-    URL = 'https://www.amd.by/mobile/apple-iphone-13-pro-max-1tb-grafitovyi/'
-    filepath = PAGES_DIR.joinpath('amd-by-iphone-13.html')
-
-    p = SchemaOrgSpider()
-    fake_response = fake_response_from_file(filepath, url=URL)
-    results = list(p.parse_item(fake_response))
-
-    expected = ProductItem(
-        url=URL,
-        name='Смартфон POCO X3 Pro 8GB/256GB (синий)',
-        price=1049.0,
-        price_currency='BYN',
-    )
-
-    assert results[0] == expected
+# TODO make it works
+# def test_check_parser_amd_by():
+#     URL = 'https://www.amd.by/mobile/apple-iphone-13-pro-max-1tb-grafitovyi/'
+#     filepath = PAGES_DIR.joinpath('amd-by-iphone-13.html')
+#
+#     p = SchemaOrgSpider()
+#     fake_response = fake_response_from_file(filepath, url=URL)
+#     results = list(p.parse_item(fake_response))
+#
+#     expected = ProductItem(
+#         url=URL,
+#         name='Смартфон POCO X3 Pro 8GB/256GB (синий)',
+#         price=1049.0,
+#         price_currency='BYN',
+#     )
+#
+#     assert results[0] == expected
 
 
 def test_check_parser_ilp_by():

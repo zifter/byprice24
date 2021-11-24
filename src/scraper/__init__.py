@@ -4,4 +4,7 @@
 # your spiders.
 from scrapy.utils.log import configure_logging
 
+from . import middlewares  # noqa: F401
+from . import settings  # noqa: F401
+
 configure_logging({'LOG_FORMAT': '%(levelname)s: %(message)s'})
