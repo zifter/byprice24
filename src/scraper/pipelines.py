@@ -6,11 +6,11 @@
 # from itemadapter import ItemAdapter
 import logging
 
-from common.shared_queue import get_flow_queue
+from common import shared_queue
 from scraper.items import ProductItem
 
 
 class ScraperPipeline:
     def process_item(self, item: ProductItem, spider):
         logging.info('Process item %s', item)
-        get_flow_queue().process_product(item)
+        shared_queue.get_flow_queue().process_product(item)
