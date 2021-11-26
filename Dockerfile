@@ -16,7 +16,8 @@ FROM base AS python-deps
 
 # Install pipenv and compilation dependencies
 RUN pip install pipenv
-RUN apt-get update && apt-get install -y --no-install-recommends gcc
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gcc libc-dev
 
 # Install python dependencies in /.venv
 COPY Pipfile .
