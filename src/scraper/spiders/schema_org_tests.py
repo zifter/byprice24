@@ -5,12 +5,12 @@ from ..utils import fake_response_from_file
 from .schema_org import SchemaOrgSpider
 
 
-PAGES_DIR = TEST_DATA_DIR.joinpath('parsing', 'schema_org')
+PAGES_DIR = TEST_DATA_DIR.joinpath('parsing', 'marketplaces')
 
 
 def test_check_parser_21vek_by():
     URL = 'https://www.21vek.by/mobile/x3pro8gb256gb_poco_01.html'
-    filepath = PAGES_DIR.joinpath('21vek-by-poco-pro-x3.html')
+    filepath = PAGES_DIR.joinpath('21vek', 'poco-pro-x3.html')
 
     p = SchemaOrgSpider()
     fake_response = fake_response_from_file(filepath, url=URL)
@@ -29,7 +29,7 @@ def test_check_parser_21vek_by():
 # TODO make it works
 # def test_check_parser_amd_by():
 #     URL = 'https://www.amd.by/mobile/apple-iphone-13-pro-max-1tb-grafitovyi/'
-#     filepath = PAGES_DIR.joinpath('amd-by-iphone-13.html')
+#     filepath = PAGES_DIR.joinpath('amd', 'iphone-13.html')
 #
 #     p = SchemaOrgSpider()
 #     fake_response = fake_response_from_file(filepath, url=URL)
@@ -47,7 +47,7 @@ def test_check_parser_21vek_by():
 
 def test_check_parser_ilp_by():
     URL = 'https://www.ilp.by/notebook/apple/mxk32'
-    filepath = PAGES_DIR.joinpath('ilp-by-macbook.html')
+    filepath = PAGES_DIR.joinpath('ilp', 'macbook.html')
 
     p = SchemaOrgSpider()
     fake_response = fake_response_from_file(filepath, url=URL)
