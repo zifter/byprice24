@@ -1,4 +1,4 @@
-FROM python:3.9-slim-buster as base
+FROM python:3.10.0-slim-buster as base
 
 LABEL org.opencontainers.image.authors="Oleg Strokachuk <zifter.ai@gmail.com>"
 LABEL org.opencontainers.image.version="0.1.0"
@@ -16,7 +16,8 @@ FROM base AS python-deps
 
 # Install pipenv and compilation dependencies
 RUN pip install pipenv
-RUN apt-get update && apt-get install -y --no-install-recommends gcc
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gcc libc-dev
 
 # Install python dependencies in /.venv
 COPY Pipfile .

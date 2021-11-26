@@ -1,6 +1,10 @@
 ####################
-# Setup toolset for contributing
+# Linux Setup toolset for contributing
 setup-toolset: setup-pipenv setup-helm setup-helm-diff-plugin setup-helmfile setup-kind setup-pre-commit-hook pipenv-install
+
+# MacOS Setup toolset for contributing
+setup-toolset-mac: setup-pipenv setup-helm-mac setup-helmfile-mac setup-kind-mac setup-pre-commit-hook \
+ pipenv-install setup-helm-diff-plugin
 
 setup-pipenv:
 	$(info Install pipenv)
@@ -13,6 +17,11 @@ setup-helm:
 	./get_helm.sh --version v3.6.3 \
 	&& rm -f ./get_helm.sh
 
+setup-helm-mac:
+	$(info Install helm-mac)
+	brew install helm
+
+
 setup-helm-diff-plugin:
 	$(info Install helm diff plugin)
 	helm plugin uninstall diff || true
@@ -23,10 +32,18 @@ setup-helmfile:
 	sudo wget "https://github.com/roboll/helmfile/releases/download/v0.140.0/helmfile_linux_amd64" -O /usr/bin/helmfile \
 	&& sudo chmod +x /usr/bin/helmfile
 
+setup-helmfile-mac:
+	$(info Install helmfile mac)
+	brew install helmfile
+
 setup-kind:
 	$(info Install kind)
 	sudo wget "https://github.com/kubernetes-sigs/kind/releases/download/v0.11.1/kind-linux-amd64" -O /usr/bin/kind \
 	&& sudo chmod +x /usr/bin/kind
+
+setup-kind-mac:
+	$(info Install kind mac)
+	brew install kind
 
 setup-pre-commit-hook:
 	$(info Install pre commit hook)

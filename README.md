@@ -6,7 +6,7 @@ You need any kind of Linux system - the latest ubuntu will be great.
 #### [Docker](https://www.docker.com/)
 All deployment based on containers. Docker is simple to use at that moment.
 
-#### [python3.9](https://www.python.org/downloads/release/python-390/)
+#### [python3.10.0](https://www.python.org/downloads/release/python-3100/)
 It's guarantee that application is workig with that version.
 
 #### [pycharm](https://www.jetbrains.com/ru-ru/pycharm/)
