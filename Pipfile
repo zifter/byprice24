@@ -24,7 +24,7 @@ pytest-cov = "3.0.0"
 pytest-django = "4.3.0"
 
 [requires]
-python_version = "3.9"
+python_version = "3.9.7"
 
 [scripts]
 test = "./src/manage.py test"
