@@ -1,4 +1,4 @@
-FROM python:3.9.7-slim-buster as base
+FROM python:3.10.0-slim-buster as base
 
 LABEL org.opencontainers.image.authors="Oleg Strokachuk <zifter.ai@gmail.com>"
 LABEL org.opencontainers.image.version="0.1.0"
