@@ -2,7 +2,7 @@ environments:
   default:
     values:
       - monitoring:
-          enabled: true
+          enabled: false
       - backend:
           tag: test
   prod:
@@ -14,11 +14,6 @@ environments:
 
 helmfiles:
   - path: "helmfile/00-infra.yaml"
-    values:
-    - # pass the current state values to the sub-helmfile
-{{ toYaml .Environment.Values | indent 6 }}
-
-  - path: "helmfile/01-database.yaml"
     values:
     - # pass the current state values to the sub-helmfile
 {{ toYaml .Environment.Values | indent 6 }}

@@ -12,6 +12,9 @@ It's guarantee that application is workig with that version.
 #### [pycharm](https://www.jetbrains.com/ru-ru/pycharm/)
 The best IDE for python developing.
 
+#### [Lens](https://k8slens.dev/)
+The best IDE for k8s developing.
+
 ### Toolset
 All toolset will be installed via make command:
 ```bash

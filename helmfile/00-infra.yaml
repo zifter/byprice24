@@ -21,5 +21,35 @@ releases:
       - controller:
           metrics:
             enabled: {{ .Values.monitoring.enabled | toYaml }}
-    needs:
-      - prometheus
+
+  # REDIS
+  - name: redis
+    namespace: default
+    chart: bitnami/redis
+    version: 15.5.1
+    values:
+      - releases/values-redis.yaml
+
+  - name: redis-exporter
+    namespace: monitoring
+    chart: prometheus-community/prometheus-redis-exporter
+    installed: {{ .Values.monitoring.enabled | toYaml }}
+    version: 4.6.0
+    values:
+      - releases/values-redis-exporter.yaml
+
+  # POSTGRES
+  - name: postgres
+    namespace: default
+    chart: bitnami/postgresql
+    version: 10.3.0
+    values:
+      - releases/values-postgres.yaml
+
+  - name: postgres-exporter
+    namespace: monitoring
+    chart: prometheus-community/prometheus-postgres-exporter
+    installed: {{ .Values.monitoring.enabled | toYaml }}
+    version: 2.3.7
+    values:
+      - releases/values-postgres-exporter.yaml

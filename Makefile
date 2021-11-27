@@ -21,7 +21,6 @@ setup-helm-mac:
 	$(info Install helm-mac)
 	brew install helm
 
-
 setup-helm-diff-plugin:
 	$(info Install helm diff plugin)
 	helm plugin uninstall diff || true
@@ -105,6 +104,14 @@ create-cluster:
 	$(info Create kind cluster)
 	kind create cluster -v 1 --config kind-config.yaml
 
+load-infra-images:
+	$(info Load docker images for infrastucture)
+	docker pull docker.io/bitnami/postgresql:11.10.0-debian-10-r83
+	kind load docker-image --name byprice24 docker.io/bitnami/postgresql:11.10.0-debian-10-r83
+
+	docker pull docker.io/bitnami/redis:6.2.6-debian-10-r0
+	kind load docker-image --name byprice24 docker.io/bitnami/redis:6.2.6-debian-10-r0
+
 pause-cluster:
 	$(info Pause kind cluster)
 	docker pause byprice24-control-plane
@@ -155,10 +162,10 @@ restart-deployment:
 	kubectl rollout restart deployment worker-etc
 
 # Run cluster from scratch for dev, without application
-run-dev-cluster: delete-cluster create-cluster install-infra print-urls
+run-dev-cluster: delete-cluster create-cluster load-infra-images install-infra print-urls
 
 # Run cluster with full deployment
-run-full-cluster: delete-cluster create-cluster install-infra install-backend print-urls
+run-full-cluster: delete-cluster create-cluster load-infra-images install-infra install-backend print-urls
 
 # Update Docker Image in kind cluster
 update-image: IMAGE_TAG := zifter/byprice24-cms:test
