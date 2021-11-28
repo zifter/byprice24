@@ -1060,7 +1060,7 @@
             "version": "==21.2.0"
         },
         "coverage": {
-            "hashes": [
+             "hashes": [
                 "sha256:01774a2c2c729619760320270e42cd9e797427ecfddd32c2a7b639cdc481f3c0",
                 "sha256:03b20e52b7d31be571c9c06b74746746d4eb82fc260e594dc662ed48145e9efd",
                 "sha256:0a7726f74ff63f41e95ed3a89fef002916c828bb5fcae83b505b49d81a066884",
@@ -1109,8 +1109,8 @@
                 "sha256:f9afb5b746781fc2abce26193d1c817b7eb0e11459510fba65d2bd77fe161d9e",
                 "sha256:fb8b8ee99b3fffe4fd86f4c81b35a6bf7e4462cba019997af2fe679365db0c49"
             ],
-            "index": "pypi",
-            "version": "==6.2"
+            "markers": "python_version >= '3.6'",
+            "version": "==6.1.2"
         },
         "iniconfig": {
             "hashes": [
