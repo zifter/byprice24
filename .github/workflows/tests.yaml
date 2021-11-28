@@ -1,0 +1,23 @@
+name: ci
+on: push
+
+jobs:
+  mac:
+    runs-on: macos-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+
+      - name: Setup toolset
+        run: make setup-toolset-mac
+
+      - name: Install Dependencies
+        run: make pipenv-install
+
+      - name: Run tests
+        run: make test
