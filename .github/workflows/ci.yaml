@@ -25,3 +25,14 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: |
           make publish-image IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
+  mac:
+    runs-on: macos-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: make pipenv-install
+
+      - name: Run tests
+        run: make test
