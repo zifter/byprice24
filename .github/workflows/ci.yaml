@@ -27,7 +27,7 @@ jobs:
           make publish-image IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
 
   mac:
-    runs-on: macos-latest
+    runs-on: macos-11
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
