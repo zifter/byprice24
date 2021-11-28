@@ -1,5 +1,10 @@
 name: Helmfile Validate
-on: push
+on:
+  push:
+    paths:
+      - charts/**
+      - helmfile/**
+      - helmfile.yaml
 
 jobs:
   validate:
