@@ -20,6 +20,10 @@ controller:
       key: node-role.kubernetes.io/master
       operator: Equal
 
+  resources:
+    requests:
+      cpu: 0m  # no limits for cpu in local
+
   hostPort:
     enabled: true
 
