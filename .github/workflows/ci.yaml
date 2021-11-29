@@ -37,13 +37,8 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Setup toolset
-        run: make setup-toolset-mac
-
       - name: Install Dependencies
-        run: |
-          make pipenv-install
-          python3 -m pip install coverage==6.1.2
+        run: make setup-toolset-mac
 
       - name: Run tests
         run: make test
