@@ -184,12 +184,12 @@ test:
 	make coverage-report
 
 coverage-report:
-	coverage report --include="src/**_tests.py" --rcfile=src/pytest.ini --fail-under=100
-	coverage report --include="src/*" --rcfile=src/pytest.ini --fail-under=90
+	pipenv run coverage report --include="src/**_tests.py" --rcfile=src/pytest.ini --fail-under=100
+	pipenv run coverage report --include="src/*" --rcfile=src/pytest.ini --fail-under=90
 
 open-coverage:
 	make pytest
-	coverage html --rcfile=src/pytest.ini
+	pipenv run coverage html --rcfile=src/pytest.ini
 	xdg-open htmlcov/index.html || open htmlcov/index.html
 
 makemigrations:
