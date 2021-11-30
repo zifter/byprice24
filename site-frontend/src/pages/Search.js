@@ -8,9 +8,10 @@ const Search = () => {
     const q = new URLSearchParams(search).get('q');
 
     useEffect(() => {
-        console.log('effect')
+        let url = process.env.REACT_APP_BACKEND_HOST + '/api/v1/search/products?query=' + q
+        console.log('request', url)
         axios
-          .get('https://reqbin.com/echo')
+          .get(url)
           .then(response => {
             console.log('promise fulfilled')
       })
