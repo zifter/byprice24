@@ -12,6 +12,35 @@ It's guarantee that application is workig with that version.
 #### [pycharm](https://www.jetbrains.com/ru-ru/pycharm/)
 The best IDE for python developing.
 
+---
+
+#### How to launch project in [pycharm](https://www.jetbrains.com/ru-ru/pycharm/):
+I. Configure Python interpreter for the project:
+   1. In the bottom of the pycharm press _interpreter settings_
+   2. Press _Add interpreter_ in pop-up tab
+   3. In a new tab press _Pipenv Environment_
+   4. Configure as default and press _Ok_
+
+II. Connect Python interpreter to the pycharm
+   1. In the top of the pycharm press _Add configuration_
+   2. In the top left press **+** and press **python**
+   3. In _script path_ choose the path to `manage.py`
+   4. In _parameters_ write `runserver`
+   5. Press OK
+
+III. Press Run - _green arrow_
+
+#### How to launch tests in [pycharm](https://www.jetbrains.com/ru-ru/pycharm/):
+II. Connect Python interpreter to the pycharm pytests engine
+   1. In the top open tab which we press before (_Add configuration_), now this tab is called differently
+   2. In the top left press **+** , choose pytest and press ok
+   3. Choose script path to the test file you want to launc
+   4. Press OK
+
+III. Press Run - _green arrow_
+
+---
+
 #### [Lens](https://k8slens.dev/)
 The best IDE for k8s developing.
 

@@ -107,10 +107,10 @@ create-cluster:
 load-infra-images:
 	$(info Load docker images for infrastucture)
 	docker pull docker.io/bitnami/postgresql:11.10.0-debian-10-r83
-	kind load docker-image --name byprice24 docker.io/bitnami/postgresql:11.10.0-debian-10-r83
+	kind load docker-image --name byprice24 docker.io/bitnami/postgresql:11.10.0-debian-10-r83 || true
 
 	docker pull docker.io/bitnami/redis:6.2.6-debian-10-r0
-	kind load docker-image --name byprice24 docker.io/bitnami/redis:6.2.6-debian-10-r0
+	kind load docker-image --name byprice24 docker.io/bitnami/redis:6.2.6-debian-10-r0 || true
 
 pause-cluster:
 	$(info Pause kind cluster)
