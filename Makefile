@@ -223,10 +223,3 @@ runserver:
 	pipenv run ./src/manage.py runserver 0.0.0.0:8080
 
 cms-init: createuser load-fixtures
-
-
-###########
-# Site
-site-start:
-	$(info Start site)
-	cd site-frontend && npm start
