@@ -72,9 +72,9 @@ class ProductViewTestCase(TestCase):
                                    data={'query': 'Acer Extensa 15 EX215-54-348Z NX.EGJER.00M'})
         self.assertEqual(response.data, [ProductViewTestCase.expected[1]])
 
-    def test_get_products_not_found(self):
+    def test_get_products_empty_list(self):
         response = self.client.get('/api/v1/search/products', data={'query': 'Apple'})
-        self.assertEqual(response.status_code, http.client.NOT_FOUND)
+        self.assertEqual(response.data, [])
 
     def test_fail_search_too_short_query(self):
         response = self.client.get('/api/v1/search/products', data={'query': 'A'})
