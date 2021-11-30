@@ -3,7 +3,6 @@ from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.serializers import MarketplaceSerializer
 from marketplace.serializers import ProductSerializer
-from rest_framework import status
 from rest_framework import viewsets
 
 
@@ -28,9 +27,3 @@ class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
     filter_backends = [CustomSearchFilter]
     search_fields = ['name']
-
-    def list(self, request, *args, **kwargs):
-        resp = super().list(request, *args, **kwargs)
-        if not resp.data:
-            resp.status_code = status.HTTP_404_NOT_FOUND
-        return resp
