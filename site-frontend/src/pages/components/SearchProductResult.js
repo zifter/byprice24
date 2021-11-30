@@ -1,41 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-
-function SearchProductResult() {
-    const [query, setQuery] = useState('')
-    let navigate = useNavigate();
-
-    const handleSubmit = e => {
-        e.preventDefault();
-        e.stopPropagation();
-        navigate({
-            pathname: '/search',
-            search: `?q=${query}`,
-            });
-    };
-
-    const handleOnChange = e => {
-        setQuery(e.target.value)
-    };
-
-
-
+function SearchProductResult({ product }) {
   return (
     <div>
-        <div className="form-row">
-            <form name="searchform" className="search-form" onSubmit={handleSubmit}>
-                <input
-                   type="text"
-                   autoFocus
-                   placeholder="Что будете искать?"
-                   onChange={handleOnChange}
-                   className="search-input"
-                   autoComplete="off"/>
-                <button type="submit" className="icon-search">Искать</button>
-            </form>
-        </div>
+        <Link to={`/products/${product.id}`}>{ product.name }</Link>
     </div>
   );
 }
