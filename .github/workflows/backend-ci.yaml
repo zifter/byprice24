@@ -1,5 +1,13 @@
 name: backend-ci
-on: push
+on:
+  push:
+    paths:
+      - src/**
+      - fixtures/**
+      - testdata/**
+      - Pipfile
+      - Dockerfile
+
 
 jobs:
   image-test:
