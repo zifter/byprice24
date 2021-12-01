@@ -2,7 +2,7 @@ from marketplace.serializers import ProductSearchSerializer
 from rest_framework import filters
 
 
-class CustomSearchFilter(filters.SearchFilter):
+class ProductSearchFilter(filters.SearchFilter):
     search_param = 'query'
 
     def filter_queryset(self, request, queryset, view):

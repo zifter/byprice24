@@ -1,9 +1,11 @@
-from marketplace.filters import CustomSearchFilter
+from marketplace.filters import ProductSearchFilter
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.serializers import MarketplaceSerializer
 from marketplace.serializers import ProductSerializer
+from rest_framework import generics
 from rest_framework import viewsets
+from rest_framework.response import Response
 
 
 class MarketplaceViewSet(viewsets.ModelViewSet):
@@ -18,12 +20,17 @@ class MarketplaceViewSet(viewsets.ModelViewSet):
     ordering = ('domain',)
 
 
-class ProductViewSet(viewsets.ModelViewSet):
+class ProductViewSet(generics.ListAPIView):
     """
     API Product
     """
     model = Product
     queryset = Product.objects
     serializer_class = ProductSerializer
-    filter_backends = [CustomSearchFilter]
+    filter_backends = [ProductSearchFilter]
     search_fields = ['name']
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(data={'results': serializer.data})

@@ -14,11 +14,6 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = '__all__'
 
-    def to_representation(self, instance):
-        return {
-            'results': super().to_representation(instance)
-        }
-
 
 class ProductSearchSerializer(serializers.Serializer):
     query = serializers.CharField(min_length=3)
