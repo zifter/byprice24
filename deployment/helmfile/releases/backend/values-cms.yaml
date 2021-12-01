@@ -3,7 +3,9 @@ ingress:
   hosts:
     - host: localhost
       paths:
-        - path: /
+        - path: /admin
+          pathType: Prefix
+        - path: /static
           pathType: Prefix
 
 redis:

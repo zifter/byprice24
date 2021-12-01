@@ -42,5 +42,7 @@ releases:
     labels:
       side: "frontend"
     values:
+      - releases/frontend/values.yaml
+      - releases/frontend/values-{{ .Environment.Name }}.yaml
       - image:
           tag: {{ .Values.app.tag }}

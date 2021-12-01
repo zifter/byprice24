@@ -1,5 +1,8 @@
 name: frontend-ci
-on: push
+on:
+  push:
+    paths:
+      - frontend/**
 
 jobs:
   test:
