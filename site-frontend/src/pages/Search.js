@@ -10,9 +10,11 @@ const Search = () => {
 
     const search = useLocation().search;
     const query = new URLSearchParams(search).get('q');
-    const url = '/api/v1/search/products?query=' + query
+
     const hook = () => {
+        const url = '/api/v1/search/products?query=' + query
         console.log('request', url)
+
         axios
           .get(url)
           .then(response => {
