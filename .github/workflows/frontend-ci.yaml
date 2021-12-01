@@ -2,7 +2,7 @@ name: frontend-ci
 on: push
 
 jobs:
-  frontend-test:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -11,7 +11,7 @@ jobs:
           node-version: '17.x'
 
       - name: Setup
-        working-directory: ./deployment
+        working-directory: ./frontend
         run: make setup
 
       - name: Lint

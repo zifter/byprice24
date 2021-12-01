@@ -2,7 +2,7 @@ name: backend-ci
 on: push
 
 jobs:
-  backend-image-test:
+  image-test:
     runs-on: ubuntu-latest
     env:
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
@@ -26,7 +26,7 @@ jobs:
         run: |
           make backend-image-publish IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
 
-  backend-test-mac:
+  test-mac:
     runs-on: macos-11
     if: github.ref == 'refs/heads/main'
     steps:
