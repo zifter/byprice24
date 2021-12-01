@@ -9,7 +9,7 @@ environments:
     values:
       - monitoring:
           enabled: false
-      - backend:
+      - app:
           tag: latest
 
 helmfiles:
