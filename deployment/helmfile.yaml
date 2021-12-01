@@ -3,7 +3,7 @@ environments:
     values:
       - monitoring:
           enabled: false
-      - backend:
+      - app:
           tag: test
   prod:
     values:

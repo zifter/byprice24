@@ -1,31 +1,46 @@
 {{ readFile "defaults.yaml" }}
 
 commonLabels:
-  tier: "backend"
+  tier: "app"
 
 releases:
   - name: cms
     namespace: default
     chart: ../charts/cms
+    labels:
+      side: "backend"
     values:
       - releases/backend/values-cms.yaml
       - image:
-          tag: {{ .Values.backend.tag }}
+          tag: {{ .Values.app.tag }}
 
   - name: worker-crawler
     namespace: default
     chart: ../charts/worker
+    labels:
+      side: "backend"
     values:
       - releases/backend/values-worker.yaml
       - releases/backend/values-worker-crawler.yaml
       - image:
-          tag: {{ .Values.backend.tag }}
+          tag: {{ .Values.app.tag }}
 
   - name: worker-etc
     namespace: default
     chart: ../charts/worker
+    labels:
+      side: "backend"
     values:
       - releases/backend/values-worker.yaml
       - releases/backend/values-worker-etc.yaml
       - image:
-          tag: {{ .Values.backend.tag }}
+          tag: {{ .Values.app.tag }}
+
+  - name: site
+    namespace: default
+    chart: ../charts/site
+    labels:
+      side: "frontend"
+    values:
+      - image:
+          tag: {{ .Values.app.tag }}

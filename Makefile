@@ -46,7 +46,7 @@ backend-image-test:
 	docker run $(IMAGE_TAG) /bin/bash -c "\
 		pytest . --cov=. && \
 		coverage report --include="*_tests.py" --rcfile=pytest.ini --fail-under=100 && \
-		coverage report --include="*" --rcfile=pytest.ini --fail-under=90 \
+		coverage report --include="*" --rcfile=pytest.ini --fail-under=91 \
 		"
 
 backend-image-publish: IMAGE_TAG := zifter/byprice24-cms:test
@@ -61,6 +61,43 @@ backend-image-update:
 	make backend-image-build
 	cd deployment && make backend-image-load
 	cd deployment && make restart-deployments
+
+backend-install: IMAGE_TAG := zifter/byprice24-cms:test
+backend-install:
+	$(info Install actual application to k9s)
+	make backend-image-build
+	cd deployment && make backend-image-load
+	cd deployment && make backend-helm-install
+	make cms-init
+	cd deployment && make print-urls
+
+#############
+# Frontend cluster
+frontend-image-build: IMAGE_TAG := zifter/byprice24-site:test
+frontend-image-build:
+	$(info Build docker image for frontend - site)
+	cd frontend && make image-build
+
+frontend-image-publish: IMAGE_TAG := zifter/byprice24-site:test
+frontend-image-publish: PUBLISH_IMAGE_TAG := zifter/byprice24-site:latest
+frontend-image-publish:
+	$(info Publish docker imgage $(PUBLISH_IMAGE_TAG))
+	docker tag $(IMAGE_TAG) $(PUBLISH_IMAGE_TAG)
+	docker push $(PUBLISH_IMAGE_TAG)
+
+frontend-image-update: IMAGE_TAG := zifter/byprice24-site:test
+frontend-image-update:
+	make frontend-image-build
+	cd deployment && make frontend-image-load
+	cd deployment && make restart-deployments
+
+frontend-install: IMAGE_TAG := zifter/byprice24-site:test
+frontend-install:
+	$(info Install actual application to k9s)
+	make frontend-image-build
+	cd deployment && make frontend-image-load
+	cd deployment && make frontend-helm-install
+	cd deployment && make print-urls
 
 #############
 # Dev cluster
@@ -78,7 +115,8 @@ run-full-cluster:
 	cd deployment && make cluster-create
 	cd deployment && make infra-load-images
 	cd deployment && make infra-install
-	cd deployment && make backend-install
+	make backend-install
+	make frontend-install
 	cd deployment && make print-urls
 
 ###########
@@ -99,7 +137,7 @@ test:
 
 coverage-report:
 	pipenv run coverage report --include="src/**_tests.py" --rcfile=src/pytest.ini --fail-under=100
-	pipenv run coverage report --include="src/*" --rcfile=src/pytest.ini --fail-under=90
+	pipenv run coverage report --include="src/*" --rcfile=src/pytest.ini --fail-under=91
 
 open-coverage:
 	make pytest

@@ -1,0 +1,31 @@
+name: frontend-ci
+on: push
+
+jobs:
+  frontend-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '17.x'
+
+      - name: Setup
+        working-directory: ./deployment
+        run: make setup
+
+      - name: Lint
+        working-directory: ./deployment
+        run: make lint
+
+      - name: Test
+        working-directory: ./deployment
+        run: make test
+
+      - name: Build Docker Image
+        run: make frontend-image-build IMAGE_TAG=zifter/byprice24-site:${GITHUB_REF##*/}
+
+      - name: Publish Docker Image
+        if: github.ref == 'refs/heads/master'
+        run: |
+          make frontend-image-publish IMAGE_TAG=zifter/byprice24-site:${GITHUB_REF##*/}

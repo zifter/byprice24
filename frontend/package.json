@@ -17,7 +17,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "eslint": "eslint './**/*.{js,jsx}'",
+    "eslint-fix": "eslint './**/*.{js,jsx}' --fix"
   },
   "proxy": "http://localhost:1080",
   "eslintConfig": {
@@ -37,5 +39,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.27.1",
+    "typescript": "^4.5.2"
   }
 }

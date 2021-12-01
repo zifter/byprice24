@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import SearchBar from './pages/components/SearchBar.js';
 import Home from './pages/Home.js';
 import Search from './pages/Search.js';
@@ -12,9 +12,9 @@ function App() {
       <BrowserRouter>
         <SearchBar/>
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/products/:id" element={<Product />}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/products/:id" element={<Product />}/>
         </Routes>
       </BrowserRouter>
     </div>
