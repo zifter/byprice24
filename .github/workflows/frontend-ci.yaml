@@ -15,11 +15,11 @@ jobs:
         run: make setup
 
       - name: Lint
-        working-directory: ./deployment
+        working-directory: ./frontend
         run: make lint
 
       - name: Test
-        working-directory: ./deployment
+        working-directory: ./frontend
         run: make test
 
       - name: Build Docker Image
