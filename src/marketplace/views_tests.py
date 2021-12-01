@@ -47,14 +47,15 @@ class MarketplaceViewTestCase(TestCase):
 class ProductViewTestCase(TestCase):
     fixtures = ['products_test.yaml', ]
 
-    expected = [{'results': OrderedDict([('id', 2),
-                                         ('name', 'Acer Extensa 15 EX215-53G-7014 NX.EGCER.009'),
-                                         ('category', ''),
-                                         ('description', '')])},
-                {'results': OrderedDict([('id', 3),
-                                         ('name', 'Acer Extensa 15 EX215-54-348Z NX.EGJER.00M'),
-                                         ('category', ''),
-                                         ('description', '')])}]
+    expected = {'results':
+                [OrderedDict([('id', 2),
+                              ('name', 'Acer Extensa 15 EX215-53G-7014 NX.EGCER.009'),
+                              ('category', ''),
+                              ('description', '')]),
+                 OrderedDict([('id', 3),
+                              ('name', 'Acer Extensa 15 EX215-54-348Z NX.EGJER.00M'),
+                              ('category', ''),
+                              ('description', '')])]}
 
     def setUp(self):
         # Every test needs a client.
@@ -63,18 +64,18 @@ class ProductViewTestCase(TestCase):
     def test_products_startswith_search_list_ok(self):
         response = self.client.get('/api/v1/search/products',
                                    data={'query': 'Acer'})
-        self.assertEqual(len(response.data), 2)
+        self.assertEqual(len(response.data['results']), 2)
 
-        self.assertEqual(list(response.data), ProductViewTestCase.expected)
+        self.assertEqual(response.data, ProductViewTestCase.expected)
 
     def test_get_product_full_search_ok(self):
         response = self.client.get('/api/v1/search/products',
                                    data={'query': 'Acer Extensa 15 EX215-54-348Z NX.EGJER.00M'})
-        self.assertEqual(response.data, [ProductViewTestCase.expected[1]])
+        self.assertEqual(response.data['results'], [ProductViewTestCase.expected['results'][1]])
 
     def test_get_products_empty_list(self):
         response = self.client.get('/api/v1/search/products', data={'query': 'Apple'})
-        self.assertEqual(response.data, [])
+        self.assertEqual(response.data, {'results': []})
 
     def test_fail_search_too_short_query(self):
         response = self.client.get('/api/v1/search/products', data={'query': 'A'})
