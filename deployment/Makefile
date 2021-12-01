@@ -30,16 +30,12 @@ infra-install:
 	$(info Install infra releases to k8s)
 	helmfile -l tier!=backend sync
 
-backend-install: IMAGE_TAG := zifter/byprice24-cms:test
-backend-install:
-	$(info Install actual application to k9s)
-	make build-image
-	make load-image
+backend-helm-install: IMAGE_TAG := zifter/byprice24-cms:test
+backend-helm-install:
+	$(info Install actual application to k8s)
 	helmfile -l tier=backend sync
-	make cms-init
-	make print-urls
 
-backend-uninstall:
+backend-helm-uninstall:
 	$(info Uninstall backend)
 	helmfile -l tier=backend delete
 

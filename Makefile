@@ -62,6 +62,16 @@ backend-image-update:
 	cd deployment && make backend-image-load
 	cd deployment && make restart-deployments
 
+backend-install: IMAGE_TAG := zifter/byprice24-cms:test
+backend-install:
+	$(info Install actual application to k9s)
+	make backend-image-build
+	cd deployment && make backend-image-load
+	cd deployment && make backend-helm-install
+	make cms-init
+	cd deployment && make print-urls
+
+
 #############
 # Dev cluster
 # Run cluster from scratch for dev, without application
@@ -78,7 +88,7 @@ run-full-cluster:
 	cd deployment && make cluster-create
 	cd deployment && make infra-load-images
 	cd deployment && make infra-install
-	cd deployment && make backend-install
+	make backend-install
 	cd deployment && make print-urls
 
 ###########
