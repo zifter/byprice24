@@ -23,22 +23,10 @@ I. Configure Python interpreter for the project:
 
 II. Connect Python interpreter to the pycharm
    1. In the top of the pycharm press _Add configuration_
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ea520cd (Removed status not_found if the list is empty after query + fixed README)
    2. In the top left press **+** and press **python**
    3. In _script path_ choose the path to `manage.py`
    4. In _parameters_ write `runserver`
    5. Press OK
-<<<<<<< HEAD
-=======
-   2. In the bottom of a new opened tab you will see _fix django_, you should press this tab
-   3. In a new tab select the path to settings file (in cms folder) and the path to manage.py file and press Ok
-   4. Press OK
->>>>>>> f79b4cf (Add tests to products search + writed Readme)
-=======
->>>>>>> ea520cd (Removed status not_found if the list is empty after query + fixed README)
 
 III. Press Run - _green arrow_
 
