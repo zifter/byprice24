@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="run backend" type="CompoundRunConfigurationType">
+    <toRun name="cms" type="PythonConfigurationType" />
+    <toRun name="worker" type="PythonConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>
