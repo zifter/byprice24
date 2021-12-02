@@ -143,7 +143,7 @@ class Base(Configuration):
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-    STATIC_URL = '/static/'
+    STATIC_URL = '/admin-static/'
 
     STATIC_ROOT = os.path.join(REPO_DIR, 'static')
 

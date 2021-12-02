@@ -28,19 +28,37 @@ cluster-images:
 
 infra-install:
 	$(info Install infra releases to k8s)
-	helmfile -l tier!=backend sync
+	helmfile -l tier=infra sync
 
+###########
+# BACKEND
 backend-helm-install: IMAGE_TAG := zifter/byprice24-cms:test
 backend-helm-install:
 	$(info Install actual application to k8s)
-	helmfile -l tier=backend sync
+	helmfile -l side=backend sync
 
 backend-helm-uninstall:
 	$(info Uninstall backend)
-	helmfile -l tier=backend delete
+	helmfile -l side=backend delete
 
 backend-image-load: IMAGE_TAG := zifter/byprice24-cms:test
 backend-image-load:
+	$(info Load docker to kind cluster)
+	kind load docker-image --name byprice24 ${IMAGE_TAG}
+
+###########
+# FRONTEND
+frontend-helm-install: IMAGE_TAG := zifter/byprice24-site:test
+frontend-helm-install:
+	$(info Install frontend)
+	helmfile -l side=frontend sync
+
+frontend-helm-uninstall:
+	$(info Uninstall frontend)
+	helmfile -l side=frontend delete
+
+frontend-image-load: IMAGE_TAG := zifter/byprice24-site:test
+frontend-image-load:
 	$(info Load docker to kind cluster)
 	kind load docker-image --name byprice24 ${IMAGE_TAG}
 

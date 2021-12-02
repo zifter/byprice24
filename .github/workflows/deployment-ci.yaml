@@ -1,4 +1,4 @@
-name: Helmfile Validate
+name: deployment-ci
 on:
   push:
     paths:
