@@ -21,14 +21,14 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
 
-      - name: Check migrations
-        run: make migrations-check
-
       - name: Login to DockerHub
         run: make docker-login DOCKER_USER=$DOCKER_USER DOCKER_PASS=$DOCKER_PASS
 
       - name: Build Docker Image
         run: make backend-image-build IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
+
+      - name: Check Migrations Docker Image
+        run: make backend-image-migrations-check IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
 
       - name: Test Docker Image
         run: make backend-image-test IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
