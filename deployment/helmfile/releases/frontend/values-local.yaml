@@ -1,7 +1,7 @@
 ingress:
   enabled: true
   hosts:
-    - host: price24.by
+    - host: localhost
       paths:
         - path: /
           pathType: Prefix

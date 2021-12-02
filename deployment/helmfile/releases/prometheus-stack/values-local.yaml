@@ -1,0 +1,36 @@
+prometheus:
+  prometheusSpec:
+    routePrefix: "/prometheus"
+
+  ingress:
+    hosts:
+      - localhost
+    paths:
+      - "/prometheus(/|$)(.*)"
+
+alertmanager:
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    hosts:
+      - localhost
+    paths:
+      - "/alertmanager(/|$)(.*)"
+
+# Grafana settings
+grafana:
+  adminUser: admin
+  adminPassword: admin
+
+  grafana.ini:
+    server:
+      domain: localhost
+      root_url: http://localhost:1080/grafana/
+      serve_from_sub_path: true
+
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    hosts:
+      - localhost
+    path: "/grafana(/|$)(.*)"

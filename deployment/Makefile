@@ -28,18 +28,18 @@ cluster-images:
 
 infra-install:
 	$(info Install infra releases to k8s)
-	helmfile -l tier=infra sync
+	helmfile -e local -l tier=infra sync
 
 ###########
 # BACKEND
 backend-helm-install: IMAGE_TAG := zifter/byprice24-cms:test
 backend-helm-install:
 	$(info Install actual application to k8s)
-	helmfile -l side=backend sync
+	helmfile -e local -l side=backend sync
 
 backend-helm-uninstall:
 	$(info Uninstall backend)
-	helmfile -l side=backend delete
+	helmfile -e local -l side=backend delete
 
 backend-image-load: IMAGE_TAG := zifter/byprice24-cms:test
 backend-image-load:
@@ -51,11 +51,11 @@ backend-image-load:
 frontend-helm-install: IMAGE_TAG := zifter/byprice24-site:test
 frontend-helm-install:
 	$(info Install frontend)
-	helmfile -l side=frontend sync
+	helmfile -e local -l side=frontend sync
 
 frontend-helm-uninstall:
 	$(info Uninstall frontend)
-	helmfile -l side=frontend delete
+	helmfile -e local -l side=frontend delete
 
 frontend-image-load: IMAGE_TAG := zifter/byprice24-site:test
 frontend-image-load:
@@ -64,7 +64,7 @@ frontend-image-load:
 
 helmfile-sync:
 	$(info Sync all releases)
-	helmfile sync
+	helmfile -e local sync
 
 restart-deployments:
 	$(info Restart deployment in order to use latest version of docker image)
@@ -74,7 +74,7 @@ restart-deployments:
 
 print-urls:
 	$(info ===========================================================)
-	$(info CMS: 			http://localhost:1080/)
+	$(info Site: 			http://localhost:1080/)
 	$(info Admin: 			http://localhost:1080/admin/)
 	$(info Grafana: 		http://localhost:1080/grafana (admin - admin))
 	$(info Prometheus: 		http://localhost:1080/prometheus)
@@ -82,9 +82,9 @@ print-urls:
 	$(info ===========================================================)
 
 validate:
-	$(info Validate helmfile)
-	helmfile build
-	helmfile lint
+	$(info Validate helmfile for all environments)
+	helmfile -e local build
+	helmfile -e local lint
+	helmfile -e local template
 	helmfile -e prod build
 	helmfile -e prod lint
-	helmfile template

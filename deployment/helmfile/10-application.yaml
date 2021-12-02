@@ -10,7 +10,8 @@ releases:
     labels:
       side: "backend"
     values:
-      - releases/backend/values-cms.yaml
+      - releases/backend/cms/values.yaml
+      - releases/backend/cms/values-{{ .Environment.Name }}.yaml
       - image:
           tag: {{ .Values.app.tag }}
 
@@ -20,8 +21,9 @@ releases:
     labels:
       side: "backend"
     values:
-      - releases/backend/values-worker.yaml
-      - releases/backend/values-worker-crawler.yaml
+      - releases/backend/worker/values.yaml
+      - releases/backend/worker/values-{{ .Environment.Name }}.yaml
+      - releases/backend/worker/values-crawler.yaml
       - image:
           tag: {{ .Values.app.tag }}
 
@@ -31,8 +33,9 @@ releases:
     labels:
       side: "backend"
     values:
-      - releases/backend/values-worker.yaml
-      - releases/backend/values-worker-etc.yaml
+      - releases/backend/worker/values.yaml
+      - releases/backend/worker/values-{{ .Environment.Name }}.yaml
+      - releases/backend/worker/values-etc.yaml
       - image:
           tag: {{ .Values.app.tag }}
 

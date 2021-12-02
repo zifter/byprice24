@@ -8,21 +8,10 @@ controller:
       enabled: true
       namespace: "monitoring"
 
-  service:
-    type: NodePort
-
-  nodeSelector:
-    ingress-ready: "true"
-    kubernetes.io/os: linux
-
   tolerations:
     - effect: NoSchedule
       key: node-role.kubernetes.io/master
       operator: Equal
-
-  resources:
-    requests:
-      cpu: 0m  # no limits for cpu in local
 
   hostPort:
     enabled: true

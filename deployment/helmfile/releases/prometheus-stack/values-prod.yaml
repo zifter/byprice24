@@ -1,0 +1,39 @@
+# Prometheus settings
+prometheus:
+  prometheusSpec:
+    routePrefix: "/prometheus"
+
+  ingress:
+    hosts:
+      - price24.by
+    paths:
+      - "/prometheus(/|$)(.*)"
+
+# Alertmanager settings
+alertmanager:
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    hosts:
+      - price24.by
+    paths:
+      - "/alertmanager(/|$)(.*)"
+
+# Grafana settings
+grafana:
+  # TODO
+  adminUser: admin
+  adminPassword: admin
+
+  grafana.ini:
+    server:
+      domain: price24.by
+      root_url: https://price24.by:1080/grafana/
+      serve_from_sub_path: true
+
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    hosts:
+      - price24.by
+    path: "/grafana(/|$)(.*)"

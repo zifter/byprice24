@@ -1,0 +1,16 @@
+ingress:
+  enabled: true
+  hosts:
+    - host: price24.by
+      paths:
+        - path: /admin
+          pathType: Prefix
+        - path: /admin-static
+          pathType: Prefix
+
+# TODO
+postgres:
+  dbname: "byprice24"
+  username: "root"
+  password: "1234"
+  host: "postgres-postgresql"
