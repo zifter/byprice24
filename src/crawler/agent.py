@@ -16,9 +16,7 @@ from marketplace.models import ProductState
 from scraper.items import ProductItem
 from scraper.utils import get_spider
 from scrapy.crawler import CrawlerProcess
-from scrapy.crawler import CrawlerRunner
 from scrapy.utils.project import get_project_settings
-from twisted.internet import reactor
 from twisted.internet.defer import Deferred
 from twisted.python.failure import Failure
 
@@ -52,13 +50,13 @@ class Agent:
             scraping.last_scraping = now
             scraping.save()
 
-    def scrape(self, target: ScrapingTarget, spawn_process=True):
+    def scrape(self, target: ScrapingTarget):
         logging.info('Scrape %s', target)
 
         spider = get_spider(target.spider_name)
         settings = {
             'start_urls': [
-                'https://www.ilp.by/coffee'
+                target.url,
             ],
             'allowed_domains': [
                 target.domain
@@ -66,24 +64,8 @@ class Agent:
         }
 
         scrapy_failure = None
-        run_crawler = None
-        if spawn_process:
-            process = CrawlerProcess(settings=get_project_settings())
-            stats: Deferred = process.crawl(spider, **settings)
-
-            def _run():
-                process.start()  # the script will block here until all crawling jobs are finished
-
-            run_crawler = _run
-        else:
-            runner = CrawlerRunner(get_project_settings())
-            stats: Deferred = runner.crawl(spider, **settings)
-            stats.addBoth(lambda _: reactor.stop())
-
-            def _run():
-                reactor.run()
-
-            run_crawler = _run
+        process = CrawlerProcess(settings=get_project_settings())
+        stats: Deferred = process.crawl(spider, **settings)
 
         def errback(failure: Failure):
             global scrapy_failure
@@ -92,7 +74,7 @@ class Agent:
 
         stats.addErrback(errback)
 
-        run_crawler()
+        process.start()  # the script will block here until all crawling jobs are finished
 
         if scrapy_failure:
             raise RuntimeError(scrapy_failure)

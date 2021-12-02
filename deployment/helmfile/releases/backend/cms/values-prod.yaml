@@ -7,6 +7,8 @@ ingress:
           pathType: Prefix
         - path: /admin-static
           pathType: Prefix
+        - path: /api
+          pathType: Prefix
 
 # TODO
 postgres:

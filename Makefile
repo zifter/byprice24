@@ -172,7 +172,15 @@ createuser:
 
 load-fixtures:
 	$(info Load fixtures to database)
-	pipenv run ./src/manage.py loaddata fixtures/*.yaml
+	pipenv run ./src/manage.py loaddata fixtures/prod/*.yaml
+
+load-fixtures-test:
+	$(info Load test fixtures to database)
+	pipenv run ./src/manage.py loaddata fixtures/test/*.yaml
+
+dump-fixtures-test:
+	$(info Load test fixtures to database)
+	pipenv run ./src/manage.py dumpdata marketplace --format yaml > ./fixtures/dump/marketplace.yaml
 
 workers:
 	$(info Load workes for all queues)
