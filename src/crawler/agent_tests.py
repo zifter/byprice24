@@ -5,7 +5,7 @@ from scraper.items import ProductItem
 
 
 class AgentTestCase(TestCase):
-    fixtures = ['markets.yaml']
+    fixtures = ['prod/markets.yaml']
 
     def test_schedule(self):
         mock = FlowQueueBase()

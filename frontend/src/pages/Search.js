@@ -35,10 +35,10 @@ const Search = () => {
       <h1>Result</h1>
       <ul>
         {
-          searchResult.map((result) =>
-            <li key={result.id}>
+          searchResult.map((item, i) =>
+            <li key={item.id}>
               {
-                <SearchProductResult product={result}/>
+                <SearchProductResult product={item}/>
               }
             </li>)
         }
