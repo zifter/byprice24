@@ -146,8 +146,11 @@ open-coverage:
 
 makemigrations:
 	$(info Make migrations for all applications)
-	pipenv run ./src/manage.py makemigrations crawler
-	pipenv run ./src/manage.py makemigrations marketplace
+	pipenv run ./src/manage.py makemigrations
+
+migrations-check:
+	$(info Check if migrations is needed)
+	pipenv run ./src/manage.py makemigrations --check --dry-run
 
 collectstatic:
 	$(info Collect static files)
