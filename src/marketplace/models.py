@@ -31,6 +31,7 @@ class Product(models.Model):
     name = models.CharField(max_length=62, unique=True)
     category = models.CharField(max_length=62)
     description = models.CharField(max_length=32)
+    image_url = models.CharField(max_length=256, default='', null=True)
 
     def __str__(self):
         return str(self.name)

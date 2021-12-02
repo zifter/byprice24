@@ -109,6 +109,7 @@ class Agent:
             name=data.name,
             category='',
             description='',
+            image_url=data.image_url,
         )
 
         page, created = ProductPage.objects.get_or_create(

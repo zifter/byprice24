@@ -10,3 +10,4 @@ class ProductItem(scrapy.Item):
     name = scrapy.Field()
     price = scrapy.Field()
     price_currency = scrapy.Field()
+    image_url = scrapy.Field()

@@ -34,11 +34,12 @@ class SchemaOrgSpider(CrawlSpider):
         for item in microdata:
             if item['type'] not in ('https://schema.org/Product', 'http://schema.org/Product'):
                 continue
-
+            image_url = item['properties']['image']
             product = ProductItem(
                 url=response.url,
                 name=item['properties']['name'],
                 price=float(item['properties']['offers']['properties']['price']),
                 price_currency=item['properties']['offers']['properties']['priceCurrency'],
+                image_url=image_url if isinstance(image_url, str) else image_url[0],
             )
             yield product
