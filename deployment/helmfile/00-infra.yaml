@@ -4,20 +4,24 @@ commonLabels:
   tier: "infra"
 
 releases:
-  - name: prometheus
+  - name: prometheus-stack
     namespace: monitoring
     chart: prometheus-community/kube-prometheus-stack
     installed: {{ .Values.monitoring.enabled | toYaml }}
     version: 18.0.1
     values:
-      - releases/values-prometheus-stack.yaml
+      - releases/prometheus-stack/values.yaml
+      - releases/prometheus-stack/values-{{ .Environment.Name }}.yaml
 
   - name: ingress-nginx
     namespace: kube-system
     chart: ingress-nginx/ingress-nginx
     version: 3.36.0
+    needs:
+      - prometheus-stack
     values:
-      - releases/values-ingress-nginx.yaml
+      - releases/ingress-nginx/values.yaml
+      - releases/ingress-nginx/values-{{ .Environment.Name }}.yaml
       - controller:
           metrics:
             enabled: {{ .Values.monitoring.enabled | toYaml }}
@@ -27,29 +31,38 @@ releases:
     namespace: default
     chart: bitnami/redis
     version: 15.5.1
+    installed: {{ .Values.redis.enabled | toYaml }}
     values:
-      - releases/values-redis.yaml
+      - releases/redis/values.yaml
+      - releases/redis/values-{{ .Environment.Name }}.yaml
 
   - name: redis-exporter
     namespace: monitoring
     chart: prometheus-community/prometheus-redis-exporter
     installed: {{ .Values.monitoring.enabled | toYaml }}
     version: 4.6.0
+    needs:
+      - prometheus-stack
     values:
-      - releases/values-redis-exporter.yaml
+      - releases/redis-exporter/values.yaml
 
   # POSTGRES
   - name: postgres
     namespace: default
     chart: bitnami/postgresql
     version: 10.3.0
+    installed: {{ .Values.postgres.enabled | toYaml }}
     values:
-      - releases/values-postgres.yaml
+      - releases/postgres/values.yaml
+      - releases/postgres/values-{{ .Environment.Name }}.yaml
 
   - name: postgres-exporter
     namespace: monitoring
     chart: prometheus-community/prometheus-postgres-exporter
     installed: {{ .Values.monitoring.enabled | toYaml }}
     version: 2.3.7
+    needs:
+      - prometheus-stack
     values:
-      - releases/values-postgres-exporter.yaml
+      - releases/postgres-exporter/values.yaml
+      - releases/postgres-exporter/values-{{ .Environment.Name }}.yaml

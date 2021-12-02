@@ -16,9 +16,3 @@ serviceAccount:
 master:
   persistence:
     enabled: false
-  configmap: >-
-    notify-keyspace-events Ex
-
-  service:
-    type: NodePort
-    nodePort: 30102

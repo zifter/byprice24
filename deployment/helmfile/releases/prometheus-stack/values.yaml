@@ -13,7 +13,6 @@ prometheusOperator:
 # Prometheus settings
 prometheus:
   prometheusSpec:
-    routePrefix: "/prometheus"
     # allow discovery of third party service monitor
     serviceMonitorSelectorNilUsesHelmValues: false
     ruleSelectorNilUsesHelmValues: false
@@ -28,10 +27,6 @@ prometheus:
   ingress:
     enabled: true
     ingressClassName: nginx
-    hosts:
-      - localhost
-    paths:
-      - "/prometheus(/|$)(.*)"
 
 # Alertmanager settings
 alertmanager:
@@ -39,30 +34,12 @@ alertmanager:
   ingress:
     enabled: true
     ingressClassName: nginx
-    annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /$2
-    hosts:
-      - localhost
-    paths:
-      - "/alertmanager(/|$)(.*)"
+
 
 # Grafana settings
 grafana:
   enabled: true
-  adminUser: admin
-  adminPassword: admin
-
-  grafana.ini:
-    server:
-      domain: localhost
-      root_url: http://localhost:1080/grafana/
-      serve_from_sub_path: true
 
   ingress:
     enabled: true
     ingressClassName: nginx
-    annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /$2
-    hosts:
-      - localhost
-    path: "/grafana(/|$)(.*)"

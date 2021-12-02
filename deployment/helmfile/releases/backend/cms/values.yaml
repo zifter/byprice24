@@ -1,12 +1,5 @@
 ingress:
   enabled: true
-  hosts:
-    - host: localhost
-      paths:
-        - path: /admin
-          pathType: Prefix
-        - path: /admin-static
-          pathType: Prefix
 
 redis:
   url: "redis://redis-master:6379/0"
