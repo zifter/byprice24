@@ -5,7 +5,7 @@ ingress:
       paths:
         - path: /admin
           pathType: Prefix
-        - path: /static
+        - path: /admin-static
           pathType: Prefix
 
 redis:
