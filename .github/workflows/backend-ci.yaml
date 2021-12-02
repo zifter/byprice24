@@ -2,12 +2,13 @@ name: backend-ci
 on:
   push:
     paths:
+      - .github/workflows/backend-ci.yaml
       - src/**
       - fixtures/**
       - testdata/**
       - Pipfile
       - Dockerfile
-
+      - Makefile
 
 jobs:
   image-test:

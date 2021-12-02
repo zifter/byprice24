@@ -2,7 +2,9 @@ name: frontend-ci
 on:
   push:
     paths:
+      - .github/workflows/frontend-ci.yaml
       - frontend/**
+      - Makefile
 
 jobs:
   test:
