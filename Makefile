@@ -62,6 +62,11 @@ backend-image-update:
 	cd deployment && make backend-image-load
 	cd deployment && make restart-deployments
 
+backend-image-migrations-check: IMAGE_TAG := zifter/byprice24-cms:test
+backend-image-migrations-check:
+	$(info Check if migrations is needed)
+	docker run $(IMAGE_TAG) python3 manage.py makemigrations --check --dry-run
+
 backend-install: IMAGE_TAG := zifter/byprice24-cms:test
 backend-install:
 	$(info Install actual application to k9s)
@@ -146,8 +151,11 @@ open-coverage:
 
 makemigrations:
 	$(info Make migrations for all applications)
-	pipenv run ./src/manage.py makemigrations crawler
-	pipenv run ./src/manage.py makemigrations marketplace
+	pipenv run ./src/manage.py makemigrations
+
+migrations-check:
+	$(info Check if migrations is needed)
+	pipenv run ./src/manage.py makemigrations --check --dry-run
 
 collectstatic:
 	$(info Collect static files)

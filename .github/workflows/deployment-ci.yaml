@@ -2,7 +2,9 @@ name: deployment-ci
 on:
   push:
     paths:
+      - .github/workflows/deployment-ci.yaml
       - deployment/**
+      - Makefile
 
 jobs:
   helmfile-validate:

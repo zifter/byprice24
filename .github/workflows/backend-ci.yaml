@@ -2,12 +2,13 @@ name: backend-ci
 on:
   push:
     paths:
+      - .github/workflows/backend-ci.yaml
       - src/**
       - fixtures/**
       - testdata/**
       - Pipfile
       - Dockerfile
-
+      - Makefile
 
 jobs:
   image-test:
@@ -25,6 +26,9 @@ jobs:
 
       - name: Build Docker Image
         run: make backend-image-build IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
+
+      - name: Check Migrations Docker Image
+        run: make backend-image-migrations-check IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
 
       - name: Test Docker Image
         run: make backend-image-test IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
