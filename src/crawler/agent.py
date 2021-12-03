@@ -94,8 +94,7 @@ class Agent:
 
         product, created = Product.objects.get_or_create(
             name=data.name,
-            category=data.category if not ProductCategoryEnum.get_by_keywords(data.category)
-            else ProductCategoryEnum.get_by_keywords(data.category).value,
+            category=self.get_category_for_db(data),
             description='',
             image_url=data.image_url,
         )
@@ -112,6 +111,11 @@ class Agent:
             price=data.price,
             price_currency=data.price_currency
         )
+
+    @classmethod
+    def get_category_for_db(cls, data):
+        return data.category if not ProductCategoryEnum.get_by_keywords(data.category)\
+            else ProductCategoryEnum.get_by_keywords(data.category).value
 
 
 def get_agent() -> Agent:
