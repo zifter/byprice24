@@ -4,18 +4,6 @@ import enum
 class BaseEnum(enum.Enum):
 
     @classmethod
-    def names(cls):
-        return [item.name for item in cls]
-
-    @classmethod
-    def values(cls):
-        return [item.value for item in cls]
-
-    @classmethod
-    def choices(cls):
-        return tuple(zip(cls.values(), cls.__members__.items()))
-
-    @classmethod
     def get_by_value(cls, value):
         return next(filter(lambda x: x.value == value, cls))
 
@@ -55,7 +43,7 @@ class KeywordsEnum(BaseEnum):
 
         def has_all_keywords(keywords):
             # Return True if raw value includes all keywords
-            return len([k for k in keywords if k in value.lower()])
+            return len([k for k in keywords if k == value.lower()])
 
         # Get all matches with enum items keywords
         matches = list(filter(lambda x: has_all_keywords(x.keywords), cls))
