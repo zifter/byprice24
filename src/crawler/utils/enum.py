@@ -7,4 +7,4 @@ class ProductCategoryEnum(KeywordsEnum):
         self._value_, self.keywords = args
 
     NOTEBOOK = 'notebook', ('ноутбуки', 'notebooks', 'notebook')
-    SMARTPHONE = 'smartphone', ('смартфоны', 'smartphones', 'mobile', 'phone')
+    SMARTPHONE = 'smartphone', ('смартфоны', 'smartphones', 'mobile', 'phone', 'мобильные телефоны')

@@ -114,8 +114,10 @@ class Agent:
 
     @classmethod
     def get_category_for_db(cls, data):
-        return data.category if not ProductCategoryEnum.get_by_keywords(data.category)\
-            else ProductCategoryEnum.get_by_keywords(data.category).value
+        for category in data.categories:
+            if ProductCategoryEnum.get_by_keywords(category):
+                return ProductCategoryEnum.get_by_keywords(category).value
+            return category
 
 
 def get_agent() -> Agent:
