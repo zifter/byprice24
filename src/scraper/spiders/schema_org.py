@@ -41,5 +41,9 @@ class SchemaOrgSpider(CrawlSpider):
                 price=float(item['properties']['offers']['properties']['price']),
                 price_currency=item['properties']['offers']['properties']['priceCurrency'],
                 image_url=image_url if isinstance(image_url, str) else image_url[0],
+                rating=(
+                    item['properties']['aggregateRating']['properties']['ratingValue']
+                    if 'aggregateRating' in item['properties']
+                    else ''),
             )
             yield product
