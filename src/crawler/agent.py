@@ -43,7 +43,8 @@ class Agent:
             target = ScrapingTarget(
                 url='https://' + scraping.marketplace.domain,
                 spider_name=scraping.spider_name,
-                domain=scraping.marketplace.domain)
+                domain=scraping.marketplace.domain,
+                use_proxy=scraping.use_proxy)
 
             self.queue.scrape(target)
 
@@ -61,6 +62,9 @@ class Agent:
             'allowed_domains': [
                 target.domain
             ],
+            'use_proxy': [
+                target.use_proxy
+            ]
         }
 
         scrapy_failure = None
