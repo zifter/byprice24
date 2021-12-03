@@ -51,11 +51,14 @@ class ProductViewTestCase(TestCase):
                 [OrderedDict([('id', 2),
                               ('name', 'Acer Extensa 15 EX215-53G-7014 NX.EGCER.009'),
                               ('category', ''),
-                              ('description', '')]),
+                              ('description', ''),
+                              ('image_url', None)]),
                  OrderedDict([('id', 3),
                               ('name', 'Acer Extensa 15 EX215-54-348Z NX.EGJER.00M'),
                               ('category', ''),
-                              ('description', '')])]}
+                              ('description', ''),
+                              ('image_url', None)
+                              ])]}
 
     def setUp(self):
         # Every test needs a client.
