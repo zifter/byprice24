@@ -9,7 +9,7 @@ from common.shared_queue import get_flow_queue
 from common.shared_queue import ScrapingTarget
 from crawler.models import ScrapingState
 from crawler.structs import ProductData
-from crawler.utils.enum import ProductCategoryEnum
+from marketplace.enum import ProductCategoryEnum
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage

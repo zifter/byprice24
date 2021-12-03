@@ -1,4 +1,4 @@
-from crawler.utils.base import KeywordsEnum
+from common.utils import KeywordsEnum
 
 
 class ProductCategoryEnum(KeywordsEnum):
