@@ -11,3 +11,4 @@ class ProductItem(scrapy.Item):
     price = scrapy.Field()
     price_currency = scrapy.Field()
     image_url = scrapy.Field()
+    category = scrapy.Field()

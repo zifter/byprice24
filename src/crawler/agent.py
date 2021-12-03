@@ -9,6 +9,7 @@ from common.shared_queue import get_flow_queue
 from common.shared_queue import ScrapingTarget
 from crawler.models import ScrapingState
 from crawler.structs import ProductData
+from crawler.utils.enum import ProductCategoryEnum
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -57,7 +58,7 @@ class Agent:
         spider = get_spider(target.spider_name)
         settings = {
             'start_urls': [
-                target.url,
+                'https://www.21vek.by/notebooks/',
             ],
             'allowed_domains': [
                 target.domain
@@ -93,7 +94,8 @@ class Agent:
 
         product, created = Product.objects.get_or_create(
             name=data.name,
-            category='',
+            category=data.category if not ProductCategoryEnum.get_by_keywords(data.category)
+            else ProductCategoryEnum.get_by_keywords(data.category).value,
             description='',
             image_url=data.image_url,
         )
@@ -108,7 +110,7 @@ class Agent:
             product_page=page,
             created=datetime.now(tz=pytz.UTC),
             price=data.price,
-            price_currency=data.price_currency
+            price_currency=data.price_currency,
         )
 
 
