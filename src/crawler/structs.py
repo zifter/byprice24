@@ -24,3 +24,7 @@ class ProductData:
     @property
     def price_currency(self) -> str:
         return self.item['price_currency']
+
+    @property
+    def image_url(self) -> str:
+        return self.item['image_url']
