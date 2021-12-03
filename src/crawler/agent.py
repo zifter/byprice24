@@ -58,7 +58,7 @@ class Agent:
         spider = get_spider(target.spider_name)
         settings = {
             'start_urls': [
-                'https://www.21vek.by/notebooks/',
+                target.url,
             ],
             'allowed_domains': [
                 target.domain
@@ -110,7 +110,7 @@ class Agent:
             product_page=page,
             created=datetime.now(tz=pytz.UTC),
             price=data.price,
-            price_currency=data.price_currency,
+            price_currency=data.price_currency
         )
 
 
