@@ -14,6 +14,7 @@ class ScrapingState(models.Model):
     marketplace = models.OneToOneField(Marketplace, on_delete=models.CASCADE)
     spider_name = models.CharField(max_length=32, choices=PARSERS)
     last_scraping = models.DateTimeField(default=datetime.fromtimestamp(0, tz=pytz.UTC))
+    use_proxy = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{str(self.marketplace)} [{str(self.last_scraping)}]'
