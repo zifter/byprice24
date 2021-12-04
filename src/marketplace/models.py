@@ -18,6 +18,7 @@ class Marketplace(models.Model):
     domain = models.CharField(max_length=32, unique=True)
     description = models.CharField(max_length=32, blank=True)
     rating = models.IntegerField(default=0)
+    image_logo_url = models.URLField(blank=True)
 
     def __str__(self):
         return str(self.domain)
