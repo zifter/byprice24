@@ -28,3 +28,7 @@ class ProductData:
     @property
     def image_url(self) -> str:
         return self.item['image_url']
+
+    @property
+    def categories(self) -> str:
+        return self.item['categories']

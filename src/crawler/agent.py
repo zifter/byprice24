@@ -9,6 +9,7 @@ from common.shared_queue import get_flow_queue
 from common.shared_queue import ScrapingTarget
 from crawler.models import ScrapingState
 from crawler.structs import ProductData
+from marketplace.enum import ProductCategoryEnum
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -93,7 +94,7 @@ class Agent:
 
         product, created = Product.objects.get_or_create(
             name=data.name,
-            category='',
+            category=self.get_category_for_db(data),
             description='',
             image_url=data.image_url,
         )
@@ -110,6 +111,13 @@ class Agent:
             price=data.price,
             price_currency=data.price_currency
         )
+
+    @classmethod
+    def get_category_for_db(cls, data):
+        for category in data.categories:
+            if ProductCategoryEnum.get_by_keywords(category):
+                return ProductCategoryEnum.get_by_keywords(category).value
+            return category
 
 
 def get_agent() -> Agent:

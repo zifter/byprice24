@@ -8,6 +8,7 @@ def test_product_data():
         name='Смартфон POCO X3 Pro 8GB/256GB (синий)',
         price=1049.0,
         price_currency='BYN',
+        categories=['Смартфоны, ТВ и электроника', 'Смартфоны, аксессуары', 'Смартфоны']
     )
 
     data = ProductData(item)

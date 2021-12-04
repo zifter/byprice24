@@ -41,5 +41,13 @@ class SchemaOrgSpider(CrawlSpider):
                 price=float(item['properties']['offers']['properties']['price']),
                 price_currency=item['properties']['offers']['properties']['priceCurrency'],
                 image_url=image_url if isinstance(image_url, str) else image_url[0],
+                categories=self.get_categories(data)
             )
             yield product
+
+    @classmethod
+    def get_categories(cls, data) -> list:
+        if data.get('json-ld'):
+            return [item['item']['name'] for item in data['json-ld'][0]['itemListElement']][:-1]
+
+        return [data['microdata'][0]['properties']['category']]
