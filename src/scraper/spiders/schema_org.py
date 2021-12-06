@@ -45,5 +45,13 @@ class SchemaOrgSpider(CrawlSpider):
                     item['properties']['aggregateRating']['properties']['ratingValue']
                     if 'aggregateRating' in item['properties']
                     else ''),
+                categories=self.get_categories(data)
             )
             yield product
+
+    @classmethod
+    def get_categories(cls, data) -> list:
+        if data.get('json-ld'):
+            return [item['item']['name'] for item in data['json-ld'][0]['itemListElement']][:-1]
+
+        return [data['microdata'][0]['properties']['category']]

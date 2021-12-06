@@ -23,6 +23,7 @@ class MarketplaceViewTestCase(TestCase):
         ('domain', 'localhost'),
         ('description', ''),
         ('rating', 0),
+        ('image_logo_url', 'https://www.test.by/')
     ])
 
     def setUp(self):
@@ -50,12 +51,12 @@ class ProductViewTestCase(TestCase):
     expected = {'results':
                 [OrderedDict([('id', 2),
                               ('name', 'Acer Extensa 15 EX215-53G-7014 NX.EGCER.009'),
-                              ('category', ''),
+                              ('category', 'notebook'),
                               ('description', ''),
                               ('image_url', None)]),
                  OrderedDict([('id', 3),
                               ('name', 'Acer Extensa 15 EX215-54-348Z NX.EGJER.00M'),
-                              ('category', ''),
+                              ('category', 'notebook'),
                               ('description', ''),
                               ('image_url', None)
                               ])]}

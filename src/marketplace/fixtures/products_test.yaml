@@ -2,11 +2,14 @@
   pk: 1
   fields:
     name: Vitek VT-1505
+    category: coffee_machines
 - model: marketplace.product
   pk: 2
   fields:
     name: Acer Extensa 15 EX215-53G-7014 NX.EGCER.009
+    category: notebook
 - model: marketplace.product
   pk: 3
   fields:
     name: Acer Extensa 15 EX215-54-348Z NX.EGJER.00M
+    category: notebook

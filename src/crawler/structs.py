@@ -32,3 +32,7 @@ class ProductData:
     @property
     def rating(self) -> str:
         return self.item['rating']
+
+    @property
+    def categories(self) -> str:
+        return self.item['categories']

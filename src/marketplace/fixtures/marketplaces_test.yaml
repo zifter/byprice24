@@ -2,3 +2,4 @@
   pk: 1
   fields:
     domain: localhost
+    image_logo_url: https://www.test.by/

@@ -2,6 +2,7 @@
   pk: 1
   fields:
     domain: www.21vek.by
+    image_logo_url: https://www.21vek.by/img/up/logo_21vek.by.png
 - model: crawler.scrapingstate
   fields:
     marketplace: 1
@@ -11,6 +12,7 @@
   pk: 2
   fields:
     domain: www.ilp.by
+    image_logo_url: https://userimages.shopmanager.by/3100630/ilp-logo.png
 - model: crawler.scrapingstate
   fields:
     marketplace: 2
