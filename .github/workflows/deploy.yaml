@@ -1,7 +1,7 @@
 name: deploy
 on:
   workflow_run:
-    workflows: ["backend-ci", "deployment-ci", "frontend-ci"]
+    workflows: ["backend-ci"]
     branches: [main]
     types:
       - completed
@@ -9,6 +9,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
@@ -17,7 +19,7 @@ jobs:
         uses: mamezou-tech/setup-helmfile@v0.8.0
         with:
           install-kubectl: yes
-          helm: "v3.6.3"
+          helm-version: "v3.6.3"
           helmfile-version: "v0.140.1"
 
       - name: Deploy
@@ -32,4 +34,4 @@ jobs:
           GRAFANA_USER: ${{ secrets.GRAFANA_USER }}
           GRAFANA_PASS: ${{ secrets.GRAFANA_PASS }}
         run: |
-          make prod-deploy
+          make deploy-prod

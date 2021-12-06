@@ -29,7 +29,7 @@ jobs:
         uses: mamezou-tech/setup-helmfile@v0.8.0
         with:
           install-kubectl: no
-          helm: "v3.6.3"
+          helm-version: "v3.6.3"
           helmfile-version: "v0.140.1"
 
       - name: Validate
