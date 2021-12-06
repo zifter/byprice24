@@ -26,6 +26,7 @@ on:
 jobs:
   image-build:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     env:
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
       DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
@@ -52,6 +53,7 @@ jobs:
 
   test-mac:
     runs-on: macos-11
+    timeout-minutes: 5
     needs: image-build  # to be sure that we don't waste time of mac agent in case when build is failed
     if: github.ref == 'refs/heads/main'
     steps:
