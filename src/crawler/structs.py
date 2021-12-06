@@ -30,5 +30,13 @@ class ProductData:
         return self.item['image_url']
 
     @property
+    def rating(self) -> float:
+        return self.item['rating']
+
+    @property
+    def review_count(self) -> int:
+        return self.item['review_count']
+
+    @property
     def categories(self) -> str:
         return self.item['categories']
