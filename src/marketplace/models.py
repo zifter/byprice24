@@ -58,6 +58,8 @@ class ProductState(models.Model):
     created = models.DateTimeField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     price_currency = models.CharField(max_length=8)
+    rating = models.FloatField()
+    review_count = models.IntegerField()
 
     def __str__(self):
         return f'{self.product_page} [{self.price} {self.price_currency}]'
