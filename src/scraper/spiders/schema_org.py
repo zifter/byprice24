@@ -45,6 +45,10 @@ class SchemaOrgSpider(CrawlSpider):
                     item['properties']['aggregateRating']['properties']['ratingValue']
                     if 'aggregateRating' in item['properties']
                     else ''),
+                review_count=(
+                    item['properties']['aggregateRating']['properties']['reviewCount']
+                    if 'aggregateRating' in item['properties']
+                    else ''),
                 categories=self.get_categories(data)
             )
             yield product

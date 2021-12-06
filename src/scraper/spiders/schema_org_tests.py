@@ -23,6 +23,7 @@ def test_check_parser_21vek_by():
         price_currency='BYN',
         image_url='https://static.21vek.by/img/galleries/6632/831/preview_b/x3pro8gb256gb_poco_01_60dd5ddb2379f.png',
         rating='5.00',
+        review_count='4',
         categories=['Смартфоны, ТВ и электроника', 'Смартфоны, аксессуары', 'Смартфоны']
     )
 
@@ -63,6 +64,7 @@ def test_check_parser_ilp_by():
         price_currency='BYN',
         image_url='https://cdn.dataimgstore.com/preview/64/3/2626323/y9uMMTST0z.jpeg',
         rating='',
+        review_count='',
         categories=['Ноутбуки']
     )
 

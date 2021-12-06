@@ -111,6 +111,7 @@ class Agent:
             price=data.price,
             price_currency=data.price_currency,
             rating=data.rating,
+            review_count=data.review_count,
         )
 
     @classmethod

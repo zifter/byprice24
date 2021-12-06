@@ -34,5 +34,9 @@ class ProductData:
         return self.item['rating']
 
     @property
+    def review_count(self) -> str:
+        return self.item['review_count']
+
+    @property
     def categories(self) -> str:
         return self.item['categories']
