@@ -49,6 +49,9 @@ class Base(Configuration):
         'marketplace',
         'crawler',
     ]
+    REST_FRAMEWORK = {
+        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination'
+    }
 
     MIDDLEWARE = [
         'django.middleware.security.SecurityMiddleware',
