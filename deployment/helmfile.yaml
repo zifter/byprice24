@@ -1,25 +1,11 @@
 environments:
   local:
     values:
-      - monitoring:
-          enabled: false
-      - app:
-          tag: test
-      - redis:
-          enabled: true
-      - postgres:
-          enabled: true
+      - ./helmfile/values-local.yaml
 
   prod:
     values:
-      - monitoring:
-          enabled: false
-      - app:
-          tag: latest
-      - redis:
-          enabled: true
-      - postgres:
-          enabled: false  # will be used managed
+      - ./helmfile/values-prod.yaml.gotmpl
 
 helmfiles:
   - path: "helmfile/00-infra.yaml"

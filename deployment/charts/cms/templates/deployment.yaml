@@ -55,6 +55,8 @@ spec:
               value: {{ .Values.postgres.password | quote }}
             - name: DB_HOST
               value: {{ .Values.postgres.host | quote }}
+            - name: DB_PORT
+              value: {{ .Values.postgres.port | quote }}
           ports:
             - name: http
               containerPort: 8080
@@ -92,6 +94,8 @@ spec:
               value: {{ .Values.postgres.password | quote }}
             - name: DB_HOST
               value: {{ .Values.postgres.host | quote }}
+            - name: DB_PORT
+              value: {{ .Values.postgres.port | quote }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

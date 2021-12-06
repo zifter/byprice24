@@ -3,9 +3,3 @@ ingress:
 
 redis:
   url: "redis://redis-master:6379/0"
-
-postgres:
-  dbname: "byprice24"
-  username: "root"
-  password: "1234"
-  host: "postgres-postgresql"
