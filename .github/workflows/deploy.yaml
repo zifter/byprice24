@@ -35,4 +35,5 @@ jobs:
           GRAFANA_USER: ${{ secrets.GRAFANA_USER }}
           GRAFANA_PASS: ${{ secrets.GRAFANA_PASS }}
         run: |
+          touch .env
           make deploy-prod
