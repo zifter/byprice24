@@ -31,6 +31,6 @@ jobs:
         run: make frontend-image-build IMAGE_TAG=zifter/byprice24-site:${GITHUB_REF##*/}
 
       - name: Publish Docker Image
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: |
           make frontend-image-publish IMAGE_TAG=zifter/byprice24-site:${GITHUB_REF##*/}

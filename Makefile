@@ -15,11 +15,14 @@ setup-toolset:
 setup-toolset-mac:
 	cd contributing && make setup-pipenv
 	cd contributing && make setup-helm-mac
+	cd contributing && make setup-helm-diff-plugin
 	cd contributing && make setup-helmfile-mac
 	cd contributing && make setup-kind-mac
 	cd contributing && make setup-pre-commit-hook
-	cd contributing && make setup-helm-diff-plugin
 	make pipenv-install
+
+setup-verify:
+	cd contributing && make verify
 
 ######
 # OTHER

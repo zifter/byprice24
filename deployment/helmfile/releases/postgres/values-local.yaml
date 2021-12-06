@@ -1,5 +1,3 @@
-postgresqlUsername: root
-postgresqlPassword: "1234"
 postgresqlDatabase: byprice24
 
 service:

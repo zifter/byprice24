@@ -11,12 +11,11 @@ on:
       - Makefile
 
 jobs:
-  image-test:
+  image-build:
     runs-on: ubuntu-latest
     env:
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
       DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
-
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
@@ -40,6 +39,7 @@ jobs:
 
   test-mac:
     runs-on: macos-11
+    needs: image-build  # to be sure that we don't waste time of mac agent in case when build is failed
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Check out repository code
