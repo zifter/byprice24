@@ -39,7 +39,7 @@ spec:
             - rqworker
 {{- range $queue := .Values.rqQueues | required "rqQueues is not defined"}}
             - {{ $queue }}
-{{ end }}
+{{- end }}
           env:
             - name: DJANGO_CONFIGURATION
               value: {{ .Values.configuration | quote }}
@@ -57,6 +57,8 @@ spec:
               value: {{ .Values.postgres.password | quote }}
             - name: DB_HOST
               value: {{ .Values.postgres.host | quote }}
+            - name: DB_PORT
+              value: {{ .Values.postgres.port | quote }}
           ports:
             - name: http
               containerPort: 8080

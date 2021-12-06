@@ -41,3 +41,11 @@ setup-pre-commit-hook:
 	$(info Install pre commit hook)
 	python3 -m pip install pre-commit==2.15.0
 	pre-commit install
+
+verify:
+	$(info Verify that everything is ok)
+	pre-commit --version
+	helm version
+	helmfile --version
+	pyenv --version
+	terraform -version

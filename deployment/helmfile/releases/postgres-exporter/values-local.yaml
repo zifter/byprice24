@@ -1,6 +1,0 @@
-config:
-  datasource:
-    host: postgres-postgresql.default.svc
-    user: root
-    password: "1234"
-    database: byprice24

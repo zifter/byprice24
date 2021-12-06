@@ -9,10 +9,3 @@ ingress:
           pathType: Prefix
         - path: /api
           pathType: Prefix
-
-# TODO
-postgres:
-  dbname: "byprice24"
-  username: "root"
-  password: "1234"
-  host: "postgres-postgresql"

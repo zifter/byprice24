@@ -1,0 +1,20 @@
+monitoring:
+  enabled: true
+  grafana:
+    user: admin
+    pass: admin
+
+app:
+  backend: test
+  frontend: test
+
+redis:
+  enabled: true
+
+postgres:
+  enabled: true
+  dbName: byprice24
+  host: postgres-postgresql.default.svc
+  user: "root"
+  pass: "1234"
+  port: "5432"
