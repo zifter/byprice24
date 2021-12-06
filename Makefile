@@ -72,7 +72,7 @@ backend-image-migrations-check:
 
 backend-install: IMAGE_TAG := zifter/byprice24-cms:test
 backend-install:
-	$(info Install actual application to k9s)
+	$(info Install actual application to k8s)
 	make backend-image-build
 	cd deployment && make backend-image-load
 	cd deployment && make backend-helm-install
@@ -101,7 +101,7 @@ frontend-image-update:
 
 frontend-install: IMAGE_TAG := zifter/byprice24-site:test
 frontend-install:
-	$(info Install actual application to k9s)
+	$(info Install actual application to k8s)
 	make frontend-image-build
 	cd deployment && make frontend-image-load
 	cd deployment && make frontend-helm-install
