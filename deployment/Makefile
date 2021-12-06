@@ -89,9 +89,9 @@ validate:
 	helmfile -e prod build
 	helmfile -e prod lint
 
-prod-deploy: BACKEND_IMAGE_TAG := zifter/byprice24-cms:latest
-prod-deploy: FRONTEND_IMAGE_TAG := zifter/byprice24-site:latest
-prod-deploy:
+deploy-prod: BACKEND_IMAGE_TAG := zifter/byprice24-cms:latest
+deploy-prod: FRONTEND_IMAGE_TAG := zifter/byprice24-site:latest
+deploy-prod:
 	docker pull ${BACKEND_IMAGE_TAG}
 	docker pull ${FRONTEND_IMAGE_TAG}
 	export `cat .env | xargs` && \
