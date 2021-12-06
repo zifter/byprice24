@@ -12,3 +12,8 @@ variable "postgres_version" {
   description = "Postgres Cluster Version"
   type        = string
 }
+
+variable "postgres_database" {
+  description = "Postgres database name"
+  type        = string
+}

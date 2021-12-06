@@ -6,6 +6,7 @@ locals {
   postgres_name    = "db-postgresql-fra1-85185"
   region           = "fra1"
   postgres_version = "11"
+  postgres_database= "byprice24"
 }
 
 module "infra" {
@@ -14,6 +15,7 @@ module "infra" {
   name              = local.project_name
   k8s_version       = local.k8s_version
   postgres_version  = local.postgres_version
+  postgres_database = local.postgres_database
 }
 
 data "github_actions_public_key" "example_public_key" {
@@ -53,5 +55,5 @@ resource "github_actions_secret" "postgres_port" {
 resource "github_actions_secret" "postgres_database" {
   repository       = "byprice24"
   secret_name      = "POSTGRES_DATABASE"
-  plaintext_value  = module.infra.postgres_database
+  plaintext_value  = local.postgres_database
 }

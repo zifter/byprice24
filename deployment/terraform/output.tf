@@ -27,8 +27,3 @@ output "postgres_port" {
   description = "Postgres port"
   value       = module.infra.postgres_port
 }
-
-output "postgres_database" {
-  description = "Postgres database"
-  value       = module.infra.postgres_database
-}

@@ -35,4 +35,4 @@ terraform.rc
 # Ignore generated JSON files
 key.json
 
-local.tfvars
+*.auto.tfvars

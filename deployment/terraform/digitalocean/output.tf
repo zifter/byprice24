@@ -27,8 +27,3 @@ output "postgres_port" {
   description = "Postgres database port"
   value       = digitalocean_database_cluster.postgres.port
 }
-
-output "postgres_database" {
-  description = "Postgres default database"
-  value       = digitalocean_database_cluster.postgres.database
-}

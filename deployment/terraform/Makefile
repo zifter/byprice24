@@ -7,7 +7,7 @@ login:
 
 refresh:
 	$(info Execute terraform refresh)
-	terraform refresh -var-file="local.tfvars"
+	terraform refresh -var-file="local.auto.tfvars"
 
 init:
 	$(info Execute terraform init)
@@ -21,8 +21,8 @@ output:
 
 plan:
 	$(info Execute terraform refresh)
-	terraform plan -var-file="local.tfvars"
+	terraform plan -var-file="local.auto.tfvars"
 
 apply:
 	$(info Execute terraform plan)
-	terraform apply -var-file="local.tfvars"
+	terraform apply
