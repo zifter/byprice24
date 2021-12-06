@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/frontend-ci.yaml
+      - '**/frontend-ci.yaml'
       - frontend/**
       - Makefile
 
