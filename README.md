@@ -58,15 +58,19 @@ make setup-verify
 ### Run
 All commands for controlling cluster is describing in Makefile.
 
+* Run cluster with prepared databases and etc
 ```bash
-# run cluster with prepared applications
 $ make run-dev-cluster
+```
 
-# run cluster with full setup
+* Install byprice24 application to cluster
+```bash
+$ make backend-install
+```
+
+* Run cluster with installed byprice24 application
+```bash
 $ make run-full-cluster
-
-# install byprice24 application to cluster
-$ make helmfile-sync-backend
 ```
 
 ## Deploy
