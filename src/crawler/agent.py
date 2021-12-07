@@ -96,7 +96,7 @@ class Agent:
             name=data.name,
             category=self.get_category_for_db(data),
             description='',
-            image_url=data.image_url,
+            preview_url=data.preview_url,
         )
 
         page, created = ProductPage.objects.get_or_create(
@@ -112,6 +112,7 @@ class Agent:
             price_currency=data.price_currency,
             rating=data.rating,
             review_count=data.review_count,
+            availability=data.availability,
         )
 
     @classmethod

@@ -34,21 +34,25 @@ class SchemaOrgSpider(CrawlSpider):
         for item in microdata:
             if item['type'] not in ('https://schema.org/Product', 'http://schema.org/Product'):
                 continue
-            image_url = item['properties']['image']
+            properties = item['properties']
+            image = properties['image']
+            preview_url = image if isinstance(image, str) else image[0]
+
             product = ProductItem(
                 url=response.url,
-                name=item['properties']['name'],
-                price=float(item['properties']['offers']['properties']['price']),
-                price_currency=item['properties']['offers']['properties']['priceCurrency'],
-                image_url=image_url if isinstance(image_url, str) else image_url[0],
+                name=properties['name'],
+                price=float(properties['offers']['properties']['price']),
+                price_currency=properties['offers']['properties']['priceCurrency'],
                 rating=float(
-                    item['properties']['aggregateRating']['properties']['ratingValue']
-                    if 'aggregateRating' in item['properties']
+                    properties['aggregateRating']['properties']['ratingValue']
+                    if 'aggregateRating' in properties
                     else '0'),
                 review_count=int(
-                    item['properties']['aggregateRating']['properties']['reviewCount']
-                    if 'aggregateRating' in item['properties']
+                    properties['aggregateRating']['properties']['reviewCount']
+                    if 'aggregateRating' in properties
                     else '0'),
+                availability=properties['offers']['properties']['availability'].replace('http://schema.org/', ''),
+                preview_url=preview_url,
                 categories=self.get_categories(data)
             )
             yield product
