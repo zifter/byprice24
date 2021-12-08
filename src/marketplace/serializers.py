@@ -2,8 +2,6 @@ from typing import List
 
 from marketplace.models import Marketplace
 from marketplace.models import Product
-from marketplace.models import ProductPage
-from marketplace.models import ProductState
 from rest_framework import serializers
 
 
