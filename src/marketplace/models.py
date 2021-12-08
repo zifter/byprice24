@@ -32,7 +32,7 @@ class Product(models.Model):
     name = models.CharField(max_length=62, unique=True)
     category = models.CharField(max_length=62)
     description = models.CharField(max_length=32)
-    image_url = models.CharField(max_length=256, null=True)
+    preview_url = models.CharField(max_length=256, null=True)
 
     def __str__(self):
         return str(self.name)
@@ -60,6 +60,7 @@ class ProductState(models.Model):
     price_currency = models.CharField(max_length=8)
     rating = models.FloatField()
     review_count = models.IntegerField()
+    availability = models.CharField(max_length=16, default='')
 
     def __str__(self):
         return f'{self.product_page} [{self.price} {self.price_currency}]'

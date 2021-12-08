@@ -26,8 +26,13 @@ class ProductData:
         return self.item['price_currency']
 
     @property
-    def image_url(self) -> str:
-        return self.item['image_url']
+    def preview_url(self) -> str:
+        return self.item['preview_url']
+
+    @property
+    def availability(self) -> str:
+        # https://schema.org/ItemAvailability
+        return self.item['availability']
 
     @property
     def rating(self) -> float:

@@ -49,7 +49,7 @@ backend-image-test:
 	docker run $(IMAGE_TAG) /bin/bash -c "\
 		pytest . --cov=. && \
 		coverage report --include="*_tests.py" --rcfile=pytest.ini --fail-under=100 && \
-		coverage report --include="*" --rcfile=pytest.ini --fail-under=91 \
+		coverage report --include="*" --rcfile=pytest.ini --fail-under=94 \
 		"
 
 backend-image-publish: IMAGE_TAG := zifter/byprice24-cms:test
@@ -145,7 +145,7 @@ test:
 
 coverage-report:
 	pipenv run coverage report --include="src/**_tests.py" --rcfile=src/pytest.ini --fail-under=100
-	pipenv run coverage report --include="src/*" --rcfile=src/pytest.ini --fail-under=91
+	pipenv run coverage report --include="src/*" --rcfile=src/pytest.ini --fail-under=94
 
 open-coverage:
 	make pytest
