@@ -1,11 +1,19 @@
 ingress:
-  enabled: true
+  tls:
+    - secretName: domain-tls
+      hosts:
+        - findprice.by
+
   hosts:
-    - host: price24.by
+    - host: findprice.by
       paths:
+        - path: /api
+          pathType: Prefix
         - path: /admin
           pathType: Prefix
         - path: /admin-static
           pathType: Prefix
-        - path: /api
-          pathType: Prefix
+
+domain: findprice.by
+
+configuration: Prod

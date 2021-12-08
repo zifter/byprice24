@@ -33,6 +33,7 @@ jobs:
           POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
           GRAFANA_USER: ${{ secrets.GRAFANA_USER }}
           GRAFANA_PASS: ${{ secrets.GRAFANA_PASS }}
+          DJANGO_SECRET: ${{ secrets.DJANGO_SECRET }}
         run: |
           mkdir /home/runner/.kube
           echo "${{ secrets.KUBECONFIG }}" > /home/runner/.kube/config

@@ -31,7 +31,7 @@ releases:
 
   # REDIS
   - name: redis
-    namespace: default
+    namespace: {{ .Values.namespace }}
     chart: bitnami/redis
     version: 15.5.1
     installed: {{ .Values.redis.enabled | toYaml }}
@@ -40,7 +40,7 @@ releases:
       - releases/redis/values-{{ .Environment.Name }}.yaml
 
   - name: redis-exporter
-    namespace: monitoring
+    namespace: {{ .Values.namespace }}
     chart: prometheus-community/prometheus-redis-exporter
     installed: {{ .Values.monitoring.enabled | toYaml }}
     version: 4.6.0
@@ -51,7 +51,7 @@ releases:
 
   # POSTGRES
   - name: postgres
-    namespace: default
+    namespace: {{ .Values.namespace }}
     chart: bitnami/postgresql
     version: 10.3.0
     installed: {{ .Values.postgres.enabled | toYaml }}
@@ -63,7 +63,7 @@ releases:
       - postgresqlPassword: {{ .Values.postgres.pass | toYaml }}
 
   - name: postgres-exporter
-    namespace: monitoring
+    namespace: {{ .Values.namespace }}
     chart: prometheus-community/prometheus-postgres-exporter
     installed: {{ .Values.monitoring.enabled | toYaml }}
     version: 2.3.7

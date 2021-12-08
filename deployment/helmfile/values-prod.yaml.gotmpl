@@ -1,3 +1,4 @@
+namespace: prod
 monitoring:
   enabled: true
   grafana:
@@ -7,6 +8,8 @@ monitoring:
 app:
   backend: latest@{{ requiredEnv "BACKEND_IMAGE_SHA256" }}
   frontend: latest@{{ requiredEnv "FRONTEND_IMAGE_SHA256" }}
+  cms:
+    secretKey: {{ requiredEnv "DJANGO_SECRET" }}
 
 redis:
   enabled: true
@@ -18,3 +21,5 @@ postgres:
   user: {{ requiredEnv "POSTGRES_USER" | quote }}
   pass: {{ requiredEnv "POSTGRES_PASS" | quote }}
   port: {{ requiredEnv "POSTGRES_PORT" | quote }}
+
+domain: findprice.by

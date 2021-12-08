@@ -82,6 +82,10 @@ spec:
             - manage.py
             - migrate
           env:
+            - name: DOMAIN_API
+              value: {{ .Values.domain.api | quote }}
+            - name: DOMAIN_ADMIN
+              value: {{ .Values.domain.admin | quote }}
             - name: RQ_REDIS_URL
               value: {{ .Values.redis.domain | quote }}
             - name: DJANGO_CONFIGURATION
@@ -96,6 +100,8 @@ spec:
               value: {{ .Values.postgres.host | quote }}
             - name: DB_PORT
               value: {{ .Values.postgres.port | quote }}
+            - name: SECRET_KEY
+              value: {{ .Values.secretKey | quote }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

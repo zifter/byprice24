@@ -5,7 +5,7 @@ prometheus:
 
   ingress:
     hosts:
-      - price24.by
+      - findprice.by
     paths:
       - "/prometheus(/|$)(.*)"
 
@@ -15,7 +15,7 @@ alertmanager:
     annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
-      - price24.by
+      - findprice.by
     paths:
       - "/alertmanager(/|$)(.*)"
 
@@ -27,13 +27,13 @@ grafana:
 
   grafana.ini:
     server:
-      domain: price24.by
-      root_url: https://price24.by:1080/grafana/
+      domain: findprice.by
+      root_url: https://findprice.by:1080/grafana/
       serve_from_sub_path: true
 
   ingress:
     annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
-      - price24.by
+      - findprice.by
     path: "/grafana(/|$)(.*)"

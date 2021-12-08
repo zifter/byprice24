@@ -1,6 +1,7 @@
 locals {
   project_name     = "byprice24"
 
+  site_domain      = "findprice.by"
   k8s_version      = "1.21.5-do.0"
   cluster_name     = "k8s-byprice24"
   postgres_name    = "db-postgresql-fra1-85185"
