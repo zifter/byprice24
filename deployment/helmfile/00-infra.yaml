@@ -29,6 +29,18 @@ releases:
           metrics:
             enabled: {{ .Values.monitoring.enabled | toYaml }}
 
+  - name: cert-manager-crd
+    namespace: cert-manager
+    chart: ../charts/cert-manager-crd
+
+  - name: cert-manager
+    namespace: cert-manager
+    chart: jetstack\cert-manager
+    version: v1.6.1
+    installed: {{ .Values.certManager.enabled | toYaml }}
+    needs:
+      - cert-manager-crd
+
   # REDIS
   - name: redis
     namespace: {{ .Values.namespace }}

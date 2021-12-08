@@ -1,6 +1,6 @@
 namespace: default
 monitoring:
-  enabled: true
+  enabled: false
   grafana:
     user: admin
     pass: admin
@@ -24,4 +24,8 @@ postgres:
 
 domain:
   site: localhost
-  internal: localhost
+  api: localhost
+  backoffice: localhost
+
+certManager:
+  enabled: false

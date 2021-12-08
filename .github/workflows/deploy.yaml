@@ -38,4 +38,4 @@ jobs:
           mkdir /home/runner/.kube
           echo "${{ secrets.KUBECONFIG }}" > /home/runner/.kube/config
           touch .env
-          make deploy-prod
+          make helmfile-prod ARGS=apply

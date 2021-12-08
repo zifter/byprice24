@@ -1,4 +1,4 @@
-namespace: prod
+namespace: default
 monitoring:
   enabled: true
   grafana:
@@ -22,4 +22,10 @@ postgres:
   pass: {{ requiredEnv "POSTGRES_PASS" | quote }}
   port: {{ requiredEnv "POSTGRES_PORT" | quote }}
 
-domain: findprice.by
+domain:
+  site: findprice.by
+  api: findprice.by
+  backoffice: findprice.site
+
+certManager:
+  enabled: true

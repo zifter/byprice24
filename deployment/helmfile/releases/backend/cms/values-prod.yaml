@@ -3,17 +3,22 @@ ingress:
     - secretName: domain-tls
       hosts:
         - findprice.by
+        - findprice.site
 
   hosts:
     - host: findprice.by
       paths:
         - path: /api
           pathType: Prefix
+    - host: findprice.site
+      paths:
         - path: /admin
           pathType: Prefix
         - path: /admin-static
           pathType: Prefix
 
-domain: findprice.by
+domain:
+  api: findprice.by
+  admin: findprice.site
 
 configuration: Prod

@@ -9,4 +9,6 @@ ingress:
         - path: /api
           pathType: Prefix
 
-domain: localhost
+domain:
+  api: localhost
+  admin: localhost

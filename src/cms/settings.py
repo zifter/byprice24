@@ -196,4 +196,4 @@ class Test(Dev):
 
 
 class Prod(PostgresMixin, Base):
-    DEBUG = False
+    DEBUG = True  # TODO Make it False and run behind wsgi server (gunicron)
