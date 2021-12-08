@@ -1,8 +1,10 @@
+from django.db.models import Prefetch
 from marketplace.filters import ProductSearchFilter
 from marketplace.models import Marketplace
 from marketplace.models import Product
+from marketplace.models import ProductPage
 from marketplace.serializers import MarketplaceSerializer
-from marketplace.serializers import ProductSerializer
+from marketplace.serializers import ProductSearchSerializer
 from rest_framework import generics
 from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination
@@ -29,12 +31,17 @@ class ProductViewSet(generics.ListAPIView):
     """
     API Product
     """
-    model = Product
-    queryset = Product.objects
-    serializer_class = ProductSerializer
+    serializer_class = ProductSearchSerializer
+    pagination_class = ProductsPagination
     filter_backends = [ProductSearchFilter]
     search_fields = ['name']
-    pagination_class = ProductsPagination
+
+    def get_queryset(self):
+        return Product.objects.prefetch_related(Prefetch('productpage_set',
+                                                         queryset=ProductPage.objects.all(),
+                                                         to_attr='product_pages'),
+                                                Prefetch('product_pages__productstate_set',
+                                                         to_attr='product_state'))
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())

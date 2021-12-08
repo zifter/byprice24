@@ -1,4 +1,4 @@
-from marketplace.serializers import ProductSearchSerializer
+from marketplace.serializers import ProductQuerySerializer
 from rest_framework import filters
 
 
@@ -12,5 +12,5 @@ class ProductSearchFilter(filters.SearchFilter):
         params = params.replace('\'', ' ')
         params = params.strip()
 
-        ProductSearchSerializer(data=dict(query=params)).is_valid(raise_exception=True)
+        ProductQuerySerializer(data=dict(query=params)).is_valid(raise_exception=True)
         return params.split()
