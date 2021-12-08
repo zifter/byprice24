@@ -87,7 +87,7 @@ spec:
             - name: DOMAIN_ADMIN
               value: {{ .Values.domain.admin | quote }}
             - name: RQ_REDIS_URL
-              value: {{ .Values.redis.domain | quote }}
+              value: {{ .Values.redis.url | quote }}
             - name: DJANGO_CONFIGURATION
               value: {{ .Values.configuration | quote }}
             - name: DB_NAME
