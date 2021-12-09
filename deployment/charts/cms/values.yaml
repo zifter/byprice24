@@ -92,3 +92,4 @@ postgres:
   port: "5432"
 
 configuration: Dev
+secretKey: ''

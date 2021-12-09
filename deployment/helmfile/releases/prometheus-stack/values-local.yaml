@@ -5,6 +5,7 @@ prometheus:
   ingress:
     hosts:
       - localhost
+    pathType: Prefix
     paths:
       - "/prometheus(/|$)(.*)"
 
@@ -14,6 +15,7 @@ alertmanager:
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - localhost
+    pathType: Prefix
     paths:
       - "/alertmanager(/|$)(.*)"
 
@@ -33,4 +35,5 @@ grafana:
       nginx.ingress.kubernetes.io/rewrite-target: /$2
     hosts:
       - localhost
+    pathType: Prefix
     path: "/grafana(/|$)(.*)"

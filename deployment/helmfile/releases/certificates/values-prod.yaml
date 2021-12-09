@@ -1,0 +1,7 @@
+certificates:
+  - secretName: findprice-site-tls
+    dnsName: findprice.site
+    issuer: letsencrypt
+  - secretName: findprice-by-tls
+    dnsName: findprice.by
+    issuer: letsencrypt

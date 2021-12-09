@@ -23,13 +23,14 @@ from configurations import Configuration
 class Base(Configuration):
     # SECURITY WARNING: keep the secret key used in production secret!
     # TODO Override secret in production
-    SECRET_KEY = 'django-insecure-tfv^rapkl5+j5&c+x64-iy3#m+hpmhyj10f^b(ww2xxu&_#78+'
+    SECRET_KEY = os.environ.setdefault('SECRET_KEY', 'django-insecure-tfv^rapkl5+j5&c+x64-iy3#m+hpmhyj10f^b(ww2xxu&_#78+')
 
-    ALLOWED_HOSTS = [
-        os.environ.setdefault('POD_IP', '127.0.0.1'),
-        'localhost',
+    ALLOWED_HOSTS = list({
         '0.0.0.0',
-    ]
+        os.environ.setdefault('POD_IP', '127.0.0.1'),
+        os.environ.setdefault('DOMAIN_API', 'localhost'),
+        os.environ.setdefault('DOMAIN_ADMIN', 'localhost'),
+    })
 
     # Application definition
 
@@ -195,4 +196,4 @@ class Test(Dev):
 
 
 class Prod(PostgresMixin, Base):
-    DEBUG = False
+    DEBUG = False  # TODO Make it False and run behind wsgi server (gunicron)
