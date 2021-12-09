@@ -18,6 +18,3 @@ postgres:
   user: "root"
   pass: "1234"
   port: "5432"
-
-elasticsearch:
-  enabled: true

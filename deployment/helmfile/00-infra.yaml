@@ -78,22 +78,3 @@ releases:
             password: {{ .Values.postgres.pass | toYaml }}
             database: {{ .Values.postgres.dbName | toYaml }}
             port: {{ .Values.postgres.port | toYaml }}
-  # ELASTICSEARCH
-  - name: elasticsearch
-    namespace: default
-    chart: bitnami/elasticsearch
-    version: 17.3.6
-    installed: {{ .Values.elasticsearch.enabled | toYaml }}
-    values:
-      - releases/elasticsearch/values.yaml
-      - releases/elasticsearch/values-{{ .Environment.Name }}.yaml
-
-  - name: elasticsearch-exporter
-    namespace: monitoring
-    chart: prometheus-community/prometheus-elasticsearch-exporter
-    installed: {{ .Values.monitoring.enabled | toYaml }}
-    version: 4.9.0
-    needs:
-      - prometheus-stack
-    values:
-      - releases/elasticsearch-exporter/values.yaml

@@ -1,3 +1,0 @@
-elasticsearchAddress: es://elasticsearch-master.default.svc:9200
-serviceMonitor:
-  enabled: true
