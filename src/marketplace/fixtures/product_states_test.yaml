@@ -1,0 +1,144 @@
+- model: marketplace.productstate
+  pk: 1
+  fields:
+    product_page_id: 1
+    price: 240.3
+    price_currency: BYN
+    created: 2021-12-02 12:29:38.749221+00:00
+    rating: 4.3
+    review_count: 3
+- model: marketplace.productstate
+  pk: 2
+  fields:
+    product_page_id: 1
+    price: 340.3
+    price_currency: BYN
+    created: 2021-12-06 12:29:38.749221+00:00
+    rating: 2.5
+    review_count: 3
+- model: marketplace.productstate
+  pk: 3
+  fields:
+    product_page_id: 2
+    price: 380.3
+    price_currency: BYN
+    created: 2021-12-06 12:29:38.749221+00:00
+    rating: 4.1
+    review_count: 3
+- model: marketplace.productstate
+  pk: 4
+  fields:
+    product_page_id: 3
+    price: 580.3
+    price_currency: BYN
+    created: 2021-12-06 12:29:38.749221+00:00
+    rating: 4.2
+    review_count: 3
+- model: marketplace.productstate
+  pk: 5
+  fields:
+    product_page_id: 4
+    price: 240.3
+    price_currency: BYN
+    created: 2021-12-02 12:29:38.749221+00:00
+    rating: 1.7
+    review_count: 3
+- model: marketplace.productstate
+  pk: 6
+  fields:
+    product_page_id: 5
+    price: 340.3
+    price_currency: BYN
+    created: 2021-12-06 12:29:38.749221+00:00
+    rating: 3.7
+    review_count: 3
+- model: marketplace.productstate
+  pk: 7
+  fields:
+    product_page_id: 6
+    price: 380.3
+    price_currency: BYN
+    created: 2021-12-06 12:29:38.749221+00:00
+    rating: 3.7
+    review_count: 3
+- model: marketplace.productstate
+  pk: 8
+  fields:
+    product_page_id: 7
+    price: 580.3
+    price_currency: BYN
+    created: 2021-12-06 12:29:38.749221+00:00
+    rating: 4.2
+    review_count: 3
+- model: marketplace.productstate
+  pk: 9
+  fields:
+    product_page_id: 8
+    price: 240.3
+    price_currency: BYN
+    created: 2021-12-02 12:29:38.749221+00:00
+    rating: 3.9
+    review_count: 3
+- model: marketplace.productstate
+  pk: 10
+  fields:
+    product_page_id: 9
+    price: 340.3
+    price_currency: BYN
+    created: 2021-12-06 12:29:38.749221+00:00
+    rating: 3.8
+    review_count: 3
+- model: marketplace.productstate
+  pk: 11
+  fields:
+    product_page_id: 10
+    price: 380.3
+    price_currency: BYN
+    created: 2021-12-06 12:29:38.749221+00:00
+    rating: 3.7
+    review_count: 3
+- model: marketplace.productstate
+  pk: 12
+  fields:
+    product_page_id: 11
+    price: 580.3
+    price_currency: BYN
+    created: 2021-12-06 12:29:38.749221+00:00
+    rating: 2.0
+    review_count: 3
+- model: marketplace.productstate
+  pk: 13
+  fields:
+    product_page_id: 12
+    price: 240.3
+    price_currency: BYN
+    created: 2021-12-02 12:29:38.749221+00:00
+    rating: 5.0
+    review_count: 3
+- model: marketplace.productstate
+  pk: 14
+  fields:
+    product_page_id: 13
+    price: 340.3
+    price_currency: BYN
+    created: 2021-12-06 12:29:38.749221+00:00
+    rating: 4.4
+    review_count: 3
+- model: marketplace.productstate
+  pk: 15
+  fields:
+    product_page_id: 14
+    price: 380.3
+    price_currency: BYN
+    created: 2021-12-06 12:29:38.749221+00:00
+    rating: 2.2
+    review_count: 3
+- model: marketplace.productstate
+  pk: 16
+  fields:
+    product_page_id: 15
+    price: 580.3
+    price_currency: BYN
+    created: 2021-12-06 12:29:38.749221+00:00
+    rating: 4.2
+    review_count: 3
