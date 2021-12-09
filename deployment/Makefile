@@ -28,7 +28,7 @@ cluster-images:
 
 infra-install:
 	$(info Install infra releases to k8s)
-	helmfile -e local -l tier=infra sync
+	helmfile -e local -l tier!=app sync
 
 ###########
 # BACKEND
