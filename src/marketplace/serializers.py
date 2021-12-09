@@ -18,7 +18,7 @@ class ProductSearchSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         product_offers = self.get_offers(instance)
-        return {'marketplaces_count_instock': instance.productpage_set.count(),
+        return {'marketplaces_count_instock': len(instance.product_pages),
                 'min_offer': min(product_offers, key=lambda x: x['price']),
                 **super().to_representation(instance)}
 
