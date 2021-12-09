@@ -1,11 +1,9 @@
 ingress:
-  annotations:
-    cert-manager.io/issuer: letsencrypt-prod
   tls:
-    - secretName: api-findprice-by-tls
+    - secretName: findprice-by-tls
       hosts:
         - findprice.by
-    - secretName: admin-findprice-site-tls
+    - secretName: findprice-site-tls
       hosts:
         - findprice.site
   hosts:

@@ -29,13 +29,16 @@ releases:
           metrics:
             enabled: {{ .Values.monitoring.enabled | toYaml }}
 
+  # Certificates
   - name: cert-manager
     namespace: cert-manager
     chart: jetstack/cert-manager
     version: v1.6.1
     installed: {{ .Values.certManager.enabled | toYaml }}
     values:
-      - installCRDs: true
+      - releases/cert-manager/values.yaml
+      - prometheus:
+          enabled: {{ .Values.monitoring.enabled | toYaml }}
 
   - name: cert-issuer-backoffice
     namespace: monitoring
@@ -46,11 +49,11 @@ releases:
     needs:
       - cert-manager
 
-  - name: certificate-backoffice
+  - name: certificates-backoffice
     namespace: monitoring
-    chart: ../charts/certificate
+    chart: ../charts/certificates
     installed: {{ .Values.certManager.enabled | toYaml }}
     values:
-      - releases/certificate/values-backoffice-{{ .Environment.Name }}.yaml
+      - releases/certificates/values-backoffice-{{ .Environment.Name }}.yaml
     needs:
       - cert-cluster-issuer

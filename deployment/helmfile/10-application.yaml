@@ -61,6 +61,15 @@ releases:
     values:
       - releases/cert-issuer/values-{{ .Environment.Name }}.yaml
 
+  - name: certificates
+    namespace: {{ .Values.namespace }}
+    chart: ../charts/certificates
+    installed: {{ .Values.certManager.enabled | toYaml }}
+    values:
+      - releases/certificates/values-{{ .Environment.Name }}.yaml
+    needs:
+      - cert-cluster-issuer
+
   # Application
   - name: cms
     namespace: {{ .Values.namespace }}

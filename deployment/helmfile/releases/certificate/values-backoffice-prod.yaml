@@ -1,3 +1,0 @@
-secretName: findprice-site-tls
-dnsName: findprice.site
-issuer: letsencrypt-monitoring
