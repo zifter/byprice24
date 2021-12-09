@@ -47,3 +47,7 @@ jobs:
           DJANGO_SECRET: ${{ secrets.DJANGO_SECRET }}
         run: |
           make validate
+          mkdir /home/runner/.kube
+          echo "${{ secrets.KUBECONFIG }}" > /home/runner/.kube/config
+          touch .env
+          make helmfile-prod ARGS=test
