@@ -22,10 +22,5 @@ postgres:
   pass: "1234"
   port: "5432"
 
-domain:
-  site: localhost
-  api: localhost
-  backoffice: localhost
-
 certManager:
   enabled: false

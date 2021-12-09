@@ -22,9 +22,5 @@ postgres:
   pass: {{ requiredEnv "POSTGRES_PASS" | quote }}
   port: {{ requiredEnv "POSTGRES_PORT" | quote }}
 
-domain:
-  site: findprice.by
-  backoffice: findprice.site
-
 certManager:
   enabled: true

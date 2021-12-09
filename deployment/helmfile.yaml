@@ -13,7 +13,12 @@ helmfiles:
     - # pass the current state values to the sub-helmfile
 {{ toYaml .Environment.Values | indent 6 }}
 
-  - path: "helmfile/10-application.yaml"
+  - path: "helmfile/10-infra-app.yaml"
+    values:
+    - # pass the current state values to the sub-helmfile
+{{ toYaml .Environment.Values | indent 6 }}
+
+  - path: "helmfile/10-app.yaml"
     values:
     - # pass the current state values to the sub-helmfile
 {{ toYaml .Environment.Values | indent 6 }}
