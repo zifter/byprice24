@@ -53,12 +53,12 @@ class ProductViewTestCase(TestCase):
                               ('name', 'Acer Extensa 15 EX215-53G-7014 NX.EGCER.009'),
                               ('category', 'notebook'),
                               ('description', ''),
-                              ('image_url', None)]),
+                              ('preview_url', None)]),
                  OrderedDict([('id', 3),
                               ('name', 'Acer Extensa 15 EX215-54-348Z NX.EGJER.00M'),
                               ('category', 'notebook'),
                               ('description', ''),
-                              ('image_url', None)
+                              ('preview_url', None)
                               ])]}
 
     def setUp(self):
