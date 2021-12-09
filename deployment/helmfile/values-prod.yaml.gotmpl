@@ -18,3 +18,6 @@ postgres:
   user: {{ requiredEnv "POSTGRES_USER" | quote }}
   pass: {{ requiredEnv "POSTGRES_PASS" | quote }}
   port: {{ requiredEnv "POSTGRES_PORT" | quote }}
+
+elasticsearch:
+  enabled: true

@@ -1,0 +1,7 @@
+coordinating:
+  service:
+    type: NodePort
+    nodePort: 30103
+
+master:
+  replicas: 1
