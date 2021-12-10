@@ -17,6 +17,7 @@ psycopg2-binary = "2.9.1"
 hiredis = "2.0.0"
 Scrapy = "2.5.1"
 extruct = "0.13.0"
+elasticsearch = "*"
 
 [dev-packages]
 pytest = "6.2.5"
