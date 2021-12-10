@@ -27,15 +27,9 @@ jobs:
   image-build:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    env:
-      DOCKER_USER: ${{ secrets.DOCKER_USER }}
-      DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
-
-      - name: Login to DockerHub
-        run: make docker-login DOCKER_USER=$DOCKER_USER DOCKER_PASS=$DOCKER_PASS
 
       - name: Build Docker Image
         run: make backend-image-build IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
@@ -47,8 +41,12 @@ jobs:
         run: make backend-image-test IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
 
       - name: Publish Docker Image
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
         if: github.ref == 'refs/heads/main'
         run: |
+          make docker-login DOCKER_USER=$DOCKER_USER DOCKER_PASS=$DOCKER_PASS
           make backend-image-publish IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
 
   test-mac:
