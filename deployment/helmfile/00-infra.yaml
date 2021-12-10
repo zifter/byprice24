@@ -8,7 +8,7 @@ releases:
     namespace: monitoring
     chart: prometheus-community/kube-prometheus-stack
     installed: {{ .Values.monitoring.enabled | toYaml }}
-    version: 18.0.1
+    version: 23.2.0
     values:
       - releases/prometheus-stack/values.yaml
       - releases/prometheus-stack/values-{{ .Environment.Name }}.yaml

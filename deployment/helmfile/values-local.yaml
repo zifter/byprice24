@@ -1,6 +1,6 @@
 namespace: default
 monitoring:
-  enabled: false
+  enabled: true
   grafana:
     user: admin
     pass: admin

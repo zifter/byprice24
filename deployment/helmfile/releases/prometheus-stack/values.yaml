@@ -1,5 +1,14 @@
 metrics-server:
   enabled: true
+prometheus:
+  monitor:
+    enabled: false
+    additionalLabels: {}
+    namespace: ""
+    interval: ""
+    scrapeTimeout: ""
+    proxyUrl: ""
+    honorLabels: false
 
 prometheusOperator:
   resources:
