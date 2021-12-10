@@ -42,6 +42,10 @@ jobs:
         run: make frontend-image-build IMAGE_TAG=zifter/byprice24-site:${GITHUB_REF##*/}
 
       - name: Publish Docker Image
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
         if: github.ref == 'refs/heads/main'
         run: |
+          make docker-login DOCKER_USER=$DOCKER_USER DOCKER_PASS=$DOCKER_PASS
           make frontend-image-publish IMAGE_TAG=zifter/byprice24-site:${GITHUB_REF##*/}
