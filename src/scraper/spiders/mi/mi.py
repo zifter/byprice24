@@ -30,7 +30,7 @@ class VekSpider(Spider):
         offers = data['offers']
         for offer in offers:
             product_data = offers[offer]
-            prod = ProductItem(
+            product = ProductItem(
                 url=response.url,
                 name=product_data['NAME'],
                 price=float(product_data['PRICE']),
@@ -42,4 +42,4 @@ class VekSpider(Spider):
                 categories=response.meta['category']
 
             )
-            yield prod
+            yield product
