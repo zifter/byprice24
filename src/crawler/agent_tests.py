@@ -1,3 +1,4 @@
+from common.categories import Category
 from common.shared_queue import FlowQueueBase
 from crawler.agent import Agent
 from django.test import TestCase
@@ -25,6 +26,7 @@ class AgentTestCase(TestCase):
             rating=5.0,
             review_count=4,
             preview_url='https://static.21vek.by/img/galleries/6632/831/preview_b/x3pro8gb256gb_poco_01_60dd5ddb2379f.png',
+            main_category=Category.MOBILE,
             categories=['Смартфоны, ТВ и электроника', 'Смартфоны, аксессуары', 'Смартфоны']
         )
 
