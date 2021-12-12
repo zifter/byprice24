@@ -14,4 +14,5 @@ class ProductItem(scrapy.Item):
     rating = scrapy.Field()
     review_count = scrapy.Field()
     preview_url = scrapy.Field()
+    main_category = scrapy.Field()
     categories = scrapy.Field()

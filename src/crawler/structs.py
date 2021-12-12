@@ -45,3 +45,7 @@ class ProductData:
     @property
     def categories(self) -> str:
         return self.item['categories']
+
+    @property
+    def main_category(self) -> str:
+        return self.item['main_category']

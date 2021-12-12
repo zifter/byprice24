@@ -48,7 +48,7 @@ backend-image-test:
 	docker run $(IMAGE_TAG) python3 manage.py check --configuration=${DJANGO_CONFIGURATION}
 	docker run $(IMAGE_TAG) /bin/bash -c "\
 		pytest . --cov=. && \
-		coverage report --include="*_tests.py" --rcfile=pytest.ini --fail-under=100 && \
+		coverage report --include="*tests.py" --rcfile=pytest.ini --fail-under=100 && \
 		coverage report --include="*" --rcfile=pytest.ini --fail-under=94 \
 		"
 
@@ -144,7 +144,7 @@ test:
 	make coverage-report
 
 coverage-report:
-	pipenv run coverage report --include="src/**_tests.py" --rcfile=src/pytest.ini --fail-under=100
+	pipenv run coverage report --include="src/**tests.py" --rcfile=src/pytest.ini --fail-under=100
 	pipenv run coverage report --include="src/*" --rcfile=src/pytest.ini --fail-under=94
 
 open-coverage:
