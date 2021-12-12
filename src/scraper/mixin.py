@@ -2,12 +2,20 @@ import logging
 from typing import Optional
 
 import extruct
-from scraper.items import ProductItem
+from common.item_types import Availability
+from common.item_types import Category
+from scraper.items import ProductScrapingResult
 from scrapy.http import Response
 
 
 class StructuredDataMixin:
-    def parse_structured_data(self, response: Response) -> Optional[ProductItem]:
+    """
+    Это Mixin (примись для наследования), которая расширяет класс Spider для извлечения structured data
+
+    https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data
+    """
+
+    def extract_structured_data(self, response: Response, category: Category) -> Optional[ProductScrapingResult]:
         logging.info('parse_structured_data %s', response.url)
 
         data = extruct.extract(response.text, base_url=response.url)
@@ -23,9 +31,11 @@ class StructuredDataMixin:
             image = properties['image']
             preview_url = image if isinstance(image, str) else image[0]
 
-            product = ProductItem(
+            availability = properties['offers']['properties']['availability'].replace('http://schema.org/', '')
+            product = ProductScrapingResult(
                 url=response.url,
-                name=properties['name'],
+                title=properties['name'],
+                main_category=category,
                 price=float(properties['offers']['properties']['price']),
                 price_currency=properties['offers']['properties']['priceCurrency'],
                 rating=float(
@@ -36,7 +46,7 @@ class StructuredDataMixin:
                     properties['aggregateRating']['properties']['reviewCount']
                     if 'aggregateRating' in properties
                     else '0'),
-                availability=properties['offers']['properties']['availability'].replace('http://schema.org/', ''),
+                availability=Availability(availability),
                 preview_url=preview_url,
                 categories=self.extract_categories(data)
             )

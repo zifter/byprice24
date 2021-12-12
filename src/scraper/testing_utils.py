@@ -5,7 +5,6 @@ from common.paths import TEST_DATA_DIR
 from scrapy.crawler import CrawlerRunner
 from scrapy.http import Request
 from scrapy.http import TextResponse
-from scrapy.spiderloader import SpiderLoader
 from scrapy.utils.project import get_project_settings
 
 PAGES_DIR = TEST_DATA_DIR.joinpath('parsing', 'marketplaces')
@@ -18,7 +17,6 @@ def _get_crawler_runner() -> CrawlerRunner:
 
 
 def get_spider_for_url(url):
-    SpiderLoader
     domain = urlparse(url).netloc
     return _get_crawler_runner().create_crawler(domain)._create_spider()
 
@@ -28,7 +26,7 @@ def assert_spider(url, test_file, expected):
     filepath = PAGES_DIR.joinpath(spider.name, test_file)
 
     fake_response = fake_response_from_file(filepath, url=url)
-    results = list(spider.parse_item(fake_response, category=expected['main_category']))
+    results = list(spider.parse_product(fake_response, category=expected.main_category))
 
     assert len(results) == 1, f'result list len is {len(results)}, but expected 1'
     assert results[0] == expected

@@ -2,8 +2,9 @@ import abc
 import logging
 
 from common import shared_queue
+from common.item_types import Category
 from common.shared_queue import FlowQueueBase
-from scraper.items import ProductItem
+from scraper.items import ProductScrapingResult
 from scraper.pipelines import ScraperPipeline
 
 
@@ -20,7 +21,11 @@ def test_scraper_pipeline_process_ok(monkeypatch):
     monkeypatch.setattr(shared_queue, 'get_flow_queue', fake_queue)
 
     pipeline = ScraperPipeline()
-    item = ProductItem(
+    item = ProductScrapingResult(
         url='https://localhost/test',
+        title='test',
+        main_category=Category.SMARTPHONE,
+        price=0.0,
+        price_currency='BYN',
     )
     assert pipeline.process_item(item, None) is None

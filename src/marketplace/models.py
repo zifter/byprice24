@@ -1,3 +1,5 @@
+from common.item_types import Availability
+from common.item_types import Category
 from django.db import models
 
 """
@@ -30,7 +32,7 @@ class Product(models.Model):
     General information about product
     """
     name = models.CharField(max_length=62, unique=True)
-    category = models.CharField(max_length=62)
+    category = models.CharField(max_length=62, choices=Category.choices())
     description = models.CharField(max_length=32)
     preview_url = models.CharField(max_length=256, null=True)
 
@@ -60,7 +62,7 @@ class ProductState(models.Model):
     price_currency = models.CharField(max_length=8)
     rating = models.FloatField()
     review_count = models.IntegerField()
-    availability = models.CharField(max_length=16, default='')
+    availability = models.CharField(max_length=24, default='', choices=Availability.choices())
 
     def __str__(self):
         return f'{self.product_page} [{self.price} {self.price_currency}]'
