@@ -7,10 +7,10 @@
 import logging
 
 from common import shared_queue
-from scraper.items import ProductItem
+from scraper.items import ProductScrapingResult
 
 
 class ScraperPipeline:
-    def process_item(self, item: ProductItem, spider):
+    def process_item(self, item: ProductScrapingResult, spider):
         logging.info('Process item %s', item)
         shared_queue.get_flow_queue().process_product(item)

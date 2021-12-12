@@ -13,7 +13,7 @@ from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
 from marketplace.models import ProductState
-from scraper.items import ProductItem
+from scraper.items import ProductScrapingResult
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from twisted.internet.defer import Deferred
@@ -82,33 +82,33 @@ class Agent:
 
         return stats.result
 
-    def process_product(self, item: ProductItem):
+    def process_product(self, item: ProductScrapingResult):
         data = ProductData(item)
         logging.info('Process product %s', data)
 
         marketplace = Marketplace.objects.filter(domain=data.domain).get()
 
         product, created = Product.objects.get_or_create(
-            name=data.name,
-            category=data.main_category,
+            name=data.result.title,
+            category=data.result.main_category,
             description='',
-            preview_url=data.preview_url,
+            preview_url=data.result.preview_url,
         )
 
         page, created = ProductPage.objects.get_or_create(
             product=product,
             marketplace=marketplace,
-            url=data.url,
+            url=data.result.url,
         )
 
         _ = ProductState.objects.create(
             product_page=page,
-            created=datetime.now(tz=pytz.UTC),
-            price=data.price,
-            price_currency=data.price_currency,
-            rating=data.rating,
-            review_count=data.review_count,
-            availability=data.availability,
+            created=data.result.timestamp,
+            price=data.result.price,
+            price_currency=data.result.price_currency,
+            rating=data.result.rating,
+            review_count=data.result.review_count,
+            availability=data.result.availability,
         )
 
 
