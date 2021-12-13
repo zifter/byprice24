@@ -16,7 +16,7 @@ class Spider(SpiderBase, StructuredDataMixin):
     ]
 
     rules = (
-        CategoryRule(LinkExtractor(allow=('mobile',)), category=Category.SMARTPHONE),
+        CategoryRule(LinkExtractor(allow=('mobile',)), category=Category.MOBILE),
         CategoryRule(LinkExtractor(allow=('notebooks',)), category=Category.NOTEBOOK),
         CategoryRule(LinkExtractor(allow=('headphones',)), category=Category.HEADPHONE),
     )
