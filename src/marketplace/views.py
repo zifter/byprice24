@@ -2,6 +2,7 @@ from marketplace.filters import ProductSearchFilter
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.serializers import MarketplaceSerializer
+from marketplace.serializers import ProductAvailabilitySerializer
 from marketplace.serializers import ProductSerializer
 from rest_framework import generics
 from rest_framework import viewsets
@@ -34,3 +35,15 @@ class ProductViewSet(generics.ListAPIView):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)
         return Response(data={'results': serializer.data})
+
+
+class ProductAvailabilityViewSet(viewsets.ModelViewSet):
+    """
+    API Product availability on marketplaces
+    """
+    model = Product
+    queryset = Product.objects
+    serializer_class = ProductAvailabilitySerializer
+    lookup_field = 'id'
+    ordering_fields = ('id',)
+    ordering = ('id',)
