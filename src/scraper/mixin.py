@@ -27,6 +27,7 @@ class StructuredDataMixin:
         for item in microdata:
             if item['type'] not in ('https://schema.org/Product', 'http://schema.org/Product'):
                 continue
+
             properties = item['properties']
             image = properties['image']
             preview_url = image if isinstance(image, str) else image[0]
@@ -36,6 +37,7 @@ class StructuredDataMixin:
                 url=response.url,
                 title=properties['name'],
                 main_category=category,
+                description=self.extract_description(data, item),
                 price=float(properties['offers']['properties']['price']),
                 price_currency=properties['offers']['properties']['priceCurrency'],
                 rating=float(
@@ -57,7 +59,6 @@ class StructuredDataMixin:
         if data.get('json-ld'):
             return [item['item']['name'] for item in data['json-ld'][0]['itemListElement']][:-1]
 
-        return [data['microdata'][0]['properties']['category']]
         category = data['microdata'][0]['properties'].get('category')
         if category:
             return [category]
