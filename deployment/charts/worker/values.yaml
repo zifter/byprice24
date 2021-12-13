@@ -75,5 +75,6 @@ postgres:
   username: ""
   password: ""
   host: "localhost"
+  port: "5432"
 
 configuration: Dev

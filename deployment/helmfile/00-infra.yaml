@@ -8,10 +8,13 @@ releases:
     namespace: monitoring
     chart: prometheus-community/kube-prometheus-stack
     installed: {{ .Values.monitoring.enabled | toYaml }}
-    version: 18.0.1
+    version: 23.2.0
     values:
       - releases/prometheus-stack/values.yaml
       - releases/prometheus-stack/values-{{ .Environment.Name }}.yaml
+      - grafana:
+          adminUser: {{ .Values.monitoring.grafana.user | toYaml }}
+          adminPassword: {{ .Values.monitoring.grafana.pass | toYaml }}
 
   - name: ingress-nginx
     namespace: kube-system
@@ -26,43 +29,31 @@ releases:
           metrics:
             enabled: {{ .Values.monitoring.enabled | toYaml }}
 
-  # REDIS
-  - name: redis
-    namespace: default
-    chart: bitnami/redis
-    version: 15.5.1
-    installed: {{ .Values.redis.enabled | toYaml }}
+  # Certificates
+  - name: cert-manager
+    namespace: cert-manager
+    chart: jetstack/cert-manager
+    version: v1.6.1
+    installed: {{ .Values.certManager.enabled | toYaml }}
     values:
-      - releases/redis/values.yaml
-      - releases/redis/values-{{ .Environment.Name }}.yaml
+      - releases/cert-manager/values.yaml
+      - prometheus:
+          enabled: {{ .Values.monitoring.enabled | toYaml }}
 
-  - name: redis-exporter
+  - name: cert-issuer-backoffice
     namespace: monitoring
-    chart: prometheus-community/prometheus-redis-exporter
-    installed: {{ .Values.monitoring.enabled | toYaml }}
-    version: 4.6.0
+    chart: ../charts/cert-issuer
+    installed: {{ .Values.certManager.enabled | toYaml }}
+    values:
+      - releases/cert-issuer/values-backoffice-{{ .Environment.Name }}.yaml
     needs:
-      - prometheus-stack
-    values:
-      - releases/redis-exporter/values.yaml
+      - cert-manager
 
-  # POSTGRES
-  - name: postgres
-    namespace: default
-    chart: bitnami/postgresql
-    version: 10.3.0
-    installed: {{ .Values.postgres.enabled | toYaml }}
-    values:
-      - releases/postgres/values.yaml
-      - releases/postgres/values-{{ .Environment.Name }}.yaml
-
-  - name: postgres-exporter
+  - name: certificates-backoffice
     namespace: monitoring
-    chart: prometheus-community/prometheus-postgres-exporter
-    installed: {{ .Values.monitoring.enabled | toYaml }}
-    version: 2.3.7
-    needs:
-      - prometheus-stack
+    chart: ../charts/certificates
+    installed: {{ .Values.certManager.enabled | toYaml }}
     values:
-      - releases/postgres-exporter/values.yaml
-      - releases/postgres-exporter/values-{{ .Environment.Name }}.yaml
+      - releases/certificates/values-backoffice-{{ .Environment.Name }}.yaml
+    needs:
+      - cert-cluster-issuer

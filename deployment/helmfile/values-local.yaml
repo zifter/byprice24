@@ -1,0 +1,26 @@
+namespace: default
+monitoring:
+  enabled: true
+  grafana:
+    user: admin
+    pass: admin
+
+app:
+  backend: test
+  frontend: test
+  cms:
+    secretKey: 'django-insecure-tfv^rapkl5+j5&c+x64-iy3#m+hpmhyj10f^b(ww2xxu&_#78+'
+
+redis:
+  enabled: true
+
+postgres:
+  enabled: true
+  dbName: byprice24
+  host: postgres-postgresql.default.svc
+  user: "root"
+  pass: "1234"
+  port: "5432"
+
+certManager:
+  enabled: false

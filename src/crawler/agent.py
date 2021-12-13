@@ -9,13 +9,11 @@ from common.shared_queue import get_flow_queue
 from common.shared_queue import ScrapingTarget
 from crawler.models import ScrapingState
 from crawler.structs import ProductData
-from marketplace.enum import ProductCategoryEnum
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
 from marketplace.models import ProductState
-from scraper.items import ProductItem
-from scraper.utils import get_spider
+from scraper.items import ProductScrapingResult
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from twisted.internet.defer import Deferred
@@ -43,7 +41,6 @@ class Agent:
         for scraping in objects:
             target = ScrapingTarget(
                 url='https://' + scraping.marketplace.domain,
-                spider_name=scraping.spider_name,
                 domain=scraping.marketplace.domain,
                 use_proxy=scraping.use_proxy)
 
@@ -55,7 +52,6 @@ class Agent:
     def scrape(self, target: ScrapingTarget):
         logging.info('Scrape %s', target)
 
-        spider = get_spider(target.spider_name)
         settings = {
             'start_urls': [
                 target.url,
@@ -70,7 +66,7 @@ class Agent:
 
         scrapy_failure = None
         process = CrawlerProcess(settings=get_project_settings())
-        stats: Deferred = process.crawl(spider, **settings)
+        stats: Deferred = process.crawl(target.domain, **settings)
 
         def errback(failure: Failure):
             global scrapy_failure
@@ -86,38 +82,34 @@ class Agent:
 
         return stats.result
 
-    def process_product(self, item: ProductItem):
+    def process_product(self, item: ProductScrapingResult):
         data = ProductData(item)
         logging.info('Process product %s', data)
 
         marketplace = Marketplace.objects.filter(domain=data.domain).get()
 
         product, created = Product.objects.get_or_create(
-            name=data.name,
-            category=self.get_category_for_db(data),
+            name=data.result.title,
+            category=data.result.main_category,
             description='',
-            image_url=data.image_url,
+            preview_url=data.result.preview_url,
         )
 
         page, created = ProductPage.objects.get_or_create(
             product=product,
             marketplace=marketplace,
-            url=data.url,
+            url=data.result.url,
         )
 
         _ = ProductState.objects.create(
             product_page=page,
-            created=datetime.now(tz=pytz.UTC),
-            price=data.price,
-            price_currency=data.price_currency
+            created=data.result.timestamp,
+            price=data.result.price,
+            price_currency=data.result.price_currency,
+            rating=data.result.rating,
+            review_count=data.result.review_count,
+            availability=data.result.availability,
         )
-
-    @classmethod
-    def get_category_for_db(cls, data):
-        for category in data.categories:
-            if ProductCategoryEnum.get_by_keywords(category):
-                return ProductCategoryEnum.get_by_keywords(category).value
-            return category
 
 
 def get_agent() -> Agent:

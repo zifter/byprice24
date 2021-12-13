@@ -1,0 +1,26 @@
+namespace: prod
+monitoring:
+  enabled: true
+  grafana:
+    user: {{ requiredEnv "GRAFANA_USER" | quote }}
+    pass: {{ requiredEnv "GRAFANA_PASS" | quote }}
+
+app:
+  backend: latest@{{ requiredEnv "BACKEND_IMAGE_SHA256" }}
+  frontend: latest@{{ requiredEnv "FRONTEND_IMAGE_SHA256" }}
+  cms:
+    secretKey: {{ requiredEnv "DJANGO_SECRET" }}
+
+redis:
+  enabled: true
+
+postgres:
+  enabled: false  # managed service will be used
+  dbName: {{ requiredEnv "POSTGRES_DATABASE" | quote }}
+  host: {{ requiredEnv "POSTGRES_HOST" | quote }}
+  user: {{ requiredEnv "POSTGRES_USER" | quote }}
+  pass: {{ requiredEnv "POSTGRES_PASS" | quote }}
+  port: {{ requiredEnv "POSTGRES_PORT" | quote }}
+
+certManager:
+  enabled: true

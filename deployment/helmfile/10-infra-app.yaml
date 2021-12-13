@@ -1,0 +1,71 @@
+{{ readFile "defaults.yaml" }}
+
+commonLabels:
+  tier: "infra-app"
+
+releases:
+  # REDIS
+  - name: redis
+    namespace: {{ .Values.namespace }}
+    chart: bitnami/redis
+    version: 15.5.1
+    installed: {{ .Values.redis.enabled | toYaml }}
+    values:
+      - releases/redis/values.yaml
+      - releases/redis/values-{{ .Environment.Name }}.yaml
+
+  - name: redis-exporter
+    namespace: {{ .Values.namespace }}
+    chart: prometheus-community/prometheus-redis-exporter
+    installed: {{ .Values.monitoring.enabled | toYaml }}
+    version: 4.6.0
+    needs:
+      - prometheus-stack
+    values:
+      - releases/redis-exporter/values.yaml
+
+  # POSTGRES
+  - name: postgres
+    namespace: {{ .Values.namespace }}
+    chart: bitnami/postgresql
+    version: 10.3.0
+    installed: {{ .Values.postgres.enabled | toYaml }}
+    values:
+      - releases/postgres/values.yaml
+      - releases/postgres/values-{{ .Environment.Name }}.yaml
+      - postgresqlDatabase: {{ .Values.postgres.dbName | toYaml }}
+      - postgresqlUsername: {{ .Values.postgres.user | toYaml }}
+      - postgresqlPassword: {{ .Values.postgres.pass | toYaml }}
+
+  - name: postgres-exporter
+    namespace: {{ .Values.namespace }}
+    chart: prometheus-community/prometheus-postgres-exporter
+    installed: {{ .Values.monitoring.enabled | toYaml }}
+    version: 2.3.7
+    needs:
+      - prometheus-stack
+    values:
+      - releases/postgres-exporter/values.yaml
+      - config:
+          datasource:
+            host: {{ .Values.postgres.host | toYaml }}
+            user: {{ .Values.postgres.user | toYaml }}
+            password: {{ .Values.postgres.pass | toYaml }}
+            database: {{ .Values.postgres.dbName | toYaml }}
+            port: {{ .Values.postgres.port | toYaml }}
+
+  - name: cert-issuer
+    namespace: {{ .Values.namespace }}
+    chart: ../charts/cert-issuer
+    installed: {{ .Values.certManager.enabled | toYaml }}
+    values:
+      - releases/cert-issuer/values-{{ .Environment.Name }}.yaml
+
+  - name: certificates
+    namespace: {{ .Values.namespace }}
+    chart: ../charts/certificates
+    installed: {{ .Values.certManager.enabled | toYaml }}
+    values:
+      - releases/certificates/values-{{ .Environment.Name }}.yaml
+    needs:
+      - cert-cluster-issuer

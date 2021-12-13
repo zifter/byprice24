@@ -1,5 +1,4 @@
 ingress:
-  enabled: true
   hosts:
     - host: localhost
       paths:

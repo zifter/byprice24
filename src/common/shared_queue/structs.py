@@ -1,3 +1,3 @@
 from collections import namedtuple
 
-ScrapingTarget = namedtuple('ScrapingTarget', ['url', 'spider_name', 'domain', 'use_proxy'])
+ScrapingTarget = namedtuple('ScrapingTarget', ['url', 'domain', 'use_proxy'])

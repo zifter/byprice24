@@ -1,7 +1,10 @@
 ingress:
-  enabled: true
+  tls:
+    - secretName: findprice-by-tls
+      hosts:
+        - findprice.by
   hosts:
-    - host: price24.by
+    - host: findprice.by
       paths:
         - path: /
           pathType: Prefix

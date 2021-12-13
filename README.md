@@ -50,39 +50,32 @@ All toolset will be installed via make command:
 make setup-toolset
 ```
 
-#### pipenv
-Pipenv is tool to working with virtual environment.
-
-#### helm
-Package manager for kubernetes.
-
-#### helm diff plugin
-Plugin for showing diff between releases.
-
-#### helmfile
-helmfile is tool for describing helm releases via files.
-
-#### kind
-kind is a tool for running local Kubernetes clusters using Docker container “nodes”.
-
-#### Install git pre-commit hook
-Используем библиотеку [pre-commit](https://pre-commit.com).
+Verify that everithing is installed correctly:
+```bash
+make setup-verify
+```
 
 ### Run
 All commands for controlling cluster is describing in Makefile.
 
+* Run cluster with prepared databases and etc
 ```bash
-# run cluster with prepared applications
 $ make run-dev-cluster
-# run cluster with full setup
+```
+
+* Install byprice24 application to cluster
+```bash
+$ make backend-install
+```
+
+* Run cluster with installed byprice24 application
+```bash
 $ make run-full-cluster
-# install byprice24 application to cluster
-$ make helmfile-sync-backend
 ```
 
 ## Deploy
 ### ScraperAPI
-Proxy for scrabing
+Proxy for scraping
 ```bash
 https://dashboard.scraperapi.com/dashboard
 ```

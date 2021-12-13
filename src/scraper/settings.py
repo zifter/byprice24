@@ -15,7 +15,7 @@ NEWSPIDER_MODULE = 'scraper.spiders'
 DEPTH_STATS_VERBOSE = True
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = 'scraper (+http://www.price24.by)'
+# USER_AGENT = 'scraper (+https://www.findprice.by)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True

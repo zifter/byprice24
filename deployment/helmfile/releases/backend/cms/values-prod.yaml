@@ -1,18 +1,25 @@
 ingress:
-  enabled: true
+  tls:
+    - secretName: findprice-by-tls
+      hosts:
+        - findprice.by
+    - secretName: findprice-site-tls
+      hosts:
+        - findprice.site
   hosts:
-    - host: price24.by
+    - host: findprice.by
+      paths:
+        - path: /api
+          pathType: Prefix
+    - host: findprice.site
       paths:
         - path: /admin
           pathType: Prefix
         - path: /admin-static
           pathType: Prefix
-        - path: /api
-          pathType: Prefix
 
-# TODO
-postgres:
-  dbname: "byprice24"
-  username: "root"
-  password: "1234"
-  host: "postgres-postgresql"
+domain:
+  api: findprice.by
+  admin: findprice.site
+
+configuration: Prod

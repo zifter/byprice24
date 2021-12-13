@@ -1,14 +1,23 @@
 metrics-server:
   enabled: true
+prometheus:
+  monitor:
+    enabled: false
+    additionalLabels: {}
+    namespace: ""
+    interval: ""
+    scrapeTimeout: ""
+    proxyUrl: ""
+    honorLabels: false
 
 prometheusOperator:
   resources:
     limits:
       cpu: 100m
-      memory: 150Mi
+      memory: 200Mi
     requests:
       cpu: 10m
-      memory: 75Mi
+      memory: 100Mi
 
 # Prometheus settings
 prometheus:

@@ -15,11 +15,14 @@ setup-toolset:
 setup-toolset-mac:
 	cd contributing && make setup-pipenv
 	cd contributing && make setup-helm-mac
+	cd contributing && make setup-helm-diff-plugin
 	cd contributing && make setup-helmfile-mac
 	cd contributing && make setup-kind-mac
 	cd contributing && make setup-pre-commit-hook
-	cd contributing && make setup-helm-diff-plugin
 	make pipenv-install
+
+setup-verify:
+	cd contributing && make verify
 
 ######
 # OTHER
@@ -45,8 +48,8 @@ backend-image-test:
 	docker run $(IMAGE_TAG) python3 manage.py check --configuration=${DJANGO_CONFIGURATION}
 	docker run $(IMAGE_TAG) /bin/bash -c "\
 		pytest . --cov=. && \
-		coverage report --include="*_tests.py" --rcfile=pytest.ini --fail-under=100 && \
-		coverage report --include="*" --rcfile=pytest.ini --fail-under=91 \
+		coverage report --include="*tests.py" --rcfile=pytest.ini --fail-under=100 && \
+		coverage report --include="*" --rcfile=pytest.ini --fail-under=94 \
 		"
 
 backend-image-publish: IMAGE_TAG := zifter/byprice24-cms:test
@@ -69,7 +72,7 @@ backend-image-migrations-check:
 
 backend-install: IMAGE_TAG := zifter/byprice24-cms:test
 backend-install:
-	$(info Install actual application to k9s)
+	$(info Install actual application to k8s)
 	make backend-image-build
 	cd deployment && make backend-image-load
 	cd deployment && make backend-helm-install
@@ -98,7 +101,7 @@ frontend-image-update:
 
 frontend-install: IMAGE_TAG := zifter/byprice24-site:test
 frontend-install:
-	$(info Install actual application to k9s)
+	$(info Install actual application to k8s)
 	make frontend-image-build
 	cd deployment && make frontend-image-load
 	cd deployment && make frontend-helm-install
@@ -141,8 +144,8 @@ test:
 	make coverage-report
 
 coverage-report:
-	pipenv run coverage report --include="src/**_tests.py" --rcfile=src/pytest.ini --fail-under=100
-	pipenv run coverage report --include="src/*" --rcfile=src/pytest.ini --fail-under=91
+	pipenv run coverage report --include="src/**tests.py" --rcfile=src/pytest.ini --fail-under=100
+	pipenv run coverage report --include="src/*" --rcfile=src/pytest.ini --fail-under=94
 
 open-coverage:
 	make pytest

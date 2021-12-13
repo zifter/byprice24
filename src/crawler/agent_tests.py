@@ -1,7 +1,9 @@
+from common.item_types import Availability
+from common.item_types import Category
 from common.shared_queue import FlowQueueBase
 from crawler.agent import Agent
 from django.test import TestCase
-from scraper.items import ProductItem
+from scraper.items import ProductScrapingResult
 
 
 class AgentTestCase(TestCase):
@@ -16,12 +18,16 @@ class AgentTestCase(TestCase):
         mock = FlowQueueBase()
         agent = Agent(mock)
 
-        item = ProductItem(
+        item = ProductScrapingResult(
             url='https://www.21vek.by/mobile/x3pro8gb256gb_poco_01.html',
-            name='Смартфон POCO X3 Pro 8GB/256GB (синий)',
+            title='Смартфон POCO X3 Pro 8GB/256GB (синий)',
+            main_category=Category.SMARTPHONE,
             price=1049.0,
             price_currency='BYN',
-            image_url='https://static.21vek.by/img/galleries/6632/831/preview_b/x3pro8gb256gb_poco_01_60dd5ddb2379f.png',
+            availability=Availability.InStock,
+            rating=5.0,
+            review_count=4,
+            preview_url='https://static.21vek.by/img/galleries/6632/831/preview_b/x3pro8gb256gb_poco_01_60dd5ddb2379f.png',
             categories=['Смартфоны, ТВ и электроника', 'Смартфоны, аксессуары', 'Смартфоны']
         )
 

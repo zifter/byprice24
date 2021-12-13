@@ -4,8 +4,13 @@ prometheus:
     routePrefix: "/prometheus"
 
   ingress:
+    tls:
+      - secretName: findprice-site-tls
+        hosts:
+          - findprice.site
     hosts:
-      - price24.by
+      - findprice.site
+    pathType: Prefix
     paths:
       - "/prometheus(/|$)(.*)"
 
@@ -14,26 +19,32 @@ alertmanager:
   ingress:
     annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /$2
+    tls:
+      - secretName: findprice-site-tls
+        hosts:
+          - findprice.site
     hosts:
-      - price24.by
+      - findprice.site
+    pathType: Prefix
     paths:
       - "/alertmanager(/|$)(.*)"
 
 # Grafana settings
 grafana:
-  # TODO
-  adminUser: admin
-  adminPassword: admin
-
   grafana.ini:
     server:
-      domain: price24.by
-      root_url: https://price24.by:1080/grafana/
+      domain: findprice.site
+      root_url: https://findprice.site:1080/grafana/
       serve_from_sub_path: true
 
   ingress:
     annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /$2
+    tls:
+      - secretName: findprice-site-tls
+        hosts:
+          - findprice.site
     hosts:
-      - price24.by
+      - findprice.site
+    pathType: Prefix
     path: "/grafana(/|$)(.*)"

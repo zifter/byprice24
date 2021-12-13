@@ -6,7 +6,6 @@
 - model: crawler.scrapingstate
   fields:
     marketplace: 1
-    spider_name: schema.org
 
 - model: marketplace.marketplace
   pk: 2
@@ -16,4 +15,3 @@
 - model: crawler.scrapingstate
   fields:
     marketplace: 2
-    spider_name: schema.org

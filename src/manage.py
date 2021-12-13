@@ -6,6 +6,7 @@ import sys
 
 if __name__ == '__main__':
     """Run administrative tasks."""
+    os.environ.setdefault('SCRAPY_SETTINGS_MODULE', 'scraper.settings')
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cms.settings')
     os.environ.setdefault('DJANGO_CONFIGURATION', 'Dev')
 

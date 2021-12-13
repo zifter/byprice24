@@ -1,3 +1,5 @@
+from typing import List
+
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -11,13 +13,31 @@ class MarketplaceSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ProductSerializer(serializers.ModelSerializer):
+class ProductSearchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = '__all__'
 
+    def to_representation(self, instance):
+        product_offers = self.get_offers(instance)
+        return {'marketplaces_count_instock': len(instance.product_pages),
+                'min_offer': min(product_offers, key=lambda x: x['price']),
+                **super().to_representation(instance)}
 
-class ProductSearchSerializer(serializers.Serializer):
+    @staticmethod
+    def get_offers(instance) -> List[dict, ]:
+        price_offers = []
+        product_pages = instance.product_pages
+
+        for page in product_pages:
+            product_state = max(page.product_state, key=lambda x: x.created)
+            price_offers.append(dict(price=float(product_state.price),
+                                     price_currency=product_state.price_currency))
+
+        return price_offers
+
+
+class ProductQuerySerializer(serializers.Serializer):
     query = serializers.CharField(min_length=3)
 
 
@@ -48,3 +68,8 @@ class ProductAvailabilitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ['id', 'name', 'category', 'description', 'image_url', 'product_pages']
+
+    def to_representation(self, instance):
+        response = super().to_representation(instance)
+        response['product_state'] = sorted(response['product_state'], key=lambda x: x['product_state']['price'])
+        return

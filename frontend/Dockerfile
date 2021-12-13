@@ -1,23 +1,27 @@
-# pull official base image
-FROM node:17.1.0-alpine
+# The first image is for compiling the client files, the second is for serving.
 
-# set working directory
+# BUILD IMAGE
+FROM node:14-alpine as build-stage
+
 WORKDIR /app
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+# Install dependencies
+COPY package*.json ./
+RUN npm install
 
-# install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install --silent
-# RUN npm install react-scripts@4.0.3 -g --silent
+# Build
+COPY . .
+RUN npm run build
 
-ENV NODE_OPTIONS --openssl-legacy-provider
+# -----------------------------------------------------------------------------
+# SERVING IMAGE
+FROM fitiavana07/nginx-react
 
-# add app
-COPY . ./
+# Copy built files
+COPY --from=build-stage /app/build /usr/share/nginx/html
 
-# start app
-EXPOSE 3000
-CMD ["yarn", "start"]
+# 80 for HTTP
+EXPOSE 80
+
+# Run nginx
+CMD nginx -g 'daemon off;'
