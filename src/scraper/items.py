@@ -20,6 +20,7 @@ class ProductScrapingResult:
     url: str = attr.ib(validator=attr.validators.instance_of(str))
     title: str = attr.ib(validator=attr.validators.instance_of(str))
     main_category: Category = attr.ib(validator=attr.validators.instance_of(Category))
+    description: str = attr.ib(validator=attr.validators.instance_of(str))
     price: float = attr.ib(validator=attr.validators.instance_of(float))
     price_currency: str = attr.ib(validator=attr.validators.instance_of(str))
     timestamp: datetime = attr.ib(default=datetime.now(tz=pytz.UTC))

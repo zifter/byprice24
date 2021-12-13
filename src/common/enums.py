@@ -15,13 +15,7 @@ class ExtendedEnum(Enum):
         return list(map(lambda c: (c.name, c.value), cls))
 
 
-class BaseEnum(Enum):
-    @classmethod
-    def get_by_value(cls, value):
-        return next(filter(lambda x: x.value == value, cls))
-
-
-class KeywordsEnum(BaseEnum):
+class KeywordsEnum(Enum):
     def __init__(self, *args):
         self._value_, self.keywords = args
 

@@ -16,7 +16,7 @@ class Availability(ExtendedEnum):
 
 
 class Category(ExtendedEnum):
-    SMARTPHONE = 'Smartphone'
+    MOBILE = 'Mobile'
     NOTEBOOK = 'Notebook'
     MONITOR = 'Monitor'
     DESKTOP = 'Desktop'
@@ -26,4 +26,4 @@ class Category(ExtendedEnum):
     LEGO = 'ConstructionSet'
     COSMETIC = 'Cosmetic'
     BOOK = 'Book'
-    SMART_ACCESSORY = 'SmartAccessory'
+    SMART_GADGET = 'SmartGadget'
