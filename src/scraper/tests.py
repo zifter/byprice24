@@ -46,3 +46,20 @@ def test_spider_21vek_by():
     )
 
     assert_spider(url, 'poco-pro-x3.html', expected)
+
+
+def test_spider_amd_by():
+    url = 'https://www.amd.by/mobile/poco-x3-pro-6gb128gb-mezhdunarodnaya-versiya-bronzovyi/'
+    expected = ProductScrapingResult(
+        url=url,
+        title='Смартфон POCO X3 Pro 6GB/128GB международная версия (бронзовый)',
+        description='Android, экран 6.67" IPS (1080x2400), Qualcomm Snapdragon 860, ОЗУ 6 ГБ, флэш-память 128 ГБ, карты памяти, камера 48 Мп, аккумулятор 5160 мАч, 2 SIM',
+        price=873.63,
+        price_currency='BYN',
+        availability=Availability.InStock,
+        preview_url='https://www.amd.by/image/cache/catalog/products/628688/1633610376-500x500.jpg',
+        main_category=Category.MOBILE,
+        categories=[],
+    )
+
+    assert_spider(url, 'poco-pro-x3.html', expected)
