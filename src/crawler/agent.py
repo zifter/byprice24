@@ -91,7 +91,7 @@ class Agent:
         product, created = Product.objects.get_or_create(
             name=data.result.title,
             category=data.result.main_category,
-            description='',
+            description=data.result.description,
             preview_url=data.result.preview_url,
         )
 
@@ -99,6 +99,7 @@ class Agent:
             product=product,
             marketplace=marketplace,
             url=data.result.url,
+            description=data.result.description,
         )
 
         _ = ProductState.objects.create(

@@ -24,7 +24,8 @@ def test_scraper_pipeline_process_ok(monkeypatch):
     item = ProductScrapingResult(
         url='https://localhost/test',
         title='test',
-        main_category=Category.SMARTPHONE,
+        main_category=Category.MOBILE,
+        description='test',
         price=0.0,
         price_currency='BYN',
     )

@@ -33,7 +33,7 @@ class Product(models.Model):
     """
     name = models.CharField(max_length=62, unique=True)
     category = models.CharField(max_length=62, choices=Category.choices())
-    description = models.CharField(max_length=32)
+    description = models.CharField(max_length=512)
     preview_url = models.CharField(max_length=256, null=True)
 
     def __str__(self):
@@ -47,6 +47,7 @@ class ProductPage(models.Model):
     product = models.ForeignKey(Product, related_name='product_pages', on_delete=models.CASCADE)
     marketplace = models.ForeignKey(Marketplace, related_name='marketplace', on_delete=models.CASCADE)
     url = models.CharField(max_length=256)
+    description = models.CharField(max_length=512)
 
     def __str__(self):
         return f'{self.product} [{self.marketplace}]'
