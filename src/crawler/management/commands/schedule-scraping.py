@@ -9,5 +9,5 @@ class Command(BaseCommand):
         parser.add_argument('--force', action='store_true', default=False)
 
     def handle(self, *args, **options):
-        force = 'force' in options
+        force = options.get('force', False)
         get_agent().schedule(force=force)
