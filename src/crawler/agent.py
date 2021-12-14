@@ -25,7 +25,7 @@ class Agent:
         self.queue = queue
 
     def schedule(self, marketplace=None, force=False):
-        logging.info('Schedule marketplace %s, force %s', marketplace, force)
+        logging.info('Schedule marketplace [%s], force [%s]', marketplace, force)
         now = datetime.now(tz=pytz.UTC)
 
         filter_args = {}
@@ -39,6 +39,8 @@ class Agent:
         objects: List[ScrapingState] = ScrapingState.objects.filter(**filter_args)
 
         for scraping in objects:
+            logging.info(scraping.marketplace.domain)
+
             target = ScrapingTarget(
                 url='https://' + scraping.marketplace.domain,
                 domain=scraping.marketplace.domain,
@@ -55,9 +57,6 @@ class Agent:
         settings = {
             'start_urls': [
                 target.url,
-            ],
-            'allowed_domains': [
-                target.domain
             ],
             'use_proxy': [
                 target.use_proxy
