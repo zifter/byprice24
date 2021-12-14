@@ -93,3 +93,6 @@ postgres:
 
 configuration: Dev
 secretKey: ''
+
+scheduleScraping:
+  force: false
