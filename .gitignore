@@ -131,5 +131,8 @@ dmypy.json
 # MacOs system file
 .DS_Store
 
+# VS Code IDE
+.vscode/
+
 tmp
 static
