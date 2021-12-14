@@ -22,4 +22,7 @@ domain:
   api: findprice.by
   admin: findprice.site
 
+cron: "0 * * * *"
+suspend: false
+
 configuration: Prod

@@ -12,3 +12,5 @@ ingress:
 domain:
   api: localhost
   admin: localhost
+
+suspend: true
