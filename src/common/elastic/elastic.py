@@ -27,6 +27,14 @@ class ElasticManager(ElasticBase):
     def insert_data(self, data: dict) -> dict:
         return self.client.index(index=self.index_name, document=data)
 
-    def search_data(self, query) -> list:
-        data = self.client.search(index=self.index_name, query=get_search_settings(query))
-        return data['hits']['hits']
+    def search_data(self, query: str, page_size: int, page: int) -> dict:
+        resp = self.client.search(index=self.index_name, query=get_search_settings(query), scroll='1m', size=page_size)
+        return self.get_paginated_data(resp, int(page))
+
+    def get_paginated_data(self, resp, page):
+        for page in range(1, page):
+            resp = self.client.scroll(scroll_id=resp['_scroll_id'], scroll='1s')
+        return dict(count=resp['hits']['total']['value'],
+                    next=page + 1,
+                    previous=page - 1,
+                    objects=resp['hits']['hits'])

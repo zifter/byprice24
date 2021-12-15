@@ -18,5 +18,5 @@ class ElasticBase:
         pass
 
     @abc.abstractmethod
-    def search_data(self, query):
+    def search_data(self, query: str, page_size: int, page: int):
         pass

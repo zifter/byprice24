@@ -4,14 +4,14 @@ from common.elastic.elastic import ElasticManager
 from django.db.models import Prefetch
 from marketplace.models import ProductPage
 
-ELASTICSEARCH_PRODUCT_INDEX_NAME = 'product'
+ELASTICSEARCH_PRODUCT_INDEX = 'product'
 
 
 class ElasticProductLoader:
     @classmethod
     def load(cls, product):
         transformed_product = cls.transform(product)
-        return ElasticManager(ELASTICSEARCH_PRODUCT_INDEX_NAME).insert_data(transformed_product)
+        return ElasticManager(ELASTICSEARCH_PRODUCT_INDEX).insert_data(transformed_product)
 
     @classmethod
     def transform(cls, product) -> dict:

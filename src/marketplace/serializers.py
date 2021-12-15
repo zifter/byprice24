@@ -28,3 +28,4 @@ class ProductSearchSerializer(serializers.Serializer):
 
 class ProductQuerySerializer(serializers.Serializer):
     query = serializers.CharField(min_length=3)
+    page = serializers.IntegerField()
