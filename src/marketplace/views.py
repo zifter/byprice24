@@ -5,7 +5,6 @@ from marketplace.serializers import MarketplaceSerializer
 from marketplace.serializers import ProductQuerySerializer
 from marketplace.serializers import ProductSearchSerializer
 from rest_framework import viewsets
-from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -20,10 +19,6 @@ class MarketplaceViewSet(viewsets.ModelViewSet):
     lookup_field = 'domain'
     ordering_fields = ('domain',)
     ordering = ('domain',)
-
-
-class ProductsPagination(PageNumberPagination):
-    page_size = 10
 
 
 class ProductViewSet(APIView):
@@ -41,6 +36,6 @@ class ProductViewSet(APIView):
         data = ElasticManager(ELASTICSEARCH_PRODUCT_INDEX).search_data(query_param, self.page_size, page)
         serializer = ProductSearchSerializer(data['objects'], many=True)
         return Response(data={'count': data['count'],
-                              'next': data['next'],
-                              'previous': data['previous'],
+                              'next_page': data['next_page'],
+                              'previous_page': data['previous_page'],
                               'results': serializer.data})

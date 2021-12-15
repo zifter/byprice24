@@ -31,10 +31,10 @@ class ElasticManager(ElasticBase):
         resp = self.client.search(index=self.index_name, query=get_search_settings(query), scroll='1m', size=page_size)
         return self.get_paginated_data(resp, int(page))
 
-    def get_paginated_data(self, resp, page):
+    def get_paginated_data(self, resp: dict, page: int):
         for page in range(1, page):
             resp = self.client.scroll(scroll_id=resp['_scroll_id'], scroll='1s')
         return dict(count=resp['hits']['total']['value'],
-                    next=page + 1,
-                    previous=page - 1,
+                    next_page=page + 1,
+                    previous_page=page - 1,
                     objects=resp['hits']['hits'])
