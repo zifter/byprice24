@@ -11,3 +11,7 @@ class FlowQueueBase:
     @abc.abstractmethod
     def process_product(self, product):
         pass
+
+    @abc.abstractmethod
+    def push_query(self, query):
+        pass
