@@ -46,10 +46,6 @@ jobs:
       - name: Test Docker Image
         run: make backend-image-test IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
 
-      - name: Docker Compose Down
-        working-directory: ./backend
-        run: make docker-compose-down
-
       - name: Publish Docker Image
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}

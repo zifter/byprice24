@@ -45,8 +45,8 @@ backend-image-test: IMAGE_TAG := zifter/byprice24-cms:test
 backend-image-test: DJANGO_CONFIGURATION := Test
 backend-image-test:
 	$(info Run tests for docker image)
-	docker run $(IMAGE_TAG) python3 manage.py check --configuration=${DJANGO_CONFIGURATION}
-	docker run $(IMAGE_TAG) /bin/bash -c "\
+	docker run --rm --network=backend $(IMAGE_TAG) python3 manage.py check --configuration=${DJANGO_CONFIGURATION}
+	docker run --rm --network=backend --env-file=backend/image-test.env $(IMAGE_TAG) /bin/bash -c "\
 		pytest . --cov=. && \
 		coverage report --include="*tests.py" --rcfile=pytest.ini --fail-under=100 && \
 		coverage report --include="*" --rcfile=pytest.ini --fail-under=95 \
@@ -68,7 +68,7 @@ backend-image-update:
 backend-image-migrations-check: IMAGE_TAG := zifter/byprice24-cms:test
 backend-image-migrations-check:
 	$(info Check if migrations is needed)
-	docker run $(IMAGE_TAG) python3 manage.py makemigrations --check --dry-run
+	docker run --rm --network=backend $(IMAGE_TAG) python3 manage.py makemigrations --check --dry-run
 
 backend-install: IMAGE_TAG := zifter/byprice24-cms:test
 backend-install:

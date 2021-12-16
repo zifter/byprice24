@@ -1,8 +1,9 @@
-version: "2"
+version: "4"
 
 networks:
   backend:
-    external: false
+    name: backend
+    driver: bridge
 
 volumes:
   postgres:
@@ -14,17 +15,19 @@ services:
   redis:
     image: bitnami/redis:6.2.6-debian-10-r0
     container_name: dc-redis
+    # network_mode: host
     restart: always
     environment:
        - ALLOW_EMPTY_PASSWORD=yes
     ports:
-      - 6379:6379
+      - "6379:6379"
     networks:
       - backend
 
   postgres:
     image: bitnami/postgresql:11.10.0-debian-10-r83
     container_name: dc-postgres
+    # network_mode: host
     restart: always
     environment:
       - POSTGRES_USER=root
@@ -35,17 +38,16 @@ services:
     volumes:
       - postgres:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - "5432:5432"
 
-  es01:
+  elasticsearch01:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.16.1
-    container_name: dc-es01
+    container_name: dc-elasticsearch01
+    # network_mode: host
     environment:
-      - node.name=es01
+      - node.name=elasticsearch01
       - cluster.name=es-docker-cluster
-      - cluster.initial_master_nodes=es01
-#      - bootstrap.memory_lock=true
-#      - "ES_JAVA_OPTS=-Xms256M -Xmx256M"
+      - cluster.initial_master_nodes=elasticsearch01
     networks:
       - backend
     ulimits:
@@ -56,4 +58,4 @@ services:
     volumes:
       - es01:/usr/share/elasticsearch/data
     ports:
-      - 9200:9200
+      - "9200:9200"
