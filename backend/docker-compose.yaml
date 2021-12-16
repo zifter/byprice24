@@ -8,7 +8,7 @@ networks:
 volumes:
   postgres:
     driver: local
-  es01:
+  elasticsearch01:
     driver: local
 
 services:
@@ -56,7 +56,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - es01:/usr/share/elasticsearch/data
+      - elasticsearch01:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
     healthcheck:

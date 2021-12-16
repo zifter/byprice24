@@ -103,7 +103,7 @@ class Agent:
         search = ProductDocument.search().query(q)
         _ = search.execute()
         for hit in search:
-            print(hit.title)
+            print(hit.name)
 
         product, created = Product.objects.get_or_create(
             name=data.result.title,
