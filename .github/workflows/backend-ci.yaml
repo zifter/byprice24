@@ -5,6 +5,7 @@ on:
       - main
     paths:
       - '**/backend-ci.yaml'
+      - backend/**
       - src/**
       - fixtures/**
       - testdata/**
@@ -16,6 +17,7 @@ on:
       - main
     paths:
       - '**/backend-ci.yaml'
+      - backend/**
       - src/**
       - fixtures/**
       - testdata/**
@@ -37,8 +39,16 @@ jobs:
       - name: Check Migrations Docker Image
         run: make backend-image-migrations-check IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
 
+      - name: Docker Compose Up
+        working-directory: ./backend
+        run: make docker-compose-up
+
       - name: Test Docker Image
         run: make backend-image-test IMAGE_TAG=zifter/byprice24-cms:${GITHUB_REF##*/}
+
+      - name: Docker Compose Down
+        working-directory: ./backend
+        run: make docker-compose-down
 
       - name: Publish Docker Image
         env:

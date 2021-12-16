@@ -22,7 +22,6 @@ class MarketplaceViewTestCase(TestCase):
         ('id', 1),
         ('domain', 'localhost'),
         ('description', ''),
-        ('rating', 0),
         ('logo_url', 'https://www.test.by/')
     ])
 

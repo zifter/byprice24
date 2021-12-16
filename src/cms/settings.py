@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 
 from common.paths import REPO_DIR
-from common.paths import TMP_DIR
 from common.shared_queue.redis_queue import CRAWLER_FEED
 from common.shared_queue.redis_queue import CRAWLER_RESULT
 from configurations import Configuration
@@ -197,14 +196,7 @@ class Dev(PostgresMixin, Base):
 
 
 class Test(Dev):
-    # Database
-    # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': TMP_DIR / 'db.sqlite3',
-        }
-    }
+    pass
 
 
 class Prod(PostgresMixin, Base):
