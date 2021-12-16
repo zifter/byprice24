@@ -59,3 +59,18 @@ services:
       - es01:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
+    healthcheck:
+      test: curl -s http://elasticsearch01:9200 >/dev/null || exit 1
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  ready-check:
+    image: alpine
+    depends_on:
+      redis:
+        condition: service_started
+      postgres:
+        condition: service_started
+      elasticsearch01:
+        condition: service_healthy
