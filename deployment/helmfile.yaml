@@ -1,7 +1,7 @@
 environments:
   local:
     values:
-      - ./helmfile/values-local.yaml
+      - ./helmfile/values-local.yaml.gotmpl
 
   prod:
     values:

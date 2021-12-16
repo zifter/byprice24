@@ -59,7 +59,11 @@ class StructuredDataMixin:
         if data.get('json-ld'):
             return [item['item']['name'] for item in data['json-ld'][0]['itemListElement']][:-1]
 
-        return [data['microdata'][0]['properties']['category']]
+        category = data['microdata'][0]['properties'].get('category')
+        if category:
+            return [category]
+
+        return []
 
     @classmethod
     def extract_description(cls, data, item) -> str:

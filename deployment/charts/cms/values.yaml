@@ -93,3 +93,9 @@ postgres:
 
 configuration: Dev
 secretKey: ''
+
+cron: "0 0 * * *"
+suspend: false
+
+scheduleScraping:
+  force: false
