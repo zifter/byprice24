@@ -1,0 +1,58 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "cms.fullname" . }}-build-index
+  labels:
+    {{- include "cms.labels" . | nindent 4 }}
+spec:
+  suspend: true
+  parallelism: 1
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 12 }}
+      {{- end }}
+      labels:
+        {{- include "cms.selectorLabels" . | nindent 12 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 12 }}
+      {{- end }}
+      restartPolicy: OnFailure
+      serviceAccountName: {{ include "cms.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 12 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 16 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args:
+            - python3
+            - manage.py
+            - schedule-scraping
+            {{- if .Values.scheduleScraping.force -}}
+            - --force
+            {{- end }}
+          env:
+            - name: DJANGO_CONFIGURATION
+              value: {{ .Values.configuration | quote }}
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: RQ_REDIS_URL
+              value: {{ .Values.redis.url | quote }}
+            - name: DB_NAME
+              value: {{ .Values.postgres.dbname | quote }}
+            - name: DB_USERNAME
+              value: {{ .Values.postgres.username | quote }}
+            - name: DB_PASSWORD
+              value: {{ .Values.postgres.password | quote }}
+            - name: DB_HOST
+              value: {{ .Values.postgres.host | quote }}
+            - name: DB_PORT
+              value: {{ .Values.postgres.port | quote }}

@@ -23,7 +23,7 @@ class MarketplaceViewTestCase(TestCase):
         ('domain', 'localhost'),
         ('description', ''),
         ('rating', 0),
-        ('image_logo_url', 'https://www.test.by/')
+        ('logo_url', 'https://www.test.by/')
     ])
 
     def setUp(self):

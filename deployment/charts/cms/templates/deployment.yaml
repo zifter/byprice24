@@ -31,7 +31,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
             - python3
@@ -39,24 +39,7 @@ spec:
             - runserver
             - 0.0.0.0:8080
           env:
-            - name: DJANGO_CONFIGURATION
-              value: {{ .Values.configuration | quote }}
-            - name: POD_IP
-              valueFrom:
-                fieldRef:
-                  fieldPath: status.podIP
-            - name: RQ_REDIS_URL
-              value: {{ .Values.redis.url | quote }}
-            - name: DB_NAME
-              value: {{ .Values.postgres.dbname | quote }}
-            - name: DB_USERNAME
-              value: {{ .Values.postgres.username | quote }}
-            - name: DB_PASSWORD
-              value: {{ .Values.postgres.password | quote }}
-            - name: DB_HOST
-              value: {{ .Values.postgres.host | quote }}
-            - name: DB_PORT
-              value: {{ .Values.postgres.port | quote }}
+            {{- include "cms-lib.env" . | nindent 12 }}
           ports:
             - name: http
               containerPort: 8080
@@ -72,36 +55,17 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       initContainers:
-        - name: {{ .Chart.Name }}-migrate
+        - name: migrate
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
             - python3
             - manage.py
             - migrate
           env:
-            - name: DOMAIN_API
-              value: {{ .Values.domain.api | quote }}
-            - name: DOMAIN_ADMIN
-              value: {{ .Values.domain.admin | quote }}
-            - name: RQ_REDIS_URL
-              value: {{ .Values.redis.url | quote }}
-            - name: DJANGO_CONFIGURATION
-              value: {{ .Values.configuration | quote }}
-            - name: DB_NAME
-              value: {{ .Values.postgres.dbname | quote }}
-            - name: DB_USERNAME
-              value: {{ .Values.postgres.username | quote }}
-            - name: DB_PASSWORD
-              value: {{ .Values.postgres.password | quote }}
-            - name: DB_HOST
-              value: {{ .Values.postgres.host | quote }}
-            - name: DB_PORT
-              value: {{ .Values.postgres.port | quote }}
-            - name: SECRET_KEY
-              value: {{ .Values.secretKey | quote }}
+            {{- include "cms-lib.env" . | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

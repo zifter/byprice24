@@ -9,6 +9,8 @@ from common.shared_queue import get_flow_queue
 from common.shared_queue import ScrapingTarget
 from crawler.models import ScrapingState
 from crawler.structs import ProductData
+from elasticsearch_dsl import Q
+from marketplace.documents import ProductDocument
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -87,6 +89,22 @@ class Agent:
 
         marketplace = Marketplace.objects.filter(domain=data.domain).get()
 
+        q = Q(
+            'multi_match',
+            query=data.result.title,
+            fields=[
+                'name',
+                'description',
+            ],
+            fuzziness='auto',
+            auto_generate_synonyms_phrase_query=True,
+        )
+
+        search = ProductDocument.search().query(q)
+        _ = search.execute()
+        for hit in search:
+            print(hit.title)
+
         product, created = Product.objects.get_or_create(
             name=data.result.title,
             category=data.result.main_category,
@@ -98,6 +116,7 @@ class Agent:
             product=product,
             marketplace=marketplace,
             url=data.result.url,
+            name=data.result.title,
             description=data.result.description,
         )
 

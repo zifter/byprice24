@@ -47,6 +47,7 @@ class Base(Configuration):
         'health_check.storage',
         'health_check.contrib.migrations',
         'django_rq',
+        'django_elasticsearch_dsl',
         'marketplace',
         'crawler',
     ]
@@ -167,6 +168,13 @@ class Base(Configuration):
     }
 
     RQ_SHOW_ADMIN_LINK = True
+
+    # https://django-elasticsearch-dsl.readthedocs.io/en/latest/quickstart.html
+    ELASTICSEARCH_DSL = {
+        'default': {
+            'hosts': os.getenv('ELASTICSEARCH_DSL', 'localhost:9200'),
+        },
+    }
 
 
 class PostgresMixin:

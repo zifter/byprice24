@@ -19,14 +19,12 @@ class Marketplace(models.Model):
     """
     domain = models.CharField(max_length=32, unique=True)
     description = models.CharField(max_length=32, blank=True)
-    rating = models.IntegerField(default=0)
-    image_logo_url = models.URLField(blank=True)
+    logo_url = models.URLField(blank=True)
 
     def __str__(self):
         return str(self.domain)
 
 
-# Create your models here.
 class Product(models.Model):
     """
     General information about product
@@ -47,6 +45,7 @@ class ProductPage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     marketplace = models.ForeignKey(Marketplace, on_delete=models.CASCADE)
     url = models.CharField(max_length=256)
+    name = models.CharField(max_length=62, unique=True)
     description = models.CharField(max_length=512)
 
     def __str__(self):

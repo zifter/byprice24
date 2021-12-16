@@ -30,7 +30,7 @@ releases:
     values:
       - releases/backend/worker/values.yaml
       - releases/backend/worker/values-crawler.yaml
-      - releases/backend/worker//values-{{ .Environment.Name }}.yaml
+      - releases/backend/worker/values-{{ .Environment.Name }}.yaml
       - image:
           tag: {{ .Values.app.backend }}
       - postgres:
@@ -39,6 +39,7 @@ releases:
           password: {{ .Values.postgres.pass }}
           host: {{ .Values.postgres.host }}
           port: {{ .Values.postgres.port }}
+      - secretKey: {{ .Values.app.cms.secretKey }}
 
   - name: worker-etc
     namespace: {{ .Values.namespace }}
@@ -48,6 +49,7 @@ releases:
     values:
       - releases/backend/worker/values.yaml
       - releases/backend/worker/values-etc.yaml
+      - releases/backend/worker/values-{{ .Environment.Name }}.yaml
       - image:
           tag: {{ .Values.app.backend }}
       - postgres:
@@ -56,6 +58,7 @@ releases:
           password: {{ .Values.postgres.pass }}
           host: {{ .Values.postgres.host }}
           port: {{ .Values.postgres.port }}
+      - secretKey: {{ .Values.app.cms.secretKey }}
 
   # Frontend
   - name: site

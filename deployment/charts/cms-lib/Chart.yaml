@@ -1,0 +1,5 @@
+apiVersion: v2
+name: cms-lib
+description: Common library for cms based helm charts
+type: library
+version: 0.1.0
