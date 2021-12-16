@@ -4,14 +4,14 @@
     domain: www.21vek.by
     description: ''
     rating: 0
-    image_logo_url: https://www.21vek.by/img/up/logo_21vek.by.png
+    logo_url: https://www.21vek.by/img/up/logo_21vek.by.png
 - model: marketplace.marketplace
   pk: 2
   fields:
     domain: www.ilp.by
     description: ''
     rating: 0
-    image_logo_url: https://userimages.shopmanager.by/3100630/ilp-logo.png
+    logo_url: https://userimages.shopmanager.by/3100630/ilp-logo.png
 - model: marketplace.product
   pk: 1
   fields:
