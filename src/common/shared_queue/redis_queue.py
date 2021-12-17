@@ -43,5 +43,5 @@ class FlowQueueRedis(FlowQueueBase):
     def process_product(self, product):
         self.result.enqueue('crawler.tasks.process_product', product, job_timeout=30)
 
-    def push_query(self, query: str):
-        self.query.enqueue('crawler.tasks.push_query', query, job_timeout=1)
+    def push_query(self, query: str, number_found_products):
+        self.query.enqueue('crawler.tasks.push_query', query, number_found_products, job_timeout=1)

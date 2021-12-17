@@ -50,6 +50,7 @@ class Base(Configuration):
         'django_rq',
         'marketplace',
         'crawler',
+        'search',
     ]
 
     REST_FRAMEWORK = {

@@ -13,5 +13,5 @@ class FlowQueueBase:
         pass
 
     @abc.abstractmethod
-    def push_query(self, query):
+    def push_query(self, query, number_found_products):
         pass
