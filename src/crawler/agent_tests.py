@@ -1,9 +1,13 @@
+from unittest.mock import patch
+
 from common.item_types import Availability
 from common.item_types import Category
 from common.shared_queue import FlowQueueBase
 from crawler.agent import Agent
 from django.core.management import call_command
 from django.test import TestCase
+from marketplace.mock_elastic import mocked_elastic_manager
+from marketplace.mock_elastic import mocked_list_ok_elastic
 from scraper.items import ProductScrapingResult
 
 
@@ -21,6 +25,8 @@ class AgentTestCase(TestCase):
         agent = Agent(mock)
         agent.schedule()
 
+    @patch('common.elastic.elastic.ElasticManager.insert_data', mocked_list_ok_elastic)
+    @patch('common.elastic.elastic.ElasticManager.__init__', mocked_elastic_manager)
     def test_process_product(self):
         mock = FlowQueueBase()
         agent = Agent(mock)

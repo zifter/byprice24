@@ -1,0 +1,14 @@
+architecture: standalone
+auth:
+  enabled: false
+
+cluster:
+  enabled: false
+
+serviceAccount:
+  create: true
+  name: elasticsearch
+
+master:
+  persistence:
+    enabled: false

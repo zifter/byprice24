@@ -11,6 +11,7 @@ from crawler.models import ScrapingState
 from crawler.structs import ProductData
 from elasticsearch_dsl import Q
 from marketplace.documents import ProductDocument
+from marketplace.elastic_loader import ElasticProductLoader
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -129,6 +130,7 @@ class Agent:
             review_count=data.result.review_count,
             availability=data.result.availability,
         )
+        ElasticProductLoader.load(product)
 
 
 def get_agent() -> Agent:

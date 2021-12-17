@@ -1,14 +1,12 @@
-from django.db.models import Prefetch
-from marketplace.filters import ProductSearchFilter
+from common.elastic.elastic import ElasticManager
+from marketplace.elastic_loader import ELASTICSEARCH_PRODUCT_INDEX
 from marketplace.models import Marketplace
-from marketplace.models import Product
-from marketplace.models import ProductPage
 from marketplace.serializers import MarketplaceSerializer
+from marketplace.serializers import ProductQuerySerializer
 from marketplace.serializers import ProductSearchSerializer
-from rest_framework import generics
 from rest_framework import viewsets
-from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
 class MarketplaceViewSet(viewsets.ModelViewSet):
@@ -23,32 +21,21 @@ class MarketplaceViewSet(viewsets.ModelViewSet):
     ordering = ('domain',)
 
 
-class ProductsPagination(PageNumberPagination):
-    page_size = 10
-
-
-class ProductViewSet(generics.ListAPIView):
+class ProductViewSet(APIView):
     """
     API Product
     """
-    serializer_class = ProductSearchSerializer
-    pagination_class = ProductsPagination
-    filter_backends = [ProductSearchFilter]
-    search_fields = ['name']
+    page_size = 20
 
-    def get_queryset(self):
-        return Product.objects.prefetch_related(Prefetch('productpage_set',
-                                                         queryset=ProductPage.objects.all(),
-                                                         to_attr='product_pages'),
-                                                Prefetch('product_pages__productstate_set',
-                                                         to_attr='product_state'))
+    def get(self, request, *args, **kwargs):
+        query_param = self.request.query_params.get('query')
+        page = self.request.query_params.get('page', '1')
+        ProductQuerySerializer(data={'query': query_param,
+                                     'page': page}).is_valid(raise_exception=True)
 
-    def list(self, request, *args, **kwargs):
-        queryset = self.filter_queryset(self.get_queryset())
-        page = self.paginate_queryset(queryset)
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
-
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(data={'results': serializer.data})
+        data = ElasticManager(ELASTICSEARCH_PRODUCT_INDEX).search_data(query_param, self.page_size, page)
+        serializer = ProductSearchSerializer(data['objects'], many=True)
+        return Response(data={'count': data['count'],
+                              'next_page': data['next_page'],
+                              'previous_page': data['previous_page'],
+                              'results': serializer.data})

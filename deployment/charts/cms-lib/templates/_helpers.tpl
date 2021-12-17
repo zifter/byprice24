@@ -23,4 +23,6 @@
   value: {{ required "Postgres host is required" .Values.postgres.host | quote }}
 - name: DB_PORT
   value: {{ required "Postgres port is required" .Values.postgres.port | quote }}
+- name: ELASTICSEARCH_DSL
+  value: {{ required "Elasticsearch url is required" .Values.elasticsearch.url | quote }}
 {{- end }}

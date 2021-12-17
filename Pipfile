@@ -20,11 +20,12 @@ Scrapy = "==2.5.1"
 extruct = "==0.13.0"
 elasticsearch = "==7.16.1"
 elasticsearch-dsl = "==7.4.0"
+pytz = '==2021.3'
 
 [dev-packages]
 pytest = "==6.2.5"
 pytest-cov = "==3.0.0"
-pytest-django = "==4.3.0"
+pytest-django = "==4.5.2"
 coverage = "==6.2.0"
 
 [requires]
