@@ -8,7 +8,7 @@ from .base import ScrapingTarget
 
 CRAWLER_FEED = 'crawler-feed'
 CRAWLER_RESULT = 'crawler-result'
-CRAWLER_PUSH_QUERY = 'crawler-push-query'
+CRAWLER_PUSH_QUERY = 'search-query'
 
 
 def crawler_feed() -> Queue:
@@ -44,4 +44,4 @@ class FlowQueueRedis(FlowQueueBase):
         self.result.enqueue('crawler.tasks.process_product', product, job_timeout=30)
 
     def push_query(self, query: str, number_found_products):
-        self.query.enqueue('crawler.tasks.push_query', query, number_found_products, job_timeout=1)
+        self.query.enqueue('search.tasks.push_query', query, number_found_products, job_timeout=1)

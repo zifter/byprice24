@@ -14,9 +14,3 @@ def scrape_target(task: ScrapingTarget):
 def process_product(item: ProductScrapingResult):
     agent = get_agent()
     agent.process_product(item)
-
-
-@job
-def push_query(query: str, number_found_products: int):
-    agent = get_agent()
-    agent.push_query(query, number_found_products)

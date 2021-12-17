@@ -8,7 +8,6 @@ from django.test import TestCase
 from marketplace.mock_elastic import mocked_elastic_manager
 from marketplace.mock_elastic import mocked_list_ok_elastic
 from scraper.items import ProductScrapingResult
-from search.models import QueryHistory
 
 
 class AgentTestCase(TestCase):
@@ -40,10 +39,3 @@ class AgentTestCase(TestCase):
         )
 
         agent.process_product(item)
-
-    def test_push_query(self):
-        mock = FlowQueueBase()
-        agent = Agent(mock)
-        params = dict(query='apple', number_found_products=25)
-        resp = agent.push_query(**params)
-        assert resp == QueryHistory.objects.get(**params)
