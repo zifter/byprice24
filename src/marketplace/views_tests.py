@@ -1,5 +1,6 @@
 import http.client
 from collections import OrderedDict
+from unittest.mock import Mock
 from unittest.mock import patch
 
 from django.test import Client
@@ -83,6 +84,7 @@ class ProductViewTestCase(TestCase):
         self.patcher.stop()
 
     @patch('common.elastic.elastic.ElasticManager.search_data', mocked_list_ok_elastic)
+    @patch('common.shared_queue.get_flow_queue', (lambda: Mock())())
     def test_products_search_list_ok(self):
         response = self.client.get('/api/v1/search/products',
                                    data={'query': 'Acer'})
@@ -91,16 +93,14 @@ class ProductViewTestCase(TestCase):
         self.assertEqual(response.data, self.expected)
 
     @patch('common.elastic.elastic.ElasticManager.search_data', mocked_list_ok_elastic)
-    def test_pagination_full_page(self):
-        ProductViewSet.page_size = 2
-
+    @patch('common.shared_queue.get_flow_queue', (lambda: Mock())())
+    def test_get_product_full_search_ok(self):
         response = self.client.get('/api/v1/search/products',
-                                   data={'query': 'acer',
-                                         'page': 1})
-        self.assertEqual(response.data['count'], 2)
-        self.assertEqual(len(response.data['results']), 2)
+                                   data={'query': 'Acer Extensa 15 EX215-53G-7014 NX.EGCER.009'})
+        self.assertEqual(response.data, self.expected)
 
     @patch('common.elastic.elastic.ElasticManager.search_data', mocked_not_full_pagintaion)
+    @patch('common.shared_queue.get_flow_queue', (lambda: Mock())())
     def test_pagination_not_full_page(self):
         ProductViewSet.page_size = 1
         response = self.client.get('/api/v1/search/products',
@@ -110,6 +110,7 @@ class ProductViewTestCase(TestCase):
         self.assertEqual(len(response.data['results']), 1)
 
     @patch('common.elastic.elastic.ElasticManager.search_data', mocked_empty_match_elastic)
+    @patch('common.shared_queue.get_flow_queue', (lambda: Mock())())
     def test_get_products_empty_list(self):
         response = self.client.get('/api/v1/search/products', data={'query': 'Apple'})
         self.assertEqual(response.data, {'count': 0,
@@ -117,10 +118,12 @@ class ProductViewTestCase(TestCase):
                                          'previous_page': 0,
                                          'results': []})
 
+    @patch('common.shared_queue.get_flow_queue', (lambda: Mock())())
     def test_fail_search_too_short_query(self):
         response = self.client.get('/api/v1/search/products', data={'query': 'A'})
         self.assertEqual(response.status_code, http.client.BAD_REQUEST)
 
+    @patch('common.shared_queue.get_flow_queue', (lambda: Mock())())
     def test_fail_search_no_query(self):
         response = self.client.get('/api/v1/search/products')
         self.assertEqual(response.status_code, http.client.BAD_REQUEST)

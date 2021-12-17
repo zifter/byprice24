@@ -1,3 +1,4 @@
+from common import shared_queue
 from common.elastic.elastic import ElasticManager
 from marketplace.elastic_loader import ELASTICSEARCH_PRODUCT_INDEX
 from marketplace.models import Marketplace
@@ -35,6 +36,10 @@ class ProductViewSet(APIView):
 
         data = ElasticManager(ELASTICSEARCH_PRODUCT_INDEX).search_data(query_param, self.page_size, page)
         serializer = ProductSearchSerializer(data['objects'], many=True)
+
+        shared_queue.get_flow_queue().push_query(query=request.query_params['query'],
+                                                 number_found_products=int(data['count']))
+
         return Response(data={'count': data['count'],
                               'next_page': data['next_page'],
                               'previous_page': data['previous_page'],

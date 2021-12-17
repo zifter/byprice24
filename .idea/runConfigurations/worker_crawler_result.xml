@@ -23,7 +23,7 @@
       </ENTRIES>
     </EXTENSION>
     <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/manage.py" />
-    <option name="PARAMETERS" value="rqworker crawler-result" />
+    <option name="PARAMETERS" value="rqworker crawler-result search-query" />
     <option name="SHOW_COMMAND_LINE" value="false" />
     <option name="EMULATE_TERMINAL" value="false" />
     <option name="MODULE_MODE" value="false" />
