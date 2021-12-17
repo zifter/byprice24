@@ -17,6 +17,7 @@ from marketplace.models import ProductState
 from scraper.items import ProductScrapingResult
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
+from search.models import QueryHistory
 from twisted.internet.defer import Deferred
 from twisted.python.failure import Failure
 
@@ -112,6 +113,11 @@ class Agent:
             availability=data.result.availability,
         )
         ElasticProductLoader.load(product)
+
+    @staticmethod
+    def push_query(query: str, number_found_products: int):
+        obj = QueryHistory.objects.create(query=query.lower(), number_found_products=number_found_products)
+        return obj
 
 
 def get_agent() -> Agent:
