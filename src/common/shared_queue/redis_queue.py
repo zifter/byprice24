@@ -8,7 +8,7 @@ from .base import ScrapingTarget
 
 CRAWLER_FEED = 'crawler-feed'
 CRAWLER_RESULT = 'crawler-result'
-CRAWLER_PUSH_QUERY = 'search-query'
+SEARCH_QUERY = 'search-query'
 
 
 def crawler_feed() -> Queue:
@@ -23,19 +23,19 @@ def crawler_result() -> Queue:
     return Queue(name=CRAWLER_RESULT, connection=redis)
 
 
-def crawler_push_query() -> Queue:
+def search_query() -> Queue:
     url = os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0')
     redis = Redis.from_url(url)
-    return Queue(name=CRAWLER_PUSH_QUERY, connection=redis)
+    return Queue(name=SEARCH_QUERY, connection=redis)
 
 
 class FlowQueueRedis(FlowQueueBase):
-    def __init__(self, feed: Queue, result: Queue, push_query: Queue):
+    def __init__(self, feed: Queue, result: Queue, search_query: Queue):
         super().__init__()
 
         self.feed = feed
         self.result = result
-        self.query = push_query
+        self.query = search_query
 
     def scrape(self, target: ScrapingTarget):
         self.feed.enqueue('crawler.tasks.scrape_target', target, job_timeout=-1)

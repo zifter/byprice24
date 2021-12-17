@@ -14,8 +14,8 @@ import os
 from common.paths import REPO_DIR
 from common.paths import TMP_DIR
 from common.shared_queue.redis_queue import CRAWLER_FEED
-from common.shared_queue.redis_queue import CRAWLER_PUSH_QUERY
 from common.shared_queue.redis_queue import CRAWLER_RESULT
+from common.shared_queue.redis_queue import SEARCH_QUERY
 from configurations import Configuration
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -166,7 +166,7 @@ class Base(Configuration):
         CRAWLER_RESULT: {
             'URL': os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0'),
         },
-        CRAWLER_PUSH_QUERY: {
+        SEARCH_QUERY: {
             'URL': os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0'),
         }
     }
