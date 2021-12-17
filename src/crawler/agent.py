@@ -3,10 +3,10 @@ from datetime import datetime
 from datetime import timedelta
 from typing import List
 
+import pytz
 from common.shared_queue import FlowQueueBase
 from common.shared_queue import get_flow_queue
 from common.shared_queue import ScrapingTarget
-from crawler.models import ScrapingState
 from crawler.structs import ProductData
 from marketplace.elastic_loader import ElasticProductLoader
 from marketplace.models import Marketplace
@@ -26,7 +26,6 @@ class Agent:
 
     def schedule(self, marketplace=None, force=False):
         logging.info('Schedule marketplace [%s], force [%s]', marketplace, force)
-        import pytz
         now = datetime.now(tz=pytz.UTC)
 
         filter_args = {}
@@ -37,6 +36,7 @@ class Agent:
         if marketplace:
             filter_args['marketplace'] = marketplace
 
+        from crawler.models import ScrapingState
         objects: List[ScrapingState] = ScrapingState.objects.filter(**filter_args)
 
         for scraping in objects:
