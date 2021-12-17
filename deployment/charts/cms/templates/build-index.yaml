@@ -33,26 +33,8 @@ spec:
           args:
             - python3
             - manage.py
-            - schedule-scraping
-            {{- if .Values.scheduleScraping.force -}}
-            - --force
-            {{- end }}
+            - search_index
+            - --rebuild
+            - -f
           env:
-            - name: DJANGO_CONFIGURATION
-              value: {{ .Values.configuration | quote }}
-            - name: POD_IP
-              valueFrom:
-                fieldRef:
-                  fieldPath: status.podIP
-            - name: RQ_REDIS_URL
-              value: {{ .Values.redis.url | quote }}
-            - name: DB_NAME
-              value: {{ .Values.postgres.dbname | quote }}
-            - name: DB_USERNAME
-              value: {{ .Values.postgres.username | quote }}
-            - name: DB_PASSWORD
-              value: {{ .Values.postgres.password | quote }}
-            - name: DB_HOST
-              value: {{ .Values.postgres.host | quote }}
-            - name: DB_PORT
-              value: {{ .Values.postgres.port | quote }}
+            {{- include "cms-lib.env" . | nindent 12 }}

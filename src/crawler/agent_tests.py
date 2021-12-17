@@ -6,9 +6,9 @@ from common.shared_queue import FlowQueueBase
 from crawler.agent import Agent
 from django.core.management import call_command
 from django.test import TestCase
-from marketplace.mock_elastic import mocked_elastic_manager
-from marketplace.mock_elastic import mocked_list_ok_elastic
 from scraper.items import ProductScrapingResult
+from search.mock_elastic import mocked_elastic_manager
+from search.mock_elastic import mocked_list_ok_elastic
 
 
 class AgentTestCase(TestCase):

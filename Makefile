@@ -177,11 +177,11 @@ load-fixtures:
 	$(info Load fixtures to database)
 	pipenv run ./src/manage.py loaddata fixtures/prod/*.yaml
 
-load-fixtures-test:
+load-fixtures-dump:
 	$(info Load test fixtures to database)
-	pipenv run ./src/manage.py loaddata fixtures/test/*.yaml
+	pipenv run ./src/manage.py loaddata fixtures/dump/*.yaml
 
-dump-fixtures-test:
+save-fixtures-dump:
 	$(info Load test fixtures to database)
 	pipenv run ./src/manage.py dumpdata marketplace --format yaml > ./fixtures/dump/marketplace.yaml
 

@@ -9,9 +9,6 @@ from common.shared_queue import get_flow_queue
 from common.shared_queue import ScrapingTarget
 from crawler.models import ScrapingState
 from crawler.structs import ProductData
-from elasticsearch_dsl import Q
-from marketplace.documents import ProductDocument
-from marketplace.elastic_loader import ElasticProductLoader
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -19,6 +16,7 @@ from marketplace.models import ProductState
 from scraper.items import ProductScrapingResult
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
+from search.elastic_loader import ElasticProductLoader
 from twisted.internet.defer import Deferred
 from twisted.python.failure import Failure
 
@@ -89,22 +87,6 @@ class Agent:
         logging.info('Process product %s', data)
 
         marketplace = Marketplace.objects.filter(domain=data.domain).get()
-
-        q = Q(
-            'multi_match',
-            query=data.result.title,
-            fields=[
-                'name',
-                'description',
-            ],
-            fuzziness='auto',
-            auto_generate_synonyms_phrase_query=True,
-        )
-
-        search = ProductDocument.search().query(q)
-        _ = search.execute()
-        for hit in search:
-            print(hit.name)
 
         product, created = Product.objects.get_or_create(
             name=data.result.title,

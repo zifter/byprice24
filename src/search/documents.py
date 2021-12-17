@@ -1,7 +1,6 @@
 from django_elasticsearch_dsl import Document
 from django_elasticsearch_dsl.registries import registry
-
-from .models import Product
+from marketplace.models import Product
 
 
 @registry.register_document

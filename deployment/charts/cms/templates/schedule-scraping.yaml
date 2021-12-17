@@ -36,7 +36,9 @@ spec:
               args:
                 - python3
                 - manage.py
-                - search_index
-                - --rebuild
+                - schedule-scraping
+                {{- if .Values.scheduleScraping.force -}}
+                - --force
+                {{- end }}
               env:
                 {{- include "cms-lib.env" . | nindent 16 }}
