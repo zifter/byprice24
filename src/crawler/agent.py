@@ -9,6 +9,7 @@ from common.shared_queue import get_flow_queue
 from common.shared_queue import ScrapingTarget
 from crawler.models import ScrapingState
 from crawler.structs import ProductData
+from marketplace.elastic_loader import ElasticProductLoader
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -110,6 +111,7 @@ class Agent:
             review_count=data.result.review_count,
             availability=data.result.availability,
         )
+        ElasticProductLoader.load(product)
 
 
 def get_agent() -> Agent:
