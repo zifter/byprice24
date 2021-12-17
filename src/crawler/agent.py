@@ -3,7 +3,6 @@ from datetime import datetime
 from datetime import timedelta
 from typing import List
 
-import pytz
 from common.shared_queue import FlowQueueBase
 from common.shared_queue import get_flow_queue
 from common.shared_queue import ScrapingTarget
@@ -27,6 +26,7 @@ class Agent:
 
     def schedule(self, marketplace=None, force=False):
         logging.info('Schedule marketplace [%s], force [%s]', marketplace, force)
+        import pytz
         now = datetime.now(tz=pytz.UTC)
 
         filter_args = {}
