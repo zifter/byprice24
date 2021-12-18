@@ -1,7 +1,3 @@
-configmap: |-
-  appendonly no
-  save ""
-
 architecture: standalone
 auth:
   enabled: false

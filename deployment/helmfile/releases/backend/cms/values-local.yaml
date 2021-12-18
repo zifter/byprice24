@@ -13,4 +13,6 @@ domain:
   api: localhost
   admin: localhost
 
+configuration: Dev
+
 suspend: true

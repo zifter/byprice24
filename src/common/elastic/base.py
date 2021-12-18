@@ -1,13 +1,14 @@
 import abc
-import os
 
+from cms import settings
 from elasticsearch import Elasticsearch
 
 
 class ElasticBase:
     @abc.abstractmethod
     def __init__(self):
-        self.client = Elasticsearch(os.getenv('ELASTIC_URL', 'http://localhost:9200'))
+        url = settings.ELASTICSEARCH_DSL['default']['hosts']
+        self.client = Elasticsearch(url)
 
     @abc.abstractmethod
     def create_index(self):

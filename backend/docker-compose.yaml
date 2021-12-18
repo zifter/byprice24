@@ -1,0 +1,76 @@
+version: "3.9"
+
+networks:
+  backend:
+    name: backend
+    driver: bridge
+
+volumes:
+  postgres:
+    driver: local
+  elasticsearch01:
+    driver: local
+
+services:
+  redis:
+    image: bitnami/redis:6.2.6-debian-10-r0
+    container_name: dc-redis
+    # network_mode: host
+    restart: always
+    environment:
+       - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "6379:6379"
+    networks:
+      - backend
+
+  postgres:
+    image: bitnami/postgresql:11.10.0-debian-10-r83
+    container_name: dc-postgres
+    # network_mode: host
+    restart: always
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=byprice24
+    networks:
+      - backend
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  elasticsearch01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.1
+    container_name: dc-elasticsearch01
+    # network_mode: host
+    environment:
+      - node.name=elasticsearch01
+      - cluster.name=es-docker-cluster
+      - cluster.initial_master_nodes=elasticsearch01
+    networks:
+      - backend
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - elasticsearch01:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+    healthcheck:
+      test: curl -s http://elasticsearch01:9200 >/dev/null || exit 1
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  ready-check:
+    image: alpine
+    depends_on:
+      redis:
+        condition: service_started
+      postgres:
+        condition: service_started
+      elasticsearch01:
+        condition: service_healthy

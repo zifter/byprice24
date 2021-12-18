@@ -6,7 +6,7 @@ from marketplace.models import ProductState
 marketplace = Marketplace(
     domain='www.test.by',
     description='too long',
-    rating=88,
+    logo_url='https://test',
 )
 
 product = Product(
