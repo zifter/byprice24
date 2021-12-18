@@ -19,7 +19,7 @@ class ElasticProductLoader:
             'product': {
                 'id': product.id,
                 'name': product.name,
-                'category': product.category,
+                'category': str(product.category),
                 'description': product.description,
                 'preview_url': product.preview_url},
             'product_page': {

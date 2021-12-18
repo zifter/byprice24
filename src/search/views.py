@@ -1,10 +1,10 @@
 from common import shared_queue
 from common.elastic.elastic import ElasticManager
-from marketplace.serializers import ProductQuerySerializer
-from marketplace.serializers import ProductSearchSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from search.elastic_loader import ELASTICSEARCH_PRODUCT_INDEX
+from search.serializers import ProductQuerySerializer
+from search.serializers import ProductSearchSerializer
 
 
 class SearchProductViewSet(APIView):

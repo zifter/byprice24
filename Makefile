@@ -122,6 +122,9 @@ run-full-cluster:
 	cd deployment && make cluster-delete
 	cd deployment && make cluster-create
 	cd deployment && make infra-load-images
+	make install-full-cluster
+
+install-full-cluster:
 	cd deployment && make infra-install
 	make backend-install
 	make frontend-install
