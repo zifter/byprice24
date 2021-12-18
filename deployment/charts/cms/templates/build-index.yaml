@@ -1,40 +1,43 @@
 apiVersion: batch/v1
-kind: Job
+kind: CronJob
 metadata:
   name: {{ include "cms.fullname" . }}-build-index
   labels:
     {{- include "cms.labels" . | nindent 4 }}
 spec:
+  schedule: "0 0 1 1 *"
+  concurrencyPolicy: Forbid
   suspend: true
-  parallelism: 1
-  template:
-    metadata:
-      {{- with .Values.podAnnotations }}
-      annotations:
-        {{- toYaml . | nindent 12 }}
-      {{- end }}
-      labels:
-        {{- include "cms.selectorLabels" . | nindent 12 }}
+  jobTemplate:
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 12 }}
-      {{- end }}
-      restartPolicy: OnFailure
-      serviceAccountName: {{ include "cms.serviceAccountName" . }}
-      securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 12 }}
-      containers:
-        - name: {{ .Chart.Name }}
+      template:
+        metadata:
+          {{- with .Values.podAnnotations }}
+          annotations:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          labels:
+            {{- include "cms.selectorLabels" . | nindent 12 }}
+        spec:
+          {{- with .Values.imagePullSecrets }}
+          imagePullSecrets:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          restartPolicy: OnFailure
+          serviceAccountName: {{ include "cms.serviceAccountName" . }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 16 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          args:
-            - python3
-            - manage.py
-            - search_index
-            - --rebuild
-            - -f
-          env:
-            {{- include "cms-lib.env" . | nindent 12 }}
+            {{- toYaml .Values.podSecurityContext | nindent 12 }}
+          containers:
+            - name: build-index
+              securityContext:
+                {{- toYaml .Values.securityContext | nindent 16 }}
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              args:
+                - python3
+                - manage.py
+                - search_index
+                - --rebuild
+                - -f
+              env:
+                {{- include "cms-lib.env" . | nindent 16 }}

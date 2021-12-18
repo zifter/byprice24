@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="search_index --rebuild" type="PythonConfigurationType" factoryName="Python">
+  <configuration default="false" name="prepare_index" type="PythonConfigurationType" factoryName="Python">
     <module name="byprice24" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
@@ -22,7 +22,7 @@
       </ENTRIES>
     </EXTENSION>
     <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/manage.py" />
-    <option name="PARAMETERS" value="search_index --rebuild -f" />
+    <option name="PARAMETERS" value="prepare_index" />
     <option name="SHOW_COMMAND_LINE" value="false" />
     <option name="EMULATE_TERMINAL" value="false" />
     <option name="MODULE_MODE" value="false" />

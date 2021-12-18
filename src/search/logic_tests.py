@@ -1,10 +1,17 @@
+from django.core.management import call_command
 from django.test import TestCase
 from parameterized import parameterized
-from search.logic import find_nearest_product
+from search.logic import find_closest_product
 
 
 class SearchLogicTestCase(TestCase):
     fixtures = ['test/products.yaml', ]
+
+    @classmethod
+    def setUpClass(cls):
+        call_command('search_index', '--rebuild', '-f')
+
+        super().setUpClass()
 
     @parameterized.expand([
         ('apple iphone 13', ),
@@ -12,7 +19,7 @@ class SearchLogicTestCase(TestCase):
         ('Xiaomi Poco X3 NFC',),
     ])
     def test_unique_search_not_found(self, title):
-        p = find_nearest_product(title)
+        p = find_closest_product(title)
 
         assert p is None
 
@@ -21,7 +28,7 @@ class SearchLogicTestCase(TestCase):
         ('Samsung QE50LS01TBUA',),
     ])
     def test_full_match_found1(self, title):
-        p = find_nearest_product(title)
+        p = find_closest_product(title)
 
         assert p.name == title
 
@@ -33,6 +40,6 @@ class SearchLogicTestCase(TestCase):
         ('Смартфон Xiaomi POCO X3 Pro 6GB / 128GB Metal Bronze EU', 'Смартфон POCO X3 Pro 6GB/128GB международная версия (черный)'),
     ])
     def test_partial_match_found(self, title, found):
-        p = find_nearest_product(title)
+        p = find_closest_product(title)
 
         assert p.name == found

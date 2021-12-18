@@ -171,7 +171,7 @@ migrate:
 
 createuser:
 	$(info Create test user in cms)
-	pipenv run ./src/manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('root', '', '1234')"
+	pipenv run ./src/manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('root', '', '1234')" || true
 
 load-fixtures:
 	$(info Load fixtures to database)
@@ -193,4 +193,8 @@ runserver:
 	$(info Run server)
 	pipenv run ./src/manage.py runserver 0.0.0.0:8080
 
-cms-init: createuser load-fixtures
+rebuild_index:
+	$(info Run server)
+	pipenv run ./src/manage.py search_index --rebuild -f
+
+cms-init: createuser rebuild_index load-fixtures
