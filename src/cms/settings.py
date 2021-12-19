@@ -15,6 +15,7 @@ from common.paths import REPO_DIR
 from common.paths import TMP_DIR
 from common.shared_queue.redis_queue import CRAWLER_FEED
 from common.shared_queue.redis_queue import CRAWLER_RESULT
+from common.shared_queue.redis_queue import SEARCH_QUERY
 from configurations import Configuration
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -49,6 +50,7 @@ class Base(Configuration):
         'django_rq',
         'marketplace',
         'crawler',
+        'search',
     ]
 
     REST_FRAMEWORK = {
@@ -164,6 +166,9 @@ class Base(Configuration):
         CRAWLER_RESULT: {
             'URL': os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0'),
         },
+        SEARCH_QUERY: {
+            'URL': os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0'),
+        }
     }
 
     RQ_SHOW_ADMIN_LINK = True

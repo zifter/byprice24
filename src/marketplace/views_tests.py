@@ -1,8 +1,15 @@
 import http.client
 from collections import OrderedDict
+from unittest.mock import Mock
+from unittest.mock import patch
 
 from django.test import Client
 from django.test import TestCase
+from marketplace.mock_elastic import mocked_elastic_manager
+from marketplace.mock_elastic import mocked_empty_match_elastic
+from marketplace.mock_elastic import mocked_list_ok_elastic
+from marketplace.mock_elastic import mocked_not_full_pagintaion
+from marketplace.views import ProductViewSet
 
 
 class MarketplaceViewEmptyTestCase(TestCase):
@@ -47,75 +54,77 @@ class MarketplaceViewTestCase(TestCase):
 
 class ProductViewTestCase(TestCase):
     fixtures = ['marketplaces_test.yaml', 'products_test.yaml', 'product_pages_test.yaml', 'product_states_test.yaml', ]
-
     expected = {'count': 2,
-                'next': None,
-                'previous': None,
-                'results':
-                    [
-                        {'marketplaces_count_instock': 2,
-                         'min_offer': {'price': 340.3, 'price_currency': 'BYN'},
-                         'id': 2,
-                         'name': 'Acer Extensa 15 EX215-53G-7014 NX.EGCER.009',
-                         'category': 'notebook',
-                         'description': '',
-                         'preview_url': None},
+                'next_page': 2,
+                'previous_page': 0,
+                'results': [
+                    OrderedDict(
+                        [('id', 1),
+                         ('name', 'Acer Extensa 15 EX215-53G-7014 NX.EGCER.009'),
+                         ('category', 'notebook'),
+                         ('description', ''),
+                         ('preview_url', None),
+                         ('min_offer', OrderedDict([('price', '340.30'),
+                                                    ('price_currency', 'BYN')])),
+                         ('marketplaces_count_instock', 1)]),
+                    OrderedDict(
+                        [('id', 2),
+                         ('name', 'Acer Extensa 15 EX215-52-54D6 NX.EG8ER.00V'),
+                         ('category', 'notebook'),
+                         ('description', ''),
+                         ('preview_url', None),
+                         ('min_offer', OrderedDict([('price', '580.30'),
+                                                    ('price_currency', 'BYN')])),
+                         ('marketplaces_count_instock', 1)])]}
 
-                        {'marketplaces_count_instock': 1,
-                         'min_offer': {'price': 580.3, 'price_currency': 'BYN'},
-                         'id': 3,
-                         'name': 'Acer Extensa 15 EX215-54-348Z NX.EGJER.00M',
-                         'category': 'notebook',
-                         'description': '',
-                         'preview_url': None}
-                    ]
-                }
+    def setUp(self) -> None:
+        self.patcher = patch('common.elastic.elastic.ElasticManager.__init__', mocked_elastic_manager)
+        self.patcher.start()
 
-    def setUp(self):
-        # Every test needs a client.
-        self.client = Client()
+    def tearDown(self) -> None:
+        self.patcher.stop()
 
-    def test_products_startswith_search_list_ok(self):
+    @patch('common.elastic.elastic.ElasticManager.search_data', mocked_list_ok_elastic)
+    @patch('common.shared_queue.get_flow_queue', (lambda: Mock())())
+    def test_products_search_list_ok(self):
         response = self.client.get('/api/v1/search/products',
                                    data={'query': 'Acer'})
         self.assertEqual(len(response.data['results']), 2)
 
         self.assertEqual(response.data, self.expected)
 
+    @patch('common.elastic.elastic.ElasticManager.search_data', mocked_list_ok_elastic)
+    @patch('common.shared_queue.get_flow_queue', (lambda: Mock())())
     def test_get_product_full_search_ok(self):
         response = self.client.get('/api/v1/search/products',
                                    data={'query': 'Acer Extensa 15 EX215-53G-7014 NX.EGCER.009'})
-        self.assertEqual(response.data['results'], [self.expected['results'][0]])
+        self.assertEqual(response.data, self.expected)
 
-    def test_pagination_full_page(self):
-        response = self.client.get('/api/v1/search/products',
-                                   data={'query': 'Samsung',
-                                         'page': 1})
-        self.assertEqual(response.data['count'], 12)
-        self.assertEqual(len(response.data['results']), 10)
-
+    @patch('common.elastic.elastic.ElasticManager.search_data', mocked_not_full_pagintaion)
+    @patch('common.shared_queue.get_flow_queue', (lambda: Mock())())
     def test_pagination_not_full_page(self):
+        ProductViewSet.page_size = 1
         response = self.client.get('/api/v1/search/products',
-                                   data={'query': 'Samsung',
+                                   data={'query': 'acer',
                                          'page': 2})
-        self.assertEqual(len(response.data['results']), 2)
+        self.assertEqual(response.data['count'], 2)
+        self.assertEqual(len(response.data['results']), 1)
 
+    @patch('common.elastic.elastic.ElasticManager.search_data', mocked_empty_match_elastic)
+    @patch('common.shared_queue.get_flow_queue', (lambda: Mock())())
     def test_get_products_empty_list(self):
         response = self.client.get('/api/v1/search/products', data={'query': 'Apple'})
         self.assertEqual(response.data, {'count': 0,
-                                         'next': None,
-                                         'previous': None, 'results': []}
-                         )
+                                         'next_page': 2,
+                                         'previous_page': 0,
+                                         'results': []})
 
-    def test_query_whitespaces_removal(self):
-        response = self.client.get('/api/v1/search/products', data={'query': '  Acer  '})
-        self.assertEqual(len(response.data['results']), 2)
-        self.assertEqual(response.data, self.expected)
-
+    @patch('common.shared_queue.get_flow_queue', (lambda: Mock())())
     def test_fail_search_too_short_query(self):
         response = self.client.get('/api/v1/search/products', data={'query': 'A'})
         self.assertEqual(response.status_code, http.client.BAD_REQUEST)
 
+    @patch('common.shared_queue.get_flow_queue', (lambda: Mock())())
     def test_fail_search_no_query(self):
         response = self.client.get('/api/v1/search/products')
         self.assertEqual(response.status_code, http.client.BAD_REQUEST)
