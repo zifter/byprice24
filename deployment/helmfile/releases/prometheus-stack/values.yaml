@@ -1,5 +1,15 @@
 metrics-server:
   enabled: true
+
+prometheus-node-exporter:
+  resources:
+    requests:
+      cpu: "25m"
+      memory: "50Mi"
+    limits:
+      cpu: "50m"
+      memory: "50Mi"
+
 prometheus:
   monitor:
     enabled: false
@@ -12,12 +22,12 @@ prometheus:
 
 prometheusOperator:
   resources:
-    limits:
-      cpu: 100m
-      memory: 200Mi
     requests:
       cpu: 10m
       memory: 100Mi
+    limits:
+      cpu: 200m
+      memory: 250Mi
 
 # Prometheus settings
 prometheus:
@@ -44,6 +54,14 @@ alertmanager:
     enabled: true
     ingressClassName: nginx
 
+  alertmanagerSpec:
+    resources:
+      requests:
+        cpu: "10m"
+        memory: "150Mi"
+      limits:
+        cpu: "100m"
+        memory: "150Mi"
 
 # Grafana settings
 grafana:
@@ -52,3 +70,23 @@ grafana:
   ingress:
     enabled: true
     ingressClassName: nginx
+
+  downloadDashboards:
+    resources: {}
+
+  sidecar:
+    resources:
+      limits:
+        cpu: 150m
+        memory: 130Mi
+      requests:
+        cpu: 10m
+        memory: 130Mi
+
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "150Mi"
+    limits:
+      cpu: "100m"
+      memory: "150Mi"

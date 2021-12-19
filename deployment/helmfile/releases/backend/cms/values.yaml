@@ -1,3 +1,11 @@
+resources:
+  requests:
+    cpu: "300m"
+    memory: "350Mi"
+  limits:
+    cpu: "500m"
+    memory: "350Mi"
+
 ingress:
   enabled: true
 

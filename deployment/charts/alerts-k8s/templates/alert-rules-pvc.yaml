@@ -1,0 +1,36 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: prometheus-alert-rules-pvc
+  namespace: {{ .Release.Namespace }}
+  labels:
+    prometheus: alert-rules
+    role: alert-rules
+spec:
+  groups:
+    - name: PVCAlerts
+      rules:
+        - alert: MetricsDown
+          expr: absent(grpc_server_msg_received_total) == 1
+          for: 1h
+          labels:
+            severity: critical
+          annotations:
+            summary: "Metrics grpc_server_msg_received_total down"
+            description: "Metrics grpc_server_msg_received_total has been down for more than 1 hour"
+        - alert: PVCOutOfDiskSpace
+          expr: sum (kubelet_volume_stats_used_bytes) by (persistentvolumeclaim) / sum (kubelet_volume_stats_capacity_bytes) by (persistentvolumeclaim) * 100 > {{ .Values.pvc.pvcLimitCriticalThreshold }}
+          for: 1h
+          labels:
+            severity: critical
+          annotations:
+            summary: PVC {{`{{`}} $labels.persistentvolumeclaim {{`}}`}} is out of space (< 10% left)
+            description: PVC {{`{{`}} $labels.persistentvolumeclaim {{`}}`}} almost full\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS= {{`{{`}} $labels {{`}}`}}
+        - alert: PVCOutOfDiskSpace
+          expr: sum (kubelet_volume_stats_used_bytes) by (persistentvolumeclaim) / sum (kubelet_volume_stats_capacity_bytes) by (persistentvolumeclaim) * 100 > {{ .Values.pvc.pvcLimitWarningThreshold }}
+          for: 1h
+          labels:
+            severity: warning
+          annotations:
+            summary: PVC {{`{{`}} $labels.persistentvolumeclaim {{`}}`}} is running out of space (< 25% left)
+            description: PVC {{`{{`}} $labels.persistentvolumeclaim {{`}}`}} almost full\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS= {{`{{`}} $labels {{`}}`}}

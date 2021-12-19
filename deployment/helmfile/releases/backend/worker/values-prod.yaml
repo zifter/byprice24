@@ -1,5 +1,5 @@
 domain:
-  api: findprice.by
-  admin: findprice.site
+  api: www.findprice.by
+  admin: www.findprice.site
 
 configuration: Prod

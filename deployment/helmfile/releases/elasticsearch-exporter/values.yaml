@@ -1,3 +1,13 @@
-redisAddress: es://elasticsearch-master.default.svc:9200
+es:
+  uri: es://elasticsearch-master:9200
+
 serviceMonitor:
   enabled: true
+
+resources:
+  requests:
+    cpu: "25m"
+    memory: "50Mi"
+  limits:
+    cpu: "50m"
+    memory: "50Mi"

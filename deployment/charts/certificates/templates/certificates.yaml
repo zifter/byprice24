@@ -8,7 +8,9 @@ metadata:
 spec:
   secretName: {{ .secretName }}
   dnsNames:
-    - {{ .dnsName }}
+{{- range $dnsName := .dnsNames | required "dnsNames is not defined"}}
+    - {{ $dnsName }}
+{{- end }}
   usages:
     - digital signature
     - key encipherment

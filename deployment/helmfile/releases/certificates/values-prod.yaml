@@ -1,7 +1,11 @@
 certificates:
   - secretName: findprice-site-tls
-    dnsName: findprice.site
     issuer: letsencrypt
+    dnsNames:
+      - findprice.site
+      - www.findprice.site
   - secretName: findprice-by-tls
-    dnsName: findprice.by
     issuer: letsencrypt
+    dnsNames:
+      - findprice.by
+      - www.findprice.by
