@@ -42,3 +42,5 @@ spec:
                 {{- end }}
               env:
                 {{- include "cms-lib.env" . | nindent 16 }}
+              resources:
+                { { - toYaml .Values.resources | nindent 12 } }

@@ -37,11 +37,11 @@ prometheus:
     ruleSelectorNilUsesHelmValues: false
     resources:
       limits:
-        cpu: 200m
-        memory: 500Mi
+        cpu: 500m
+        memory: 700Mi
       requests:
-        cpu: 100m
-        memory: 400Mi
+        cpu: 300m
+        memory: 700Mi
 
   ingress:
     enabled: true
@@ -58,10 +58,10 @@ alertmanager:
     resources:
       requests:
         cpu: "10m"
-        memory: "150Mi"
+        memory: "100Mi"
       limits:
         cpu: "100m"
-        memory: "150Mi"
+        memory: "100Mi"
 
 # Grafana settings
 grafana:

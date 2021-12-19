@@ -12,3 +12,27 @@ serviceAccount:
 master:
   persistence:
     enabled: false
+  resources:
+    limits:
+      memory: 768Mi
+    requests:
+      cpu: 150m
+      memory: 512Mi
+
+coordinating:
+  replicas: 1
+  resources:
+    limits:
+      memory: 768Mi
+    requests:
+      cpu: 50m
+      memory: 512Mi
+
+data:
+  replicas: 1
+  resources:
+    limits:
+      memory: 2048Mi
+    requests:
+      cpu: 50m
+      memory: 2048Mi

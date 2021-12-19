@@ -1,10 +1,10 @@
 resources:
   requests:
     cpu: "200m"
-    memory: "200Mi"
+    memory: "150Mi"
   limits:
     cpu: "300m"
-    memory: "200Mi"
+    memory: "150Mi"
 
 redis:
   url: "redis://redis-master:6379/0"
