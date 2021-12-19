@@ -11,3 +11,4 @@ repositories:
 helmDefaults:
   wait: true
   timeout: 300
+  # verify the chart

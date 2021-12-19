@@ -45,8 +45,8 @@ backend-image-test: IMAGE_TAG := zifter/byprice24-cms:test
 backend-image-test: DJANGO_CONFIGURATION := Test
 backend-image-test:
 	$(info Run tests for docker image)
-	docker run $(IMAGE_TAG) python3 manage.py check --configuration=${DJANGO_CONFIGURATION}
-	docker run $(IMAGE_TAG) /bin/bash -c "\
+	docker run --rm $(IMAGE_TAG) python3 manage.py check --configuration=${DJANGO_CONFIGURATION}
+	docker run --rm --network=backend --env-file=backend/image-test.env $(IMAGE_TAG) /bin/bash -c "\
 		pytest . --cov=. && \
 		coverage report --include="*tests.py" --rcfile=pytest.ini --fail-under=100 && \
 		coverage report --include="*" --rcfile=pytest.ini --fail-under=93 \
@@ -68,7 +68,7 @@ backend-image-update:
 backend-image-migrations-check: IMAGE_TAG := zifter/byprice24-cms:test
 backend-image-migrations-check:
 	$(info Check if migrations is needed)
-	docker run $(IMAGE_TAG) python3 manage.py makemigrations --check --dry-run
+	docker run --rm $(IMAGE_TAG) python3 manage.py makemigrations --check --dry-run
 
 backend-install: IMAGE_TAG := zifter/byprice24-cms:test
 backend-install:
@@ -122,6 +122,9 @@ run-full-cluster:
 	cd deployment && make cluster-delete
 	cd deployment && make cluster-create
 	cd deployment && make infra-load-images
+	make install-full-cluster
+
+install-full-cluster:
 	cd deployment && make infra-install
 	make backend-install
 	make frontend-install
@@ -171,17 +174,17 @@ migrate:
 
 createuser:
 	$(info Create test user in cms)
-	pipenv run ./src/manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('root', '', '1234')"
+	pipenv run ./src/manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('root', '', '1234')" || true
 
 load-fixtures:
 	$(info Load fixtures to database)
 	pipenv run ./src/manage.py loaddata fixtures/prod/*.yaml
 
-load-fixtures-test:
+load-fixtures-dump:
 	$(info Load test fixtures to database)
-	pipenv run ./src/manage.py loaddata fixtures/test/*.yaml
+	pipenv run ./src/manage.py loaddata fixtures/dump/*.yaml
 
-dump-fixtures-test:
+save-fixtures-dump:
 	$(info Load test fixtures to database)
 	pipenv run ./src/manage.py dumpdata marketplace --format yaml > ./fixtures/dump/marketplace.yaml
 
@@ -193,4 +196,8 @@ runserver:
 	$(info Run server)
 	pipenv run ./src/manage.py runserver 0.0.0.0:8080
 
-cms-init: createuser load-fixtures
+rebuild_index:
+	$(info Run server)
+	pipenv run ./src/manage.py search_index --rebuild -f
+
+cms-init: createuser rebuild_index load-fixtures

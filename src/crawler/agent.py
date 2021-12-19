@@ -9,7 +9,6 @@ from common.shared_queue import get_flow_queue
 from common.shared_queue import ScrapingTarget
 from crawler.models import ScrapingState
 from crawler.structs import ProductData
-from marketplace.elastic_loader import ElasticProductLoader
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -17,6 +16,8 @@ from marketplace.models import ProductState
 from scraper.items import ProductScrapingResult
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
+from search.elastic_loader import ElasticProductLoader
+from search.logic import find_closest_product
 from twisted.internet.defer import Deferred
 from twisted.python.failure import Failure
 
@@ -82,23 +83,27 @@ class Agent:
 
         return stats.result
 
-    def process_product(self, item: ProductScrapingResult):
+    def process_scraping_result(self, item: ProductScrapingResult):
         data = ProductData(item)
         logging.info('Process product %s', data)
 
         marketplace = Marketplace.objects.filter(domain=data.domain).get()
 
-        product, created = Product.objects.get_or_create(
-            name=data.result.title,
-            category=data.result.main_category,
-            description=data.result.description,
-            preview_url=data.result.preview_url,
-        )
+        product = find_closest_product(data.result.title)
+
+        if product is None:
+            product, _ = Product.objects.get_or_create(
+                name=data.result.title,
+                category=data.result.main_category,
+                description=data.result.description,
+                preview_url=data.result.preview_url,
+            )
 
         page, created = ProductPage.objects.get_or_create(
             product=product,
             marketplace=marketplace,
             url=data.result.url,
+            name=data.result.title,
             description=data.result.description,
         )
 

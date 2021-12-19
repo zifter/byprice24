@@ -73,3 +73,8 @@
   fields:
     name: Samsung AZAZAA
     category: TV
+- model: marketplace.product
+  pk: 16
+  fields:
+    name: Смартфон POCO X3 Pro 6GB/128GB международная версия (черный)
+    category: MOBILE

@@ -1,0 +1,19 @@
+configuration: Dev
+secretKey: ''
+
+redis:
+  url: "redis://localhost:6379/0"
+
+postgres:
+  dbname: "byprice24"
+  username: ""
+  password: ""
+  host: "localhost"
+  port: "5432"
+
+domain:
+  api: ''
+  admin: ''
+
+elasticsearch:
+  url: 'localhost:9200'

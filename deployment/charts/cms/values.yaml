@@ -81,19 +81,6 @@ tolerations: []
 
 affinity: {}
 
-redis:
-  url: "redis://localhost:6379/0"
-
-postgres:
-  dbname: "byprice24"
-  username: ""
-  password: ""
-  host: "localhost"
-  port: "5432"
-
-configuration: Dev
-secretKey: ''
-
 cron: "0 0 * * *"
 suspend: false
 

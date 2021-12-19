@@ -4,14 +4,20 @@ from common.item_types import Availability
 from common.item_types import Category
 from common.shared_queue import FlowQueueBase
 from crawler.agent import Agent
+from django.core.management import call_command
 from django.test import TestCase
-from marketplace.mock_elastic import mocked_elastic_manager
-from marketplace.mock_elastic import mocked_list_ok_elastic
 from scraper.items import ProductScrapingResult
+from search.mock_elastic import mocked_list_ok_elastic
 
 
 class AgentTestCase(TestCase):
     fixtures = ['prod/markets.yaml']
+
+    @classmethod
+    def setUpClass(cls):
+        call_command('search_index', '--rebuild', '-f')
+
+        super().setUpClass()
 
     def test_schedule(self):
         mock = FlowQueueBase()
@@ -19,7 +25,7 @@ class AgentTestCase(TestCase):
         agent.schedule()
 
     @patch('common.elastic.elastic.ElasticManager.insert_data', mocked_list_ok_elastic)
-    @patch('common.elastic.elastic.ElasticManager.__init__', mocked_elastic_manager)
+    # @patch('common.elastic.elastic.ElasticManager.__init__', mocked_elastic_manager)
     def test_process_product(self):
         mock = FlowQueueBase()
         agent = Agent(mock)
@@ -38,4 +44,4 @@ class AgentTestCase(TestCase):
             categories=['Смартфоны, ТВ и электроника', 'Смартфоны, аксессуары', 'Смартфоны']
         )
 
-        agent.process_product(item)
+        agent.process_scraping_result(item)

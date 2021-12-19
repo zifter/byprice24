@@ -1,0 +1,5 @@
+domain:
+  api: localhost
+  admin: localhost
+
+configuration: Dev

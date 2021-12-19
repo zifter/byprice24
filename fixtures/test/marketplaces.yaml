@@ -2,9 +2,9 @@
   pk: 1
   fields:
     domain: localhost
-    image_logo_url: https://www.test.by/
+    logo_url: https://www.test.by/
 - model: marketplace.marketplace
   pk: 2
   fields:
     domain: 0.0.0.0
-    image_logo_url: https://www.test2.by/
+    logo_url: https://www.test2.by/
