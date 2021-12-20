@@ -10,8 +10,6 @@ serviceAccount:
   name: elasticsearch
 
 master:
-  persistence:
-    enabled: false
   resources:
     limits:
       memory: 768Mi
