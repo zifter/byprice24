@@ -45,7 +45,7 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
     size       = local.k8s_node_instance
     auto_scale = true
     min_nodes  = 1
-    max_nodes  = 2
+    max_nodes  = 3
   }
 }
 

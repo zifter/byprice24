@@ -1,0 +1,70 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: prometheus-alert-rules-resources
+  namespace: {{ .Release.Namespace }}
+  labels:
+    prometheus: alert-rules
+    role: alert-rules
+spec:
+  groups:
+    - name: ResourceAlerts
+      rules:
+        - alert: PodReachingMemoryLimit
+          expr: |-
+            sum(container_memory_working_set_bytes{container!="", image!=""}) by (container,pod,namespace)
+            /
+            sum(kube_pod_container_resource_limits_memory_bytes) by (container,pod,namespace)
+            * 100 > {{ .Values.resourcesAlerts.memoryLimitWarningThreshold }}
+          for: 1h
+          labels:
+            severity: warning
+          annotations:
+            summary: Container {{`{{`}} $labels.container {{`}}`}} of pod {{`{{`}} $labels.pod {{`}}`}} is reaching memory limit.
+            description: Curent memory usage of {{`{{`}} $labels.container {{`}}`}} is {{`{{`}} printf "%.1f" $value {{`}}`}}%.
+        - alert: PodReachingMemoryLimit
+          expr: |-
+            sum(container_memory_working_set_bytes{container!="", image!=""}) by (container,pod,namespace)
+            /
+            sum(kube_pod_container_resource_limits_memory_bytes) by (container,pod,namespace)
+            * 100 > {{ .Values.resourcesAlerts.memoryLimitCriticalThreshold }}
+          for: 1h
+          labels:
+            severity: critical
+          annotations:
+            summary: Container {{`{{`}} $labels.container {{`}}`}} of pod {{`{{`}} $labels.pod {{`}}`}} is reaching memory limit.
+            description: Curent memory usage of {{`{{`}} $labels.container {{`}}`}} is {{`{{`}} printf "%.1f" $value {{`}}`}}%.
+        - alert: NotAllRequestsAreSet
+          expr: |-
+            (group(kube_pod_container_info) by (job,container,namespace,pod) * 2)
+            -
+            (sum(group(kube_pod_container_resource_requests) by (job,container,pod,namespace,resource)) by (job,container,namespace,pod) or (group(kube_pod_container_info) by (job,container,namespace,pod) * 0))
+            > 0
+          for: 0m
+          labels:
+            severity: warning
+          annotations:
+            summary: Requests for {{`{{`}} $labels.container {{`}}`}} are set not properly.
+            description: Container {{`{{`}} $labels.container {{`}}`}} of pod {{`{{`}} $labels.pod {{`}}`}} is missing {{`{{`}} $value {{`}}`}} request(s). Please consider to set up.
+        - alert: MemoryUsageOverRequest
+          expr: |-
+            sum(node_namespace_pod_container:container_memory_working_set_bytes{container!=""}) by (container,pod)
+            >
+            sum(kube_pod_container_resource_requests_memory_bytes) by (container,pod)
+          for: {{ .Values.resourcesAlerts.requestsOverUseSafeTime }}
+          labels:
+            severity: warning
+          annotations:
+            summary: Container {{`{{`}} $labels.container {{`}}`}} using memory over request for a long time.
+            description: Container {{`{{`}} $labels.container {{`}}`}} of pod {{`{{`}} $labels.pod {{`}}`}} using memory over request more than {{ .Values.resourcesAlerts.requestsOverUseSafeTime }}.
+        - alert: CPUUsageOverRequest
+          expr: |-
+            sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{container!=""}) by (container,pod)
+            >
+            sum(kube_pod_container_resource_requests_cpu_cores) by (container,pod)
+          for: {{ .Values.resourcesAlerts.requestsOverUseSafeTime }}
+          labels:
+            severity: warning
+          annotations:
+            summary: Container {{`{{`}} $labels.container {{`}}`}} using CPU over request for a long time.
+            description: Container {{`{{`}} $labels.container {{`}}`}} of pod {{`{{`}} $labels.pod {{`}}`}} using CPU over request on {{`{{`}} printf "%.3f" $value {{`}}`}} CPU more than {{ .Values.resourcesAlerts.requestsOverUseSafeTime }}.
