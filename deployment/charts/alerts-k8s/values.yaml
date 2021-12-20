@@ -1,0 +1,10 @@
+resourcesAlerts:
+    memoryLimitWarningThreshold: 90
+    memoryLimitCriticalThreshold: 95
+    requestsOverUseSafeTime: "1d"
+pvc:
+    pvcLimitWarningThreshold: 75
+    pvcLimitCriticalThreshold: 90
+
+crashAlerts:
+    podRestarts: 1

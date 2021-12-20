@@ -1,0 +1,4 @@
+apiVersion: v2
+name: alerts-k8s
+version: 0.1.0
+description: "K8S prometheus alerts"
