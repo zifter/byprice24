@@ -20,9 +20,9 @@ master:
   resources:
     requests:
       cpu: "100m"
-      memory: "100Mi"
+      memory: "150Mi"
     limits:
-      memory: "100Mi"
+      memory: "150Mi"
 
 
 replica:
