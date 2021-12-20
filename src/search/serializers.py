@@ -7,13 +7,13 @@ class OfferSerializer(serializers.Serializer):
 
 
 class ProductSearchSerializer(serializers.Serializer):
-    id = serializers.IntegerField(source='_source.product.id')
-    name = serializers.CharField(source='_source.product.name')
-    category = serializers.CharField(source='_source.product.category')
-    description = serializers.CharField(source='_source.product.description')
-    preview_url = serializers.CharField(source='_source.product.preview_url')
-    min_offer = OfferSerializer(source='_source.product_page.min_offer')
-    marketplaces_count_instock = serializers.IntegerField(source='_source.product_page.marketplaces_count_instock')
+    id = serializers.IntegerField()
+    name = serializers.CharField()
+    category = serializers.CharField()
+    description = serializers.CharField()
+    preview_url = serializers.CharField()
+    # min_offer = OfferSerializer(source='_source.product_page.min_offer')
+    # marketplaces_count_instock = serializers.IntegerField(source='_source.product_page.marketplaces_count_instock')
 
     class Meta:
         fields = '__all__'
