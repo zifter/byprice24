@@ -9,7 +9,8 @@ import ReactGA from 'react-ga';
 
 function App() {
   useEffect(() => {
-    ReactGA.initialize(process.env.GOOGLE_ANALYTICS_TRACKING_ID);
+    ReactGA.initialize(process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+        {testMode: process.env.NODE_ENV === 'test'});
     // To Report Page View
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
