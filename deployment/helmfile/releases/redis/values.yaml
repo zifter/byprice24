@@ -22,7 +22,6 @@ master:
       cpu: "100m"
       memory: "100Mi"
     limits:
-      cpu: "100m"
       memory: "100Mi"
 
 
@@ -33,7 +32,6 @@ replica:
   resources:
     requests:
       cpu: "100m"
-      memory: "100Mi"
+      memory: "150Mi"
     limits:
-      cpu: "100m"
-      memory: "100Mi"
+      memory: "150Mi"
