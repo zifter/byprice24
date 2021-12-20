@@ -41,13 +41,14 @@ services:
       - "5432:5432"
 
   elasticsearch01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.2
     container_name: dc-elasticsearch01
     # network_mode: host
     environment:
       - node.name=elasticsearch01
       - cluster.name=es-docker-cluster
-      - cluster.initial_master_nodes=elasticsearch01
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx768m"
     networks:
       - backend
     ulimits:

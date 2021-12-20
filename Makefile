@@ -113,7 +113,6 @@ frontend-install:
 run-dev-cluster:
 	cd deployment && make cluster-delete
 	cd deployment && make cluster-create
-	cd deployment && make infra-load-images
 	cd deployment && make infra-install
 	cd deployment && make print-urls
 
@@ -121,7 +120,6 @@ run-dev-cluster:
 run-full-cluster:
 	cd deployment && make cluster-delete
 	cd deployment && make cluster-create
-	cd deployment && make infra-load-images
 	make install-full-cluster
 
 install-full-cluster:
