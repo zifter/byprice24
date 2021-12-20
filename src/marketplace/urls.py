@@ -1,6 +1,6 @@
 from django.urls import path
 from marketplace.views import MarketplaceViewSet
-from marketplace.views import ProductAvailabilityViewSet
+from marketplace.views import ProductDetailsViewSet
 from search.views import SearchProductViewSet
 
 marketplace_list = MarketplaceViewSet.as_view({
@@ -14,6 +14,6 @@ urlpatterns = [
     path('v1/marketplaces/', marketplace_list, name='marketplace-list'),
     path('v1/marketplaces/<str:domain>', marketplace_detail, name='marketplace-detail'),
     path('v1/search/products', SearchProductViewSet.as_view(), name='product-search-list'),
-    path('v1/products/<str:id>', ProductAvailabilityViewSet.as_view({'get': 'retrieve'}), name='product-detail'),
+    path('v1/products/<str:id>', ProductDetailsViewSet.as_view(), name='product-detail'),
 
 ]

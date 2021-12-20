@@ -56,7 +56,7 @@ class ProductState(models.Model):
     """
     Description of Product state on the Product page of Marketplace
     """
-    product_page = models.ForeignKey(ProductPage, related_name='product_state', on_delete=models.CASCADE)
+    product_page = models.ForeignKey(ProductPage, related_name='product_states', on_delete=models.CASCADE)
     created = models.DateTimeField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     price_currency = models.CharField(max_length=8)

@@ -3,6 +3,7 @@ from marketplace.models import Product
 from marketplace.serializers import MarketplaceSerializer
 from marketplace.serializers import ProductAvailabilitySerializer
 from rest_framework import viewsets
+from rest_framework.generics import RetrieveAPIView
 
 
 class MarketplaceViewSet(viewsets.ModelViewSet):
@@ -17,7 +18,7 @@ class MarketplaceViewSet(viewsets.ModelViewSet):
     ordering = ('domain',)
 
 
-class ProductAvailabilityViewSet(viewsets.ModelViewSet):
+class ProductDetailsViewSet(RetrieveAPIView):
     """
     API Product availability on marketplaces
     """

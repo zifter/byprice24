@@ -20,18 +20,18 @@ class ProductStateSerializer(serializers.ModelSerializer):
 
 
 class ProductPageSerializer(serializers.ModelSerializer):
-    product_state = ProductStateSerializer(many=True)
+    product_states = ProductStateSerializer(many=True)
     marketplace = MarketplaceSerializer()
 
     class Meta:
         model = ProductPage
-        fields = ['marketplace', 'url', 'product_state']
+        fields = ['marketplace', 'url', 'product_states']
 
     def to_representation(self, instance):
         response = super().to_representation(instance)
-        response['product_state'] = sorted(response['product_state'],
-                                           key=lambda x: datetime.strptime(x['created'], '%Y-%m-%dT%H:%M:%SZ'))
-        response['product_state'] = response.get('product_state', [[]])[-1]
+        response['product_states'] = sorted(response['product_states'],
+                                            key=lambda x: datetime.strptime(x['created'], '%Y-%m-%dT%H:%M:%SZ'))
+        response['product_states'] = response.get('product_states', [[]])[-1]
         return response
 
 
@@ -44,5 +44,5 @@ class ProductAvailabilitySerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         response = super().to_representation(instance)
-        response['product_pages'] = sorted(response['product_pages'], key=lambda x: float(x['product_state']['price']))
+        response['product_pages'] = sorted(response['product_pages'], key=lambda x: float(x['product_states']['price']))
         return response
