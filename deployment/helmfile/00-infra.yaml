@@ -20,6 +20,8 @@ releases:
     namespace: monitoring
     chart: ../charts/alerts-k8s
     installed: {{ .Values.monitoring.enabled | toYaml }}
+    needs:
+      - prometheus-stack
 
   - name: ingress-nginx
     namespace: kube-system

@@ -1,6 +1,5 @@
 locals {
   postgres_instance = "db-s-1vcpu-1gb"
-  k8s_node_instance = "s-2vcpu-4gb"
   region = "fra1"
 }
 
@@ -41,12 +40,19 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
   vpc_uuid = digitalocean_vpc.vpc.id
 
   node_pool {
-    name       = "worker-pool-autoscale"
-    size       = local.k8s_node_instance
-    auto_scale = true
-    min_nodes  = 1
-    max_nodes  = 3
+    name       = "basic-worker-pool"
+    size       = "s-4vcpu-8gb"
+    node_count = 1
   }
+}
+
+resource "digitalocean_kubernetes_node_pool" "worker-pool-autoscale-01" {
+  cluster_id = digitalocean_kubernetes_cluster.cluster.id
+  name       = "worker-pool-autoscale-01"
+  size       = "s-2vcpu-4gb"
+  auto_scale = true
+  min_nodes  = 1
+  max_nodes  = 2
 }
 
 data "digitalocean_project" "staging" {
