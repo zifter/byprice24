@@ -18,7 +18,7 @@ class ProductViewTestCase(TestCase):
                 'previous_page': 0,
                 'results': [
                     OrderedDict(
-                        [('id', 1),
+                        [('id', 2),
                          ('name', 'Acer Extensa 15 EX215-53G-7014 NX.EGCER.009'),
                          ('category', 'notebook'),
                          ('description', ''),
@@ -27,8 +27,8 @@ class ProductViewTestCase(TestCase):
                                                     ('price_currency', 'BYN')])),
                          ('marketplaces_count_instock', 1)]),
                     OrderedDict(
-                        [('id', 2),
-                         ('name', 'Acer Extensa 15 EX215-52-54D6 NX.EG8ER.00V'),
+                        [('id', 3),
+                         ('name', 'Acer Extensa 15 EX215-54-348Z NX.EGJER.00M'),
                          ('category', 'notebook'),
                          ('description', ''),
                          ('preview_url', None),
@@ -49,7 +49,7 @@ class ProductViewTestCase(TestCase):
         response = self.client.get('/api/v1/search/products',
                                    data={'query': 'Acer'})
         self.assertEqual(len(response.data['results']), 2)
-
+        self.maxDiff = None
         self.assertEqual(response.data, self.expected)
 
     @patch('common.elastic.elastic.ElasticManager.search_data', mocked_list_ok_elastic)
