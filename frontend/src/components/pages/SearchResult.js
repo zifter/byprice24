@@ -2,9 +2,9 @@ import React from 'react';
 import {useEffect, useState} from 'react';
 import {useLocation} from 'react-router-dom';
 import axios from 'axios';
-import SearchProductResult from './components/SearchProductResult.js';
+import SearchProductResult from './elements/SearchProductResult.js';
 
-const Search = () => {
+const SearchResult = () => {
   const [searchResult, setSearchResult] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -47,4 +47,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchResult;

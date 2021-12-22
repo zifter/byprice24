@@ -3,7 +3,7 @@ import {useParams} from 'react-router';
 import {useEffect} from 'react';
 import axios from 'axios';
 
-const Product = () => {
+const ProductDetails = () => {
   const {id} = useParams();
   console.log('id', id);
   useEffect(() => {
@@ -22,4 +22,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default ProductDetails;

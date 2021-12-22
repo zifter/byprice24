@@ -1,11 +1,18 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import SearchBar from './pages/components/SearchBar.js';
-import Home from './pages/Home.js';
-import Search from './pages/Search.js';
-import Product from './pages/Product.js';
+import Header from './components/Header.js';
+import Footer from './components/Footer.js';
+import Index from './components/pages/Index.js';
+import SearchResult from './components/pages/SearchResult.js';
+import ProductDetails from './components/pages/ProductDetails.js';
 import ReactGA from 'react-ga';
+import {
+  ThemeProvider,
+  DefaultTheme,
+  StyleReset,
+} from 'atomize';
+
 
 function App() {
   useEffect(() => {
@@ -21,12 +28,16 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <SearchBar/>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/products/:id" element={<Product />}/>
-        </Routes>
+        <ThemeProvider theme={DefaultTheme}>
+          <StyleReset />
+          <Header/>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/search" element={<SearchResult />} />
+            <Route path="/products/:id" element={<ProductDetails />}/>
+          </Routes>
+          <Footer/>
+        </ThemeProvider>
       </BrowserRouter>
     </div>
   );

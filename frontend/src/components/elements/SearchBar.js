@@ -1,6 +1,9 @@
 import React from 'react';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import {
+  Button,
+} from 'atomize';
 
 
 const SearchBar = () => {
@@ -24,6 +27,7 @@ const SearchBar = () => {
   return (
     <div>
       <div className="form-row">
+
         <form name="searchform" className="search-form" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -32,7 +36,10 @@ const SearchBar = () => {
             onChange={handleOnChange}
             className="ui-autocomplete-input"
             autoComplete="off"/>
-          <button type="submit" className="icon-search">Искать</button>
+
+          <Button bg="info700" type="submit">
+          Искать
+          </Button>
         </form>
       </div>
     </div>
