@@ -58,7 +58,7 @@ class SearchProduct:
     def get_queryset(self) -> QuerySet:
         ids = self.get_ids_of_matched_products()
         if ids:
-            queryset = Product.objects.raw(SELECT_PRODUCT_WITH_PAGES_AND_STATES % ', '.join(ids))
+            queryset = Product.objects.raw(SELECT_PRODUCT_WITH_PAGES_AND_STATES, [tuple(ids)])
             return queryset
         return Product.objects.none()
 

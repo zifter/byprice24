@@ -13,6 +13,6 @@ JOIN marketplace_productstate ps on pp.id = ps.product_page_id
     JOIN marketplace_productstate ps on pp.id = ps.product_page_id
     GROUP BY pp.id) AS latest_state on  pp.id = latest_state.id AND ps.created = latest_state.created
 
-WHERE p.id IN (%s)
+WHERE p.id IN %s
 GROUP BY p.id, p.name, p.description, p.category, p.description, p.preview_url,
-ps.price_currency, marketplaces_instock.count;"""
+ps.price_currency, marketplaces_instock.count"""
