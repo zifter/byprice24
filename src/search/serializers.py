@@ -7,7 +7,7 @@ class ProductSearchSerializer(serializers.Serializer):
     category = serializers.CharField()
     description = serializers.CharField()
     preview_url = serializers.CharField()
-    min_offer = serializers.IntegerField()
+    min_offer = serializers.DecimalField(max_digits=10, decimal_places=2)
     min_offer_currency = serializers.CharField()
     marketplaces_count_instock = serializers.IntegerField()
 
