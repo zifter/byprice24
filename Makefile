@@ -188,7 +188,7 @@ save-fixtures-dump:
 
 workers:
 	$(info Load workes for all queues)
-	pipenv run ./src/manage.py rqworker crawler-feed crawler-result
+	pipenv run ./src/manage.py rqworker crawler-feed crawler-result search-query
 
 runserver:
 	$(info Run server)
