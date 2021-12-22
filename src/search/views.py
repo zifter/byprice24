@@ -10,7 +10,7 @@ class SearchProductViewSet(APIView):
     """
     API Product
     """
-    page_size = 5
+    page_size = 20
 
     def get(self, request, *args, **kwargs):
         params = ProductQuerySerializer(data={'query': self.request.query_params.get('query'),
