@@ -14,10 +14,6 @@ def threshold(title: str) -> float:
     return min(len(title) * 0.30, 5.0)  # magic
 
 
-def get_search_query(query):
-    return
-
-
 def find_closest_product(title: str) -> Optional[Product]:
     search_query = Q(
         'multi_match',
@@ -47,13 +43,13 @@ def find_closest_product(title: str) -> Optional[Product]:
     return result
 
 
-class SearchProduct:
+class ProductSearch:
     def __init__(self, query: str, page: int, page_size: int):
         self.query = query
         self.page = page
         self.page_size = page_size
 
-        self._count = 0
+        self.count = 0
 
     def get_queryset(self) -> QuerySet:
         ids = self.get_ids_of_matched_products()
@@ -97,15 +93,3 @@ class SearchProduct:
     def get_pagination_settings(self) -> dict:
         return dict(from_=self.page_size * self.page if self.page > 1 else 0,
                     size=self.page_size)
-
-    @property
-    def count(self):
-        return self._count
-
-    @count.setter
-    def count(self, value):
-        self._count = int(value)
-
-    @count.getter
-    def count(self):
-        return self._count

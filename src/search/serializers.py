@@ -1,4 +1,10 @@
 from rest_framework import serializers
+from rest_framework.fields import SerializerMethodField
+
+
+class OfferSerializer(serializers.Serializer):
+    price = serializers.DecimalField(max_digits=10, decimal_places=2)
+    price_currency = serializers.CharField()
 
 
 class ProductSearchSerializer(serializers.Serializer):
@@ -7,18 +13,16 @@ class ProductSearchSerializer(serializers.Serializer):
     category = serializers.CharField()
     description = serializers.CharField()
     preview_url = serializers.CharField()
-    min_offer = serializers.DecimalField(max_digits=10, decimal_places=2)
-    min_offer_currency = serializers.CharField()
     marketplaces_count_instock = serializers.IntegerField()
+    min_offer = SerializerMethodField()
+
+    def get_min_offer(self, obj):
+        serializer = OfferSerializer(data=dict(price=obj.price, price_currency=obj.price_currency))
+        serializer.is_valid(raise_exception=True)
+        return serializer.data
 
     class Meta:
         fields = '__all__'
-
-    def to_representation(self, instance):
-        repr = super().to_representation(instance)
-        repr['min_offer'] = dict(price=repr.pop('min_offer'),
-                                 price_currency=repr.pop('min_offer_currency'))
-        return repr
 
 
 class ProductQuerySerializer(serializers.Serializer):

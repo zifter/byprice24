@@ -1,7 +1,7 @@
 from common import shared_queue
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from search.logic import SearchProduct
+from search.logic import ProductSearch
 from search.serializers import ProductQuerySerializer
 from search.serializers import ProductSearchSerializer
 
@@ -17,7 +17,7 @@ class SearchProductViewSet(APIView):
                                               'page': self.request.query_params.get('page', '1')})
         params.is_valid(raise_exception=True)
 
-        search_obj = SearchProduct(page_size=self.page_size, **params.data)
+        search_obj = ProductSearch(page_size=self.page_size, **params.data)
         qs = search_obj.get_queryset()
         serializer = ProductSearchSerializer(qs, many=True)
 
