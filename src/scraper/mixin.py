@@ -32,14 +32,16 @@ class StructuredDataMixin:
             image = properties['image']
             preview_url = image if isinstance(image, str) else image[0]
 
-            availability = properties['offers']['properties']['availability'].replace('http://schema.org/', '')
+            availability = properties['offers']['properties']['availability'].replace('http://schema.org/', '') if \
+                properties['offers']['properties'].get('availability') else None
             product = ProductScrapingResult(
                 url=response.url,
-                title=properties['name'],
+                title=properties['name'] if not isinstance(properties['name'], list) else properties['name'][0].split(' Посмотреть')[0],
                 main_category=category,
                 description=self.extract_description(data, item),
-                price=float(properties['offers']['properties']['price']),
-                price_currency=properties['offers']['properties']['priceCurrency'],
+                price=round(float(properties['offers']['properties']['price']), 2),
+                price_currency=properties['offers']['properties']['priceCurrency'] if not
+                properties['offers']['properties']['priceCurrency'] == 'BYR' else 'BYN',
                 rating=float(
                     properties['aggregateRating']['properties']['ratingValue']
                     if 'aggregateRating' in properties
@@ -53,6 +55,10 @@ class StructuredDataMixin:
                 categories=self.extract_categories(data)
             )
             return product
+
+    @classmethod
+    def extract_title_funtastic(cls, properties) -> str:
+        return properties['name'][0].split(' Посмотреть')[0]
 
     @classmethod
     def extract_categories(cls, data) -> list:
