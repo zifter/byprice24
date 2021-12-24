@@ -35,33 +35,32 @@ class StructuredDataMixin:
             availability = properties['offers']['properties']['availability'].replace('http://schema.org/', '') if \
                 properties['offers']['properties'].get('availability') else None
 
-            return self.get_product_scraper_result(url=response.url, data=data, item=item,
-                                                   category=category, availability=availability,
-                                                   preview_url=preview_url)
+            properties = item['properties']
+            product = ProductScrapingResult(
+                url=response.url,
+                title=self.extract_title(properties),
+                main_category=category,
+                description=self.extract_description(data, item),
+                price=round(float(properties['offers']['properties']['price']), 2),
+                price_currency=self.extract_price_currency(properties),
+                rating=float(
+                    properties['aggregateRating']['properties']['ratingValue']
+                    if 'aggregateRating' in properties
+                    else '0'),
+                review_count=int(
+                    properties['aggregateRating']['properties']['reviewCount']
+                    if 'aggregateRating' in properties
+                    else '0'),
+                availability=Availability(availability),
+                preview_url=preview_url,
+                categories=self.extract_categories(data)
+            )
+            return product
 
     @classmethod
-    def get_product_scraper_result(cls, url, data, item, category, availability, preview_url):
-        properties = item['properties']
-        product = ProductScrapingResult(
-            url=url,
-            title=properties['name'],
-            main_category=category,
-            description=cls.extract_description(data, item),
-            price=float(properties['offers']['properties']['price']),
-            price_currency=properties['offers']['properties']['priceCurrency'],
-            rating=float(
-                properties['aggregateRating']['properties']['ratingValue']
-                if 'aggregateRating' in properties
-                else '0'),
-            review_count=int(
-                properties['aggregateRating']['properties']['reviewCount']
-                if 'aggregateRating' in properties
-                else '0'),
-            availability=Availability(availability),
-            preview_url=preview_url,
-            categories=cls.extract_categories(data)
-        )
-        return product
+    def extract_title(cls, properties) -> str:
+        return properties['name'] if not isinstance(properties['name'], list) else \
+            properties['name'][0].split(' Посмотреть')[0]
 
     @classmethod
     def extract_categories(cls, data) -> list:
@@ -85,3 +84,8 @@ class StructuredDataMixin:
             return dublincore[0]['elements'][0]['content']
 
         return ''
+
+    @classmethod
+    def extract_price_currency(cls, properties) -> str:
+        return properties['offers']['properties']['priceCurrency'] if not \
+            properties['offers']['properties']['priceCurrency'] == 'BYR' else 'BYN'

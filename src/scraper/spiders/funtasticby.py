@@ -4,12 +4,12 @@ from common.item_types import Category
 from scraper.base import CategoryRule
 from scraper.base import SpiderBase
 from scraper.items import ProductScrapingResult
-from scraper.structured_data.funtastic_structure import FuntasticStructuredData
+from scraper.mixin import StructuredDataMixin
 from scrapy.http import Response
 from scrapy.linkextractors import LinkExtractor
 
 
-class Spider(SpiderBase, FuntasticStructuredData):
+class Spider(SpiderBase, StructuredDataMixin):
     name: str = 'www.funtastik.by'
     allowed_domains = [
         'www.funtastik.by',

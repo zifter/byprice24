@@ -4,7 +4,7 @@ from common.item_types import Category
 from scraper.base import CategoryRule
 from scraper.base import SpiderBase
 from scraper.items import ProductScrapingResult
-from scraper.structured_data.mixin import StructuredDataMixin
+from scraper.mixin import StructuredDataMixin
 from scrapy.http import Response
 from scrapy.linkextractors import LinkExtractor
 
