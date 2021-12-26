@@ -63,3 +63,22 @@ def test_spider_amd_by():
     )
 
     assert_spider(url, 'poco-pro-x3.html', expected)
+
+
+def test_spider_ozon_ru():
+    url = 'https://www.ozon.ru/product/smartfon-infinix-hot-10-lite-2-32gb-chernyy-272831176/?sh=pcJtVKpF'
+    expected = ProductScrapingResult(
+        url=url,
+        title='Смартфон Infinix HOT 10 Lite 2/32GB, черный',
+        description='',
+        price=7999.0,
+        price_currency='RUB',
+        availability=Availability.InStock,
+        preview_url='https://cdn1.ozone.ru/s3/multimedia-1/6087434965.jpg',
+        main_category=Category.MOBILE,
+        rating=4.9,
+        review_count=7,
+        categories=['Электроника', 'Телефоны и смарт-часы'],
+    )
+
+    assert_spider(url, 'Infinix-HOT-10-Lite.html', expected)

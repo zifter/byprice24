@@ -27,3 +27,13 @@
   pk: 3
   fields:
     marketplace: 3
+
+- model: marketplace.marketplace
+  pk: 4
+  fields:
+    domain: www.ozon.ru
+    logo_url: https://cdn1.ozone.ru/s3/cms/05/t8f/wc200/doodle_1.pnggit
+- model: crawler.scrapingstate
+  pk: 4
+  fields:
+    marketplace: 4
