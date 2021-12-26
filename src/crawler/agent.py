@@ -16,7 +16,6 @@ from marketplace.models import ProductState
 from scraper.items import ProductScrapingResult
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
-from search.elastic_loader import ElasticProductLoader
 from search.logic import find_closest_product
 from twisted.internet.defer import Deferred
 from twisted.python.failure import Failure
@@ -116,7 +115,6 @@ class Agent:
             review_count=data.result.review_count,
             availability=data.result.availability,
         )
-        ElasticProductLoader.load(product)
 
 
 def get_agent() -> Agent:
