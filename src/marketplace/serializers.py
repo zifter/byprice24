@@ -35,7 +35,7 @@ class ProductPageSerializer(serializers.ModelSerializer):
         return response
 
 
-class ProductAvailabilitySerializer(serializers.ModelSerializer):
+class ProductDetailsSerializer(serializers.ModelSerializer):
     product_pages = ProductPageSerializer(many=True, read_only=True, )
 
     class Meta:
