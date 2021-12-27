@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework.fields import SerializerMethodField
 
 
 class OfferSerializer(serializers.Serializer):
@@ -7,13 +8,18 @@ class OfferSerializer(serializers.Serializer):
 
 
 class ProductSearchSerializer(serializers.Serializer):
-    id = serializers.IntegerField(source='_source.product.id')
-    name = serializers.CharField(source='_source.product.name')
-    category = serializers.CharField(source='_source.product.category')
-    description = serializers.CharField(source='_source.product.description')
-    preview_url = serializers.CharField(source='_source.product.preview_url')
-    min_offer = OfferSerializer(source='_source.product_page.min_offer')
-    marketplaces_count_instock = serializers.IntegerField(source='_source.product_page.marketplaces_count_instock')
+    id = serializers.IntegerField()
+    name = serializers.CharField()
+    category = serializers.CharField()
+    description = serializers.CharField()
+    preview_url = serializers.CharField()
+    marketplaces_count_instock = serializers.IntegerField()
+    min_offer = SerializerMethodField()
+
+    def get_min_offer(self, obj):
+        serializer = OfferSerializer(data=dict(price=obj.price, price_currency=obj.price_currency))
+        serializer.is_valid(raise_exception=True)
+        return serializer.data
 
     class Meta:
         fields = '__all__'

@@ -14,7 +14,6 @@ class ProductDocument(Document):
 
     class Django:
         model = Product  # The model associated with this Document
-
         # The fields of the model you want to be indexed in Elasticsearch
         fields = [
             'name',
