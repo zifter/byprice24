@@ -1,8 +1,10 @@
-import React from 'react';
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {
   Button,
+  Input,
+  Icon,
+  Container,
 } from 'atomize';
 
 
@@ -13,10 +15,12 @@ const SearchBar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    navigate({
-      pathname: '/search',
-      search: `?q=${query}`,
-    });
+    if (query) {
+      navigate({
+        pathname: '/search',
+        search: `?q=${query}`,
+      });
+    }
   };
 
   const handleOnChange = (e) => {
@@ -25,24 +29,38 @@ const SearchBar = () => {
 
 
   return (
-    <div>
-      <div className="form-row">
+    <Container
+      h="3rem">
+      <form
+        name="searchform"
+        className="search-form"
+        onSubmit={handleSubmit}>
+        <Input
+          placeholder="Search"
+          onChange={handleOnChange}
+          suffix={
+            <Button
+              pos="absolute"
+              bg="warning600"
+              hoverBg="warning700"
+              w="3rem"
+              top="0"
+              right="0"
+              rounded={{r: 'md'}}
+            >
+              <Icon
+                name="Search"
+                size="20px"
+                color="white"
+                cursor="pointer"
+              />
+            </Button>
+          }
+        />
+      </form>
 
-        <form name="searchform" className="search-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            autoFocus
-            placeholder="Что будете искать?"
-            onChange={handleOnChange}
-            className="ui-autocomplete-input"
-            autoComplete="off"/>
 
-          <Button bg="info700" type="submit">
-          Искать
-          </Button>
-        </form>
-      </div>
-    </div>
+    </Container>
   );
 };
 

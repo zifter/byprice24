@@ -1,10 +1,11 @@
 import React from 'react';
-
+import {Div} from 'atomize';
 
 const Footer = () => {
   return (
-    <div>Footer
-    </div>
+    <Div>
+      2021 by zifter
+    </Div>
   );
 };
 

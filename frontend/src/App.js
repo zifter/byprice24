@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Header from './components/Header.js';
+import HeaderBar from './components/HeaderBar.js';
 import Footer from './components/Footer.js';
 import Index from './components/pages/Index.js';
 import SearchResult from './components/pages/SearchResult.js';
@@ -11,8 +11,15 @@ import {
   ThemeProvider,
   DefaultTheme,
   StyleReset,
+  Container,
 } from 'atomize';
 
+const theme = {
+  ...DefaultTheme,
+  fontFamily: {
+    primary: 'Mulish,Helvetica Neue,Helvetica,Arial,Roboto,sans-serif',
+  },
+};
 
 function App() {
   useEffect(() => {
@@ -26,20 +33,44 @@ function App() {
     console.log(window.location.pathname);
   });
   return (
-    <div>
-      <BrowserRouter>
-        <ThemeProvider theme={DefaultTheme}>
-          <StyleReset />
-          <Header/>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <StyleReset />
+        <Container
+          pos="fixed"
+          bg="info600"
+          maxW={{xs: 'auto', md: '100vw'}}
+          h="4rem"
+        >
+          <HeaderBar/>
+        </Container>
+
+        <Container
+          pos="absolute"
+          top="4rem"
+          bottom="1rem"
+          textAlign="center"
+          maxW={{xs: 'auto', md: '100vw'}}
+        >
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/search" element={<SearchResult />} />
             <Route path="/products/:id" element={<ProductDetails />}/>
           </Routes>
+        </Container>
+
+        <Container
+          pos="fixed"
+          bottom="0"
+          bg="gray200"
+          h="4rem"
+          maxW={{xs: 'auto', md: '100vw'}}
+          textAlign="center"
+        >
           <Footer/>
-        </ThemeProvider>
-      </BrowserRouter>
-    </div>
+        </Container>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
