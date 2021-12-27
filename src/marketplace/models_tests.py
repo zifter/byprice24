@@ -28,17 +28,17 @@ product_state = ProductState(
 )
 
 
-def test_marketplace_is_pritable_ok():
+def test_marketplace_is_printable_ok():
     assert str(marketplace) == 'www.test.by'
 
 
-def test_product_is_pritable_ok():
+def test_product_is_printable_ok():
     assert str(product) == 'iPone'
 
 
-def test_product_page_is_pritable_ok():
+def test_product_page_is_printable_ok():
     assert str(product_page) == 'iPone [www.test.by]'
 
 
-def test_product_state_is_pritable_ok():
+def test_product_state_is_printable_ok():
     assert str(product_state) == 'iPone [www.test.by] [199 BYN]'

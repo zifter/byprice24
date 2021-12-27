@@ -45,8 +45,8 @@ class ProductPage(models.Model):
     """
     Description of Product at Marketplace
     """
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    marketplace = models.ForeignKey(Marketplace, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, related_name='product_pages', on_delete=models.CASCADE)
+    marketplace = models.ForeignKey(Marketplace, related_name='marketplace', on_delete=models.CASCADE)
     url = models.URLField()
     name = models.CharField(max_length=128)
     description = models.CharField(max_length=512)
@@ -59,7 +59,7 @@ class ProductState(models.Model):
     """
     Description of Product state on the Product page of Marketplace
     """
-    product_page = models.ForeignKey(ProductPage, on_delete=models.CASCADE)
+    product_page = models.ForeignKey(ProductPage, related_name='product_states', on_delete=models.CASCADE)
     created = models.DateTimeField(default=datetime.fromtimestamp(0, tz=pytz.UTC))
     price = models.DecimalField(max_digits=10, decimal_places=2)
     price_currency = models.CharField(max_length=8)
