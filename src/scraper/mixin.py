@@ -59,6 +59,8 @@ class StructuredDataMixin:
 
     @classmethod
     def extract_title(cls, properties) -> str:
+        if isinstance(properties['name'], list):
+            return properties['name'][0]
         return properties['name']
 
     @classmethod
