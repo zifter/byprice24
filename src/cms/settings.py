@@ -49,6 +49,8 @@ class Base(Configuration):
         'django_rq',
         'marketplace',
         'crawler',
+        'django_crontab',
+        'pycron',
     ]
 
     REST_FRAMEWORK = {
