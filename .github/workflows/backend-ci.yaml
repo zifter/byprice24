@@ -74,6 +74,10 @@ jobs:
         run: |
           make setup-pipenv
 
+      - name: Docker Compose Up
+        working-directory: ./backend
+        run: make docker-compose-up
+
       - name: Install Dependencies
         run: |
           make pipenv-install
