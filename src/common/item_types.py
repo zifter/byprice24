@@ -13,7 +13,6 @@ class Availability(ExtendedEnum):
     PreOrder = 'PreOrder'
     PreSale = 'PreSale'
     SoldOut = 'SoldOut'
-    NoInfo = None
 
 
 class Category(ExtendedEnum):

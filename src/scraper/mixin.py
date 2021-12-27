@@ -33,7 +33,7 @@ class StructuredDataMixin:
             preview_url = image if isinstance(image, str) else image[0]
 
             availability = properties['offers']['properties']['availability'].replace('http://schema.org/', '') if \
-                properties['offers']['properties'].get('availability') else None
+                properties['offers']['properties'].get('availability') else Availability.InStock.value
 
             properties = item['properties']
             product = ProductScrapingResult(
@@ -59,8 +59,7 @@ class StructuredDataMixin:
 
     @classmethod
     def extract_title(cls, properties) -> str:
-        return properties['name'] if not isinstance(properties['name'], list) else \
-            properties['name'][0].split(' Посмотреть')[0]
+        return properties['name']
 
     @classmethod
     def extract_categories(cls, data) -> list:
@@ -78,7 +77,7 @@ class StructuredDataMixin:
         properties = item['properties']
         if 'description' in properties:
             if len(properties['description']) > 512:
-                return cls.shorten_description(properties)
+                return cls.shorten_description(properties['description'])
             return properties['description']
 
         dublincore = data['dublincore']
@@ -88,13 +87,13 @@ class StructuredDataMixin:
         return ''
 
     @classmethod
-    def shorten_description(cls, properties):
-        description = []
-        for description_paragraph in properties['description'].split('\n'):
-            description.append(description_paragraph)
-            if len('\n'.join(description)) > 512:
-                description.pop()
-                return '\n'.join(description)
+    def shorten_description(cls, description) -> str:
+        short_description = []
+        for description_paragraph in description.split('\n'):
+            short_description.append(description_paragraph)
+            if len('\n'.join(short_description)) > 512:
+                short_description.pop()
+                return '\n'.join(short_description)
 
     @classmethod
     def extract_price_currency(cls, properties) -> str:
