@@ -1,12 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import {
+  Div,
+  Text,
+} from 'atomize';
 
 const SearchProductResult = ({product}) => {
   return (
-    <div>
-      <Link to={`/products/${product.id}`}>{ product.name }</Link>
-    </div>
+    <Div>
+      <Link to={`/products/${product.id}`}>
+        <Text
+          textSize="body"
+          textAlign='left'>
+          { product.name }
+        </Text>
+      </Link>
+    </Div>
   );
 };
 
