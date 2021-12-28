@@ -22,5 +22,6 @@ class Spider(SpiderBase, StructuredDataMixin):
 
     def parse_product_impl(self, response: Response, category: Category) -> Optional[ProductScrapingResult]:
         structured_data = self.extract_structured_data(response, category)
-        structured_data.title = structured_data.title.split(' Посмотреть')[0]
+        if structured_data:
+            structured_data.title = structured_data.title.split(' Посмотреть')[0]
         return structured_data
