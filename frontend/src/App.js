@@ -1,21 +1,26 @@
 import React, {useEffect} from 'react';
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import HeaderBar from './components/HeaderBar.js';
 import Footer from './components/Footer.js';
 import Index from './components/pages/Index.js';
 import SearchResult from './components/pages/SearchResult.js';
-import ProductDetails from './components/pages/ProductDetails.js';
+import ProductPage from './components/pages/ProductPage.js';
+import NotFound from './components/pages/NotFound.js';
+
 import ReactGA from 'react-ga';
 import {
   ThemeProvider,
-  DefaultTheme,
   StyleReset,
   Container,
 } from 'atomize';
 
 const theme = {
-  ...DefaultTheme,
   fontFamily: {
     primary: 'Mulish,Helvetica Neue,Helvetica,Arial,Roboto,sans-serif',
   },
@@ -53,9 +58,11 @@ function App() {
           maxW={{xs: 'auto', md: '100vw'}}
         >
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/search" element={<SearchResult />} />
-            <Route path="/products/:id" element={<ProductDetails />}/>
+            <Route exact path="/" element={<Index />} />
+            <Route exact path="/search" element={<SearchResult />} />
+            <Route exact path="/products/:id" element={<ProductPage />}/>
+            <Route exact path="/404" element={<NotFound />}/>
+            <Route path="*" element={<Navigate replace to="/404" />} />
           </Routes>
         </Container>
 
@@ -63,7 +70,7 @@ function App() {
           pos="fixed"
           bottom="0"
           bg="gray200"
-          h="4rem"
+          h="1.5rem"
           maxW={{xs: 'auto', md: '100vw'}}
           textAlign="center"
         >

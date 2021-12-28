@@ -1,10 +1,15 @@
 import React from 'react';
+import {
+  Container,
+} from 'atomize';
 
 function Index() {
   return (
-    <div>
+    <Container
+      h="100%"
+    >
         Index!
-    </div>
+    </Container>
   );
 }
 

@@ -6,16 +6,19 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "array-unique": "^0.3.2",
     "atomize": "^1.0.28",
     "axios": "^0.24.0",
     "fusion-plugin-styletron-react": "^3.3.2",
+    "is-buffer": "^2.0.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-ga": "^3.3.0",
     "react-router-dom": "^6.0.2",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.0",
     "react-transition-group": "^4.4.2",
     "styletron-react": "^6.0.2",
+    "to-regex": "^3.0.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -26,7 +29,7 @@
     "eslint": "eslint './**/*.{js,jsx}'",
     "eslint-fix": "eslint './**/*.{js,jsx}' --fix"
   },
-  "proxy": "http://localhost:1080",
+  "proxy": "http://localhost:8080",
   "eslintConfig": {
     "extends": [
       "react-app",

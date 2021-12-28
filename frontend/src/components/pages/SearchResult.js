@@ -5,7 +5,7 @@ import {useLocation} from 'react-router-dom';
 import axios from 'axios';
 import SearchProductResult from './elements/SearchProductResult.js';
 import {
-  Div,
+  Container,
   Text,
 } from 'atomize';
 
@@ -34,7 +34,7 @@ const ResultIsEmpty = ( ) => {
   return (
     <Text
       tag="h1"
-      textSize="display1"
+      textSize="heading"
       textAlign='center'>
       ¯\_(ツ)_/¯
     </Text>
@@ -68,10 +68,12 @@ const SearchResult = () => {
   useEffect(hook, [query]);
 
   return (
-    <Div>
+    <Container
+      h="100%"
+    >
       <Text
         tag="h1"
-        textSize="display1"
+        textSize="heading"
         m={{b: '4rem', t: '1rem'}}
         textAlign={{xs: 'center', lg: 'left'}}>
           Результаты поиска для &quot;{query}&quot;
@@ -90,7 +92,7 @@ const SearchResult = () => {
         <ResultIsEmpty />
       }
 
-    </Div>
+    </Container>
   );
 };
 

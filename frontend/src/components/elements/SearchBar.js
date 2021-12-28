@@ -36,7 +36,7 @@ const SearchBar = () => {
         className="search-form"
         onSubmit={handleSubmit}>
         <Input
-          placeholder="Search"
+          placeholder="Искать"
           onChange={handleOnChange}
           suffix={
             <Button
@@ -58,8 +58,6 @@ const SearchBar = () => {
           }
         />
       </form>
-
-
     </Container>
   );
 };
