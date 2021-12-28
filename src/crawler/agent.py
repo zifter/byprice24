@@ -98,7 +98,7 @@ class Agent:
                 preview_url=data.result.preview_url,
             )
 
-        page, created = ProductPage.objects.get_or_create(
+        page, _ = ProductPage.objects.get_or_create(
             product=product,
             marketplace=marketplace,
             url=data.result.url,
@@ -106,9 +106,9 @@ class Agent:
             description=data.result.description,
         )
 
-        _ = ProductState.objects.create(
+        _, _ = ProductState.objects.update_or_create(
+            defaults={'last_check': data.result.timestamp},
             product_page=page,
-            created=data.result.timestamp,
             price=data.result.price,
             price_currency=data.result.price_currency,
             rating=data.result.rating,
