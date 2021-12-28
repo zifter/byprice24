@@ -27,3 +27,13 @@
   pk: 3
   fields:
     marketplace: 3
+
+- model: marketplace.marketplace
+  pk: 4
+  fields:
+    domain: www.funtastik.by
+    logo_url: https://www.funtastik.by/bitrix/templates/funtastik5/images/logo.png
+- model: crawler.scrapingstate
+  pk: 4
+  fields:
+    marketplace: 4
