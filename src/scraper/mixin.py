@@ -32,14 +32,17 @@ class StructuredDataMixin:
             image = properties['image']
             preview_url = image if isinstance(image, str) else image[0]
 
-            availability = properties['offers']['properties']['availability'].replace('http://schema.org/', '')
+            availability = properties['offers']['properties']['availability'].replace('http://schema.org/', '') if \
+                properties['offers']['properties'].get('availability') else Availability.InStock.value
+
+            properties = item['properties']
             product = ProductScrapingResult(
                 url=response.url,
-                title=properties['name'],
+                title=self.extract_title(properties),
                 main_category=category,
                 description=self.extract_description(data, item),
-                price=float(properties['offers']['properties']['price']),
-                price_currency=properties['offers']['properties']['priceCurrency'],
+                price=round(float(properties['offers']['properties']['price']), 2),
+                price_currency=self.extract_price_currency(properties),
                 rating=float(
                     properties['aggregateRating']['properties']['ratingValue']
                     if 'aggregateRating' in properties
@@ -53,6 +56,12 @@ class StructuredDataMixin:
                 categories=self.extract_categories(data)
             )
             return product
+
+    @classmethod
+    def extract_title(cls, properties) -> str:
+        if isinstance(properties['name'], list):
+            return properties['name'][0]
+        return properties['name']
 
     @classmethod
     def extract_categories(cls, data) -> list:
@@ -69,6 +78,8 @@ class StructuredDataMixin:
     def extract_description(cls, data, item) -> str:
         properties = item['properties']
         if 'description' in properties:
+            if len(properties['description']) > 512:
+                return cls.shorten_description(properties['description'])
             return properties['description']
 
         dublincore = data['dublincore']
@@ -76,3 +87,17 @@ class StructuredDataMixin:
             return dublincore[0]['elements'][0]['content']
 
         return ''
+
+    @classmethod
+    def shorten_description(cls, description) -> str:
+        short_description = []
+        for description_paragraph in description.split('\n'):
+            short_description.append(description_paragraph)
+            if len('\n'.join(short_description)) > 512:
+                short_description.pop()
+                return '\n'.join(short_description)
+
+    @classmethod
+    def extract_price_currency(cls, properties) -> str:
+        return properties['offers']['properties']['priceCurrency'] if not \
+            properties['offers']['properties']['priceCurrency'] == 'BYR' else 'BYN'

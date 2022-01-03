@@ -1,3 +1,4 @@
+
 - model: marketplace.marketplace
   pk: 1
   fields:
@@ -31,9 +32,20 @@
 - model: marketplace.marketplace
   pk: 4
   fields:
-    domain: www.ozon.ru
-    logo_url: https://cdn1.ozone.ru/s3/cms/05/t8f/wc200/doodle_1.pnggit
+    domain: www.funtastik.by
+    logo_url: https://www.funtastik.by/bitrix/templates/funtastik5/images/logo.png
 - model: crawler.scrapingstate
   pk: 4
   fields:
     marketplace: 4
+
+
+- model: marketplace.marketplace
+  pk: 5
+  fields:
+    domain: www.ozon.ru
+    logo_url: https://cdn1.ozone.ru/s3/cms/05/t8f/wc200/doodle_1.pnggit
+- model: crawler.scrapingstate
+  pk: 5
+  fields:
+    marketplace: 5

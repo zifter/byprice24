@@ -2,7 +2,6 @@ from crawler.models import ScrapingState
 from crawler.tasks import get_agent
 from django.contrib import admin
 from django.http import HttpResponseRedirect
-# admin.site.register(ScrapingState)
 
 
 @admin.register(ScrapingState)
