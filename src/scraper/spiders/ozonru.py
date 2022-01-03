@@ -19,8 +19,8 @@ class Spider(SpiderBase, StructuredDataMixin):
 
     rules = (
         CategoryRule(LinkExtractor(allow=(r'smartfon-\w+',)), category=Category.MOBILE),
-        CategoryRule(LinkExtractor(allow=(r'noutbuk-\w+',)), category=Category.MOBILE),
-        CategoryRule(LinkExtractor(allow=(r'naushniki-\w+',)), category=Category.MOBILE),
+        CategoryRule(LinkExtractor(allow=(r'noutbuk-\w+',)), category=Category.NOTEBOOK),
+        CategoryRule(LinkExtractor(allow=(r'naushniki-\w+',)), category=Category.HEADPHONE),
     )
 
     def parse_product_impl(self, response: Response, category: Category) -> Optional[ProductScrapingResult]:
