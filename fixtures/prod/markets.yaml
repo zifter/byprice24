@@ -2,8 +2,9 @@
   pk: 1
   fields:
     domain: www.21vek.by
-    image_logo_url: https://www.21vek.by/img/up/logo_21vek.by.png
+    logo_url: https://www.21vek.by/img/up/logo_21vek.by.png
 - model: crawler.scrapingstate
+  pk: 1
   fields:
     marketplace: 1
 
@@ -11,7 +12,28 @@
   pk: 2
   fields:
     domain: www.ilp.by
-    image_logo_url: https://userimages.shopmanager.by/3100630/ilp-logo.png
+    logo_url: https://userimages.shopmanager.by/3100630/ilp-logo.png
 - model: crawler.scrapingstate
+  pk: 2
   fields:
     marketplace: 2
+
+- model: marketplace.marketplace
+  pk: 3
+  fields:
+    domain: www.amd.by
+    logo_url: https://www.amd.by/image/catalog/img/logo1.png
+- model: crawler.scrapingstate
+  pk: 3
+  fields:
+    marketplace: 3
+
+- model: marketplace.marketplace
+  pk: 4
+  fields:
+    domain: www.funtastik.by
+    logo_url: https://www.funtastik.by/bitrix/templates/funtastik5/images/logo.png
+- model: crawler.scrapingstate
+  pk: 4
+  fields:
+    marketplace: 4

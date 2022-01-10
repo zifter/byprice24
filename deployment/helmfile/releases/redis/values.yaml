@@ -16,3 +16,22 @@ serviceAccount:
 master:
   persistence:
     enabled: false
+
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "150Mi"
+    limits:
+      memory: "150Mi"
+
+
+replica:
+  persistence:
+    enabled: false
+
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "150Mi"
+    limits:
+      memory: "150Mi"

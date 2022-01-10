@@ -69,3 +69,23 @@ releases:
       - releases/certificates/values-{{ .Environment.Name }}.yaml
     needs:
       - cert-cluster-issuer
+
+  # ELASTICSEARCH
+  - name: elasticsearch
+    namespace: {{ .Values.namespace }}
+    chart: bitnami/elasticsearch
+    version: 17.5.4
+    installed: {{ .Values.elasticsearch.enabled | toYaml }}
+    values:
+      - releases/elasticsearch/values.yaml
+      - releases/elasticsearch/values-{{ .Environment.Name }}.yaml
+
+  - name: elasticsearch-exporter
+    namespace: {{ .Values.namespace }}
+    chart: prometheus-community/prometheus-elasticsearch-exporter
+    installed: {{ .Values.monitoring.enabled | toYaml }}
+    version: 4.9.0
+    needs:
+      - prometheus-stack
+    values:
+      - releases/elasticsearch-exporter/values.yaml

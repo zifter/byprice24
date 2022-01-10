@@ -1,0 +1,6 @@
+dependencies:
+- name: cms-lib
+  repository: file://../cms-lib
+  version: 0.1.0
+digest: sha256:673d03300e69d65d34d523a75578903ed4185cc4d6d24501785a498eb472bb82
+generated: "2021-12-15T23:38:34.285956541+03:00"

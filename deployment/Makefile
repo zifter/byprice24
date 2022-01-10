@@ -22,6 +22,9 @@ infra-load-images:
 	docker pull docker.io/bitnami/redis:6.2.6-debian-10-r0
 	kind load docker-image --name byprice24 docker.io/bitnami/redis:6.2.6-debian-10-r0 || true
 
+	docker pull docker.io/bitnami/elasticsearch:7.16.2-debian-10-r0
+	kind load docker-image --name byprice24 docker.io/bitnami/elasticsearch:7.16.2-debian-10-r0 || true
+
 cluster-images:
 	$(info List of loaded images into cluster)
 	docker exec -it byprice24-control-plane crictl images

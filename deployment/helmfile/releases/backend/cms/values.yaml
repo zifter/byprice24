@@ -1,5 +1,16 @@
+resources:
+  requests:
+    cpu: "300m"
+    memory: "200Mi"
+  limits:
+    cpu: "500m"
+    memory: "200Mi"
+
 ingress:
   enabled: true
 
 redis:
   url: "redis://redis-master:6379/0"
+
+elasticsearch:
+  url: "es://elasticsearch-master:9200/"

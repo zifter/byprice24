@@ -13,4 +13,4 @@ def scrape_target(task: ScrapingTarget):
 @job
 def process_product(item: ProductScrapingResult):
     agent = get_agent()
-    agent.process_product(item)
+    agent.process_scraping_result(item)

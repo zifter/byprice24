@@ -1,3 +1,11 @@
-redisAddress: redis://redis-master.default.svc:6379
+redisAddress: redis://redis-master:6379
 serviceMonitor:
   enabled: true
+
+resources:
+  requests:
+    cpu: "10m"
+    memory: "30Mi"
+  limits:
+    cpu: "50m"
+    memory: "30Mi"

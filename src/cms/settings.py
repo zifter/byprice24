@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 
 from common.paths import REPO_DIR
-from common.paths import TMP_DIR
 from common.shared_queue.redis_queue import CRAWLER_FEED
 from common.shared_queue.redis_queue import CRAWLER_RESULT
+from common.shared_queue.redis_queue import SEARCH_QUERY
 from configurations import Configuration
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -41,6 +41,7 @@ class Base(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+        'django_elasticsearch_dsl',
         'rest_framework',
         'health_check',
         'health_check.db',
@@ -49,10 +50,11 @@ class Base(Configuration):
         'django_rq',
         'marketplace',
         'crawler',
+        'search',
     ]
 
     REST_FRAMEWORK = {
-        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination'
+        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     }
 
     MIDDLEWARE = [
@@ -164,9 +166,19 @@ class Base(Configuration):
         CRAWLER_RESULT: {
             'URL': os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0'),
         },
+        SEARCH_QUERY: {
+            'URL': os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0'),
+        }
     }
 
     RQ_SHOW_ADMIN_LINK = True
+
+    # https://django-elasticsearch-dsl.readthedocs.io/en/latest/quickstart.html
+    ELASTICSEARCH_DSL = {
+        'default': {
+            'hosts': os.getenv('ELASTICSEARCH_DSL', 'localhost:9200'),
+        },
+    }
 
 
 class PostgresMixin:
@@ -189,14 +201,7 @@ class Dev(PostgresMixin, Base):
 
 
 class Test(Dev):
-    # Database
-    # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': TMP_DIR / 'db.sqlite3',
-        }
-    }
+    pass
 
 
 class Prod(PostgresMixin, Base):

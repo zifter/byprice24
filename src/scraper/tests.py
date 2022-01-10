@@ -63,3 +63,19 @@ def test_spider_amd_by():
     )
 
     assert_spider(url, 'poco-pro-x3.html', expected)
+
+
+def test_funtastik_by():
+    url = 'https://www.funtastik.by/igrushki/konstruktory/konstruktor-lego-super-mario-71360-priklyucheniya-vmeste-s-mario-startovyy-nabor/'
+    expected = ProductScrapingResult(
+        url=url,
+        title='Конструктор LEGO City 60297: Разрушительный трюковый мотоцикл',
+        description='Конструктор LEGO City 60297: Разрушительный трюковый мотоцикл\nОсобенности:\n- мотоцикл с маховиком;\n- 1 минифигурка в комплекте;\n- набор можно объединять с другими наборами LEGO City.\nРазмер мотоцикла в собранном виде: 6х2х3 см.\nМатериал: пластмасса.\nВ наборе: 12 деталей, 1 минифигурка, инструкция.',
+        price=19.61,
+        price_currency='BYN',
+        availability=Availability.InStock,
+        preview_url='https://www.funtastik.by/upload/resize_cache/iblock/2f8/720_720_040cd750bba9870f18aada2478b24840a/2f8c4ef8be4aa902ed0659f02b29607f.jpg',
+        main_category=Category.LEGO,
+        categories=[],
+    )
+    assert_spider(url, 'lego-city.html', expected)

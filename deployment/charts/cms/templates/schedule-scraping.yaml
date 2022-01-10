@@ -1,0 +1,46 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "cms.fullname" . }}-schdule-scraping
+  labels:
+    {{- include "cms.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.cron | quote }}
+  concurrencyPolicy: Forbid
+  suspend: {{ .Values.suspend }}
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          {{- with .Values.podAnnotations }}
+          annotations:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          labels:
+            {{- include "cms.selectorLabels" . | nindent 12 }}
+        spec:
+          {{- with .Values.imagePullSecrets }}
+          imagePullSecrets:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          restartPolicy: OnFailure
+          serviceAccountName: {{ include "cms.serviceAccountName" . }}
+          securityContext:
+            {{- toYaml .Values.podSecurityContext | nindent 12 }}
+          containers:
+            - name: schedule-scraping
+              securityContext:
+                {{- toYaml .Values.securityContext | nindent 16 }}
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              args:
+                - python3
+                - manage.py
+                - schedule-scraping
+                {{- if .Values.scheduleScraping.force -}}
+                - --force
+                {{- end }}
+              env:
+                {{- include "cms-lib.env" . | nindent 16 }}
+              resources:
+                {{- toYaml .Values.resources | nindent 16 }}

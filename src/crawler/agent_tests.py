@@ -2,12 +2,19 @@ from common.item_types import Availability
 from common.item_types import Category
 from common.shared_queue import FlowQueueBase
 from crawler.agent import Agent
+from django.core.management import call_command
 from django.test import TestCase
 from scraper.items import ProductScrapingResult
 
 
 class AgentTestCase(TestCase):
     fixtures = ['prod/markets.yaml']
+
+    @classmethod
+    def setUpClass(cls):
+        call_command('search_index', '--rebuild', '-f')
+
+        super().setUpClass()
 
     def test_schedule(self):
         mock = FlowQueueBase()
@@ -32,4 +39,4 @@ class AgentTestCase(TestCase):
             categories=['Смартфоны, ТВ и электроника', 'Смартфоны, аксессуары', 'Смартфоны']
         )
 
-        agent.process_product(item)
+        agent.process_scraping_result(item)

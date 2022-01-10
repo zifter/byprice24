@@ -1,10 +1,13 @@
 ingress:
+  annotations:
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
   tls:
     - secretName: findprice-by-tls
       hosts:
         - findprice.by
+        - www.findprice.by
   hosts:
-    - host: findprice.by
+    - host: www.findprice.by
       paths:
         - path: /
           pathType: Prefix

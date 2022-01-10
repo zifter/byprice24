@@ -1,17 +1,21 @@
 ingress:
+  annotations:
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
   tls:
     - secretName: findprice-by-tls
       hosts:
         - findprice.by
+        - www.findprice.by
     - secretName: findprice-site-tls
       hosts:
         - findprice.site
+        - www.findprice.site
   hosts:
-    - host: findprice.by
+    - host: www.findprice.by
       paths:
         - path: /api
           pathType: Prefix
-    - host: findprice.site
+    - host: www.findprice.site
       paths:
         - path: /admin
           pathType: Prefix
@@ -19,10 +23,10 @@ ingress:
           pathType: Prefix
 
 domain:
-  api: findprice.by
-  admin: findprice.site
+  api: www.findprice.by
+  admin: www.findprice.site
+
+configuration: Prod
 
 cron: "0 * * * *"
 suspend: false
-
-configuration: Prod

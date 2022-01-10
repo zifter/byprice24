@@ -1,3 +1,6 @@
+from datetime import datetime
+
+import pytz
 from common.item_types import Availability
 from common.item_types import Category
 from django.db import models
@@ -18,23 +21,21 @@ class Marketplace(models.Model):
     Marketplace site information
     """
     domain = models.CharField(max_length=32, unique=True)
-    description = models.CharField(max_length=32, blank=True)
-    rating = models.IntegerField(default=0)
-    image_logo_url = models.URLField(blank=True)
+    description = models.CharField(max_length=128, blank=True)
+    logo_url = models.URLField()
 
     def __str__(self):
         return str(self.domain)
 
 
-# Create your models here.
 class Product(models.Model):
     """
     General information about product
     """
-    name = models.CharField(max_length=62, unique=True)
-    category = models.CharField(max_length=62, choices=Category.choices())
+    name = models.CharField(max_length=128, unique=True)
+    category = models.CharField(max_length=64, choices=Category.choices())
     description = models.CharField(max_length=512)
-    preview_url = models.CharField(max_length=256, null=True)
+    preview_url = models.URLField(max_length=256, null=True)
 
     def __str__(self):
         return str(self.name)
@@ -44,9 +45,10 @@ class ProductPage(models.Model):
     """
     Description of Product at Marketplace
     """
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    marketplace = models.ForeignKey(Marketplace, on_delete=models.CASCADE)
-    url = models.CharField(max_length=256)
+    product = models.ForeignKey(Product, related_name='product_pages', on_delete=models.CASCADE)
+    marketplace = models.ForeignKey(Marketplace, related_name='marketplace', on_delete=models.CASCADE)
+    url = models.URLField()
+    name = models.CharField(max_length=128)
     description = models.CharField(max_length=512)
 
     def __str__(self):
@@ -57,12 +59,12 @@ class ProductState(models.Model):
     """
     Description of Product state on the Product page of Marketplace
     """
-    product_page = models.ForeignKey(ProductPage, on_delete=models.CASCADE)
-    created = models.DateTimeField()
+    product_page = models.ForeignKey(ProductPage, related_name='product_states', on_delete=models.CASCADE)
+    created = models.DateTimeField(default=datetime.fromtimestamp(0, tz=pytz.UTC))
     price = models.DecimalField(max_digits=10, decimal_places=2)
     price_currency = models.CharField(max_length=8)
-    rating = models.FloatField()
-    review_count = models.IntegerField()
+    rating = models.FloatField(default=0.0)
+    review_count = models.IntegerField(default=0)
     availability = models.CharField(max_length=24, default='', choices=Availability.choices())
 
     def __str__(self):

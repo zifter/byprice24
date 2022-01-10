@@ -1,0 +1,10 @@
+- model: marketplace.marketplace
+  pk: 1
+  fields:
+    domain: localhost
+    logo_url: https://www.test.by/
+- model: marketplace.marketplace
+  pk: 2
+  fields:
+    domain: 0.0.0.0
+    logo_url: https://www.test2.by/

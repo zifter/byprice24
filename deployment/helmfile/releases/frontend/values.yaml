@@ -1,3 +1,11 @@
+resources:
+  requests:
+    cpu: "100m"
+    memory: "50Mi"
+  limits:
+    cpu: "100m"
+    memory: "50Mi"
+
 ingress:
   enabled: true
   hosts:
