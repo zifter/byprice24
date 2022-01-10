@@ -2,8 +2,8 @@ import logging
 from datetime import datetime
 from datetime import timedelta
 from typing import List
+from croniter import croniter
 
-import pycron
 import pytz
 from common.shared_queue import FlowQueueBase
 from common.shared_queue import get_flow_queue
@@ -25,7 +25,7 @@ class Agent:
     def __init__(self, queue: FlowQueueBase):
         self.queue = queue
 
-    def schedule(self, marketplace=None, force=False, scraping_schedule=None):
+    def schedule(self, marketplace=None, force=False):
         logging.info('Schedule marketplace [%s], force [%s]', marketplace, force)
         now = datetime.now(tz=pytz.UTC)
 
@@ -41,16 +41,17 @@ class Agent:
 
         for scraping in objects:
             logging.info(scraping.marketplace.domain)
+            scraping_schedule = scraping.scraping_schedule
+            next_scraping = croniter(scraping_schedule, now).get_next(datetime)
 
             target = ScrapingTarget(
                 url='https://' + scraping.marketplace.domain,
                 domain=scraping.marketplace.domain,
                 use_proxy=scraping.use_proxy)
 
-            self.queue.scrape(target)
-            if pycron.is_now(scraping_schedule):
-                scraping.last_scraping = now
-                scraping.save()
+            if croniter.match(scraping_schedule, next_scraping):
+                self.queue.scrape(target)
+
 
     def scrape(self, target: ScrapingTarget):
         logging.info('Scrape %s', target)
@@ -115,3 +116,4 @@ class Agent:
 
 def get_agent() -> Agent:
     return Agent(get_flow_queue())
+
