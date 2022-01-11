@@ -51,3 +51,91 @@ form {
     display: block;
     margin-top: 0em;
 }
+
+/* Tab Container */
+.Tabs {
+  width: 80%;
+  height: auto;
+  min-height: 400px;
+  background: #FFFFFF;
+  margin: 3.5rem auto 1.5rem;
+  padding: 2rem 1rem;
+  color: #FFFFFF;
+  border-radius: 2rem;
+}
+@media (max-width: 769px) {
+    .Tabs {
+        padding: 2rem 0;
+    }
+}
+
+/* Tab Navigation */
+ul.nav {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+@media (max-width: 768px) {
+    ul.nav {
+        width: 80%;
+    }
+}
+
+ul.nav li {
+  width: 100%;
+  padding: 1rem;
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.7s;
+  border-radius: 1rem;
+  background-color: white;
+}
+
+/* First and Second Tab Styles */
+.InfoTab p,
+.PriceTab p {
+  font-size: 2rem;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid rgb(205, 206, 201);
+  text-align: left;
+  padding: 8px;
+  font-weight: lighter;
+  border-left: none;
+  border-right: none;
+}
+
+th:nth-child(2) {
+  background-color: rgb(247, 248, 248);
+}
+
+td:nth-child(2) {
+  background-color: rgb(247, 248, 248);
+}
+
+.collapsible {
+  background-color: #F7F7F7;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  font-size: 15px;
+  border-radius: 0.5rem;
+  box-shadow: rgb(230 233 234) 0 0 0 1px;
+}
+
+.active, .collapsible:hover {
+  background-color: #FFFFFF;
+}
