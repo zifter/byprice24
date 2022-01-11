@@ -11,11 +11,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 
+import sentry_sdk
 from common.paths import REPO_DIR
 from common.shared_queue.redis_queue import CRAWLER_FEED
 from common.shared_queue.redis_queue import CRAWLER_RESULT
 from common.shared_queue.redis_queue import SEARCH_QUERY
 from configurations import Configuration
+from sentry_sdk.integrations.django import DjangoIntegration
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -205,4 +207,9 @@ class Test(Dev):
 
 
 class Prod(PostgresMixin, Base):
+
+    # Sentry
+    SENTRY_DSN = os.environ.setdefault('SENTRY_DSN', 'https://607627c21d7642ab878a8aaa4fe0da98@o1101110.ingest.sentry.io/6126818')
+    sentry_sdk.init(dsn=SENTRY_DSN, integrations=[DjangoIntegration(), ])
+
     DEBUG = False  # TODO Make it False and run behind wsgi server (gunicron)
