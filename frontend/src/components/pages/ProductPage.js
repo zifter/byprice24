@@ -3,7 +3,7 @@ import {useParams} from 'react-router';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 import ProductBody from './elements/ProductBody.js';
-import ProductTabs from './elements/product_tab/ProductTab';
+import ProductTabs from './elements/product_tab/ProductTabs';
 import {
   Text, Container,
 } from 'atomize';

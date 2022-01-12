@@ -18,7 +18,7 @@ const PriceTab = ({productData}) => {
 
               <button type="button" className="collapsible">
 
-                <Row>
+                <Row align={'center'}>
                   <Col size={3}>
 
                     <Row>
@@ -60,9 +60,9 @@ const PriceTab = ({productData}) => {
                         <Div d={'flex'} justify={'right'}>
                           <Text textSize={'caption'}>
                             {productPage.product_states.availability ===
-                            'Availability.InStock' ?
-                                <Icon name="Success" size="15px"
-                                  color='success800' m={{t: '0.5rem'}}/> :
+                            'InStock' ?
+                                 <Icon name="Success" size="15px"
+                                   color='success800' m={{t: '0.5rem'}}/>:
                                 <Icon name="Close" size="15px"
                                   color='danger800' m={{t: '0.5rem'}}/>
                             }

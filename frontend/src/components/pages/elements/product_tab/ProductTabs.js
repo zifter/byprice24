@@ -2,27 +2,14 @@ import React from 'react';
 import PriceTab from './tabs/PriceTab';
 import PropTypes from 'prop-types';
 import {
-  Div, Row, Col,
-  Container, Text,
+  Div,
+  Container,
 } from 'atomize';
 
-const ProductTab = ({productData}) => {
+const ProductTabs = ({productData}) => {
   console.log(productData.product_pages[0].marketplace);
   return (
     <Container>
-      <Div bg='rgb(228, 239, 244)' rounded='xl'>
-        <Row >
-          <Col size={12} d={'flex'} justify={'center'}>
-            <ul className="nav">
-              <li>
-                <Text textSize={'paragraph'}>
-                Цена
-                </Text>
-              </li>
-            </ul>
-          </Col>
-        </Row>
-      </Div>
       <Div>
         <PriceTab productData={productData} />
       </Div>
@@ -30,7 +17,7 @@ const ProductTab = ({productData}) => {
     </Container>
   );
 };
-ProductTab.propTypes = {
+ProductTabs.propTypes = {
   productData: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
@@ -44,4 +31,4 @@ ProductTab.propTypes = {
   }),
 };
 
-export default ProductTab;
+export default ProductTabs;

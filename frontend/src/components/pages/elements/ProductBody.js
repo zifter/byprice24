@@ -31,11 +31,26 @@ const ProductBody = ({productData}) => {
             <Text p={{t: '1rem'}}
               tag='h2'
               textSize={'paragraph'}
+              textWeight={400}
               textAlign='left'>
-              Доступен в { productData.product_pages.length } магазинах
+              { productData.description }
             </Text>
+
           </Div>
         </Col>
+      </Row>
+      <Row>
+        <Div p={{t: '2rem',
+          l: '3.5rem'}}>
+          <Col size={12}>
+            <Text
+              tag='h2'
+              textSize={'subheader'}
+              textAlign='left'>
+              Доступен в следующих магазинах:
+            </Text>
+          </Col>
+        </Div>
       </Row>
 
     </Div>
