@@ -3,6 +3,7 @@ import {useParams} from 'react-router';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 import ProductBody from './elements/ProductBody.js';
+import ProductTabs from './elements/product_tab/ProductTabs';
 import {
   Text, Container,
 } from 'atomize';
@@ -49,7 +50,9 @@ const ProductPage = () => {
       {Object.keys(productData).length &&
       <ProductBody productData={productData} />
       }
-
+      {Object.keys(productData).length &&
+      <ProductTabs productData={productData}/>
+      }
     </Container>
   );
 };

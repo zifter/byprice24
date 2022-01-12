@@ -35,7 +35,7 @@ class ProductPageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProductPage
-        fields = ['marketplace', 'url', 'product_states']
+        fields = ['marketplace', 'url', 'product_states', 'name']
 
     def to_representation(self, instance):
         response = super().to_representation(instance)

@@ -11,26 +11,49 @@ import {
 
 const ProductBody = ({productData}) => {
   return (
-    <Div>
-      <Text
-        textSize="display1"
-        textAlign='center'>
-        { productData.name }
-      </Text>
+    <Div p={{t: '1rem'}}>
       <Row>
-        <Col>
+        <Col size={{lg: 3, xs: 12}}>
           <Image
             src={productData.preview_url}
             h="100"
             w="100"
           />
         </Col>
+        <Col size={{lg: 4, xs: 12}}>
+          <Div p={{t: '2rem'}}>
+            <Text
+              tag="h1"
+              textSize={'title'}
+              textAlign='left'>
+              { productData.name }
+            </Text>
+            <Text p={{t: '1rem'}}
+              tag='h2'
+              textSize={'paragraph'}
+              textWeight={400}
+              textAlign='left'>
+              { productData.description }
+            </Text>
+
+          </Div>
+        </Col>
       </Row>
-      <Text
-        textSize="body"
-        textAlign='left'>
-        { productData.description }
-      </Text>
+      <Row>
+        <Div p={{t: '2rem',
+          l: {lg: '3.5rem'},
+          b: {xs: '1rem'}}}>
+          <Col size={12}>
+            <Text
+              tag='h2'
+              textSize={'subheader'}
+              textAlign={{lg: 'left', xs: 'center'}}>
+              Доступен в следующих магазинах:
+            </Text>
+          </Col>
+        </Div>
+      </Row>
+
     </Div>
   );
 };
@@ -41,6 +64,7 @@ ProductBody.propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     preview_url: PropTypes.string.isRequired,
+    product_pages: PropTypes.array.isRequired,
   }),
 };
 
