@@ -19,46 +19,53 @@ const PriceTab = ({productData}) => {
               <button type="button" className="collapsible">
 
                 <Row align={'center'}>
-                  <Col size={3}>
+                  <Col size={{lg: 3, xs: 12}}>
 
                     <Row>
-                      <Col size={3}>
+                      <Col size={{lg: 4, xs: 12}} textAlign={{xs: 'center'}}>
                         <Image
                           src={productPage.marketplace.logo_url}
                           w={'3rem'} p={'0.1rem'}
                         />
                       </Col>
-                      <Col size={8} d={'flex'} align={'center'}>
-                        <Icon name="StarSolid" size="1rem"
-                          color={'warning800'}/>
-                        <Text textSize={'paragraph'} color={'warning800'}>
-                          {productPage.product_states.rating}
+                      <Col size={{lg: 8, xs: 12}} d={{lg: 'flex', xs: 'flex'}}
+                        align={{lg: 'center', xs: 'center'}}
+                        justify={{lg: 'left', xs: 'center'}}>
+                        <Row align={'center'}>
+                          <Icon name="StarSolid" size="1rem"
+                            color={'warning800'}/>
+                          <Text textSize={'paragraph'} color={'warning800'}>
+                            {productPage.product_states.rating}
+                          </Text>
+                        </Row>
+                      </Col>
+                    </Row>
+
+                  </Col>
+
+                  <Col size={{md: 5, sm: 4, xs: 12}}
+                    textAlign={{lg: 'left', xs: 'center'}}>
+                    <Text textSize={{md: 'subheader', sm: 'paragraph'}}
+                      textWeight={600}>
+                      {productPage.name}
+                    </Text>
+                  </Col>
+                  <Col size={{lg: 2, xs: 12}}>
+
+                    <Row>
+                      <Col size={12}>
+                        <Text textAlign={{lg: 'right', xs: 'center'}}>
+                          {productPage.product_states.price} {' '}
+                          {productPage.product_states.price_currency}
                         </Text>
                       </Col>
                     </Row>
 
-                  </Col>
-
-                  <Col size={5} textAlign={'left'}>
-                    <Text textSize={'subheader'} textWeight={600}>
-                      {productPage.name}
-                    </Text>
-                  </Col>
-                  <Col size={2}>
-
                     <Row>
                       <Col size={12}>
-                        <Div d={'flex'} justify={'right'}>
-                          {productPage.product_states.price} {' '}
-                          {productPage.product_states.price_currency}
-                        </Div>
-                      </Col>
-                    </Row>
-
-                    <Row>
-                      <Col size={12}>
-                        <Div d={'flex'} justify={'right'}>
-                          <Text textSize={'caption'}>
+                        <Div>
+                          <Text textSize={'caption'}
+                            textAlign={{lg: 'right', xs: 'center'}}>
                             {productPage.product_states.availability ===
                             'InStock' ?
                                  <Icon name="Success" size="15px"
@@ -73,9 +80,9 @@ const PriceTab = ({productData}) => {
                   </Col>
 
 
-                  <Col size={2}>
-
-                    <Div d={'flex'} justify={'right'}>
+                  <Col size={{lg: 2, xs: 12}} d={{xs: 'flex'}}
+                    justify={{xs: 'center'}}>
+                    <Div>
                       <Anchor href={productPage.url} target="_blank">
                         <Button
                           prefix={

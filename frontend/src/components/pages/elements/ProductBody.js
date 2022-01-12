@@ -13,14 +13,14 @@ const ProductBody = ({productData}) => {
   return (
     <Div p={{t: '1rem'}}>
       <Row>
-        <Col size={3}>
+        <Col size={{lg: 3, xs: 12}}>
           <Image
             src={productData.preview_url}
             h="100"
             w="100"
           />
         </Col>
-        <Col size={4}>
+        <Col size={{lg: 4, xs: 12}}>
           <Div p={{t: '2rem'}}>
             <Text
               tag="h1"
@@ -41,12 +41,13 @@ const ProductBody = ({productData}) => {
       </Row>
       <Row>
         <Div p={{t: '2rem',
-          l: '3.5rem'}}>
+          l: {lg: '3.5rem'},
+          b: {xs: '1rem'}}}>
           <Col size={12}>
             <Text
               tag='h2'
               textSize={'subheader'}
-              textAlign='left'>
+              textAlign={{lg: 'left', xs: 'center'}}>
               Доступен в следующих магазинах:
             </Text>
           </Col>
