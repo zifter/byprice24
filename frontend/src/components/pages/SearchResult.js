@@ -134,8 +134,9 @@ const SearchResult = () => {
         nextLabel={'>'}
         breakLabel={'...'}
         breakClassName={'break-me'}
-        pageCount={Math.ceil(countResult / 2)}
-        pageRangeDisplayed={5}
+        pageCount={Math.ceil(countResult / 20)}
+        pageRangeDisplayed={3}
+        marginPagesDisplayed={1}
         onPageChange={handlePageClick}
         containerClassName={'pagination'}
         subContainerClassName={'pages pagination'}
