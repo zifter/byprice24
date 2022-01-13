@@ -219,7 +219,7 @@ const SearchResult = () => {
       <Text
         tag="h1"
         textSize="heading"
-        m={{b: '4rem', t: '1rem'}}
+        m={{b: '2rem', t: '1rem'}}
         textAlign={{xs: 'center', lg: 'left'}}>
           Результаты поиска для &quot;{query}&quot;
       </Text>
