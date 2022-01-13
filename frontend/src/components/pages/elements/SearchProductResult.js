@@ -18,7 +18,6 @@ const SearchProductResult = ({product}) => {
           <Col size={{lg: 1, xs: 3}}>
             <Image
               src={product.preview_url}
-              h="2.5rem"
               w="2.5rem"
             />
           </Col>
