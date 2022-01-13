@@ -6,7 +6,7 @@ import axios from 'axios';
 import SearchProductResult from './elements/SearchProductResult.js';
 import {
   Container, Div,
-  Text,
+  Text, Dropdown, Anchor,
 } from 'atomize';
 import ReactPaginate from 'react-paginate';
 
@@ -55,7 +55,6 @@ const SearchResultTabs = ({count, searchResult}) => {
           'active': 'inactinve'}
         onClick={handleProductTab}>Товары ({count})</button>
       </div>
-
       <div id="product-tab" className={activeTab === 'productTab' ?
           'tabcontent-expanded': 'tabcontent-collapsed'}>
         {searchResult.length > 0 ?
@@ -73,6 +72,7 @@ SearchResultTabs.propTypes = {
   searchResult: PropTypes.array,
 };
 
+
 const SearchResult = () => {
   const [countResult, setCountResult] = useState(0);
   const [searchResult, setSearchResult] = useState([]);
@@ -87,9 +87,24 @@ const SearchResult = () => {
     const selectedPage = e.selected;
     setPage(selectedPage + 1);
   };
+  // Ordering
+  const [showOrderingDropdown, setShowOrderingDropdown] = useState(false);
+  const [orderingType, setOrderingType] = useState(null);
+
+  const handleOrderingByPriceAsc = () => {
+    setOrderingType('price_asc');
+  };
+  const handleOrderingByPriceDesc = () => {
+    setOrderingType('price_desc');
+  };
+
+  const handleOrderingRelevance = () => {
+    setOrderingType('relevance');
+  };
 
   const hook = () => {
-    const url = '/api/v1/search/products?query=' + query + '&page=' + page;
+    const url = '/api/v1/search/products?query=' + query +
+        '&page=' + page +'&ordering=' + orderingType;
     console.log('request', url);
 
     axios
@@ -107,6 +122,7 @@ const SearchResult = () => {
 
   useEffect(hook, [query]);
   useEffect(hook, [page]);
+  useEffect(hook, [orderingType]);
 
   return (
     <Container
@@ -128,6 +144,38 @@ const SearchResult = () => {
               Загрузка...
             </Text>
       }
+      <Div d={'flex'} justify={'right'}>
+        <Dropdown
+          w="fit-content"
+          isOpen={showOrderingDropdown}
+          onClick={() =>
+            setShowOrderingDropdown( !showOrderingDropdown)
+          }
+          menu={ <Div p={{x: '1rem', y: '0.5rem'}}>
+
+            <Anchor
+              d="block"
+              p={{y: '0.25rem'}}
+              onClick={handleOrderingRelevance}>
+        По релевантности
+            </Anchor>
+            <Anchor
+              d="block"
+              p={{y: '0.25rem'}}
+              onClick={handleOrderingByPriceDesc}>
+        По цене ↓
+            </Anchor>
+            <Anchor
+              d="block"
+              p={{y: '0.25rem'}}
+              onClick={handleOrderingByPriceAsc}>
+        По цене ↑
+            </Anchor>
+          </Div>}
+        >
+        Сортировка
+        </Dropdown>
+      </Div>
       <SearchResultTabs count={countResult} searchResult={searchResult}/>
       <ReactPaginate
         previousLabel={'<'}
