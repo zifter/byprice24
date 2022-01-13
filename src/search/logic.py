@@ -8,6 +8,8 @@ from marketplace.models import Product
 
 from .documents import ProductDocument
 from .raw_queries import SELECT_PRODUCT_WITH_PAGES_AND_STATES
+from .raw_queries import SELECT_PRODUCT_WITH_PAGES_AND_STATES_ORDER_BY_PRICE_ASC
+from .raw_queries import SELECT_PRODUCT_WITH_PAGES_AND_STATES_ORDER_BY_PRICE_DESC
 
 
 def threshold(title: str) -> float:
@@ -44,18 +46,27 @@ def find_closest_product(title: str) -> Optional[Product]:
 
 
 class ProductSearch:
-    def __init__(self, query: str, page: int, page_size: int):
+
+    ORDERING_SETTINGS = {
+        'price_desc': SELECT_PRODUCT_WITH_PAGES_AND_STATES_ORDER_BY_PRICE_DESC,
+        'price_asc': SELECT_PRODUCT_WITH_PAGES_AND_STATES_ORDER_BY_PRICE_ASC
+    }
+
+    def __init__(self, query: str, page: int, page_size: int, ordering: str):
         self.query = query
         self.page = page
         self.page_size = page_size
+        self.ordering = ordering
 
         self.count = 0
 
     def get_queryset(self) -> QuerySet:
         ids = self.get_ids_of_matched_products()
         if ids:
-            queryset = Product.objects.raw(SELECT_PRODUCT_WITH_PAGES_AND_STATES, [tuple(ids)])
-            return queryset
+            raw_query = SELECT_PRODUCT_WITH_PAGES_AND_STATES
+            if self.ordering in self.ORDERING_SETTINGS.keys():
+                raw_query = self.ORDERING_SETTINGS[self.ordering]
+            return Product.objects.raw(raw_query, [tuple(ids)])
         return Product.objects.none()
 
     def get_ids_of_matched_products(self) -> list:

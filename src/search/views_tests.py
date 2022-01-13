@@ -35,6 +35,15 @@ class ProductViewTestCase(TestCase):
         self.assertEqual(response.data, self.expected)
 
     @patch('common.shared_queue.get_flow_queue', (lambda: Mock())())
+    def test_products_search_list_ordering(self):
+        response = self.client.get('/api/v1/search/products',
+                                   data={'query': 'Acer',
+                                         'ordering': 'price_desc'})
+        self.assertEqual(len(response.data['results']), 2)
+        self.expected['results'] = self.expected['results'][::-1]
+        self.assertEqual(response.data, self.expected)
+
+    @patch('common.shared_queue.get_flow_queue', (lambda: Mock())())
     def test_pagination_not_full_page(self):
         response = self.client.get('/api/v1/search/products',
                                    data={'query': 'acer',
