@@ -91,5 +91,5 @@ class ProductSearch:
         return search_query
 
     def get_pagination_settings(self) -> dict:
-        return dict(from_=self.page_size * self.page if self.page > 1 else 0,
+        return dict(from_=self.page_size * (self.page - 1) if self.page > 1 else 0,
                     size=self.page_size)
