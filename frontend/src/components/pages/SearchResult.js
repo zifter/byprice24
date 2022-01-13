@@ -5,17 +5,17 @@ import {useLocation} from 'react-router-dom';
 import axios from 'axios';
 import SearchProductResult from './elements/SearchProductResult.js';
 import {
-  Container,
+  Container, Div,
   Text,
 } from 'atomize';
-
+import ReactPaginate from 'react-paginate';
 
 const ResultBody = ({searchResult}) => {
   return (
     <ul>
       {
         searchResult.map((item, i) =>
-          <li key={item.id}>
+          <li key={item.id} className="item">
             {
               <SearchProductResult product={item}/>
             }
@@ -41,16 +41,55 @@ const ResultIsEmpty = ( ) => {
   );
 };
 
+const SearchResultTabs = ({count, searchResult}) => {
+  const [activeTab, setActiveTab] = useState('productTab');
+
+  const handleProductTab= () => {
+    // update the state to tab1
+    setActiveTab('productTab');
+  };
+  return (
+    <Div>
+      <div className="tab">
+        <button className={activeTab === 'productTab' ?
+          'active': 'inactinve'}
+        onClick={handleProductTab}>Товары ({count})</button>
+      </div>
+
+      <div id="product-tab" className={activeTab === 'productTab' ?
+          'tabcontent-expanded': 'tabcontent-collapsed'}>
+        {searchResult.length > 0 ?
+        <ResultBody searchResult={searchResult} /> :
+        <ResultIsEmpty />
+        }
+      </div>
+
+    </Div>
+  );
+};
+
+SearchResultTabs.propTypes = {
+  count: PropTypes.string.isRequired,
+  searchResult: PropTypes.array,
+};
 
 const SearchResult = () => {
+  const [countResult, setCountResult] = useState(0);
   const [searchResult, setSearchResult] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const search = useLocation().search;
   const query = new URLSearchParams(search).get('q');
 
+  // Pagination
+  const [page, setPage] = useState(1);
+  const handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    setPage(selectedPage + 1);
+  };
+
   const hook = () => {
-    const url = '/api/v1/search/products?query=' + query;
+    const url = '/api/v1/search/products?query=' + query + '&page=' + page;
     console.log('request', url);
 
     axios
@@ -58,6 +97,7 @@ const SearchResult = () => {
         .then((response) => {
           console.log('got', response.data);
           setSearchResult(response.data.results);
+          setCountResult(response.data.count);
         }).catch(function(error) {
           console.log(error);
         }).finally(function(error) {
@@ -66,6 +106,7 @@ const SearchResult = () => {
   };
 
   useEffect(hook, [query]);
+  useEffect(hook, [page]);
 
   return (
     <Container
@@ -87,11 +128,18 @@ const SearchResult = () => {
               Загрузка...
             </Text>
       }
-      {searchResult.length > 0 ?
-        <ResultBody searchResult={searchResult} /> :
-        <ResultIsEmpty />
-      }
-
+      <SearchResultTabs count={countResult} searchResult={searchResult}/>
+      <ReactPaginate
+        previousLabel={'<'}
+        nextLabel={'>'}
+        breakLabel={'...'}
+        breakClassName={'break-me'}
+        pageCount={Math.ceil(countResult / 2)}
+        pageRangeDisplayed={5}
+        onPageChange={handlePageClick}
+        containerClassName={'pagination'}
+        subContainerClassName={'pages pagination'}
+        activeClassName={'active'}/>
     </Container>
   );
 };

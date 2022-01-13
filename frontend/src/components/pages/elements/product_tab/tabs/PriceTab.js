@@ -67,7 +67,7 @@ const PriceTab = ({productData}) => {
                           <Text textSize={'caption'}
                             textAlign={{lg: 'right', xs: 'center'}}>
                             {productPage.product_states.availability ===
-                            'InStock' ?
+                            'Availability.InStock' ?
                                  <Icon name="Success" size="15px"
                                    color='success800' m={{t: '0.5rem'}}/>:
                                 <Icon name="Close" size="15px"
