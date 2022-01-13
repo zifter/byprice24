@@ -131,7 +131,6 @@ padding-left: 0;
   display: flex;
   list-style: none;
   outline: none;
-  padding-bottom: 5rem;
 }
 .pagination > .active > a{
   background-color: #47ccde ;

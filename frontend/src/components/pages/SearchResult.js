@@ -6,7 +6,8 @@ import axios from 'axios';
 import SearchProductResult from './elements/SearchProductResult.js';
 import {
   Container, Div,
-  Text, Dropdown, Anchor,
+  Row, Col, Text,
+  Dropdown, Anchor,
 } from 'atomize';
 import ReactPaginate from 'react-paginate';
 
@@ -41,7 +42,10 @@ const ResultIsEmpty = ( ) => {
   );
 };
 
-const SearchResultTabs = ({count, searchResult}) => {
+const SearchResultTabs = ({count,
+  searchResult,
+  orderingComponent,
+  paginationComponent}) => {
   const [activeTab, setActiveTab] = useState('productTab');
 
   const handleProductTab= () => {
@@ -55,6 +59,21 @@ const SearchResultTabs = ({count, searchResult}) => {
           'active': 'inactinve'}
         onClick={handleProductTab}>Товары ({count})</button>
       </div>
+      <Div>
+        <Row d={'flex'}
+          align={'center'}>
+          <Col
+            size={2}>
+            {paginationComponent}
+          </Col>
+          <Col size={8}/>
+          <Col
+            size={2}>
+            {orderingComponent}
+          </Col>
+        </Row>
+      </Div>
+
       <div id="product-tab" className={activeTab === 'productTab' ?
           'tabcontent-expanded': 'tabcontent-collapsed'}>
         {searchResult.length > 0 ?
@@ -70,6 +89,8 @@ const SearchResultTabs = ({count, searchResult}) => {
 SearchResultTabs.propTypes = {
   count: PropTypes.string.isRequired,
   searchResult: PropTypes.array,
+  orderingComponent: PropTypes.func,
+  paginationComponent: PropTypes.func,
 };
 
 
@@ -87,20 +108,79 @@ const SearchResult = () => {
     const selectedPage = e.selected;
     setPage(selectedPage + 1);
   };
+
+  const paginationComponent = () => (
+    <ReactPaginate
+      previousLabel={'<'}
+      nextLabel={'>'}
+      breakLabel={'...'}
+      breakClassName={'break-me'}
+      pageCount={Math.ceil(countResult / 20)}
+      pageRangeDisplayed={3}
+      marginPagesDisplayed={1}
+      onPageChange={handlePageClick}
+      containerClassName={'pagination'}
+      subContainerClassName={'pages pagination'}
+      activeClassName={'active'}/>
+  );
   // Ordering
   const [showOrderingDropdown, setShowOrderingDropdown] = useState(false);
   const [orderingType, setOrderingType] = useState('По умолчанию');
 
   const handleOrderingByPriceAsc = () => {
     setOrderingType('По цене ↑');
+    setShowOrderingDropdown(false);
   };
   const handleOrderingByPriceDesc = () => {
     setOrderingType('По цене ↓');
+    setShowOrderingDropdown(false);
   };
 
   const handleOrderingDefault = () => {
     setOrderingType('По умолчанию');
+    setShowOrderingDropdown(false);
   };
+
+  const orderingComponent = () => (
+
+    <Dropdown
+      w="fit-content"
+      isOpen={showOrderingDropdown}
+      onClick={() =>
+        setShowOrderingDropdown( !showOrderingDropdown)
+      }
+      menu={ <Div p={{x: '1rem', y: '0.5rem'}}
+      >
+
+        <Anchor
+          d="block"
+          p={{y: '0.25rem'}}
+          onClick={handleOrderingDefault}>
+          <Text>
+        По умолчанию
+          </Text>
+        </Anchor>
+        <Anchor
+          d="block"
+          p={{y: '0.25rem'}}
+          onClick={handleOrderingByPriceDesc}>
+        По цене ↓
+        </Anchor>
+        <Anchor
+          d="block"
+          p={{y: '0.25rem'}}
+          onClick={handleOrderingByPriceAsc}>
+        По цене ↑
+        </Anchor>
+      </Div>}
+    >
+      <Text
+        textSize={{lg: 'paragraph',
+          xs: 'tiny'}}>
+        {orderingType}
+      </Text>
+    </Dropdown>
+  );
 
   const hook = () => {
     let ordering;
@@ -152,51 +232,11 @@ const SearchResult = () => {
               Загрузка...
             </Text>
       }
-      <Div d={'flex'} justify={'right'}>
-        <Dropdown
-          w="fit-content"
-          isOpen={showOrderingDropdown}
-          onClick={() =>
-            setShowOrderingDropdown( !showOrderingDropdown)
-          }
-          menu={ <Div p={{x: '1rem', y: '0.5rem'}}>
-
-            <Anchor
-              d="block"
-              p={{y: '0.25rem'}}
-              onClick={handleOrderingDefault}>
-        По умолчанию
-            </Anchor>
-            <Anchor
-              d="block"
-              p={{y: '0.25rem'}}
-              onClick={handleOrderingByPriceDesc}>
-        По цене ↓
-            </Anchor>
-            <Anchor
-              d="block"
-              p={{y: '0.25rem'}}
-              onClick={handleOrderingByPriceAsc}>
-        По цене ↑
-            </Anchor>
-          </Div>}
-        >
-          {orderingType}
-        </Dropdown>
-      </Div>
-      <SearchResultTabs count={countResult} searchResult={searchResult}/>
-      <ReactPaginate
-        previousLabel={'<'}
-        nextLabel={'>'}
-        breakLabel={'...'}
-        breakClassName={'break-me'}
-        pageCount={Math.ceil(countResult / 20)}
-        pageRangeDisplayed={3}
-        marginPagesDisplayed={1}
-        onPageChange={handlePageClick}
-        containerClassName={'pagination'}
-        subContainerClassName={'pages pagination'}
-        activeClassName={'active'}/>
+      <SearchResultTabs
+        count={countResult}
+        searchResult={searchResult}
+        orderingComponent={orderingComponent()}
+        paginationComponent={paginationComponent()}/>
     </Container>
   );
 };
