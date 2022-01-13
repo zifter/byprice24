@@ -9,7 +9,8 @@ import {
 
 const PriceTab = ({productData}) => {
   return (
-    <Container>
+    <Container
+      p={{b: '3rem'}}>
       {productData.product_pages.map((productPage) => (
         // eslint-disable-next-line react/jsx-key
         <Row>

@@ -12,8 +12,7 @@ const SearchProductResult = ({product}) => {
       p={{t: '1rem', b: '1rem'}}
       hoverBg="gray200">
       <Link to={`/products/${product.id}`}
-        href="https://www.google.com"
-        target="_blank">
+        href="https://www.google.com">
         <Row align={'center'}>
           <Col size={{lg: 1, xs: 3}}>
             <Image
