@@ -89,22 +89,30 @@ const SearchResult = () => {
   };
   // Ordering
   const [showOrderingDropdown, setShowOrderingDropdown] = useState(false);
-  const [orderingType, setOrderingType] = useState(null);
+  const [orderingType, setOrderingType] = useState('По умолчанию');
 
   const handleOrderingByPriceAsc = () => {
-    setOrderingType('price_asc');
+    setOrderingType('По цене ↑');
   };
   const handleOrderingByPriceDesc = () => {
-    setOrderingType('price_desc');
+    setOrderingType('По цене ↓');
   };
 
-  const handleOrderingRelevance = () => {
-    setOrderingType('relevance');
+  const handleOrderingDefault = () => {
+    setOrderingType('По умолчанию');
   };
 
   const hook = () => {
+    let ordering;
+    if (orderingType === 'По цене ↑') {
+      ordering = 'price_asc';
+    } else if (orderingType === 'По цене ↓') {
+      ordering = 'price_desc';
+    } else {
+      ordering = 'relevance';
+    }
     const url = '/api/v1/search/products?query=' + query +
-        '&page=' + page +'&ordering=' + orderingType;
+        '&page=' + page +'&ordering=' + ordering;
     console.log('request', url);
 
     axios
@@ -156,8 +164,8 @@ const SearchResult = () => {
             <Anchor
               d="block"
               p={{y: '0.25rem'}}
-              onClick={handleOrderingRelevance}>
-        По релевантности
+              onClick={handleOrderingDefault}>
+        По умолчанию
             </Anchor>
             <Anchor
               d="block"
@@ -173,7 +181,7 @@ const SearchResult = () => {
             </Anchor>
           </Div>}
         >
-        Сортировка
+          {orderingType}
         </Dropdown>
       </Div>
       <SearchResultTabs count={countResult} searchResult={searchResult}/>
