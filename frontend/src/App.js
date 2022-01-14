@@ -42,7 +42,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <StyleReset />
         <Container
-          pos="fixed"
+          pos="absolute"
           bg="info600"
           maxW={{xs: 'auto', md: '100vw'}}
           h="4rem"

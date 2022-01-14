@@ -14,7 +14,8 @@ class SearchProductViewSet(APIView):
 
     def get(self, request, *args, **kwargs):
         params = ProductQuerySerializer(data={'query': self.request.query_params.get('query'),
-                                              'page': self.request.query_params.get('page', '1')})
+                                              'page': self.request.query_params.get('page', '1'),
+                                              'ordering': self.request.query_params.get('ordering')})
         params.is_valid(raise_exception=True)
 
         search_obj = ProductSearch(page_size=self.page_size, **params.data)
