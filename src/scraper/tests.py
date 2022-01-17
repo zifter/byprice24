@@ -1,7 +1,59 @@
+import pytest
 from common.item_types import Availability
 from common.item_types import Category
 from scraper.items import ProductScrapingResult
 from scraper.testing_utils import assert_spider
+
+
+test_data = {
+    'texus.by': [
+        ('mobilnyy_telefon_bq_dream_32mb_32mb_tyemno_siniy_discount.html',
+         ProductScrapingResult(
+             url='https://texus.by/catalog/mobilnye_telefony/mobilnyy_telefon_bq_dream_32mb_32mb_tyemno_siniy/',
+             title='Мобильный телефон BQ Dream 32Mb/32Mb тёмно-синий Код 203905',
+             description='2.4"TFT (240x320) Защита от царапин: Есть / Поддержка: 2 SIM, SIM: Стандартная / 32Mb / 32Mb / Есть / USB:micro USB / Аудиовых: Есть / 800 мАч / тёмно-синий / пластик/ 106 г',
+             price=80.50,
+             price_currency='BYN',
+             availability=Availability.InStock,
+             preview_url='https://texus.by/upload/Sh/imageCache/220/632/6083bb29b3ca0314102aa8ce788a6a97.jpeg',
+             rating=0.0,
+             review_count=0,
+             main_category=Category.MOBILE,
+             categories=[],
+         )
+         ),
+        ('mobilnyy_telefon_xiaomi_redmi_9a_2gb_32gb_zelyenyy.html',
+         ProductScrapingResult(
+             url='https://texus.by/catalog/mobilnye_telefony/mobilnyy_telefon_xiaomi_redmi_9a_2gb_32gb_zelyenyy/',
+             title='Мобильный телефон Xiaomi Redmi 9a 2Gb/32Gb зелёный Код 171069',
+             description='6.53"IPS (720x1600) / Поддержка: 2 SIM / Android 10.0 / MediaTek Helio G252000 МГц Кол-во ядер: 8 / 2Gb / 32Gb / GPS/A-GPS: Есть / Wi-Fi: Есть / Есть / USB:micro USB / Аудиовых: Есть / 5 000 мАч / зелёный/ 194 г',
+             price=299.00,
+             price_currency='BYN',
+             availability=Availability.InStock,
+             preview_url='https://texus.by/upload/Sh/imageCache/dd5/18e/0f0fcc05b510be63d3a875750b1bc0f8.jpeg',
+             rating=0.0,
+             review_count=0,
+             main_category=Category.MOBILE,
+             categories=[],
+         )
+         ),
+        ('monitor_21_5_acer_kg221qabmix_um_wx1ee_a01.html',
+         ProductScrapingResult(
+             url='https://texus.by/catalog/monitory/monitor_21_5_acer_kg221qabmix_um_wx1ee_a01/',
+             title='Монитор 21.5" Acer KG221QAbmix (UM.WX1EE.A01) Код 205210',
+             description='21.5" (1920х1080) 16:9 TN+Film / Отклик: 1 мс / 16.7 млн / Угол обзора верт: 65°/гориз: 90° / Ярк: 200 кд/м2 / Контр: 600:1 / DC:(10 000 000 :1); / HDMI: Нет / DVI: Нет / VGA: 1 / USB 3.1: нет / USB 3.1: нет / USB Type C: нет / Черный / Крепл. к сте',
+             price=417.00,
+             price_currency='BYN',
+             availability=Availability.InStock,
+             preview_url='https://texus.by/upload/Sh/imageCache/913/a54/d4b69d8bbd8154250d33656d0a9e1583.jpeg',
+             rating=0.0,
+             review_count=0,
+             main_category=Category.MOBILE,
+             categories=[],
+         )
+         ),
+    ]
+}
 
 
 def test_spider_ilpby():
@@ -79,3 +131,8 @@ def test_funtastik_by():
         categories=[],
     )
     assert_spider(url, 'lego-city.html', expected)
+
+
+@pytest.mark.parametrize('test_html,expected', test_data['texus.by'])
+def test_texus_by(test_html, expected):
+    assert_spider(expected.url, test_html, expected)

@@ -41,7 +41,7 @@ class StructuredDataMixin:
                 title=self.extract_title(properties),
                 main_category=category,
                 description=self.extract_description(data, item),
-                price=round(float(properties['offers']['properties']['price']), 2),
+                price=round(float(properties['offers']['properties']['price'].replace(' ', '')), 2),
                 price_currency=self.extract_price_currency(properties),
                 rating=float(
                     properties['aggregateRating']['properties']['ratingValue']
@@ -65,12 +65,14 @@ class StructuredDataMixin:
 
     @classmethod
     def extract_categories(cls, data) -> list:
-        if data.get('json-ld'):
-            return [item['item']['name'] for item in data['json-ld'][0]['itemListElement']][:-1]
-
         category = data['microdata'][0]['properties'].get('category')
         if category:
             return [category]
+
+        if data.get('json-ld'):
+            item_list_elements = data['json-ld'][0].get('itemListElement')
+            if item_list_elements:
+                return [item['item']['name'] for item in item_list_elements][:-1]
 
         return []
 
