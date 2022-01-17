@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -10,13 +8,25 @@ from rest_framework import serializers
 class MarketplaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Marketplace
-        fields = '__all__'
+        fields = [
+            'domain',
+            'logo_url',
+            'description',
+        ]
 
 
 class ProductStateSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductState
-        fields = '__all__'
+        fields = [
+            'created',
+            'price',
+            'price_currency',
+            'rating',
+            'review_count',
+            'availability',
+        ]
+        ordering = ('created',)
 
 
 class ProductPageSerializer(serializers.ModelSerializer):
@@ -25,12 +35,11 @@ class ProductPageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProductPage
-        fields = ['marketplace', 'url', 'product_states']
+        fields = ['marketplace', 'url', 'product_states', 'name']
 
     def to_representation(self, instance):
         response = super().to_representation(instance)
-        response['product_states'] = sorted(response['product_states'],
-                                            key=lambda x: datetime.strptime(x['created'], '%Y-%m-%dT%H:%M:%SZ'))
+        response['product_states'] = sorted(response['product_states'], key=lambda x: x['created'])
         response['product_states'] = response.get('product_states', [[]])[-1]
         return response
 
