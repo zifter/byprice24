@@ -39,6 +39,8 @@ class FlowQueueRedis(FlowQueueBase):
 
     def scrape(self, target: ScrapingTarget):
         self.feed.enqueue('crawler.tasks.scrape_target', target, job_timeout=-1)
+        job_id = self.feed.job_ids[-1]
+        return job_id
 
     def process_product(self, product):
         self.result.enqueue('crawler.tasks.process_product', product, job_timeout=30)
