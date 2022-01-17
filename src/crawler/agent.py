@@ -47,10 +47,12 @@ class Agent:
                 domain=scraping.marketplace.domain,
                 use_proxy=scraping.use_proxy)
 
-            self.queue.scrape(target)
+            job_id = self.queue.scrape(target)
 
             scraping.last_scraping = now
             scraping.save()
+
+            return job_id
 
     def scrape(self, target: ScrapingTarget):
         logging.info('Scrape %s', target)
