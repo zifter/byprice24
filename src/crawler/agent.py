@@ -38,7 +38,7 @@ class Agent:
         if marketplace:
             filter_args['marketplace'] = marketplace
 
-        objects: List[ScrapingState] = ScrapingState.objects.filter(**filter_args)
+        objects: List[ScrapingState] = ScrapingState.objects.filter(**filter_args).order_by('pk')
 
         for scraping in objects:
             logging.info(scraping.marketplace.domain)
@@ -121,4 +121,3 @@ class Agent:
 
 def get_agent() -> Agent:
     return Agent(get_flow_queue())
-
