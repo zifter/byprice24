@@ -39,7 +39,6 @@
   fields:
     marketplace: 4
 
-
 - model: marketplace.marketplace
   pk: 5
   fields:
@@ -49,3 +48,13 @@
   pk: 5
   fields:
     marketplace: 5
+
+- model: marketplace.marketplace
+  pk: 6
+  fields:
+    domain: texus.by
+    logo_url: https://texus.by/local/images/logo.png
+- model: crawler.scrapingstate
+  pk: 6
+  fields:
+    marketplace: 6
