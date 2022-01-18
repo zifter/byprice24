@@ -106,15 +106,34 @@ class Agent:
             description=data.result.description,
         )
 
-        _, _ = ProductState.objects.update_or_create(
-            defaults={'last_check': data.result.timestamp},
+        def models_has_equal_fields(model_1, model_2, *fields):
+            is_equal = True
+            for field in fields:
+                if model_1.__getattribute__(field) != model_2.__getattribute__(field):
+                    is_equal = False
+                    break
+            return is_equal
+
+        last_product_state = ProductState.objects.latest(product_page=page)
+        new_product_state = ProductState.objects.model(
             product_page=page,
+            created=data.result.timestamp,
+            last_check=data.result.timestamp,
             price=data.result.price,
             price_currency=data.result.price_currency,
             rating=data.result.rating,
             review_count=data.result.review_count,
             availability=data.result.availability,
         )
+        if not last_product_state or not models_has_equal_fields(
+                last_product_state,
+                new_product_state,
+                list(set(last_product_state.get_fields()) - {'product_page', 'created', 'last_check'}
+                     )):
+            new_product_state.save(force_insert=True, using=ProductState.objects.db)
+        else:
+            setattr(last_product_state, 'last_check', data.result.timestamp)
+            last_product_state.save(using=ProductState.objects.db)
 
 
 def get_agent() -> Agent:
