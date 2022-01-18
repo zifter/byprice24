@@ -116,7 +116,7 @@ class Agent:
                     break
             return is_equal
 
-        last_product_state = ProductState.objects.latest(product_page=page)
+        last_product_state = ProductState.objects.filter(product_page=page).last()
         new_product_state = ProductState.objects.model(
             product_page=page,
             created=data.result.timestamp,
@@ -130,8 +130,7 @@ class Agent:
         if not last_product_state or not models_has_equal_fields(
                 last_product_state,
                 new_product_state,
-                list(set(last_product_state.get_fields()) - {'product_page', 'created', 'last_check'}
-                     )):
+                'price', 'price_currency', 'rating', 'review_count', 'availability'):
             new_product_state.save(force_insert=True, using=ProductState.objects.db)
         else:
             setattr(last_product_state, 'last_check', data.result.timestamp)

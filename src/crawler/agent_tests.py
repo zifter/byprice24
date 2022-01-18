@@ -39,4 +39,5 @@ class AgentTestCase(TestCase):
             categories=['Смартфоны, ТВ и электроника', 'Смартфоны, аксессуары', 'Смартфоны']
         )
 
-        agent.process_scraping_result(item)
+        agent.process_scraping_result(item)     # check adding new ProductState
+        agent.process_scraping_result(item)     # check updating ProductState.last_check field
