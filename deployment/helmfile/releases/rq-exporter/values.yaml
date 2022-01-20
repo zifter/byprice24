@@ -1,0 +1,11 @@
+resources:
+  requests:
+    cpu: "15m"
+    memory: "45Mi"
+  limits:
+    cpu: "75m"
+    memory: "45Mi"
+
+rq:
+  - name: rq
+    host: redis-master

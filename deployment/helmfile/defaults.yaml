@@ -7,6 +7,8 @@ repositories:
   url: https://charts.bitnami.com/bitnami
 - name: jetstack
   url: https://charts.jetstack.io
+- name: zifter
+  url: https://zifter.github.io/helm-charts/
 
 helmDefaults:
   wait: true
