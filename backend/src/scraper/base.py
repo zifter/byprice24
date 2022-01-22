@@ -28,9 +28,9 @@ class CategoryRule(Rule):
         )
 
 
-class SpiderBase(CrawlSpider):
+class CrawlSpiderBase(CrawlSpider):
     """
-    Базовой Spider для всех наших парсеров
+    Базовой CrawlSpider для всех наших парсеров
     """
 
     def parse(self, response, **kwargs):
