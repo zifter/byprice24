@@ -4,9 +4,12 @@ from typing import Optional
 
 from common.item_types import Category
 from scraper.items import ProductScrapingResult
+from scrapy.http import Request
 from scrapy.http import Response
+from scrapy.http import TextResponse
 from scrapy.spiders import CrawlSpider
 from scrapy.spiders import Rule
+from scrapy.spiders import Spider
 
 
 class CategoryRule(Rule):
@@ -36,14 +39,30 @@ class CrawlSpiderBase(CrawlSpider):
     def parse(self, response, **kwargs):
         raise NotImplementedError('method should not be called')
 
-    def parse_product(self, response: Response, category: Category) -> Generator[ProductScrapingResult, None, None]:
+    def parse_product(self, response: Response, category: Category
+                      ) -> Generator[ProductScrapingResult, None, None]:
         logging.info('parse_item %s', response.url)
 
-        result: ProductScrapingResult = self.parse_product_impl(response, category)
+        result: ProductScrapingResult = self.parse_product_impl(response,
+                                                                category)
         if result is None:
             return
 
         yield result
 
-    def parse_product_impl(self, response: Response, category: Category) -> Optional[ProductScrapingResult]:
+    def parse_product_impl(self, response: Response, category: Category
+                           ) -> Optional[ProductScrapingResult]:
+        raise NotImplementedError('must be overridden')
+
+
+class SpiderBase(Spider):
+    """
+    Базовой Spider для некоторых наших парсеров
+    """
+
+    def start_requests(self) -> list[Request] | Generator[Request, None, None]:
+        raise NotImplementedError('must be overridden')
+
+    def parse(self, response: TextResponse,
+              category: Category) -> Optional[ProductScrapingResult]:
         raise NotImplementedError('must be overridden')
