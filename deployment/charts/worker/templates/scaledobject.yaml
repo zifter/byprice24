@@ -1,0 +1,22 @@
+{{- if .Values.autoscaling.enabled }}
+apiVersion: keda.k8s.io/v1alpha1
+kind: ScaledObject
+metadata:
+  name: {{ include "worker.fullname" . }}
+  labels:
+    {{- include "worker.labels" . | nindent 4 }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ include "worker.fullname" . }}
+  pollingInterval: 15
+  cooldownPeriod:  30
+  minReplicaCount: 1
+  maxReplicaCount: 10
+  triggers:
+  - type: prometheus
+    metadata:
+      metricName: rq_jobs
+      threshold: '3'
+      query: sum(rq_jobs{status="queued"})
