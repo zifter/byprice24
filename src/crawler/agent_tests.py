@@ -66,7 +66,7 @@ class AgentTestCase(TestCase):
         queue.scrape = MagicMock()
         agent = Agent(queue)
         datetime_mock = MagicMock(wrap=datetime.datetime)
-        datetime_mock.now.return_value = datetime.datetime(2022, 1, 13, 1, 0, 0)
+        datetime_mock.now.return_value = datetime.datetime(2022, 1, 13, 2, 0, 0)
         vek21 = ScrapingState.objects.get(id=1)
         ilp = ScrapingState.objects.get(id=2)
         vek21.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 0)
@@ -96,9 +96,9 @@ class AgentTestCase(TestCase):
         queue = FlowQueueBase()
         queue.scrape = MagicMock()
         agent = Agent(queue)
-        force = True
+        force_mock = MagicMock(return_value=True)
 
-        agent.schedule(force=force)
+        agent.schedule(force=force_mock)
 
         queue.scrape.assert_has_calls([call(
             ScrapingTarget(

@@ -50,8 +50,11 @@ class Agent:
                 domain=scraping.marketplace.domain,
                 use_proxy=scraping.use_proxy)
 
+            if force == True:
+                self.queue.scrape(target)
             if croniter.match(scraping_schedule, next_scraping):
                 self.queue.scrape(target)
+
 
 
     def scrape(self, target: ScrapingTarget):
