@@ -26,19 +26,17 @@ class Agent:
     def __init__(self, queue: FlowQueueBase):
         self.queue = queue
 
-    def schedule(self, marketplace=None, force=False):
+    def schedule(self, marketplace=None, force=False) -> List[str]:
         logging.info('Schedule marketplace [%s], force [%s]', marketplace, force)
         now = datetime.now(tz=pytz.UTC)
 
         filter_args = {}
-        if not force:
-            day_before = now - timedelta(1)
-            filter_args['last_scraping__lte'] = day_before
-
         if marketplace:
             filter_args['marketplace'] = marketplace
 
         objects: List[ScrapingState] = ScrapingState.objects.filter(**filter_args).order_by('pk')
+
+        job_ids = []
 
         for scraping in objects:
             logging.info(scraping.marketplace.domain)
@@ -50,10 +48,12 @@ class Agent:
                 domain=scraping.marketplace.domain,
                 use_proxy=scraping.use_proxy)
 
-            if force == True:
-                self.queue.scrape(target)
-            elif croniter.match(scraping_schedule, next_scraping):
-                self.queue.scrape(target)
+            if force or croniter.match(scraping_schedule, next_scraping):
+                job_ids.append(self.queue.scrape(target))
+                scraping.last_scraping = now
+                scraping.save()
+
+        return job_ids
 
 
     def scrape(self, target: ScrapingTarget):
