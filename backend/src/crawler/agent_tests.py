@@ -1,6 +1,8 @@
 import datetime
 from unittest.mock import MagicMock, call
 
+import pytz
+
 from common.item_types import Availability
 from common.item_types import Category
 from common.shared_queue import FlowQueueBase, ScrapingTarget
@@ -42,8 +44,8 @@ class AgentTestCase(TestCase):
         queue = FlowQueueBase()
         queue.scrape = MagicMock()
         agent = Agent(queue)
-        datetime_mock = MagicMock(wrap=datetime.datetime)
-        datetime_mock.now.return_value = datetime.datetime(2022, 1, 13, 1, 0, 0)
+        agent.now = MagicMock()
+        agent.now.return_value = datetime.datetime(2022, 1, 13, 2, 0, 0, tzinfo=pytz.UTC)
         vek21 = ScrapingState.objects.get(id=1)
         ilp = ScrapingState.objects.get(id=2)
         vek21.last_scraping = datetime.datetime(2022, 1, 12, 0, 0, 0)
@@ -65,8 +67,8 @@ class AgentTestCase(TestCase):
         queue = FlowQueueBase()
         queue.scrape = MagicMock()
         agent = Agent(queue)
-        datetime_mock = MagicMock(wrap=datetime.datetime)
-        datetime_mock.now.return_value = datetime.datetime(2022, 1, 13, 2, 0, 0)
+        agent.now = MagicMock()
+        agent.now.return_value = datetime.datetime(2022, 1, 13, 2, 0, 0, tzinfo=pytz.UTC)
         vek21 = ScrapingState.objects.get(id=1)
         ilp = ScrapingState.objects.get(id=2)
         vek21.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 0)
@@ -96,9 +98,16 @@ class AgentTestCase(TestCase):
         queue = FlowQueueBase()
         queue.scrape = MagicMock()
         agent = Agent(queue)
-        force_mock = MagicMock(return_value=True)
+        agent.now = MagicMock()
+        agent.now.return_value = datetime.datetime(2022, 1, 13, 2, 0, 0, tzinfo=pytz.UTC)
+        vek21 = ScrapingState.objects.get(id=1)
+        ilp = ScrapingState.objects.get(id=2)
+        vek21.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 1)
+        vek21.save()
+        ilp.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 1)
+        ilp.save()
 
-        agent.schedule(force=force_mock)
+        agent.schedule(force=True)
 
         queue.scrape.assert_has_calls([call(
             ScrapingTarget(
