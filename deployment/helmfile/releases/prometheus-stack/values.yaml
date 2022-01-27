@@ -10,16 +10,6 @@ prometheus-node-exporter:
       cpu: "50m"
       memory: "50Mi"
 
-prometheus:
-  monitor:
-    enabled: false
-    additionalLabels: {}
-    namespace: ""
-    interval: ""
-    scrapeTimeout: ""
-    proxyUrl: ""
-    honorLabels: false
-
 prometheusOperator:
   resources:
     requests:
@@ -75,6 +65,10 @@ grafana:
     resources: {}
 
   sidecar:
+    dashboards:
+      enabled: true
+      searchNamespace: ALL
+
     resources:
       limits:
         cpu: 150m

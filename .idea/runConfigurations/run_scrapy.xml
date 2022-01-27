@@ -8,7 +8,7 @@
       <env name="SCRAPER_API_KEY" value="" />
     </envs>
     <option name="SDK_HOME" value="$USER_HOME$/.local/share/virtualenvs/byprice24-rePSsswI/bin/python" />
-    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/src" />
     <option name="IS_MODULE_SDK" value="false" />
     <option name="ADD_CONTENT_ROOTS" value="true" />
     <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -22,7 +22,7 @@
         <ENTRY IS_ENABLED="true" PARSER="runconfig" />
       </ENTRIES>
     </EXTENSION>
-    <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/run_scrapy.py" />
+    <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/src/run_scrapy.py" />
     <option name="PARAMETERS" value="crawl schema.org -a target_url=https://www.ilp.by" />
     <option name="SHOW_COMMAND_LINE" value="false" />
     <option name="EMULATE_TERMINAL" value="false" />

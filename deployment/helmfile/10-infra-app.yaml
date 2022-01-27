@@ -24,6 +24,16 @@ releases:
     values:
       - releases/redis-exporter/values.yaml
 
+  - name: rq-exporter
+    namespace: {{ .Values.namespace }}
+    chart: zifter/rq-exporter
+    installed: {{ .Values.monitoring.enabled | toYaml }}
+    version: 0.1.0
+    needs:
+      - prometheus-stack
+    values:
+      - releases/rq-exporter/values.yaml
+
   # POSTGRES
   - name: postgres
     namespace: {{ .Values.namespace }}
