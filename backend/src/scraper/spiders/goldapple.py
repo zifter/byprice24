@@ -1,16 +1,14 @@
+import itertools
 from typing import Generator
 
-import extruct
 import requests
-from common.item_types import Availability
 from common.item_types import Category
 from scraper.base import SpiderBase
-from scraper.items import ProductScrapingResult
+from scraper.mixin import StructuredDataMixin
 from scrapy.http import Request
-from scrapy.http import TextResponse
 
 
-class Spider(SpiderBase):
+class Spider(SpiderBase, StructuredDataMixin):
     name: str = 'goldapple.by'
 
     ITEMS_COUNT_IN_RESPONSE = 20
@@ -95,77 +93,24 @@ class Spider(SpiderBase):
             }
         ]
 
+        headers = {'referer': 'https://goldapple.by'}
+
         for url in urls:
-            catalog_url = url[self.CATALOG_URL]
+            for page in itertools.count(1):
+                response = requests.get(
+                    url=url[self.SCRIPT_URL].format(page=page),
+                    headers=headers
+                )
 
-            # Calculating requests count
-            # Get information from catalog pages
-            main_page = requests.get(catalog_url)
+                data = response.json()
 
-            data = extruct.extract(main_page.text, base_url=catalog_url)
-            for microdata in data['microdata']:
-                if microdata['type'] not in ('https://schema.org/Product',
-                                             'http://schema.org/Product'):
-                    continue
+                if 'products' not in data:
+                    break
 
-                # Taking info about а count of products items
-                count = int(microdata['properties']['offers']
-                            ['properties']['offerCount'])
-                break
+                for product in data['products']:
+                    item_url = product['url']
 
-            # Calculate counts of requests
-            # (ITEMS_COUNT_IN_RESPONSE - count of items in one request)
-            pages_count = count // self.ITEMS_COUNT_IN_RESPONSE + (
-                1 if count % self.ITEMS_COUNT_IN_RESPONSE else 0)
-
-            # Generate urls for requests
-            for page in range(1, pages_count + 1):
-                yield Request(url=url[self.SCRIPT_URL].format(page=page),
-                              callback=self.parse,
-                              headers={'referer': 'https://goldapple.by'},
-                              cb_kwargs=dict(category=url[self.CATEGORY]))
-
-    def extract_categories(self, product: dict) -> list[str]:
-        result = []
-        for key in list(product.keys()):
-            if key.startswith('dimension1'):
-                result.append(product[key])
-
-        return result
-
-    def parse(self, response: TextResponse, category: Category
-              ) -> list[ProductScrapingResult]:
-        data = response.json()
-
-        result = []
-        for product in data['products']:
-            title = '{} {}'.format(product['brand'], product['name'])
-            price = round(float(product['price_object']['amount']), 2)
-            categories = self.extract_categories(product)
-
-            price_currency = 'BYN'
-            if product['price_object']['currency'] != 'BYR':
-                price_currency = product['price_object']['currency']
-
-            availability = Availability.SoldOut
-            if product['is_saleable']:
-                availability = Availability.InStock
-
-            product = ProductScrapingResult(
-                url=product['url'],
-                title=title,
-                main_category=category,
-                description='',
-                price=price,
-                price_currency=price_currency,
-                # timestamp,
-                availability=availability,
-                # rating=rating,
-                # review_count=review_count,
-                # preview_url=preview_url,
-                categories=categories,
-            )
-
-            result.append(product)
-
-        return result
+                    yield Request(url=item_url,
+                                  callback=self.extract_structured_data,
+                                  headers=headers,
+                                  cb_kwargs={'category': url[self.CATEGORY]})

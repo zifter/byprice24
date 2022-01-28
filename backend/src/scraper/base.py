@@ -6,7 +6,6 @@ from common.item_types import Category
 from scraper.items import ProductScrapingResult
 from scrapy.http import Request
 from scrapy.http import Response
-from scrapy.http import TextResponse
 from scrapy.spiders import CrawlSpider
 from scrapy.spiders import Rule
 from scrapy.spiders import Spider
@@ -61,8 +60,4 @@ class SpiderBase(Spider):
     """
 
     def start_requests(self) -> list[Request] | Generator[Request, None, None]:
-        raise NotImplementedError('must be overridden')
-
-    def parse(self, response: TextResponse,
-              category: Category) -> Optional[ProductScrapingResult]:
         raise NotImplementedError('must be overridden')
