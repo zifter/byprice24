@@ -11,8 +11,8 @@ class ScrapingStateAdmin(admin.ModelAdmin):
 
     def response_change(self, request, obj):
         if 'force-scrape' in request.POST:
-            job_id = get_agent().schedule(force=True, marketplace=obj.marketplace)
-            url = f'/admin/django-rq/queues/0/{job_id}/'
+            job_ids = get_agent().schedule(force=True, marketplace=obj.marketplace)
+            url = f'/admin/django-rq/queues/0/{job_ids[0]}/'
 
             self.message_user(request, mark_safe(f"This <a href='{url}'>Marketplace</a> is scheduled to scrape"))
             return HttpResponseRedirect('.')
