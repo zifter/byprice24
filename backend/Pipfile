@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+croniter = "==1.1.0"
 pyyaml = "==6.0"
 django = "==3.2.8"
 django_rq = "==2.5.1"
