@@ -52,6 +52,56 @@ test_data = {
              categories=[],
          )
          ),
+    ],
+    'goldapple.by': [
+        (
+            'goldapple.by_19760336702-maska-na-tkanevoj-osnove-s-ekstraktom-lastockinogo-gnezda.html',
+            ProductScrapingResult(
+                url='https://goldapple.by/19760336702-maska-na-tkanevoj-osnove-s-ekstraktom-lastockinogo-gnezda',
+                title="Clara's Choice Gold Bird`s Nest Real Moist Mask",
+                description='Тканевая маска Veraclara с экстрактом ласточкиного гнезда питает и увлажняет кожу, не оставляя ощущения липкости. Кожа становится увлажненной, мягкой и сияющей. Экстракт ласточкиного гнезда также улучшает цвет лица и повышает эластичность, придавая коже более молодой вид. Тканевая основа маски пропитана лёгкой эссенцией, которая дарит ощущение свежести и насыщает кожу влагой.',
+                price=1.35,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://goldapple.by/media/catalog/product/cache/fb5d06f7acfb2f26f85333624ccbfb5e/8/8/8809715721307_1_rpmaghscxygxvfo8.jpg',
+                rating=0.0,
+                review_count=0,
+                main_category=Category.COSMETIC,
+                categories=[],
+            )
+        ),
+        (
+            'goldapple.by_19760343851-collagen-toner.html',
+            ProductScrapingResult(
+                url='https://goldapple.by/19760343851-collagen-toner',
+                title='ORJENA COLLAGEN TONER',
+                description='Тонер ORJENA с высокой концентрацией гидролизованного коллагена обеспечивает оптимальный уровень увлажнения, успокаивает кожу и помогает защитить её от негативных факторов окружающей среды. Благодаря коллагену нежное средство питает кожу, делая её более эластичной, упругой и гладкой. Тонер действует против морщин и способствует эффекту лифтинга. Мягкая формула подходит для всех типов кожи.',
+                price=24.66,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://goldapple.by/media/catalog/product/cache/fb5d06f7acfb2f26f85333624ccbfb5e/8/8/8809443284723_1_doosbvxagaabp9fe.jpg',
+                rating=0.0,
+                review_count=0,
+                main_category=Category.COSMETIC,
+                categories=[],
+            )
+        ),
+        (
+            'goldapple.by_azija_patchi_99800800005-red-energy-eye-patch.html',
+            ProductScrapingResult(
+                url='https://goldapple.by/azija/patchi/99800800005-red-energy-eye-patch',
+                title='Yadah RED ENERGY EYE PATCH',
+                description='Гидрогелевые патчи YADAH улучшают тон кожи, наполняют её энергией и помогают уменьшить видимость морщин.\nВ основе формулы – комплекс из 8 «красных ингредиентов», включающий экстракты граната, земляники, шелковицы, малины, винограда, красного женьшеня, чая и китайского лимонника.\nСокращению морщин способствует аденозин, а ниацинамид улучшает тон кожи под глазами, помогая устранить тёмные круги.',
+                price=61.59,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://goldapple.by/media/catalog/product/cache/fb5d06f7acfb2f26f85333624ccbfb5e/8/8/8809340384809_1_5v3m8tdjrgtgpbcd.jpg',
+                rating=0.0,
+                review_count=0,
+                main_category=Category.COSMETIC,
+                categories=[],
+            )
+        )
     ]
 }
 
@@ -154,4 +204,9 @@ def test_spider_ozon_ru():
 
 @pytest.mark.parametrize('test_html,expected', test_data['texus.by'])
 def test_texus_by(test_html, expected):
+    assert_spider(expected.url, test_html, expected)
+
+
+@pytest.mark.parametrize('test_html,expected', test_data['goldapple.by'])
+def test_goldapple_by(test_html, expected):
     assert_spider(expected.url, test_html, expected)
