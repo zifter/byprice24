@@ -1,14 +1,14 @@
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
-  name: prometheus-scaledobj
+  name: {{ include "worker.fullname" . }}
 spec:
   scaleTargetRef:
-    name: {{ include "worker.fullname" . }}
+    name: {{ include "worker.futllname" . }}
   triggers:
     - type: prometheus
       metadata:
-        serverAddress: http://10.244.0.12:8080/prometheus
+        serverAddress: http://prometheus-operated.monitoring.svc/prometheus
         metricName: rq_worker_total_amount
         threshold: '3'
-        query: count(rq_jobs{status=~"queued", queue=~"crawler-feed"})
+        query: sum(rq_jobs{status="queued",%20queue="crawler-feed"})
