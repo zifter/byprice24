@@ -6,7 +6,6 @@ spec:
   scaleTargetRef:
     name: {{ include "worker.fullname" . }}
   cooldownPeriod:  60
-  minReplicaCount: 1
   maxReplicaCount: 10
   triggers:
     - type: prometheus
