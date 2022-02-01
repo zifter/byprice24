@@ -7,51 +7,104 @@ from scraper.testing_utils import assert_spider
 
 test_data = {
     'texus.by': [
-        ('mobilnyy_telefon_bq_dream_32mb_32mb_tyemno_siniy_discount.html',
-         ProductScrapingResult(
-             url='https://texus.by/catalog/mobilnye_telefony/mobilnyy_telefon_bq_dream_32mb_32mb_tyemno_siniy/',
-             title='Мобильный телефон BQ Dream 32Mb/32Mb тёмно-синий Код 203905',
-             description='2.4"TFT (240x320) Защита от царапин: Есть / Поддержка: 2 SIM, SIM: Стандартная / 32Mb / 32Mb / Есть / USB:micro USB / Аудиовых: Есть / 800 мАч / тёмно-синий / пластик/ 106 г',
-             price=80.50,
-             price_currency='BYN',
-             availability=Availability.InStock,
-             preview_url='https://texus.by/upload/Sh/imageCache/220/632/6083bb29b3ca0314102aa8ce788a6a97.jpeg',
-             rating=0.0,
-             review_count=0,
-             main_category=Category.MOBILE,
-             categories=[],
-         )
-         ),
-        ('mobilnyy_telefon_xiaomi_redmi_9a_2gb_32gb_zelyenyy.html',
-         ProductScrapingResult(
-             url='https://texus.by/catalog/mobilnye_telefony/mobilnyy_telefon_xiaomi_redmi_9a_2gb_32gb_zelyenyy/',
-             title='Мобильный телефон Xiaomi Redmi 9a 2Gb/32Gb зелёный Код 171069',
-             description='6.53"IPS (720x1600) / Поддержка: 2 SIM / Android 10.0 / MediaTek Helio G252000 МГц Кол-во ядер: 8 / 2Gb / 32Gb / GPS/A-GPS: Есть / Wi-Fi: Есть / Есть / USB:micro USB / Аудиовых: Есть / 5 000 мАч / зелёный/ 194 г',
-             price=299.00,
-             price_currency='BYN',
-             availability=Availability.InStock,
-             preview_url='https://texus.by/upload/Sh/imageCache/dd5/18e/0f0fcc05b510be63d3a875750b1bc0f8.jpeg',
-             rating=0.0,
-             review_count=0,
-             main_category=Category.MOBILE,
-             categories=[],
-         )
-         ),
-        ('monitor_21_5_acer_kg221qabmix_um_wx1ee_a01.html',
-         ProductScrapingResult(
-             url='https://texus.by/catalog/monitory/monitor_21_5_acer_kg221qabmix_um_wx1ee_a01/',
-             title='Монитор 21.5" Acer KG221QAbmix (UM.WX1EE.A01) Код 205210',
-             description='21.5" (1920х1080) 16:9 TN+Film / Отклик: 1 мс / 16.7 млн / Угол обзора верт: 65°/гориз: 90° / Ярк: 200 кд/м2 / Контр: 600:1 / DC:(10 000 000 :1); / HDMI: Нет / DVI: Нет / VGA: 1 / USB 3.1: нет / USB 3.1: нет / USB Type C: нет / Черный / Крепл. к сте',
-             price=417.00,
-             price_currency='BYN',
-             availability=Availability.InStock,
-             preview_url='https://texus.by/upload/Sh/imageCache/913/a54/d4b69d8bbd8154250d33656d0a9e1583.jpeg',
-             rating=0.0,
-             review_count=0,
-             main_category=Category.MOBILE,
-             categories=[],
-         )
-         ),
+        (
+            'mobilnyy_telefon_bq_dream_32mb_32mb_tyemno_siniy_discount.html',
+            ProductScrapingResult(
+                url='https://texus.by/catalog/mobilnye_telefony/mobilnyy_telefon_bq_dream_32mb_32mb_tyemno_siniy/',
+                title='Мобильный телефон BQ Dream 32Mb/32Mb тёмно-синий Код 203905',
+                description='2.4"TFT (240x320) Защита от царапин: Есть / Поддержка: 2 SIM, SIM: Стандартная / 32Mb / 32Mb / Есть / USB:micro USB / Аудиовых: Есть / 800 мАч / тёмно-синий / пластик/ 106 г',
+                price=80.50,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://texus.by/upload/Sh/imageCache/220/632/6083bb29b3ca0314102aa8ce788a6a97.jpeg',
+                rating=0.0,
+                review_count=0,
+                main_category=Category.MOBILE,
+                categories=[],
+            )
+        ),
+        (
+            'mobilnyy_telefon_xiaomi_redmi_9a_2gb_32gb_zelyenyy.html',
+            ProductScrapingResult(
+                url='https://texus.by/catalog/mobilnye_telefony/mobilnyy_telefon_xiaomi_redmi_9a_2gb_32gb_zelyenyy/',
+                title='Мобильный телефон Xiaomi Redmi 9a 2Gb/32Gb зелёный Код 171069',
+                description='6.53"IPS (720x1600) / Поддержка: 2 SIM / Android 10.0 / MediaTek Helio G252000 МГц Кол-во ядер: 8 / 2Gb / 32Gb / GPS/A-GPS: Есть / Wi-Fi: Есть / Есть / USB:micro USB / Аудиовых: Есть / 5 000 мАч / зелёный/ 194 г',
+                price=299.00,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://texus.by/upload/Sh/imageCache/dd5/18e/0f0fcc05b510be63d3a875750b1bc0f8.jpeg',
+                rating=0.0,
+                review_count=0,
+                main_category=Category.MOBILE,
+                categories=[],
+            )
+        ),
+        (
+            'monitor_21_5_acer_kg221qabmix_um_wx1ee_a01.html',
+            ProductScrapingResult(
+                url='https://texus.by/catalog/monitory/monitor_21_5_acer_kg221qabmix_um_wx1ee_a01/',
+                title='Монитор 21.5" Acer KG221QAbmix (UM.WX1EE.A01) Код 205210',
+                description='21.5" (1920х1080) 16:9 TN+Film / Отклик: 1 мс / 16.7 млн / Угол обзора верт: 65°/гориз: 90° / Ярк: 200 кд/м2 / Контр: 600:1 / DC:(10 000 000 :1); / HDMI: Нет / DVI: Нет / VGA: 1 / USB 3.1: нет / USB 3.1: нет / USB Type C: нет / Черный / Крепл. к сте',
+                price=417.00,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://texus.by/upload/Sh/imageCache/913/a54/d4b69d8bbd8154250d33656d0a9e1583.jpeg',
+                rating=0.0,
+                review_count=0,
+                main_category=Category.MOBILE,
+                categories=[],
+            )
+        ),
+    ],
+    'goldapple.by': [
+        (
+            'goldapple_by_19760336702-maska-na-tkanevoj-osnove-s-ekstraktom-lastockinogo-gnezda.html',
+            ProductScrapingResult(
+                url='https://goldapple.by/19760336702-maska-na-tkanevoj-osnove-s-ekstraktom-lastockinogo-gnezda',
+                title="Clara's Choice Gold Bird`s Nest Real Moist Mask",
+                description='Тканевая маска Veraclara с экстрактом ласточкиного гнезда питает и увлажняет кожу, не оставляя ощущения липкости. Кожа становится увлажненной, мягкой и сияющей. Экстракт ласточкиного гнезда также улучшает цвет лица и повышает эластичность, придавая коже более молодой вид. Тканевая основа маски пропитана лёгкой эссенцией, которая дарит ощущение свежести и насыщает кожу влагой.',
+                price=1.80,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://goldapple.by/goldapple_by_19760336702-maska-na-tkanevoj-osnove-s-ekstraktom-lastockinogo-gnezda_files/8809715721307_1_rpmaghscxygxvfo8(1).jpg',
+                rating=0.0,
+                review_count=0,
+                main_category=Category.COSMETIC,
+                categories=[],
+            )
+        ),
+        (
+            'goldapple_by_19760343851-collagen-toner.html',
+            ProductScrapingResult(
+                url='https://goldapple.by/19760343851-collagen-toner',
+                title='ORJENA COLLAGEN TONER',
+                description='Тонер ORJENA с высокой концентрацией гидролизованного коллагена обеспечивает оптимальный уровень увлажнения, успокаивает кожу и помогает защитить её от негативных факторов окружающей среды. Благодаря коллагену нежное средство питает кожу, делая её более эластичной, упругой и гладкой. Тонер действует против морщин и способствует эффекту лифтинга. Мягкая формула подходит для всех типов кожи.',
+                price=24.66,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://goldapple.by/goldapple_by_19760343851-collagen-toner_files/8809443284723_1_doosbvxagaabp9fe(1).jpg',
+                rating=0.0,
+                review_count=0,
+                main_category=Category.COSMETIC,
+                categories=[],
+            )
+        ),
+        (
+            'goldapple_by_azija_patchi_99800800005-red-energy-eye-patch.html',
+            ProductScrapingResult(
+                url='https://goldapple.by/azija/patchi/99800800005-red-energy-eye-patch',
+                title='Yadah RED ENERGY EYE PATCH',
+                description='Гидрогелевые патчи YADAH улучшают тон кожи, наполняют её энергией и помогают уменьшить видимость морщин.\nВ основе формулы – комплекс из 8 «красных ингредиентов», включающий экстракты граната, земляники, шелковицы, малины, винограда, красного женьшеня, чая и китайского лимонника.\nСокращению морщин способствует аденозин, а ниацинамид улучшает тон кожи под глазами, помогая устранить тёмные круги.',
+                price=76.99,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://goldapple.by/azija/patchi/goldapple_by_azija_patchi_99800800005-red-energy-eye-patch_files/8809340384809_1_5v3m8tdjrgtgpbcd(1).jpg',
+                rating=0.0,
+                review_count=0,
+                main_category=Category.COSMETIC,
+                categories=[],
+            )
+        )
     ]
 }
 
@@ -154,4 +207,9 @@ def test_spider_ozon_ru():
 
 @pytest.mark.parametrize('test_html,expected', test_data['texus.by'])
 def test_texus_by(test_html, expected):
+    assert_spider(expected.url, test_html, expected)
+
+
+@pytest.mark.parametrize('test_html,expected', test_data['goldapple.by'])
+def test_goldapple_by(test_html, expected):
     assert_spider(expected.url, test_html, expected)

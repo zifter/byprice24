@@ -58,3 +58,13 @@
   pk: 6
   fields:
     marketplace: 6
+
+- model: marketplace.marketplace
+  pk: 7
+  fields:
+    domain: goldapple.by
+    logo_url: 	https://goldapple.by/static/version1640211628/frontend/Mygento/goldapple/ru_RU/images/app-logo.jpg
+- model: crawler.scrapingstate
+  pk: 7
+  fields:
+    marketplace: 7
