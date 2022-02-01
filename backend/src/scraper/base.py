@@ -30,14 +30,7 @@ class CategoryRule(Rule):
         )
 
 
-class CrawlSpiderBase(CrawlSpider):
-    """
-    Базовой CrawlSpider для всех наших парсеров
-    """
-
-    def parse(self, response, **kwargs):
-        raise NotImplementedError('method should not be called')
-
+class ParseProductBase():
     def parse_product(self, response: Response, category: Category
                       ) -> Generator[ProductScrapingResult, None, None]:
         logging.info('parse_item %s', response.url)
@@ -54,7 +47,16 @@ class CrawlSpiderBase(CrawlSpider):
         raise NotImplementedError('must be overridden')
 
 
-class SpiderBase(Spider):
+class CrawlSpiderBase(CrawlSpider, ParseProductBase):
+    """
+    Базовой CrawlSpider для большинства наших парсеров
+    """
+
+    def parse(self, response, **kwargs):
+        raise NotImplementedError('method should not be called')
+
+
+class SpiderBase(Spider, ParseProductBase):
     """
     Базовой Spider для некоторых наших парсеров
     """

@@ -1,11 +1,14 @@
 import itertools
 from typing import Generator
+from typing import Optional
 
 import requests
 from common.item_types import Category
 from scraper.base import SpiderBase
+from scraper.items import ProductScrapingResult
 from scraper.mixin import StructuredDataMixin
 from scrapy.http import Request
+from scrapy.http import Response
 
 
 class Spider(SpiderBase, StructuredDataMixin):
@@ -111,6 +114,10 @@ class Spider(SpiderBase, StructuredDataMixin):
                     item_url = product['url']
 
                     yield Request(url=item_url,
-                                  callback=self.extract_structured_data,
+                                  callback=self.parse_product,
                                   headers=headers,
                                   cb_kwargs={'category': url[self.CATEGORY]})
+
+    def parse_product_impl(self, response: Response, category: Category
+                           ) -> Optional[ProductScrapingResult]:
+        return self.extract_structured_data(response, category)
