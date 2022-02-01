@@ -85,7 +85,7 @@
   pk: 10
   fields:
     name: Монитор Acer K272HLHbi
-    category: Category.MONITOR
+    category: Category.DISPLAY
     description: 27", 16:9, 1920x1080, VA, 75 Гц, AMD FreeSync, интерфейсы HDMI+D-Sub
       (VGA)
     preview_url: https://www.amd.by/image/cache/catalog/products/856396/61b928fa8e34e-500x500.jpeg
@@ -93,7 +93,7 @@
   pk: 11
   fields:
     name: Монитор Samsung F24T350FHI
-    category: Category.MONITOR
+    category: Category.DISPLAY
     description: 23.8", 16:9, 1920x1080, IPS, 75 Гц, AMD FreeSync, интерфейсы HDMI+D-Sub
       (VGA)
     preview_url: https://www.amd.by/image/cache/catalog/products/591075/1633610376-500x500.jpg
@@ -133,7 +133,7 @@
   pk: 16
   fields:
     name: Монитор Philips 242B1V/00
-    category: Category.MONITOR
+    category: Category.DISPLAY
     description: 23.8", 16:9, 1920x1080, IPS, 75 Гц, динамики, интерфейсы HDMI+DVI+D-Sub
       (VGA)+DisplayPort
     preview_url: https://www.amd.by/image/cache/catalog/products/589391/1633610376-500x500.jpg

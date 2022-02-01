@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 
 import sentry_sdk
-from common.paths import REPO_DIR
+from common.paths import BACKEND_DIR
 from common.shared_queue.redis_queue import CRAWLER_FEED
 from common.shared_queue.redis_queue import CRAWLER_RESULT
 from common.shared_queue.redis_queue import SEARCH_QUERY
@@ -121,7 +121,7 @@ class Base(Configuration):
     USE_TZ = True
 
     FIXTURE_DIRS = [
-        os.path.join(REPO_DIR, 'fixtures'),
+        os.path.join(BACKEND_DIR, 'fixtures'),
     ]
 
     LOGGING = {
@@ -154,7 +154,7 @@ class Base(Configuration):
 
     STATIC_URL = '/admin-static/'
 
-    STATIC_ROOT = os.path.join(REPO_DIR, 'static')
+    STATIC_ROOT = os.path.join(BACKEND_DIR, 'static')
 
     # Default primary key field type
     # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

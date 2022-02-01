@@ -7,8 +7,8 @@ from typing import List
 
 import attr
 import pytz
+from common.category import Category
 from common.item_types import Availability
-from common.item_types import Category
 
 
 @attr.s(on_setattr=attr.setters.validate)

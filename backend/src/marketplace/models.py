@@ -2,7 +2,6 @@ from datetime import datetime
 
 import pytz
 from common.item_types import Availability
-from common.item_types import Category
 from django.db import models
 
 """
@@ -33,7 +32,8 @@ class Product(models.Model):
     General information about product
     """
     name = models.CharField(max_length=128, unique=True)
-    category = models.CharField(max_length=64, choices=Category.choices())
+    semantic_id = models.CharField(max_length=32, unique=True)
+    category = models.CharField(max_length=32),
     description = models.CharField(max_length=512)
     preview_url = models.URLField(max_length=256, null=True)
 

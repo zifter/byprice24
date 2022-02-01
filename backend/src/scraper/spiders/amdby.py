@@ -18,7 +18,7 @@ class Spider(CrawlSpiderBase, StructuredDataMixin):
     rules = (
         CategoryRule(LinkExtractor(allow=('mobile', )), category=Category.MOBILE),
         CategoryRule(LinkExtractor(allow=('noutbuki',)), category=Category.NOTEBOOK),
-        CategoryRule(LinkExtractor(allow=('monitory',)), category=Category.MONITOR),
+        CategoryRule(LinkExtractor(allow=('monitory',)), category=Category.DISPLAY),
         CategoryRule(LinkExtractor(allow=('kompyutery',)), category=Category.DESKTOP),
         CategoryRule(LinkExtractor(allow=('monobloki',)), category=Category.DESKTOP),
         CategoryRule(LinkExtractor(allow=('televizory',)), category=Category.TV),

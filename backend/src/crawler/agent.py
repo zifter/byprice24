@@ -1,8 +1,6 @@
 import logging
 from datetime import datetime
-from datetime import timedelta
 from typing import List
-from croniter import croniter
 
 import pytz
 from common.shared_queue import FlowQueueBase
@@ -10,6 +8,7 @@ from common.shared_queue import get_flow_queue
 from common.shared_queue import ScrapingTarget
 from crawler.models import ScrapingState
 from crawler.structs import ProductData
+from croniter import croniter
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -57,7 +56,6 @@ class Agent:
                 scraping.save()
 
         return job_ids
-
 
     def scrape(self, target: ScrapingTarget):
         logging.info('Scrape %s', target)

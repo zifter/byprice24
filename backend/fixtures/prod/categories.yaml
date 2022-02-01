@@ -1,0 +1,7 @@
+- model: marketplace.category
+  name: 'Electronics'
+  semantic_id: 'electronics'
+
+- model: marketplace.category
+  name: 'Mobile'
+  semantic_id: 'Mobile'
