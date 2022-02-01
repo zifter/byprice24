@@ -1,6 +1,6 @@
 namespace: default
 monitoring:
-  enabled: {{ env "MONITORING_ENABLED" | default "true" }}
+  enabled: {{ env "MONITORING_ENABLED" | default "false" }}
   grafana:
     user: admin
     pass: admin
