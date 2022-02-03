@@ -54,6 +54,8 @@ TELNETCONSOLE_ENABLED = False
 DOWNLOADER_MIDDLEWARES = {
     # 'scraper.middlewares.ScraperDownloaderMiddleware': 543,
     'scraper.middlewares.ScraperAPIMiddleware': 543,
+    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+    'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 400,
 }
 
 # Enable or disable extensions
