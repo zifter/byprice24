@@ -43,10 +43,7 @@ class StructuredDataMixin:
                 description=self.extract_description(data, item),
                 price=round(float(properties['offers']['properties']['price'].replace(' ', '')), 2),
                 price_currency=self.extract_price_currency(properties),
-                rating=float(
-                    properties['aggregateRating']['properties']['ratingValue']
-                    if 'aggregateRating' in properties
-                    else '0'),
+                rating=self.extract_rating(properties),
                 review_count=int(
                     properties['aggregateRating']['properties']['reviewCount']
                     if 'aggregateRating' in properties
@@ -103,3 +100,8 @@ class StructuredDataMixin:
     def extract_price_currency(cls, properties) -> str:
         return properties['offers']['properties']['priceCurrency'] if not \
             properties['offers']['properties']['priceCurrency'] == 'BYR' else 'BYN'
+
+    @classmethod
+    def extract_rating(cls, properties) -> float:
+        return float(properties['aggregateRating']['properties']['ratingValue'][0] if \
+                         'aggregateRating' in properties else '0')
