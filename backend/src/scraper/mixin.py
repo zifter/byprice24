@@ -111,8 +111,8 @@ class StructuredDataMixin:
 
     @classmethod
     def extract_rating(cls, properties) -> float:
-        rating = float(properties['aggregateRating']['properties']['ratingValue'][0])
-        return rating if 'aggregateRating' in properties else '0')
+        return float(properties['aggregateRating']['properties']['ratingValue'][0] if \
+                         'aggregateRating' in properties else '0')
 
     @classmethod
     def extract_price_currency(cls, offer) -> str:
