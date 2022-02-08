@@ -133,7 +133,7 @@ class AgentTestCase(TestCase):
             price_currency='BYN',
             availability=Availability.InStock,
             rating=5.0,
-            review_count=4,
+            review_count=6,
             preview_url='https://static.21vek.by/img/galleries/6632/831/preview_b/x3pro8gb256gb_poco_01_60dd5ddb2379f.png',
             categories=['Смартфоны, ТВ и электроника', 'Смартфоны, аксессуары', 'Смартфоны']
         )
