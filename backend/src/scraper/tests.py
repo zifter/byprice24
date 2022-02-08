@@ -169,6 +169,56 @@ def test_spider_amd_by():
 
     assert_spider(url, 'poco-pro-x3.html', expected)
 
+def test_spider_amd_by_tv():
+    url = 'https://www.amd.by/televizory/thomson-t32rtm6020/'
+    expected = ProductScrapingResult(
+        url=url,
+        title='Телевизор Thomson T32RTM6020',
+        description='32" 1366x768 (HD), частота матрицы 60 Гц, Smart TV (Android TV), Wi-Fi',
+        price=749.00,
+        price_currency='BYN',
+        availability=Availability.InStock,
+        preview_url='https://www.amd.by/image/cache/catalog/products/598897/1633637450-500x500.jpg',
+        main_category=Category.TV,
+        categories=[],
+    )
+
+    assert_spider(url, 'tv-thomson-t32rtm6020.html', expected)
+
+def test_spider_amd_by_tv_xiaomi():
+    url = 'https://www.amd.by/televizory/xiaomi-mi-tv-4a-32-mezhdunarodnaya-versiya/'
+    expected = ProductScrapingResult(
+        url=url,
+        title='Телевизор Xiaomi MI TV 4A 32" (международная версия)',
+        description='32" 1366x768 (HD), матрица IPS, частота матрицы 60 Гц, Smart TV (Android TV), Wi-Fi',
+        price=728.23,
+        price_currency='BYN',
+        availability=Availability.InStock,
+        preview_url='https://www.amd.by/image/cache/catalog/products/153871/1633637450-500x500.jpg',
+        main_category=Category.TV,
+        rating=5.0,
+        review_count=8,
+        categories=[],
+    )
+
+    assert_spider(url, 'xiaomi-MI-TV.html', expected)
+
+def test_spider_amd_by_HEADPHONE_xiaomi():
+    url = 'https://www.amd.by/naushniki-i-garnitury/xiaomi-redmi-airdots-2-twsej061ls-chernyi-kitaiskaya-versiya/'
+    expected = ProductScrapingResult(
+        url=url,
+        title='Наушники Xiaomi Redmi AirDots 2 TWSEJ061LS (черный, китайская версия)',
+        description='беспроводные наушники с микрофоном, внутриканальные, портативные, Bluetooth 5.0, 20-20000 Гц, время работы 4 ч',
+        price=49.78,
+        price_currency='BYN',
+        availability=Availability.InStock,
+        preview_url='https://www.amd.by/image/cache/catalog/products/858775/61c3af0f63fd7-500x500.jpeg',
+        main_category=Category.HEADPHONE,
+        categories=[],
+    )
+
+    assert_spider(url, 'xiaomi-redmi-airdots.html', expected)
+
 
 def test_funtastik_by():
     url = 'https://www.funtastik.by/igrushki/konstruktory/konstruktor-lego-super-mario-71360-priklyucheniya-vmeste-s-mario-startovyy-nabor/'

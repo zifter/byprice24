@@ -43,14 +43,13 @@ class StructuredDataMixin:
             description = self.extract_description(data, item)
             categories = self.extract_categories(data)
             price_currency = self.extract_price_currency(offer)
+            rating = self.extract_rating(properties)
 
             price = round(float(offer['properties']['price'].replace(' ', '')), 2)
 
-            rating = 0.0
             review_count = 0
             if 'aggregateRating' in properties:
                 review_count = int(properties['aggregateRating']['properties']['reviewCount'])
-                rating = float(properties['aggregateRating']['properties']['ratingValue'])
 
             product = ProductScrapingResult(
                 url=response.url,
@@ -109,6 +108,11 @@ class StructuredDataMixin:
             if len('\n'.join(short_description)) > 512:
                 short_description.pop()
                 return '\n'.join(short_description)
+
+    @classmethod
+    def extract_rating(cls, properties) -> float:
+        return float(properties['aggregateRating']['properties']['ratingValue'][0] if \
+                         'aggregateRating' in properties else '0')
 
     @classmethod
     def extract_price_currency(cls, offer) -> str:
