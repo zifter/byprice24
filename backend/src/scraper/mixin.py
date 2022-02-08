@@ -32,26 +32,39 @@ class StructuredDataMixin:
             image = properties['image']
             preview_url = image if isinstance(image, str) else image[0]
 
-            availability = properties['offers']['properties']['availability'].replace('http://schema.org/', '') if \
-                properties['offers']['properties'].get('availability') else Availability.InStock.value
+            offer = StructuredDataMixin.extract_offer(properties)
 
-            properties = item['properties']
+            availability = Availability.InStock.value
+            if 'availability' in offer['properties']:
+                availability = offer['properties']['availability'].replace('http://schema.org/', '').replace('https://schema.org', '')
+            availability = Availability(availability)
+
+            title = self.extract_title(properties)
+            description = self.extract_description(data, item)
+            categories = self.extract_categories(data)
+            price_currency = self.extract_price_currency(offer)
+            rating = self.extract_rating(properties)
+
+            price = round(float(offer['properties']['price'].replace(' ', '')), 2)
+
+            review_count = 0
+            if 'aggregateRating' in properties:
+                review_count = int(properties['aggregateRating']['properties']['reviewCount'])
+
             product = ProductScrapingResult(
                 url=response.url,
-                title=self.extract_title(properties),
+                title=title,
                 main_category=category,
-                description=self.extract_description(data, item),
-                price=round(float(properties['offers']['properties']['price'].replace(' ', '')), 2),
-                price_currency=self.extract_price_currency(properties),
-                rating=self.extract_rating(properties),
-                review_count=int(
-                    properties['aggregateRating']['properties']['reviewCount']
-                    if 'aggregateRating' in properties
-                    else '0'),
-                availability=Availability(availability),
+                description=description,
+                price=price,
+                price_currency=price_currency,
+                rating=rating,
+                review_count=review_count,
+                availability=availability,
                 preview_url=preview_url,
-                categories=self.extract_categories(data)
+                categories=categories
             )
+
             return product
 
     @classmethod
@@ -97,11 +110,16 @@ class StructuredDataMixin:
                 return '\n'.join(short_description)
 
     @classmethod
-    def extract_price_currency(cls, properties) -> str:
-        return properties['offers']['properties']['priceCurrency'] if not \
-            properties['offers']['properties']['priceCurrency'] == 'BYR' else 'BYN'
+    def extract_rating(cls, properties) -> float:
+        rating = float(properties['aggregateRating']['properties']['ratingValue'][0])
+        return rating if 'aggregateRating' in properties else '0')
 
     @classmethod
-    def extract_rating(cls, properties) -> float:
-        return float(properties['aggregateRating']['properties']['ratingValue'][0] if \
-                         'aggregateRating' in properties else '0')
+    def extract_price_currency(cls, offer) -> str:
+        priceCurrency = offer['properties']['priceCurrency']
+        return priceCurrency if not priceCurrency == 'BYR' else 'BYN'
+
+    @classmethod
+    def extract_offer(cls, properties) -> str:
+        offers = properties['offers']
+        return offers[0] if isinstance(offers, list) else offers

@@ -4,9 +4,11 @@ from typing import Optional
 
 from common.item_types import Category
 from scraper.items import ProductScrapingResult
+from scrapy.http import Request
 from scrapy.http import Response
 from scrapy.spiders import CrawlSpider
 from scrapy.spiders import Rule
+from scrapy.spiders import Spider
 
 
 class CategoryRule(Rule):
@@ -28,22 +30,36 @@ class CategoryRule(Rule):
         )
 
 
-class SpiderBase(CrawlSpider):
-    """
-    Базовой Spider для всех наших парсеров
-    """
-
-    def parse(self, response, **kwargs):
-        raise NotImplementedError('method should not be called')
-
-    def parse_product(self, response: Response, category: Category) -> Generator[ProductScrapingResult, None, None]:
+class ParseProductBase():
+    def parse_product(self, response: Response, category: Category
+                      ) -> Generator[ProductScrapingResult, None, None]:
         logging.info('parse_item %s', response.url)
 
-        result: ProductScrapingResult = self.parse_product_impl(response, category)
+        result: ProductScrapingResult = self.parse_product_impl(response,
+                                                                category)
         if result is None:
             return
 
         yield result
 
-    def parse_product_impl(self, response: Response, category: Category) -> Optional[ProductScrapingResult]:
+    def parse_product_impl(self, response: Response, category: Category
+                           ) -> Optional[ProductScrapingResult]:
+        raise NotImplementedError('must be overridden')
+
+
+class CrawlSpiderBase(CrawlSpider, ParseProductBase):
+    """
+    Базовой CrawlSpider для большинства наших парсеров
+    """
+
+    def parse(self, response, **kwargs):
+        raise NotImplementedError('method should not be called')
+
+
+class SpiderBase(Spider, ParseProductBase):
+    """
+    Базовой Spider для некоторых наших парсеров
+    """
+
+    def start_requests(self) -> list[Request] | Generator[Request, None, None]:
         raise NotImplementedError('must be overridden')
