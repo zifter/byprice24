@@ -59,6 +59,13 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
+autoscalingKEDA:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 3
+  threshold: 3
+  prometheusUrl: prometheus-operated:9090/prometheus
+
 nodeSelector: { }
 
 tolerations: [ ]
