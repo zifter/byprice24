@@ -1,0 +1,2918 @@
+- name: elektronika
+  ru: Электроника
+  child:
+  - name: mobilnye-telefony-i-aksessuary
+    ru: Мобильные телефоны и аксессуары
+    child:
+    - name: mobile
+      ru: Смартфоны
+    - name: headphones
+      ru: Наушники
+    - name: smartwatch
+      ru: Фитнес-браслеты
+    - name: smartwatch
+      ru: Умные часы
+    - name: smartwatch
+      ru: Детские часы-телефон
+    - name: portablecharger
+      ru: Портативные зарядные устройства
+    - name: memcards
+      ru: Карты памяти
+    - name: phonecase
+      ru: Чехлы для телефонов
+    - name: protectiveglass
+      ru: Защитные стекла и пленки
+    - name: phoneaccum
+      ru: Аккумуляторы
+    - name: bt
+      ru: Bluetooth-гарнитуры
+    - name: selfiestick
+      ru: Палки для селфи
+    - name: cable
+      ru: Кабели, адаптеры
+    - name: carholder
+      ru: Автомобильные держатели
+    - name: chargersmobile
+      ru: Зарядные устройства
+    - name: chargersmobile
+      ru: Беспроводные зарядные устройства
+    - name: speakerdock
+      ru: Док-станции для смартфонов
+    - name: mobile
+      ru: Кнопочные телефоны
+  - name: televidenie-i-video
+    ru: Телевидение и видео
+    child:
+    - name: tv
+      ru: Телевизоры
+    - name: terrestrial
+      ru: Приемники цифрового ТВ
+    - name: satellite
+      ru: Спутниковые ресиверы
+    - name: aerial
+      ru: ТВ-антенны
+    - name: projectors
+      ru: Проекторы
+    - name: wallmount
+      ru: Кронштейны
+    - name: media
+      ru: Медиаплееры и ТВ-приставки
+    - name: dvd
+      ru: DVD плееры
+    - name: bluray_player
+      ru: Blu-ray проигрыватели
+    - name: desktoppc
+      ru: Микро-ПК (HDMI-стики)
+    - name: soundbar
+      ru: Саундбары и домашние кинотеатры
+    - name: tvaccessory
+      ru: Аксессуары для ТВ
+    - name: keyboards
+      ru: Клавиатуры для Smart TV
+    - name: cable
+      ru: Кабели, адаптеры для AV-аппаратуры
+    - name: remote
+      ru: Универсальные пульты ДУ
+    - name: projectorscreen
+      ru: Проекционные экраны
+  - name: planshety-elektronnye-knigi
+    ru: Планшеты, электронные книги
+    child:
+    - name: tabletpc
+      ru: Планшеты
+    - name: ebook
+      ru: Электронные книги
+    - name: tabletcase
+      ru: Чехлы для планшетов
+    - name: portablecharger
+      ru: Портативные зарядные устройства
+    - name: memcards
+      ru: Карты памяти
+    - name: cable
+      ru: Кабели, адаптеры
+    - name: chargersmobile
+      ru: Зарядные устройства
+    - name: wirelessadapter
+      ru: 4G и 3G-модемы
+    - name: ebookcover
+      ru: Обложки для электронных книг
+  - name: audiotehnika
+    ru: Аудиотехника
+    child:
+    - name: headphones
+      ru: Наушники
+    - name: portableamp
+      ru: Портативные усилители для наушников
+    - name: headphones_accs
+      ru: Аксессуары для портативной аудиотехники
+    - name: player
+      ru: MP3-плееры
+    - name: wspeaker
+      ru: Bluetooth колонки
+    - name: wspeaker
+      ru: Умные колонки
+    - name: microphones
+      ru: Микрофоны
+    - name: sound
+      ru: Мультимедиа акустика
+    - name: soundbar
+      ru: Саундбары и домашние кинотеатры
+    - name: radio
+      ru: Радиоприемники
+    - name: hifiaudio
+      ru: Колонки для вечеринок (патибоксы)
+    - name: hifiaudio
+      ru: Музыкальные центры
+    - name: clockradio
+      ru: Настенные и настольные часы
+    - name: portaudio
+      ru: Бумбоксы и магнитолы
+    - name: voicerecorder
+      ru: Диктофоны
+    - name: portableamp
+      ru: Bluetooth аудиоресиверы
+    - name: cable
+      ru: Аудиокабели
+  - name: hi-fi-audio
+    ru: Hi-Fi аудио
+    child:
+    - name: player
+      ru: Hi-Fi плееры
+    - name: headphones
+      ru: Аудиофильские наушники
+    - name: portableamp
+      ru: Настольные усилители для наушников
+    - name: hifisound
+      ru: Hi-Fi акустика
+    - name: insthornacoust
+      ru: Инсталляционная и рупорная акустика
+    - name: recievers
+      ru: AV-ресиверы и процессоры
+    - name: recievers
+      ru: Усилители, предусилители и стереоресиверы
+    - name: recievers
+      ru: Ламповые усилители
+    - name: cd_player
+      ru: CD-проигрыватели
+    - name: network_player
+      ru: Сетевые проигрыватели
+    - name: turntable
+      ru: Виниловые проигрыватели
+    - name: phonopreamps
+      ru: Фонокорректоры
+    - name: turntableaccess
+      ru: Звукосниматели и тонармы
+    - name: cable
+      ru: Акустические кабели
+  - name: foto--i-videotehnika
+    ru: Фото- и видеотехника
+    child:
+    - name: photo
+      ru: Фотоаппараты
+    - name: lens
+      ru: Объективы
+    - name: actioncamera
+      ru: Экшен-камеры
+    - name: actioncamera_acs
+      ru: Аксессуары и крепления для экшен-камер
+    - name: video
+      ru: Видеокамеры
+    - name: printers
+      ru: Фотопринтеры
+    - name: printers
+      ru: Мобильные фотопринтеры
+    - name: tripod
+      ru: Штативы
+    - name: tripod_acs
+      ru: Aксессуары для штативов и стабилизаторов
+    - name: memcards
+      ru: Карты памяти
+    - name: photoframe
+      ru: Цифровые фоторамки
+    - name: flashes
+      ru: Вспышки и лампы
+    - name: battery
+      ru: Батарейки, аккумуляторы, зарядные
+    - name: photo_acs
+      ru: Дистанционное управление для фототехники
+    - name: case
+      ru: Сумки и рюкзаки для фото/видео
+    - name: cardreaders
+      ru: Карт-ридеры
+    - name: batteries
+      ru: Аккумуляторы
+    - name: photofilter
+      ru: Аксессуары для объективов
+    - name: acs_photo
+      ru: Аксессуары для фото и видеокамер
+    - name: photomaterial
+      ru: Фотоматериалы и химикаты
+    - name: photo_albums
+      ru: Фотоальбомы
+  - name: videoigry
+    ru: Видеоигры
+    child:
+    - name: console
+      ru: Игровые приставки
+    - name: games
+      ru: Игры для приставок
+    - name: pcgames
+      ru: Игры для ПК
+    - name: paymentcard
+      ru: Карты оплаты и подписки
+    - name: virtualreality
+      ru: Очки виртуальной реальности
+    - name: controllers
+      ru: Геймпады для Xbox
+    - name: controllers
+      ru: Геймпады для PlayStation
+    - name: controllers
+      ru: Зарядные устройства
+    - name: headphones
+      ru: Геймерские наушники
+    - name: office_chair
+      ru: Игровые кресла
+    - name: mouse
+      ru: Игровые мыши
+    - name: keyboards
+      ru: Игровые клавиатуры
+    - name: controllers
+      ru: Чехлы для приставок
+    - name: gamemerch
+      ru: Фигурки-держатели для геймпадов и смартфонов
+    - name: controllers
+      ru: Геймпады с держателем для телефона
+    - name: gamemerch
+      ru: Светильники для фанатов
+    - name: gamemerch
+      ru: Наклейки
+    - name: robots
+      ru: Тематические фигурки
+  - name: gadzhety
+    ru: Гаджеты
+    child:
+    - name: smartwatch
+      ru: Умные часы
+    - name: smartwatch
+      ru: Фитнес-браслеты
+    - name: heart_rate
+      ru: Пульсометры
+    - name: replacementstrap
+      ru: Сменные ремешки и браслеты
+    - name: virtualreality
+      ru: Очки виртуальной реальности
+    - name: scales
+      ru: Умные весы
+    - name: sleepgood
+      ru: Гаджеты для сна
+    - name: nitrate
+      ru: Нитратомеры, дозиметры, экотестеры
+    - name: smoke
+      ru: Электронные парогенераторы
+  - name: umnyj-dom-i-videonabljudenie
+    ru: Умный дом и видеонаблюдение
+    child:
+    - name: smart_home
+      ru: Умный дом
+    - name: thermostat
+      ru: Умные терморегуляторы
+    - name: lightbulb
+      ru: Умные лампочки
+    - name: smart_home
+      ru: Умные розетки
+    - name: wspeaker
+      ru: Умные колонки
+    - name: ipcamera
+      ru: IP-камеры
+    - name: videodoorphone
+      ru: Видеодомофоны
+    - name: cctvcamera
+      ru: Камеры CCTV
+    - name: dvr
+      ru: Видеорегистраторы
+    - name: camera_traps
+      ru: Фотоловушки
+  - name: elektricheskij-transport
+    ru: Электрический транспорт
+    child:
+    - name: electric_scooter
+      ru: Электросамокаты и электроскутеры
+    - name: segway
+      ru: Гироциклы
+    - name: electrobike
+      ru: Электровелосипеды
+  - name: telefonija-i-svjaz
+    ru: Телефония и связь
+    child:
+    - name: mobile
+      ru: Смартфоны
+    - name: dect
+      ru: Радиотелефоны DECT
+    - name: phone
+      ru: Проводные телефоны
+    - name: phone
+      ru: Проводные IP-телефоны
+    - name: dect
+      ru: Беспроводные IP-телефоны
+    - name: mobile
+      ru: Кнопочные телефоны
+    - name: wirelessadapter
+      ru: 3G-модемы
+    - name: fax
+      ru: Факсы
+    - name: portableradio
+      ru: Портативные радиостанции
+  - name: muzykalnoe-oborudovanie
+    ru: Музыкальное оборудование
+    child:
+    - name: synthandworkst
+      ru: Синтезаторы и рабочие станции
+    - name: audiointerface
+      ru: Аудиоинтерфейсы
+    - name: mixing_consoles
+      ru: Микшерные пульты и консоли
+    - name: concertacoustics
+      ru: Концертная акустика
+    - name: studio_monitor
+      ru: Студийные мониторы
+    - name: guitarcombo
+      ru: Гитарные комбоусилители
+    - name: microphones
+      ru: Микрофоны
+    - name: acoustic_acs
+      ru: Аксессуары для акустики и микрофонов
+    - name: guitar
+      ru: Гитары
+  - name: opticheskie-pribory
+    ru: Оптические приборы
+    child:
+    - name: optic
+      ru: Бинокли, подзорные трубы и приборы ночного видения
+    - name: telescope
+      ru: Телескопы
+- name: kompjutery-i-seti
+  ru: Компьютеры и сети
+  child:
+  - name: noutbuki-kompjutery-monitory
+    ru: Ноутбуки, компьютеры, мониторы
+    child:
+    - name: notebook
+      ru: Ноутбуки
+    - name: notebook
+      ru: Игровые ноутбуки
+    - name: tabletpc
+      ru: Планшеты
+    - name: monoblock
+      ru: Моноблоки
+    - name: desktoppc
+      ru: Компьютеры
+    - name: display
+      ru: Все мониторы
+    - name: display
+      ru: Игровые мониторы
+    - name: display
+      ru: Профессиональные мониторы
+  - name: komplektujuschie
+    ru: Комплектующие
+    child:
+    - name: videocard
+      ru: Видеокарты
+    - name: cpu
+      ru: Процессоры
+    - name: motherboard
+      ru: Материнские платы
+    - name: dram
+      ru: Оперативная память
+    - name: fan
+      ru: Системы охлаждения
+    - name: ssd
+      ru: SSD
+    - name: hdd
+      ru: Жесткие диски
+    - name: chassis
+      ru: Корпуса
+    - name: powersupply
+      ru: Блоки питания
+    - name: soundcard
+      ru: Звуковые карты
+    - name: networkadapter
+      ru: Сетевые адаптеры
+    - name: optical
+      ru: Оптические приводы
+    - name: tvtuner
+      ru: ТВ-тюнеры и карты видеозахвата
+  - name: tehnika-dlja-pechati-i-dizajna
+    ru: Техника для печати и дизайна
+    child:
+    - name: printers
+      ru: Принтеры и МФУ
+    - name: cable
+      ru: Кабели для принтеров
+    - name: scanner
+      ru: Сканеры
+    - name: officeequip_acs
+      ru: Аксессуары для оргтехники
+    - name: tablets
+      ru: Графические планшеты
+    - name: stylus_pens
+      ru: Стилусы и сменные наконечники
+    - name: cartridges
+      ru: Картриджи
+    - name: photopaper
+      ru: Бумага и материалы для печати
+    - name: consumablespaper
+      ru: Расходные материалы для ламинаторов и брошюровщиков
+    - name: laminator
+      ru: Ламинаторы
+    - name: bindingmachines
+      ru: Брошюровщики
+    - name: matrixprinter
+      ru: Матричные принтеры
+    - name: 3dprinter
+      ru: 3D-принтеры
+    - name: 3d_pen
+      ru: 3D-ручки
+    - name: 3d_filament
+      ru: Расходные материалы для 3D-печати
+  - name: manipuljatory-i-ustrojstva-vvoda
+    ru: Манипуляторы и устройства ввода
+    child:
+    - name: mouse
+      ru: Мыши
+    - name: keyboards
+      ru: Клавиатуры
+    - name: controllers
+      ru: Игровые контроллеры и аксессуары
+    - name: tablets
+      ru: Графические планшеты
+    - name: stylus_pens
+      ru: Стилусы и сменные наконечники
+    - name: peripheralkits
+      ru: Наборы периферии (клавиатура + мышь)
+    - name: mousepad
+      ru: Коврики для мыши
+  - name: hranenie-dannyh
+    ru: Хранение данных
+    child:
+    - name: ssd
+      ru: SSD
+    - name: hdd
+      ru: Жесткие диски
+    - name: externalhdd
+      ru: Внешние накопители (HDD и SSD)
+    - name: usbflash
+      ru: Флешки USB
+    - name: memcards
+      ru: Карты памяти
+    - name: hddbox
+      ru: Боксы для накопителей
+    - name: nas
+      ru: Сетевые накопители (NAS)
+    - name: optical
+      ru: Оптические приводы
+    - name: opticaldisk
+      ru: Оптические диски
+    - name: usbhub
+      ru: USB-хабы и док-станции
+    - name: cardreaders
+      ru: Карт-ридеры
+  - name: multimedia-periferija
+    ru: Мультимедиа периферия
+    child:
+    - name: sound
+      ru: Компьютерная акустика
+    - name: headphones
+      ru: Наушники
+    - name: webcams
+      ru: Веб-камеры
+    - name: ipcamera
+      ru: IP-камеры
+    - name: audiointerface
+      ru: Аудиоинтерфейсы
+  - name: setevoe-oborudovanie
+    ru: Сетевое оборудование
+    child:
+    - name: wrouter
+      ru: Беспроводные маршрутизаторы
+    - name: wrouter
+      ru: 4G маршрутизаторы
+    - name: wirelessap
+      ru: Беспроводные точки доступа
+    - name: wirelessap
+      ru: Усилители Wi-Fi
+    - name: wirelessadapter
+      ru: 4G и 3G-модемы
+    - name: wirelessadapter
+      ru: Беспроводные адаптеры
+    - name: networkadapter
+      ru: Сетевые адаптеры (Ethernet)
+    - name: switch
+      ru: Коммутаторы
+    - name: dslmodem
+      ru: DSL-модемы и маршрутизаторы
+    - name: nas
+      ru: Сетевые накопители (NAS)
+    - name: ipcamera
+      ru: IP-камеры
+    - name: cable
+      ru: Сетевые кабели
+    - name: household_tools
+      ru: Инструмент для обжимки кабелей
+    - name: powerline
+      ru: Сети по электропроводке (Powerline)
+    - name: wantenna
+      ru: Антенны беспроводной связи
+  - name: aksessuary-k-noutbukam-i-kompjuteram
+    ru: Аксессуары к ноутбукам и компьютерам
+    child:
+    - name: backpack
+      ru: Рюкзаки для ноутбуков
+    - name: notebookcase
+      ru: Сумки для ноутбуков
+    - name: laptopstand
+      ru: Охлаждающие подставки
+    - name: laptopstand
+      ru: Подставки для ноутбуков, планшетов и телефонов
+    - name: cable
+      ru: Кабели, адаптеры, разветвители
+    - name: mousepad
+      ru: Коврики для мыши
+    - name: office_chair
+      ru: Игровые кресла
+    - name: notebatteries
+      ru: Аккумуляторы для ноутбуков
+    - name: chargersmobile
+      ru: Универсальные зарядные устройства
+    - name: computer_cleanin
+      ru: Чистящие принадлежности для компьютерной техники
+  - name: elektropitanie
+    ru: Электропитание
+    child:
+    - name: ups
+      ru: Источники бесперебойного питания
+    - name: voltageregulator
+      ru: Стабилизаторы и сетевые фильтры
+    - name: notebatteries
+      ru: Аккумуляторы для ноутбуков
+    - name: chargersmobile
+      ru: Зарядные устройства
+    - name: cable
+      ru: Кабели питания
+    - name: ups_battery
+      ru: Аккумуляторы для ИБП
+  - name: igry-i-programmnoe-obespechenie
+    ru: Игры и программное обеспечение
+    child:
+    - name: pcgames
+      ru: Видеоигры для ПК
+    - name: games
+      ru: Видеоигры для консолей
+    - name: antivirus
+      ru: Антивирусы и безопасность
+    - name: paymentcard
+      ru: Карты оплаты и подписки
+    - name: gamemerch
+      ru: Игровая атрибутика
+- name: bytovaja-tehnika
+  ru: Бытовая техника
+  child:
+  - name: krupnogabaritnaja-tehnika
+    ru: Крупногабаритная техника
+    child:
+    - name: refrigerator
+      ru: Холодильники
+    - name: refrigerator
+      ru: Морозильники
+    - name: washingmachine
+      ru: Стиральные машины
+    - name: washingmachine
+      ru: Сушильные машины
+    - name: hoods
+      ru: Вытяжки
+    - name: cooker
+      ru: Кухонные плиты
+    - name: dishwasher
+      ru: Посудомоечные машины
+    - name: wine_cabinets
+      ru: Винные шкафы
+    - name: largehomeapp_acs
+      ru: Аксессуары для крупной бытовой техники
+  - name: vstraivaemaja-tehnika
+    ru: Встраиваемая техника
+    child:
+    - name: hob_cooker
+      ru: Варочные панели
+    - name: oven_cooker
+      ru: Духовые шкафы
+    - name: hoods
+      ru: Вытяжки
+    - name: dishwasher
+      ru: Посудомоечные машины
+    - name: refrigerator
+      ru: Холодильники
+    - name: washingmachine
+      ru: Стиральные машины
+    - name: microvawe
+      ru: Микроволновые печи
+    - name: coffee
+      ru: Кофемашины
+    - name: disposer
+      ru: Измельчители пищевых отходов
+    - name: largehomeapp_acs
+      ru: Аксессуары для встраиваемой техники
+  - name: uborka
+    ru: Уборка
+    child:
+    - name: vacuumcleaner
+      ru: Пылесосы
+    - name: robotcleaner
+      ru: Роботы-пылесосы
+    - name: vacuumcleaner
+      ru: Стеклоочистители
+    - name: robotcleaner
+      ru: Роботы для мытья окон
+    - name: steamcleaner
+      ru: Пароочистители
+    - name: electric_mop
+      ru: Электрошвабры, паровые швабры и полотеры
+    - name: sweeper
+      ru: Электровеники
+    - name: mop
+      ru: Швабры и аксессуары
+    - name: vacuum_acs
+      ru: Аксессуары для пылесосов, пароочистителей
+  - name: uhod-za-odezhdoj-poshiv
+    ru: Уход за одеждой, пошив
+    child:
+    - name: iron
+      ru: Утюги
+    - name: steamcleaner
+      ru: Отпариватели
+    - name: steamcleaner
+      ru: Гладильные станции и прессы
+    - name: sewingmachines
+      ru: Швейные машины
+    - name: overlock
+      ru: Оверлоки
+    - name: sewingmachines
+      ru: Вышивальные и швейно-вышивальные машины
+    - name: lintshaver
+      ru: Машинки для удаления катышков
+    - name: shoes_dryer
+      ru: Электрические сушилки для обуви
+    - name: climate_acs
+      ru: Аксессуары для утюгов, гладильных систем
+  - name: klimaticheskaja-tehnika
+    ru: Климатическая техника
+    child:
+    - name: conditioners
+      ru: Кондиционеры
+    - name: waterheater
+      ru: Водонагреватели
+    - name: heater
+      ru: Обогреватели
+    - name: humidifier
+      ru: Увлажнители воздуха
+    - name: boiler
+      ru: Отопительные котлы
+    - name: blower
+      ru: Вентиляторы и охладители воздуха
+    - name: airpurifier
+      ru: Очистители и мойки воздуха
+    - name: exhaustfan
+      ru: Приточные проветриватели
+    - name: meteostations
+      ru: Метеостанции, гигрометры и термогигрометры
+    - name: electrofireplace
+      ru: Электрокамины и биокамины
+    - name: dehumidifier
+      ru: Осушители воздуха
+    - name: insect_killer
+      ru: Электронные уничтожители насекомых
+    - name: climate_acs
+      ru: Аксессуары для климатической техники
+  - name: prigotovlenie-pischi
+    ru: Приготовление пищи
+    child:
+    - name: microvawe
+      ru: Микроволновые печи
+    - name: multicooker
+      ru: Мультиварки
+    - name: tabletop_cooker
+      ru: Настольные плиты
+    - name: roaster
+      ru: Мини-печи
+    - name: toaster
+      ru: Тостеры
+    - name: waffle
+      ru: Вафельницы
+    - name: sandwichers
+      ru: Сэндвичницы
+    - name: aerogrill
+      ru: Аэрогрили
+    - name: breadmaker
+      ru: Хлебопечки
+    - name: electricgrill
+      ru: Электрогрили
+    - name: electrobarbecue
+      ru: Электрошашлычницы
+    - name: steamers
+      ru: Пароварки
+    - name: yogurtmaker
+      ru: Йогуртницы и мороженицы
+    - name: fryer
+      ru: Фритюрницы
+    - name: crepemaker
+      ru: Блинницы
+    - name: eggmaker
+      ru: Яйцеварки
+    - name: kitchen_acs
+      ru: Аксессуары для кухонной техники
+  - name: prigotovlenie-kofe-i-chaja
+    ru: Приготовление кофе и чая
+    child:
+    - name: coffee
+      ru: Кофемашины
+    - name: coffee
+      ru: Кофеварки
+    - name: coffee
+      ru: Капсульные кофеварки
+    - name: kettle
+      ru: Электрочайники и термопоты
+    - name: kettles
+      ru: Чайники
+    - name: teapot
+      ru: Заварочные чайники, кофеварки, френч-прессы
+    - name: coffeegrinders
+      ru: Кофемолки
+    - name: milkfrother
+      ru: Вспениватели молока
+    - name: coffeejava
+      ru: Кофе в зернах
+    - name: coffeejava
+      ru: Молотый кофе
+    - name: coffeejava
+      ru: Кофе в капсулах
+    - name: kitchen_acs
+      ru: Аксессуары для кофемашин, кофеварок, чайников
+    - name: hot_drinks
+      ru: Кружки, чашки, стаканы для горячих напитков
+    - name: hot_drinks
+      ru: Посуда для кофейных напитков
+  - name: podgotovka-i-obrabotka-produktov
+    ru: Подготовка и обработка продуктов
+    child:
+    - name: blender
+      ru: Блендеры
+    - name: foodprocessors
+      ru: Кухонные комбайны, машины и планетарные миксеры
+    - name: meatgrinder
+      ru: Мясорубки
+    - name: mixer
+      ru: Ручные миксеры
+    - name: juicer
+      ru: Соковыжималки
+    - name: food_dehydrator
+      ru: Сушилки для овощей и фруктов
+    - name: kitchenscales
+      ru: Кухонные весы
+    - name: slicer
+      ru: Ломтерезки
+    - name: chopper
+      ru: Измельчители (чопперы)
+    - name: vacuummachine
+      ru: Вакуумные упаковщики
+    - name: marinator
+      ru: Маринаторы
+    - name: kitchen_acs
+      ru: Аксессуары для кухонной техники
+  - name: uhod-za-volosami-i-telom
+    ru: Уход за волосами и телом
+    child:
+    - name: hairclipper
+      ru: Машинки для стрижки волос
+    - name: styler
+      ru: Плойки, стайлеры, щипцы
+    - name: hairdryer
+      ru: Фены
+    - name: toothbrush
+      ru: Электрические зубные щетки и ирригаторы
+    - name: shaver
+      ru: Мужские электробритвы
+    - name: ladyshaver
+      ru: Женские электробритвы и эпиляторы
+    - name: scales
+      ru: Напольные весы
+    - name: footbath
+      ru: Гидромассажные ванночки
+    - name: manicure
+      ru: Маникюрные и педикюрные наборы
+    - name: beauty_acs
+      ru: Аксессуары к товарам для красоты и здоровья
+  - name: tehnika-dlja-zdorovja
+    ru: Техника для здоровья
+    child:
+    - name: inhaler
+      ru: Ингаляторы
+    - name: toothbrush
+      ru: Электрические зубные щетки и ирригаторы
+    - name: tonometers
+      ru: Тонометры
+    - name: medthermometer
+      ru: Термометры
+    - name: glucosemeter
+      ru: Глюкометры
+    - name: heart_rate
+      ru: Пульсометры, пульсоксиметры
+    - name: contact_lense
+      ru: Контактные линзы
+    - name: solutionlenses
+      ru: Растворы для линз
+    - name: beauty_acs
+      ru: Аксессуары к товарам для красоты и здоровья
+  - name: aksessuary-i-soputstvujuschie-tovary
+    ru: Аксессуары и сопутствующие товары
+    child:
+    - name: linendryer
+      ru: Сушилки для белья
+    - name: ironingboard
+      ru: Гладильные доски
+    - name: washingpowder
+      ru: Средства для стирки и ухода за бельем
+    - name: dishwashertablet
+      ru: Средства для посудомоечных машин
+    - name: kitchen_acs
+      ru: Аксессуары для кофемашин, кофеварок, чайников
+    - name: kitchen_acs
+      ru: Аксессуары для блендеров, комбайнов, мясорубок
+    - name: kitchen_acs
+      ru: Аксессуары для вакуумных упаковщиков
+    - name: kitchen_acs
+      ru: Аксессуары для мультиварок, аэрогрилей
+    - name: kitchen_acs
+      ru: Сменные панели для сэндвичниц
+    - name: beauty_acs
+      ru: Аксессуары для зубных щеток и ирригаторов
+    - name: beauty_acs
+      ru: Аксессуары для электробритв и машинок
+    - name: beauty_acs
+      ru: Аксессуары для приборов по уходу за кожей
+    - name: razorsandblades
+      ru: Сменные лезвия для бритвенных станков
+    - name: vacuum_acs
+      ru: Аксессуары для пылесосов
+    - name: vacuum_acs
+      ru: Аксессуары для пароочистителей
+    - name: largehomeapp_acs
+      ru: Аксессуары для крупной бытовой и встраиваемой техники
+    - name: climate_acs
+      ru: Аксессуары для утюгов, гладильных систем
+    - name: climate_acs
+      ru: Аксессуары для климатической техники
+- name: strojka-i-remont
+  ru: Стройка и ремонт
+  child:
+  - name: instrument
+    ru: Инструмент
+    child:
+    - name: drills
+      ru: Электродрели и строительные миксеры
+    - name: rotaryhammers
+      ru: Перфораторы
+    - name: tool_kits
+      ru: Наборы ручных инструментов
+    - name: screwdriver
+      ru: Шуруповерты, гайковерты, электроотвертки
+    - name: tools_accum
+      ru: Аккумуляторы и зарядные устройства для инструмента
+    - name: drills
+      ru: Дрели-миксеры
+    - name: angle_grinder
+      ru: Угловые шлифмашины (болгарки)
+    - name: grinder
+      ru: Шлифмашины
+    - name: grinder
+      ru: Полировальные машины
+    - name: grinder
+      ru: Мультифункциональные шлифмашины
+    - name: electric_saw
+      ru: Дисковые пилы
+    - name: electric_saw
+      ru: Сабельные пилы
+    - name: fretsaw
+      ru: Лобзики
+    - name: plane
+      ru: Рубанки
+    - name: household_tools
+      ru: Строительный, слесарный, монтажный инструмент
+    - name: toolbox
+      ru: Органайзеры и системы хранения инструментов
+    - name: woodrouter
+      ru: Фрезеры
+    - name: industrialdryer
+      ru: Промышленные фены
+    - name: hotgluegun
+      ru: Термоклеевые пистолеты
+    - name: engraver
+      ru: Граверы
+    - name: vacuumcleaner
+      ru: Хозяйственные пылесосы
+    - name: electricspraygun
+      ru: Краскораспылители
+    - name: wallchaser
+      ru: Штроборезы
+    - name: tilecutter
+      ru: Плиткорезы
+    - name: solderingiron
+      ru: Паяльники и паяльные лампы
+    - name: pipe_welding
+      ru: Аппараты для сварки труб
+    - name: jackhammer
+      ru: Электрические отбойные молотки
+    - name: metal_cutter
+      ru: Электрические ножницы по металлу
+    - name: powertoolset
+      ru: Наборы электроинструментов
+    - name: nailer
+      ru: Скобозабиватели, гвоздезабиватели, степлеры
+    - name: thermal_imaging
+      ru: Диагностические тепловизоры и пирометры
+  - name: osnastka-dlja-elektroinstrumenta
+    ru: Оснастка для электроинструмента
+    child:
+    - name: bits_heads
+      ru: Биты, головки, насадки, держатели
+    - name: drillbits
+      ru: Сверла, буры, зенкеры
+    - name: chiselshamdrills
+      ru: Зубила для перфораторов и отбойных молотков
+    - name: saw_blades
+      ru: Пильные диски
+    - name: sawzall_blades
+      ru: Пильные полотна
+    - name: cutting_circle
+      ru: Отрезные диски
+    - name: sanding_disk
+      ru: Шлифовальные диски, насадки, листы
+    - name: grinding_cups
+      ru: Шлифовальные чашки
+    - name: milling_cutters
+      ru: Фрезы
+    - name: brush_electro
+      ru: Щетки для электроинструмента
+    - name: holesaw
+      ru: Коронки
+    - name: engraveraccs
+      ru: Оснастка для граверов
+    - name: stirring_nozzles
+      ru: Насадки для размешивания растворов
+    - name: staples
+      ru: Скобы, штифты, гвозди забивные
+    - name: glue_stick
+      ru: Клеевые и пластиковые стержни
+    - name: powertool_chucks
+      ru: Патроны и переходники для электроинструмента
+    - name: powertools_sp
+      ru: Запчасти для электроинструмента
+    - name: industrialdr_acs
+      ru: Оснастка для строительных фенов
+  - name: stroitelnoe-oborudovanie
+    ru: Строительное оборудование
+    child:
+    - name: weldinginverter
+      ru: Сварочные аппараты
+    - name: compressor
+      ru: Компрессоры
+    - name: laserlevel
+      ru: Лазерные нивелиры
+    - name: heat_gun
+      ru: Тепловые пушки
+    - name: powerstations
+      ru: Генераторы
+    - name: concrete
+      ru: Бетономешалки
+    - name: weldingmask
+      ru: Сварочные маски
+    - name: vacuumcleaner
+      ru: Хозяйственные пылесосы
+    - name: barrow
+      ru: Строительные тачки
+    - name: stairandladder
+      ru: Лестницы и стремянки
+    - name: laserdistmeter
+      ru: Лазерные дальномеры
+    - name: measuringacs
+      ru: Штативы и аксессуары для измерительных приборов
+    - name: platecompactor
+      ru: Виброплиты
+    - name: jackhammer
+      ru: Отбойные молотки
+    - name: powercutter
+      ru: Электро- и бензорезы
+    - name: motopump
+      ru: Мотопомпы
+  - name: napolnye-pokrytija
+    ru: Напольные покрытия
+    child:
+    - name: laminate
+      ru: Ламинат
+    - name: linoleum
+      ru: Линолеум
+    - name: vinyl_floor
+      ru: Виниловые полы
+    - name: tile
+      ru: Плитка
+    - name: parquetboard
+      ru: Паркетная доска
+  - name: santehnika
+    ru: Сантехника
+    child:
+    - name: kitchensink
+      ru: Кухонные мойки
+    - name: faucet
+      ru: Смесители
+    - name: acs_faucet
+      ru: Комплектующие для смесителей
+    - name: bathtub
+      ru: Ванны
+    - name: bath_panels
+      ru: Экраны под ванну
+    - name: bathtub_frame
+      ru: Ножки, каркасы, опоры для ванн
+    - name: bathtub_curtain
+      ru: Шторки и карнизы для ванн и поддонов
+    - name: towelrail
+      ru: Полотенцесушители
+    - name: towelrail_acs
+      ru: Аксессуары и комплектующие для полотенцесушителей
+    - name: showerbox
+      ru: Душевые кабины
+    - name: washbasin
+      ru: Умывальники
+    - name: shower
+      ru: Гигиенические души
+    - name: pedestal
+      ru: Пьедесталы для умывальников
+    - name: siphon
+      ru: Сифоны
+    - name: wcpan
+      ru: Унитазы
+    - name: toilet_cisterns
+      ru: Бачки для унитазов
+    - name: toilet_seat
+      ru: Сиденья и крышки для унитазов и биде
+    - name: bidet
+      ru: Биде
+    - name: installations
+      ru: Инсталляции для унитазов, раковин, биде и писсуаров
+    - name: acs_wcpan
+      ru: Комплектующие для унитазов, писсуаров, биде
+    - name: flushing_system
+      ru: Клавиши и системы смыва
+    - name: toilet_shower
+      ru: Электронные крышки-биде
+    - name: biotoilet
+      ru: Биотуалеты
+    - name: shower
+      ru: Душевые системы и гарнитуры
+    - name: shower_trays
+      ru: Душевые поддоны
+    - name: dispenser
+      ru: Аксессуары для ванной и туалета
+    - name: bathtub_acs
+      ru: Ручки, сиденья и подголовники для ванн
+    - name: handsdryer
+      ru: Сушилки для рук, волос
+  - name: vodosnabzhenie-kanalizatsija-ventiljatsija
+    ru: Водоснабжение, канализация, вентиляция
+    child:
+    - name: waterheater
+      ru: Водонагреватели
+    - name: pump
+      ru: Насосы
+    - name: exhaustfan
+      ru: Приточные и вытяжные вентиляторы
+    - name: ventil_grates
+      ru: Вентиляционные решетки
+    - name: exhaustfan
+      ru: Приточные проветриватели
+    - name: hydroaccum
+      ru: Гидроаккумуляторы
+    - name: tube_fitting
+      ru: Трубы, фитинг
+    - name: access_panel
+      ru: Сантехнические ревизионные люки
+    - name: metal_pipes
+      ru: Трубы водогазопроводные
+    - name: boiler
+      ru: Отопительные котлы
+    - name: radiators
+      ru: Радиаторы отопления
+    - name: radiators_acs
+      ru: Аксессуары и комплектующие для радиаторов
+    - name: water_meter
+      ru: Счетчики воды
+  - name: elektrosnabzhenie
+    ru: Электроснабжение
+    child:
+    - name: wall_socket
+      ru: Розетки, выключатели
+    - name: voltageregulator
+      ru: Удлинители
+    - name: voltageregulator
+      ru: Стабилизаторы и сетевые фильтры
+    - name: multimeter
+      ru: Мультиметры, токовые клещи, индикаторные отвертки
+    - name: luster
+      ru: Светильники, люстры, бра, споты
+    - name: lightbulb
+      ru: Лампочки
+    - name: powerstations
+      ru: Генераторы
+    - name: electro_meter
+      ru: Счетчики электроэнергии
+  - name: otoplenie-teploizoljatsija
+    ru: Отопление, теплоизоляция
+    child:
+    - name: boiler
+      ru: Отопительные котлы
+    - name: pump
+      ru: Насосы для систем отопления
+    - name: radiators
+      ru: Радиаторы отопления
+    - name: radiators_acs
+      ru: Аксессуары и комплектующие для радиаторов
+    - name: therminsulation
+      ru: Теплоизоляция
+    - name: soundproofing
+      ru: Звуко- и виброизоляция помещений
+    - name: heatedfloor
+      ru: Теплые полы
+    - name: towelrail
+      ru: Полотенцесушители
+    - name: thermostat
+      ru: Терморегуляторы
+    - name: stove
+      ru: Дровяные камины, печи-камины, порталы
+    - name: hydroaccum
+      ru: Расширительные баки
+    - name: heatcarrier
+      ru: Теплоносители и промывка систем отопления
+    - name: tube_fitting
+      ru: Трубы, фитинг
+    - name: metal_pipes
+      ru: Трубы водогазопроводные
+    - name: gas_meter
+      ru: Счетчики газа
+  - name: dveri-okna
+    ru: Двери, окна
+    child:
+    - name: steeldoor
+      ru: Металлические двери
+    - name: interiordoor
+      ru: Межкомнатные двери
+    - name: vynilwindows
+      ru: Окна ПВХ
+    - name: wall_socket
+      ru: Дверные звонки
+  - name: pnevmoinstrumenty
+    ru: Пневмоинструменты
+    child:
+    - name: compressor
+      ru: Компрессоры
+    - name: spraygun
+      ru: Краскопульты
+    - name: wrench
+      ru: Гайковерты
+    - name: nailer
+      ru: Скобозабиватели, гвоздезабиватели, степлеры
+    - name: pneumogrinder
+      ru: Пневмошлифмашины
+  - name: stanki
+    ru: Станки
+    child:
+    - name: woodworking
+      ru: Деревообрабатывающие и металлообрабатывающие станки
+    - name: tilecutter
+      ru: Плиткорезные станки
+    - name: benchgrinder
+      ru: Заточные станки (точила)
+  - name: stroitelnye-i-otdelochnye-materialy
+    ru: Строительные и отделочные материалы
+    child:
+    - name: buildingmaterial
+      ru: Общестроительные материалы
+    - name: plaster
+      ru: Штукатурка
+    - name: adhesivemix
+      ru: Клеевые смеси
+    - name: floormix
+      ru: Смеси для полов
+    - name: putty
+      ru: Шпатлевка
+    - name: primer
+      ru: Грунтовка
+    - name: drywall
+      ru: Гипсокартон
+    - name: wall_panels
+      ru: Стеновые панели
+    - name: wallpapers
+      ru: Обои
+    - name: tile
+      ru: Керамическая плитка, керамогранит
+    - name: decorative_stone
+      ru: Декоративный камень и кирпич
+    - name: decorative_stone
+      ru: Гибкий камень
+    - name: paints
+      ru: Краски и эмали
+    - name: lacquer
+      ru: Лаки, пропитки, антисептики
+    - name: roof
+      ru: Кровельные материалы
+    - name: bricks
+      ru: Кирпич
+    - name: caementum
+      ru: Цемент
+    - name: pavers
+      ru: Тротуарная плитка
+    - name: metal_pipes
+      ru: Трубный металлопрокат
+    - name: sheetmetal
+      ru: Листовой металлопрокат
+    - name: armatura
+      ru: Арматура
+    - name: rabitz
+      ru: Строительные сетки
+- name: dom-i-sad
+  ru: Дом и сад
+  child:
+  - name: novyj-god-i-prazdniki
+    ru: Новый год и праздники
+    child:
+    - name: tree
+      ru: Елки
+    - name: xmaslights
+      ru: Электрические гирлянды
+    - name: xmaslights
+      ru: Световые деревья, фигуры
+    - name: christmasdecor
+      ru: Елочные игрушки, украшения
+    - name: flowersbouquets
+      ru: Цветы, букеты
+    - name: stuffedtoys
+      ru: Мягкие игрушки
+    - name: giftbox
+      ru: Подарочные наборы
+    - name: fancydress
+      ru: Маскарадные костюмы
+    - name: party_acs
+      ru: Аксессуары для праздников
+    - name: certificates
+      ru: Сертификаты
+  - name: vannaja-komnata-i-tualet
+    ru: Ванная комната и туалет
+    child:
+    - name: faucet
+      ru: Смесители
+    - name: bathtub
+      ru: Ванны
+    - name: waterheater
+      ru: Водонагреватели
+    - name: towelrail
+      ru: Полотенцесушители
+    - name: showerbox
+      ru: Душевые кабины
+    - name: wcpan
+      ru: Унитазы
+    - name: washbasin
+      ru: Умывальники
+    - name: pedestal
+      ru: Пьедесталы для умывальников
+    - name: siphon
+      ru: Сифоны
+    - name: tile
+      ru: Плитка для ванных комнат
+    - name: bath_furniture
+      ru: Мебель для ванных комнат
+    - name: bidet
+      ru: Биде
+    - name: installations
+      ru: Инсталляции для унитазов, раковин, биде и писсуаров
+    - name: flushing_system
+      ru: Клавиши и системы смыва
+    - name: toilet_shower
+      ru: Электронные крышки-биде
+    - name: shower
+      ru: Душевые системы и гарнитуры
+    - name: shower
+      ru: Гигиенические души
+    - name: shower_trays
+      ru: Душевые поддоны
+    - name: exhaustfan
+      ru: Вытяжные вентиляторы
+    - name: access_panel
+      ru: Сантехнические ревизионные люки
+    - name: biotoilet
+      ru: Биотуалеты
+    - name: toystorage
+      ru: Корзины для белья
+    - name: air_fresheners
+      ru: Ароматизаторы и освежители воздуха
+    - name: toilet_paper
+      ru: Туалетная бумага, бумажные полотенца и салфетки
+  - name: kuhnja
+    ru: Кухня
+    child:
+    - name: kitchensink
+      ru: Мойки
+    - name: faucet
+      ru: Смесители
+    - name: tile
+      ru: Керамическая плитка
+    - name: disposer
+      ru: Измельчители пищевых отходов
+    - name: waterfilter
+      ru: Фильтры и системы очистки воды
+    - name: waterfilter
+      ru: Картриджи для фильтра воды
+    - name: dishwashertablet
+      ru: Средства для посудомоечных машин
+    - name: exhaustfan
+      ru: Вытяжные вентиляторы
+    - name: trashbin
+      ru: Мусорки, урны, контейнеры для мусора
+    - name: trashbag
+      ru: Пакеты для мусора
+    - name: dishwashliquid
+      ru: Средства для мытья посуды
+    - name: food_packaging
+      ru: Фольга, пленка, пакеты
+  - name: vodosnabzhenie-otoplenie
+    ru: Водоснабжение, отопление
+    child:
+    - name: pump
+      ru: Насосы
+    - name: waterheater
+      ru: Водонагреватели
+    - name: boiler
+      ru: Отопительные котлы
+    - name: waterfilter
+      ru: Фильтры и системы очистки воды
+    - name: radiators
+      ru: Радиаторы отопления
+    - name: stove
+      ru: Дровяные камины, печи-камины, порталы
+    - name: heater
+      ru: Обогреватели
+    - name: heat_gun
+      ru: Тепловые пушки
+    - name: electrofireplace
+      ru: Электрокамины и биокамины
+    - name: hydroaccum
+      ru: Гидроаккумуляторы и расширительные баки
+    - name: motopump
+      ru: Мотопомпы
+    - name: tube_fitting
+      ru: Трубы, фитинг
+    - name: metal_pipes
+      ru: Трубы водогазопроводные
+  - name: mebel-dlja-doma
+    ru: Мебель для дома
+    child:
+    - name: office_chair
+      ru: Офисные кресла и стулья
+    - name: office_chair
+      ru: Геймерские кресла
+    - name: officechair_acs
+      ru: Аксессуары и комплектующие для офисных кресел
+    - name: divan
+      ru: Диваны
+    - name: table
+      ru: Письменные и компьютерные столы
+    - name: kitchen_table
+      ru: Кухонные столы и обеденные группы
+    - name: coffee_table
+      ru: Столы-трансформеры и столы-книги
+    - name: chair
+      ru: Стулья для кухни и бара
+    - name: kitchenfurniture
+      ru: Готовые кухни
+    - name: coffee_table
+      ru: Журнальные столики
+    - name: interior_chair
+      ru: Кресла
+    - name: bed
+      ru: Кровати
+    - name: dresser
+      ru: Комоды, тумбы
+    - name: wall_units
+      ru: Стенки, секции
+    - name: hangers
+      ru: Напольные и настенные вешалки, стойки для одежды
+    - name: wardrobes
+      ru: Шкафы
+    - name: wall_units
+      ru: Мебель для прихожей
+    - name: dresser
+      ru: Тумбы под телевизор
+    - name: dressing_table
+      ru: Туалетные столики
+    - name: bath_furniture
+      ru: Мебель для ванных комнат
+    - name: babycotbed
+      ru: Детские кроватки
+    - name: kidsdesk
+      ru: Детские столы и парты
+    - name: toystorage
+      ru: Ящики, корзины, органайзеры
+    - name: babydresser
+      ru: Детские комоды
+    - name: shelf
+      ru: Полки
+    - name: banquettes
+      ru: Банкетки, тумбы и полки для обуви
+    - name: puffs
+      ru: Пуфы
+    - name: airbed
+      ru: Надувная мебель
+    - name: beanbag
+      ru: Бескаркасная мебель
+    - name: orthobase
+      ru: Основания для кроватей
+    - name: massagechair
+      ru: Массажные кресла
+  - name: tovary-dlja-spalni-i-domashnij-tekstil
+    ru: Товары для спальни и домашний текстиль
+    child:
+    - name: mattress
+      ru: Матрасы
+    - name: pillow
+      ru: Ортопедические подушки
+    - name: pillows
+      ru: Классические подушки для сна
+    - name: pillows
+      ru: Одеяла
+    - name: plaid
+      ru: Пледы, покрывала
+    - name: bedlinen
+      ru: Постельное белье
+    - name: mattresspad
+      ru: Наматрасники
+    - name: mobile_heater
+      ru: Электрогрелки, электроодеяла, электропростыни
+    - name: pillows
+      ru: Подушки для беременных
+    - name: pillows
+      ru: Декоративные подушки
+  - name: sadovaja-tehnika-i-instrumenty
+    ru: Садовая техника и инструменты
+    child:
+    - name: minitractor
+      ru: Мини-тракторы
+    - name: motoblock
+      ru: Мотоблоки и мотокультиваторы
+    - name: attachmentgarden
+      ru: Навесное оборудование для садовой техники
+    - name: engine
+      ru: Двигатели
+    - name: trimmers
+      ru: Триммеры
+    - name: mowers
+      ru: Газонокосилки
+    - name: tools_accum
+      ru: Аккумуляторы и зарядные устройства для инструмента
+    - name: mowers
+      ru: Аэраторы, скарификаторы
+    - name: chainsaw
+      ru: Цепные пилы
+    - name: vacuumcleaner
+      ru: Хозяйственные пылесосы
+    - name: logsplitter
+      ru: Дровоколы
+    - name: washers
+      ru: Мойки высокого давления
+    - name: washers_acs
+      ru: Аксессуары для моек высокого давления
+    - name: hedgetrimmers
+      ru: Кусторезы и высоторезы
+    - name: gardenshredder
+      ru: Садовые измельчители
+    - name: snowblower
+      ru: Снегоуборщики
+    - name: leafblower
+      ru: Воздуходувки
+    - name: sweeper
+      ru: Садовые подметальные машины
+    - name: gardentool
+      ru: Садовый инструмент
+    - name: garden_hose
+      ru: Поливочные шланги
+    - name: watering_system
+      ru: Системы автоматического полива, распылители
+    - name: sprayer
+      ru: Опрыскиватели
+    - name: barrow
+      ru: Садовые тачки
+    - name: stairandladder
+      ru: Лестницы и стремянки
+  - name: otdyh-na-dache
+    ru: Отдых на даче
+    child:
+    - name: bath
+      ru: Бани, купели
+    - name: garden_house
+      ru: Беседки
+    - name: pool
+      ru: Бассейны
+    - name: pool_chem
+      ru: Химия для бассейнов
+    - name: pool_accs
+      ru: Аксессуары для бассейнов
+    - name: grill
+      ru: Мангалы, грили, барбекю
+    - name: bbq_accessories
+      ru: Решетки и шампуры
+    - name: bbq_accessories
+      ru: Принадлежности для барбекю, грилей, мангалов
+    - name: bathstove
+      ru: Банные печи
+    - name: kidwallbars
+      ru: Детские уличные комплексы и горки
+    - name: gardenswing
+      ru: Садовые качели
+    - name: trampoline
+      ru: Батуты
+    - name: trampoline_acs
+      ru: Аксессуары и комплектующие для батутов
+    - name: gardenfurniture
+      ru: Садовая мебель
+    - name: hammock
+      ru: Гамаки
+    - name: canopy_tents
+      ru: Шатры, тенты
+    - name: lounger
+      ru: Шезлонги
+    - name: street_umbrella
+      ru: Зонты садовые, пляжные
+    - name: insect_repellent
+      ru: Средства для защиты от насекомых
+  - name: obustrojstvo-uchastka
+    ru: Обустройство участка
+    child:
+    - name: garden_house
+      ru: Беседки
+    - name: garden_cabin
+      ru: Дачные бытовки и хозблоки
+    - name: outdoor_light
+      ru: Уличное освещение и прожекторы
+    - name: linendryer
+      ru: Уличные сушки для белья
+    - name: insect_killer
+      ru: Уничтожители насекомых
+    - name: summer_shower
+      ru: Летние души
+    - name: outdoor_toilet
+      ru: Дачные туалеты
+    - name: biotoilet
+      ru: Биотуалеты
+    - name: wc_liquid
+      ru: Средства для биотуалетов, выгребных ям
+    - name: tile
+      ru: Клинкерная плитка
+    - name: pavers
+      ru: Тротуарная плитка
+    - name: flowerpot
+      ru: Кашпо, горшки для растений
+    - name: trashbin
+      ru: Мусорки, урны, контейнеры для мусора
+    - name: rabitz
+      ru: Сетка-рабица
+  - name: dekor-i-interer
+    ru: Декор и интерьер
+    child:
+    - name: clockradio
+      ru: Настенные и настольные часы
+    - name: desk_lamp
+      ru: Настольные лампы, торшеры, ночники
+    - name: meteostations
+      ru: Метеостанции, гигрометры и термогигрометры
+    - name: electrofireplace
+      ru: Электрокамины и биокамины
+    - name: pillows
+      ru: Декоративные подушки
+    - name: houseplant
+      ru: Комнатные растения, флорариумы
+    - name: roller_blinds
+      ru: Рулонные шторы
+    - name: interiormirror
+      ru: Интерьерные зеркала
+    - name: curtain_rods
+      ru: Карнизы для штор
+  - name: osveschenie-i-elektropitanie
+    ru: Освещение и электропитание
+    child:
+    - name: luster
+      ru: Светильники, люстры, бра, споты
+    - name: desk_lamp
+      ru: Настольные лампы, торшеры, ночники
+    - name: outdoor_light
+      ru: Уличное освещение и прожекторы
+    - name: lightbulb
+      ru: Лампочки
+    - name: wall_socket
+      ru: Розетки, выключатели
+    - name: voltageregulator
+      ru: Удлинители
+    - name: voltageregulator
+      ru: Стабилизаторы напряжения и сетевые фильтры
+    - name: powerstations
+      ru: Генераторы
+  - name: umnyj-dom-i-bezopasnost
+    ru: Умный дом и безопасность
+    child:
+    - name: smart_home
+      ru: Умный дом
+    - name: thermostat
+      ru: Умные терморегуляторы
+    - name: lightbulb
+      ru: Умные лампочки
+    - name: smart_home
+      ru: Умные розетки
+    - name: wspeaker
+      ru: Умные колонки
+    - name: videodoorphone
+      ru: Умные вызывные панели
+    - name: ipcamera
+      ru: IP-камеры
+    - name: videodoorphone
+      ru: Видеодомофоны
+    - name: cctvcamera
+      ru: Камеры CCTV
+    - name: dvr
+      ru: Видеорегистраторы
+    - name: camera_traps
+      ru: Фотоловушки
+    - name: steeldoor
+      ru: Входные двери
+    - name: wall_socket
+      ru: Дверные звонки
+    - name: extinguisher
+      ru: Огнетушители
+  - name: uhod-za-odezhdoj
+    ru: Уход за одеждой
+    child:
+    - name: linendryer
+      ru: Сушилки для белья
+    - name: ironingboard
+      ru: Гладильные доски
+    - name: shoes_dryer
+      ru: Электрические сушилки для обуви
+    - name: shoe_care
+      ru: Товары для ухода за обувью и одеждой
+  - name: stirka-uborka
+    ru: Стирка, уборка
+    child:
+    - name: washingpowder
+      ru: Средства для стирки и ухода за бельем
+    - name: trashbag
+      ru: Пакеты для мусора
+    - name: cleaning_product
+      ru: Чистящие и моющие средства
+    - name: broomandscoop
+      ru: Веники, совки, щетки для пола
+    - name: mop
+      ru: Швабры и аксессуары
+    - name: air_fresheners
+      ru: Ароматизаторы и освежители воздуха
+    - name: dishwashliquid
+      ru: Средства для мытья посуды
+    - name: household_gloves
+      ru: Перчатки хозяйственные
+    - name: rags_sponges
+      ru: Тряпки, губки, щетки, салфетки
+  - name: posuda-dlja-prigotovlenija
+    ru: Посуда для приготовления
+    child:
+    - name: pan
+      ru: Сковороды
+    - name: pan
+      ru: Сотейники
+    - name: saucepan
+      ru: Кастрюли
+    - name: kazan
+      ru: Казаны
+    - name: stewingdish
+      ru: Утятницы, тажины
+    - name: steamer
+      ru: Пароварки, мантоварки
+    - name: pressure_cooker
+      ru: Скороварки
+    - name: pots
+      ru: Чугунки, горшочки
+    - name: fondue
+      ru: Мармиты, фондю
+    - name: kettles
+      ru: Чайники
+    - name: teapot
+      ru: Заварочные чайники, кофеварки, френч-прессы
+    - name: breadpan
+      ru: Формы для выпечки, противни
+    - name: lids
+      ru: Крышки для посуды
+    - name: lids
+      ru: Диски для индукционной плиты
+  - name: stolovaja-posuda-i-pribory
+    ru: Столовая посуда и приборы
+    child:
+    - name: dishset
+      ru: Тарелки, салатники, блюда и наборы
+    - name: hot_drinks
+      ru: Кружки, чашки, стаканы для горячих напитков
+    - name: glassware
+      ru: Стаканы, бокалы, рюмки
+    - name: cutlery
+      ru: Столовые приборы
+    - name: serving
+      ru: Предметы сервировки
+  - name: kuhonnye-instrumenty-i-prinadlezhnosti
+    ru: Кухонные инструменты и принадлежности
+    child:
+    - name: kitchen_knife
+      ru: Кухонные ножи, ножницы, овощечистки, точилки
+    - name: handjuicer
+      ru: Ручные соковыжималки
+    - name: bar_accessories
+      ru: Аксессуары для бара
+    - name: grater
+      ru: Терки, измельчители, овощерезки
+    - name: pasta_machine
+      ru: Машинки для раскатки теста, лапшерезки, пельменницы
+    - name: bowls
+      ru: Миски, дуршлаги, сита
+    - name: kitchen_tools
+      ru: Кухонные инструменты
+    - name: cutting_boards
+      ru: Разделочные доски
+    - name: food_storage
+      ru: Посуда для хранения продуктов
+    - name: washdrystore_acs
+      ru: Принадлежности для мытья, сушки, хранения посуды
+    - name: otherkitchenaccs
+      ru: Другие кухонные аксессуары
+  - name: kofe-chaj-kakao
+    ru: Кофе, чай, какао
+    child:
+    - name: coffeejava
+      ru: Весь кофе
+    - name: coffeejava
+      ru: Кофе в зернах
+    - name: coffeejava
+      ru: Кофе в капсулах
+    - name: coffeejava
+      ru: Молотый кофе
+    - name: coffeejava
+      ru: Растворимый кофе
+    - name: coffeejava
+      ru: Кофе в чалдах
+    - name: coffeejava
+      ru: Кофе без кофеина
+    - name: coffeejava
+      ru: Оригинальные капсулы Nespresso
+    - name: coffeejava
+      ru: Все капсулы Nespresso
+    - name: coffeejava
+      ru: Капсулы Lavazza
+    - name: coffeejava
+      ru: Кофе в дрип-пакетиках
+    - name: tea
+      ru: Чай
+    - name: cacao
+      ru: Какао, горячий шоколад, цикорий, кэроб
+  - name: zootovary
+    ru: Зоотовары
+    child:
+    - name: foodfordog
+      ru: Корма для собак
+    - name: catfood
+      ru: Корма для кошек
+    - name: rodbirdfood
+      ru: Корм для грызунов и птиц
+    - name: fishfood
+      ru: Корм для рыб и рептилий
+    - name: animal_plate
+      ru: Миски, поилки, кормушки для животных
+    - name: pet_toilet
+      ru: Туалеты и пеленки для животных
+    - name: catlitter
+      ru: Наполнители для туалетов
+    - name: pet_carrier
+      ru: Сумки, переноски для животных
+    - name: pet_house
+      ru: Лежанки, домики, когтеточки для кошек и собак
+    - name: pet_cage
+      ru: Клетки и аксессуары для птиц и грызунов
+    - name: collar
+      ru: Ошейники, поводки, намордники для животных
+    - name: animalclothes
+      ru: Одежда, обувь, украшения для животных
+    - name: pet_toys
+      ru: Игрушки для кошек и собак
+    - name: pet_grooming
+      ru: Уход за шерстью и когтями животных
+    - name: pet_cosmetics
+      ru: Косметика и средства по уходу за животными
+    - name: fleaprotection
+      ru: Защита от блох и клещей для животных
+    - name: animaltraining
+      ru: Товары для дрессировки и коррекции поведения животных
+    - name: aquarium
+      ru: Аквариумы
+    - name: aquariumequip
+      ru: Оборудование для аквариумов
+    - name: aquariumacs
+      ru: Аксессуары для аквариумов
+    - name: aquariumdecor
+      ru: Декорации для аквариумов и террариумов
+    - name: aquariumchem
+      ru: Витамины, лекарства и химия для аквариумов
+    - name: terrarium
+      ru: Террариумы
+    - name: terrariumacs
+      ru: Аксессуары для террариумов
+    - name: terrariumequip
+      ru: Оборудование для террариумов
+  - name: rastenievodstvo
+    ru: Растениеводство
+    child:
+    - name: gardentool
+      ru: Садовый инструмент
+    - name: greenhouse
+      ru: Теплицы и парники
+    - name: polycarbonate
+      ru: Поликарбонат для теплиц
+    - name: coveringmaterial
+      ru: Укрывной материал
+    - name: garden_hose
+      ru: Поливочные шланги
+    - name: watering_system
+      ru: Системы автоматического полива, распылители
+    - name: sprayer
+      ru: Опрыскиватели
+    - name: houseplant
+      ru: Комнатные растения, флорариумы
+    - name: flowerpot
+      ru: Кашпо, горшки для растений
+    - name: lawn
+      ru: Семена трав, газон
+    - name: soilforplants
+      ru: Грунты для растений
+    - name: fertilizer
+      ru: Удобрения
+    - name: shrubtree
+      ru: Саженцы плодовых деревьев и кустарников
+    - name: shrubtree
+      ru: Саженцы декоративных кустарников
+    - name: shrubtree
+      ru: Саженцы хвойных растений
+    - name: flowersseed
+      ru: Семена цветов
+    - name: flowersseed
+      ru: Луковицы цветов
+    - name: vegetableseed
+      ru: Семена овощей, зелени и ягод
+- name: avto-i-moto
+  ru: Авто и мото
+  child:
+  - name: shiny-i-diski
+    ru: Шины и диски
+    child:
+    - name: tires
+      ru: Автомобильные шины
+    - name: wheel
+      ru: Автомобильные диски
+    - name: moto_tires
+      ru: Мотоциклетные шины
+  - name: avtohimija-i-avtokosmetika
+    ru: Автохимия и автокосметика
+    child:
+    - name: exterior_carcare
+      ru: Автохимия и автокосметика для кузова
+    - name: interior_carcare
+      ru: Автохимия и автокосметика для салона
+    - name: carwashandcare
+      ru: Аксессуары для мойки и ухода за автомобилем
+    - name: grease
+      ru: Смазки, пасты и очистители для механических, электрических узлов
+    - name: adhesivecar
+      ru: Клеи и герметики для автомобилей
+    - name: carpaints
+      ru: Автомобильные краски, лаки, эмали, грунтовки
+    - name: autofiller
+      ru: Автомобильные шпатлевки и отвердители
+    - name: anticorrosive
+      ru: Антикоррозийные, антигравийные средства для кузова
+    - name: solvents
+      ru: Растворители, обезжириватели и преобразователи ржавчины
+    - name: grease
+      ru: Размораживатели
+  - name: zapchasti
+    ru: Запчасти
+    child:
+    - name: carbattery
+      ru: Аккумуляторы
+    - name: autolamps
+      ru: Лампы
+    - name: xenon
+      ru: Ксенон
+    - name: motobatteries
+      ru: Мотоциклетные аккумуляторы
+    - name: dieselfuelheater
+      ru: Предпусковые подогреватели двигателя и топливной системы
+    - name: wiperblades
+      ru: Щетки стеклоочистителей
+  - name: masla-i-tehnicheskie-zhidkosti
+    ru: Масла и технические жидкости
+    child:
+    - name: motor_oil
+      ru: Моторные масла
+    - name: gearoil
+      ru: Трансмиссионные масла
+    - name: antifreeze
+      ru: Охлаждающие жидкости
+    - name: brakefluid
+      ru: Тормозные жидкости
+    - name: additive4fuel
+      ru: Присадки для авто
+    - name: washerfluid
+      ru: Стеклоомывающие жидкости
+  - name: avtoakustika
+    ru: Автоакустика
+    child:
+    - name: caraudio
+      ru: Магнитолы
+    - name: carspeakers
+      ru: Акустика
+    - name: caramps
+      ru: Усилители
+    - name: carspeakers
+      ru: Сабвуферы
+    - name: cable
+      ru: Кабели для автоакустики
+  - name: avtoelektronika
+    ru: Автоэлектроника
+    child:
+    - name: videoregistrator
+      ru: Видеорегистраторы
+    - name: radar
+      ru: Радар-детекторы
+    - name: gps
+      ru: GPS-навигаторы
+    - name: caralarm
+      ru: Автосигнализации
+    - name: caralarm
+      ru: Мотосигнализации
+    - name: car_radio
+      ru: Радиостанции CB
+    - name: carkit
+      ru: Громкая связь
+    - name: fmmodulators
+      ru: FM-модуляторы
+    - name: car_inverter
+      ru: Автомобильные инверторы
+    - name: parkingradar
+      ru: Парковочные радары и камеры заднего вида
+    - name: gps_tracker
+      ru: GPS-трекеры
+    - name: antenforradio
+      ru: Автомобильные антенны
+    - name: portabletvdvd
+      ru: Автомобильные видеоплееры и DVD
+  - name: instrumenty-i-oborudovanie
+    ru: Инструменты и оборудование
+    child:
+    - name: compressor_auto
+      ru: Автомобильные компрессоры
+    - name: tool_kits
+      ru: Наборы инструментов
+    - name: start_charge
+      ru: Пускозарядные устройства
+    - name: carjack
+      ru: Домкраты
+    - name: torque_wrenches
+      ru: Динамометрические ключи и отвертки
+    - name: multimeter
+      ru: Мультиметры, токовые клещи, индикаторные отвертки
+    - name: wrench
+      ru: Пневматические гайковерты
+    - name: pneumogrinder
+      ru: Пневматические шлифмашины
+    - name: spraygun
+      ru: Пневматические краскопульты
+    - name: electricspraygun
+      ru: Электрические краскопульты
+    - name: washers
+      ru: Мойки высокого давления
+    - name: carlift
+      ru: Подъемники
+  - name: aksessuary
+    ru: Аксессуары
+    child:
+    - name: carholder
+      ru: Аксессуары для салона автомобиля
+    - name: arrefrigerator
+      ru: Автохолодильники, термобоксы, термосумки
+    - name: car_organizer
+      ru: Автомобильные сумки и органайзеры
+    - name: car_intcover
+      ru: Чехлы, накидки и оплетки для салона автомобиля
+    - name: car_tent
+      ru: Чехлы, тенты, накидки для автомобилей
+    - name: car_mat
+      ru: Автомобильные коврики
+    - name: car_blinds
+      ru: Автомобильные шторки
+    - name: breathalyzer
+      ru: Алкотестеры
+    - name: thickmeasure
+      ru: Толщиномеры
+    - name: bicyclerack
+      ru: Велобагажники
+    - name: trailers
+      ru: Прицепы для автомобилей
+    - name: car_vacuum_clean
+      ru: Автомобильные пылесосы
+    - name: car_racks
+      ru: Багажники на крышу
+    - name: charging_station
+      ru: Электрические зарядные станции
+    - name: firstaidkit
+      ru: Аптечки
+  - name: mototehnika
+    ru: Мототехника
+    child:
+    - name: motorcycle
+      ru: Мотоциклы
+    - name: electric_scooter
+      ru: Электроскутеры
+    - name: scooter
+      ru: Скутеры и мопеды
+    - name: quad
+      ru: Квадроциклы
+    - name: motohelmet
+      ru: Мотошлемы
+    - name: moto_tires
+      ru: Мотоциклетные шины
+    - name: motobatteries
+      ru: Мотоциклетные аккумуляторы
+    - name: motoaccessories
+      ru: Мотоаксессуары
+- name: krasota-i-sport
+  ru: Красота и спорт
+  child:
+  - name: velosipedy-i-aksessuary
+    ru: Велосипеды и аксессуары
+    child:
+    - name: bike
+      ru: Велосипеды
+    - name: electrobike
+      ru: Электровелосипеды
+    - name: kidsbike
+      ru: Детские велосипеды
+    - name: bicycle_tires
+      ru: Велопокрышки, велокамеры
+    - name: bikehelmet
+      ru: Велошлемы
+    - name: bikecomp
+      ru: Велокомпьютеры
+    - name: heart_rate
+      ru: Пульсометры
+    - name: bikelock
+      ru: Велозамки
+    - name: bike_light
+      ru: Велосипедные фонари
+    - name: bike_pump
+      ru: Велосипедные насосы, манометры, шланги
+    - name: bike_accessories
+      ru: Аксессуары для велосипеда
+    - name: sportsprotection
+      ru: Защита для велосипедиста
+    - name: bikeseat
+      ru: Детские велокресла
+    - name: bicyclerack
+      ru: Велобагажники
+    - name: bike_trailer
+      ru: Велоприцепы и буксиры
+    - name: bike_parts
+      ru: Велозапчасти
+    - name: bike_tools
+      ru: Инструменты для ремонта и обслуживания велосипеда
+    - name: actioncamera
+      ru: Экшен-камеры
+    - name: actioncamera_acs
+      ru: Аксессуары и крепления для экшен-камер
+  - name: rolikovye-konki-skejtbordy-samokaty
+    ru: Роликовые коньки, скейтборды, самокаты
+    child:
+    - name: rollerskates
+      ru: Роликовые коньки
+    - name: skateboard
+      ru: Скейтборды
+    - name: kickscooter
+      ru: Самокаты
+    - name: sportsprotection
+      ru: Спортивная защита
+    - name: actioncamera
+      ru: Экшен-камеры
+    - name: actioncamera_acs
+      ru: Аксессуары и крепления для экшен-камер
+    - name: heart_rate
+      ru: Пульсометры
+  - name: elektrotransport
+    ru: Электротранспорт
+    child:
+    - name: electric_scooter
+      ru: Электросамокаты и электроскутеры
+    - name: segway
+      ru: Гироциклы
+    - name: electrobike
+      ru: Электровелосипеды
+  - name: chasy-sumki-i-prochie-aksessuary
+    ru: Часы, сумки и прочие аксессуары
+    child:
+    - name: watch
+      ru: Наручные часы
+    - name: smartwatch
+      ru: Умные часы
+    - name: caskets
+      ru: Шкатулки для украшений и часов
+    - name: backpack
+      ru: Рюкзаки
+    - name: notebookcase
+      ru: Женские и мужские сумки
+    - name: suitcase
+      ru: Чемоданы, сумки-тележки
+    - name: road_sport_bag
+      ru: Дорожные и спортивные сумки
+    - name: wallet
+      ru: Кошельки
+    - name: wallet
+      ru: Визитницы
+    - name: umbrella
+      ru: Зонты
+    - name: cigarettelighter
+      ru: Зажигалки
+    - name: conte
+      ru: Мужские носки DiWaRi
+    - name: conte
+      ru: Женские носки Conte
+    - name: conte
+      ru: Детские носки и колготки Conte-kids
+    - name: conte
+      ru: Мужские подследники DiWaRi
+    - name: conte
+      ru: Женские подследники Conte
+    - name: conte
+      ru: Гольфы и гольфины Conte
+    - name: conte
+      ru: Колготки Conte
+    - name: conte
+      ru: Чулки Conte
+  - name: kosmetika-parfjumerija-aksessuary
+    ru: Косметика, парфюмерия, аксессуары
+    child:
+    - name: parfume
+      ru: Парфюмерия
+    - name: face_makeup
+      ru: Декоративная косметика для лица
+    - name: eye_makeup
+      ru: Декоративная косметика для глаз
+    - name: lip_makeup
+      ru: Декоративная косметика для губ
+    - name: nailcare
+      ru: Декоративная и уходовая косметика для ногтей
+    - name: facial_cosmetics
+      ru: Уход за лицом
+    - name: haircare
+      ru: Уход за волосами
+    - name: body_care
+      ru: Уход за телом
+    - name: toothpaste
+      ru: Средства для ухода за полостью рта
+    - name: hair_styling
+      ru: Средства для укладки волос
+    - name: hair_color
+      ru: Средства для окрашивания волос
+    - name: brusherscurlers
+      ru: Щетки, расчески, брашинги и бигуди
+    - name: hairdressertools
+      ru: Парикмахерские инструменты и принадлежности
+    - name: eyebrowslashes
+      ru: Ламинирование, окрашивание и наращивание бровей и ресниц
+    - name: manicuretools
+      ru: Инструменты для маникюра и педикюра
+    - name: depilation
+      ru: Средства для депиляции
+    - name: antiperspirants
+      ru: Дезодоранты и антиперспиранты
+    - name: tanning
+      ru: Средства для загара, автозагар
+    - name: massagebrush
+      ru: Массажные щетки и мочалки
+    - name: shaving
+      ru: Средства для бритья
+    - name: beardmustache
+      ru: Средства для бороды и усов
+    - name: makeupaccs
+      ru: Аксессуары и принадлежности для макияжа
+    - name: cosmetic_mirror
+      ru: Косметические зеркала
+    - name: cosmeticbag
+      ru: Косметички и органайзеры для косметики
+    - name: cosmeticbag
+      ru: Бьюти-холодильники
+  - name: zdorove
+    ru: Здоровье
+    child:
+    - name: smartwatch
+      ru: Фитнес-браслеты
+    - name: toothbrush
+      ru: Электрические зубные щетки и ирригаторы
+    - name: manualtoothbrush
+      ru: Зубные щетки и аксессуары
+    - name: toothpaste
+      ru: Средства для ухода за полостью рта
+    - name: massagechair
+      ru: Массажеры и массажные кресла
+    - name: mobile_heater
+      ru: Электрогрелки, электроодеяла, электропростыни
+    - name: inhaler
+      ru: Ингаляторы
+    - name: tonometers
+      ru: Тонометры
+    - name: medthermometer
+      ru: Термометры
+    - name: glucosemeter
+      ru: Глюкометры
+    - name: heart_rate
+      ru: Пульсоксиметры
+    - name: physical_therapy
+      ru: Приборы для физиотерапии
+    - name: nitrate
+      ru: Нитратомеры, дозиметры, экотестеры
+    - name: contact_lense
+      ru: Контактные линзы
+    - name: solutionlenses
+      ru: Растворы для линз
+    - name: tampons
+      ru: Гигиенические прокладки, тампоны и менструальные чаши
+    - name: wetwipes
+      ru: Влажные салфетки
+    - name: medicalmask
+      ru: Медицинские маски, респираторы, защитные очки
+    - name: sanitizer
+      ru: Антисептики для кожи
+    - name: disinfectant
+      ru: Дезинфицирующие средства
+    - name: ball
+      ru: Массажные мячи
+    - name: water_bottles
+      ru: Бутылки для воды
+    - name: sleepgood
+      ru: Гаджеты для сна
+    - name: firstaidkit
+      ru: Аптечки
+    - name: uflamp
+      ru: Рециркуляторы, бактерицидные светильники
+  - name: pribory-po-uhodu-za-telom
+    ru: Приборы по уходу за телом
+    child:
+    - name: hairclipper
+      ru: Машинки для стрижки волос
+    - name: styler
+      ru: Плойки, стайлеры, щипцы
+    - name: styler
+      ru: Расчески с ионизацией
+    - name: hairdryer
+      ru: Фены
+    - name: manualtoothbrush
+      ru: Зубные щетки и аксессуары
+    - name: toothbrush
+      ru: Электрические зубные щетки и ирригаторы
+    - name: shaver
+      ru: Мужские электробритвы
+    - name: ladyshaver
+      ru: Женские электробритвы и эпиляторы
+    - name: razorsandblades
+      ru: Бритвенные станки и лезвия
+    - name: scales
+      ru: Напольные весы
+    - name: footbath
+      ru: Гидромассажные ванночки
+    - name: manicure
+      ru: Аппараты для маникюра и педикюра
+    - name: skin_care_app
+      ru: Приборы для ухода за кожей
+    - name: cosmetic_mirror
+      ru: Косметические зеркала
+    - name: beauty_acs
+      ru: Аксессуары для зубных щеток и ирригаторов
+    - name: beauty_acs
+      ru: Аксессуары для электробритв и машинок
+    - name: beauty_acs
+      ru: Аксессуары для приборов по уходу за кожей
+  - name: hobbi
+    ru: Хобби
+    child:
+    - name: smoke
+      ru: Электронные парогенераторы
+    - name: fidget_spinner
+      ru: Игрушки антистресс
+    - name: buildingkit
+      ru: Конструкторы
+    - name: scale_model
+      ru: Сборные модели
+    - name: puzzles
+      ru: Пазлы
+    - name: robots
+      ru: Роботы, трансформеры, фигурки
+    - name: boardgame
+      ru: Настольные игры
+    - name: logic_puzzles
+      ru: Логические игры, головоломки
+    - name: radiocontrolair
+      ru: Радиоуправляемые авиамодели
+    - name: radioautomodel
+      ru: Радиоуправляемые автомодели
+    - name: radiomodelwater
+      ru: Радиоуправляемые судомодели
+    - name: sewingmachines
+      ru: Швейные машины
+    - name: overlock
+      ru: Оверлоки
+    - name: radio
+      ru: Радиоприемники
+    - name: telescope
+      ru: Телескопы
+    - name: optic
+      ru: Бинокли, подзорные трубы и приборы ночного видения
+    - name: guitar
+      ru: Гитары
+    - name: hookahs
+      ru: Кальяны
+    - name: hookah_acs
+      ru: Аксессуары для кальянов
+    - name: hookah_comp
+      ru: Комплектующие для кальянов
+  - name: turizm-i-kemping
+    ru: Туризм и кемпинг
+    child:
+    - name: tents
+      ru: Палатки
+    - name: backpack
+      ru: Туристические рюкзаки
+    - name: airbed
+      ru: Надувная мебель
+    - name: camp_furniture
+      ru: Кемпинговая мебель
+    - name: sleepingbag
+      ru: Спальные мешки
+    - name: travel_mat
+      ru: Туристические коврики
+    - name: lights
+      ru: Фонари
+    - name: foldingknives
+      ru: Туристические ножи
+    - name: thermosbottle
+      ru: Термосы, термокружки
+    - name: water_bottles
+      ru: Бутылки для воды
+    - name: camping_cookware
+      ru: Туристическая посуда
+    - name: kazan
+      ru: Казаны
+    - name: gascylinder
+      ru: Туристические горелки и плиты
+    - name: grill
+      ru: Мангалы, грили, барбекю
+    - name: arrefrigerator
+      ru: Автохолодильники, термобоксы, термосумки
+    - name: bbq_accessories
+      ru: Принадлежности для барбекю, грилей, мангалов
+    - name: portableradio
+      ru: Портативные радиостанции
+    - name: radio
+      ru: Радиоприемники
+    - name: travelgps
+      ru: Туристические навигаторы
+    - name: optic
+      ru: Бинокли, подзорные трубы и приборы ночного видения
+    - name: telescope
+      ru: Телескопы
+    - name: camera_traps
+      ru: Фотоловушки
+  - name: rybalka-vodnyj-sport
+    ru: Рыбалка, водный спорт
+    child:
+    - name: inflatableboat
+      ru: Надувные лодки
+    - name: outboardmotors
+      ru: Лодочные моторы
+    - name: sounder
+      ru: Эхолоты
+    - name: rod
+      ru: Удочки, спиннинги
+    - name: coil
+      ru: Рыболовные катушки
+    - name: icescrew
+      ru: Ледобуры
+    - name: twostrokeoil
+      ru: Масла для лодочных моторов
+    - name: hunter_clothes
+      ru: Одежда для охоты, рыбалки
+  - name: trenazhery-fitnes-edinoborstva
+    ru: Тренажеры, фитнес, единоборства
+    child:
+    - name: strengthtrain
+      ru: Силовые тренажеры
+    - name: velosimulator
+      ru: Велотренажеры
+    - name: treadmills
+      ru: Беговые дорожки
+    - name: ellipsoids
+      ru: Эллиптические тренажеры
+    - name: rowingmachines
+      ru: Гребные тренажеры
+    - name: stepper
+      ru: Степперы
+    - name: freeweights
+      ru: Гантели, штанги, гири
+    - name: nordic_walking
+      ru: Палки для скандинавской ходьбы
+    - name: punching_bags
+      ru: Груши, мешки, манекены для бокса и единоборств
+    - name: glovesmartialart
+      ru: Перчатки для бокса и единоборств
+    - name: sportsprotection
+      ru: Спортивная защита
+    - name: trampoline
+      ru: Батуты
+    - name: kidwallbars
+      ru: Шведские стенки
+    - name: ball
+      ru: Гимнастические мячи
+    - name: yoga_mat
+      ru: Коврики для йоги и фитнеса
+    - name: hoola_hoops
+      ru: Обручи
+  - name: sportivnoe-pitanie
+    ru: Спортивное питание
+    child:
+    - name: protein
+      ru: Протеин
+    - name: amino_acids
+      ru: Аминокислоты
+    - name: creatine
+      ru: Креатин
+  - name: igrovye-vidy-sporta
+    ru: Игровые виды спорта
+    child:
+    - name: ball
+      ru: Спортивные мячи
+    - name: tabletennis
+      ru: Теннисные столы
+    - name: racktabletennis
+      ru: Ракетки, мячи и аксессуары для настольного тенниса
+    - name: tennis_rocket
+      ru: Ракетки для большого тенниса
+    - name: tennis_acs
+      ru: Аксессуары для большого тенниса
+    - name: billiardtable
+      ru: Бильярдные столы
+    - name: airhockey
+      ru: Аэрохоккей, настольный футбол, мини-бильярд
+    - name: chess
+      ru: Шахматы, шашки, нарды
+    - name: active_games
+      ru: Активные игры
+    - name: darts
+      ru: Дартс
+    - name: squash
+      ru: Ракетки и аксессуары для сквоша
+  - name: zimnie-vidy-sporta
+    ru: Зимние виды спорта
+    child:
+    - name: sled
+      ru: Санки
+    - name: skates
+      ru: Коньки
+    - name: skis
+      ru: Лыжи
+    - name: hockeystick
+      ru: Хоккейные клюшки
+    - name: sportsprotection
+      ru: Защита
+    - name: skigoggles
+      ru: Аксессуары для горнолыжного спорта
+  - name: tovary-dlja-vzroslyh-(18+)
+    ru: Товары для взрослых (18+)
+    child:
+    - name: vibrators
+      ru: Вибраторы
+- name: detjam-i-mamam
+  ru: Детям и мамам
+  child:
+  - name: progulki-i-poezdki
+    ru: Прогулки и поездки
+    child:
+    - name: pram
+      ru: Коляски
+    - name: childcarseat
+      ru: Автокресла
+    - name: car_intcover
+      ru: Защитные накидки на сидения
+    - name: babycarrier
+      ru: Рюкзаки-переноски (кенгуру)
+    - name: bikeseat
+      ru: Велокресла
+    - name: bike_trailer
+      ru: Детские велоприцепы
+  - name: detskij-transport
+    ru: Детский транспорт
+    child:
+    - name: kickscooter
+      ru: Самокаты
+    - name: kidsbike
+      ru: Детские велосипеды-каталки
+    - name: kidsbike
+      ru: Трехколесные велосипеды
+    - name: sled
+      ru: Санки
+    - name: balancebike
+      ru: Беговелы
+    - name: babywalker
+      ru: Ходунки, прыгунки
+    - name: electricrideon
+      ru: Электромобили
+    - name: rideon
+      ru: Каталки, педальные машинки
+  - name: detskaja-mebel
+    ru: Детская мебель
+    child:
+    - name: babycotbed
+      ru: Кроватки
+    - name: highchair
+      ru: Стульчики для кормления
+    - name: playpen
+      ru: Манежи
+    - name: bed
+      ru: Детские кровати
+    - name: kidsdesk
+      ru: Столы и парты
+    - name: babydresser
+      ru: Детские комоды
+    - name: toystorage
+      ru: Комоды для игрушек
+    - name: babyswing
+      ru: Детские шезлонги и качалки
+    - name: officeboard
+      ru: Маркерные и меловые доски
+  - name: detskij-son
+    ru: Детский сон
+    child:
+    - name: babycotbed
+      ru: Кроватки
+    - name: bed
+      ru: Детские кровати
+    - name: bedlinen
+      ru: Детское постельное белье
+    - name: pillows
+      ru: Подушки
+    - name: mattress
+      ru: Детские матрасы
+    - name: babymonitor
+      ru: Радионяни и видеоняни
+  - name: nastolnye-igry-i-razvivajuschie-igrushki
+    ru: Настольные игры и развивающие игрушки
+    child:
+    - name: boardgame
+      ru: Настольные игры
+    - name: buildingkit
+      ru: Конструкторы
+    - name: edu_toys
+      ru: Развивающие игрушки
+    - name: playmats
+      ru: Развивающие коврики
+    - name: scale_model
+      ru: Сборные модели
+    - name: logic_puzzles
+      ru: Логические игры, головоломки
+    - name: 3d_pen
+      ru: 3D-ручки
+    - name: fidget_spinner
+      ru: Игрушки антистресс
+    - name: science_kits
+      ru: Игры-опыты, эксперименты
+  - name: igrushki-i-igry
+    ru: Игрушки и игры
+    child:
+    - name: robots
+      ru: Роботы, трансформеры, фигурки
+    - name: doll
+      ru: Детские куклы
+    - name: dollhouses
+      ru: Кукольные домики
+    - name: race_track
+      ru: Детские автотреки, трассы
+    - name: toy_cars
+      ru: Игрушечный транспорт
+    - name: radioautomodel
+      ru: Радиоуправляемые машинки
+    - name: radiocontrolair
+      ru: Радиоуправляемые самолеты и вертолеты
+    - name: kidsrailroad
+      ru: Детские железные дороги
+    - name: stuffedtoys
+      ru: Мягкие игрушки
+    - name: interactive_toys
+      ru: Интерактивные игрушки и роботы
+    - name: radiomodelwater
+      ru: Радиоуправляемые катера
+    - name: playhouse
+      ru: Игровые домики и палатки
+    - name: airhockey
+      ru: Аэрохоккей, настольный футбол, мини-бильярд
+    - name: playhouse
+      ru: Сухие бассейны
+    - name: bath_toys
+      ru: Игрушки для ванной
+    - name: toy_weapon
+      ru: Игрушечное оружие
+    - name: puzzles
+      ru: Пазлы
+    - name: musical_toys
+      ru: Детские музыкальные инструменты
+    - name: toy_kitchens
+      ru: Детские кухни, посуда, продукты
+    - name: toy_hairdresser
+      ru: Игровые наборы стилиста и парикмахера
+    - name: toy_police
+      ru: Игровые наборы полицейских, военных, пожарных
+    - name: toy_tool_sets
+      ru: Детские наборы инструментов
+    - name: kids_tablets
+      ru: Детские планшеты для рисования
+    - name: jumping_toys
+      ru: Игрушки-прыгуны
+    - name: bubble_blow
+      ru: Мыльные пузыри
+    - name: slime_orbiz
+      ru: Слаймы и орбиз
+    - name: toy_household
+      ru: Игрушечная бытовая техника, уход за домом
+    - name: toy_medical_sets
+      ru: Игровые наборы доктора, ветеринара
+    - name: toy_shop
+      ru: Игрушечные магазины, мини-кафе
+    - name: sandbox_toys
+      ru: Игрушки для песочницы
+    - name: active_games
+      ru: Активные игры
+  - name: igry-na-ulitse-i-sport
+    ru: Игры на улице и спорт
+    child:
+    - name: pool
+      ru: Бассейны
+    - name: kidwallbars
+      ru: Шведские стенки
+    - name: kidwallbars
+      ru: Уличные комплексы и горки
+    - name: trampoline
+      ru: Батуты
+    - name: ball
+      ru: Мячи
+    - name: playhouse
+      ru: Игровые домики и палатки
+    - name: skates
+      ru: Коньки
+    - name: rollerskates
+      ru: Роликовые коньки
+    - name: kickscooter
+      ru: Самокаты
+    - name: skis
+      ru: Лыжи
+    - name: hockeystick
+      ru: Хоккейные клюшки
+    - name: sportsprotection
+      ru: Спортивная защита
+    - name: active_games
+      ru: Активные игры
+    - name: sandbox_toys
+      ru: Игрушки для песочницы
+  - name: uhod-za-novorozhdennymi
+    ru: Уход за новорожденными
+    child:
+    - name: bedlinen
+      ru: Комплекты для выписки
+    - name: diapers
+      ru: Подгузники
+    - name: underpads
+      ru: Пеленки для новорожденных
+    - name: babymonitor
+      ru: Радионяни и видеоняни
+    - name: babyscales
+      ru: Весы для новорожденных
+    - name: baby_bath
+      ru: Ванночки и аксессуары для купания малышей
+    - name: babyfoodmaker
+      ru: Устройства для приготовления детского питания
+    - name: bottlesterilizer
+      ru: Подогреватели и стерилизаторы бутылочек
+    - name: medthermometer
+      ru: Термометры
+    - name: washingpowder
+      ru: Детские стиральные порошки
+    - name: breast_pump
+      ru: Молокоотсосы и аксессуары
+    - name: child_cosmetics
+      ru: Детская уходовая косметика
+    - name: kids_makeup
+      ru: Декоративная косметика и духи для детей
+    - name: bath_shampoo
+      ru: Шампуни и средства для купания детей
+  - name: detskie-rjukzaki-noski-kolgotki-chasy
+    ru: Детские рюкзаки, носки, колготки, часы
+    child:
+    - name: backpack
+      ru: Школьные рюкзаки
+    - name: smartwatch
+      ru: Умные часы для детей
+    - name: conte
+      ru: Колготки Conte-kids
+    - name: conte
+      ru: Носки Conte-kids
+    - name: conte
+      ru: Гольфы и гольфины Conte-kids
+- name: rabota-i-ofis
+  ru: Работа и офис
+  child:
+  - name: ofisnaja-tehnika-i-rashodnye-materialy
+    ru: Офисная техника и расходные материалы
+    child:
+    - name: printers
+      ru: Принтеры и МФУ
+    - name: fax
+      ru: Факсы
+    - name: scanner
+      ru: Сканеры
+    - name: phone
+      ru: Проводные IP-телефоны
+    - name: dect
+      ru: Беспроводные IP-телефоны
+    - name: cartridges
+      ru: Картриджи для принтеров
+    - name: shredder
+      ru: Уничтожители бумаг (шредеры)
+    - name: photopaper
+      ru: Бумага и материалы для печати
+    - name: consumablespaper
+      ru: Расходные материалы для ламинаторов и брошюровщиков
+    - name: officeboard_acs
+      ru: Аксессуары для офисных досок
+    - name: papercutter
+      ru: Резаки для бумаги
+    - name: bindingmachines
+      ru: Брошюровщики
+    - name: 3dprinter
+      ru: 3D-принтеры
+    - name: 3d_filament
+      ru: Расходные материалы для 3D-печати
+    - name: voltageregulator
+      ru: Сетевые фильтры-удлинители
+  - name: ofisnaja-mebel
+    ru: Офисная мебель
+    child:
+    - name: office_chair
+      ru: Офисные кресла, стулья
+    - name: table
+      ru: Офисные столы
+    - name: divan
+      ru: Офисные диваны
+    - name: furnituresafes
+      ru: Сейфы
+    - name: officeboard
+      ru: Офисные доски, флипчарты
+  - name: torgovlja-i-finansy
+    ru: Торговля и финансы
+    child:
+    - name: cashregister
+      ru: Кассовые аппараты
+    - name: counters
+      ru: Счетчики банкнот и монет
+    - name: barcode
+      ru: Сканеры штрих-кодов
+    - name: currencydetector
+      ru: Детекторы валют
+    - name: matrixprinter
+      ru: Матричные принтеры
+    - name: thermal
+      ru: Принтеры на этикетках и чеках
+    - name: digitalsignage
+      ru: Информационные панели
+    - name: commfrige
+      ru: Торговые холодильники
+    - name: canopy_tents
+      ru: Шатры, тенты для торговли
+    - name: aircurtain
+      ru: Тепловые завесы
+  - name: izdatelstvo-i-pechat
+    ru: Издательство и печать
+    child:
+    - name: printers
+      ru: Принтеры и МФУ
+    - name: laminator
+      ru: Ламинаторы
+    - name: bindingmachines
+      ru: Брошюровщики
+    - name: tablets
+      ru: Графические планшеты
+    - name: stylus_pens
+      ru: Стилусы и сменные наконечники
+    - name: photopaper
+      ru: Офисная бумага
+    - name: photopaper
+      ru: Самоклеящаяся бумага
+    - name: photopaper
+      ru: Термотрансферная бумага
+    - name: photopaper
+      ru: Фотобумага
+    - name: consumablespaper
+      ru: Расходные материалы для ламинаторов и брошюровщиков
+  - name: gigiena-i-pitanie
+    ru: Гигиена и питание
+    child:
+    - name: dispenser
+      ru: Аксессуары для ванной и туалета
+    - name: handsdryer
+      ru: Сушилки для рук, волос
+    - name: water_cooler
+      ru: Кулеры для воды
+    - name: coffee
+      ru: Кофемашины и кофеварки
+    - name: coffeejava
+      ru: Кофе
+    - name: refrigerator
+      ru: Холодильники
+    - name: microvawe
+      ru: Микроволновые печи
+    - name: trashbin
+      ru: Мусорки, урны, контейнеры для мусора
+  - name: videonabljudenie
+    ru: Видеонаблюдение
+    child:
+    - name: ipcamera
+      ru: IP-камеры
+    - name: cctvcamera
+      ru: Камеры CCTV
+    - name: dvr
+      ru: Видеорегистраторы
+    - name: videodoorphone
+      ru: Видеодомофоны
+  - name: transport-i-perevozki
+    ru: Транспорт и перевозки
+    child:
+    - name: gps_tracker
+      ru: GPS-трекеры
+    - name: videoregistrator
+      ru: Видеорегистраторы
+    - name: gps
+      ru: GPS-навигаторы
+    - name: breathalyzer
+      ru: Алкотестеры
+  - name: promyshlennost-i-stroitelstvo
+    ru: Промышленность и строительство
+    child:
+    - name: woodworking
+      ru: Деревообрабатывающие и металлообрабатывающие станки
+    - name: metal_cutter
+      ru: Электрические ножницы по металлу
+    - name: benchgrinder
+      ru: Заточные станки (точила)
+    - name: powercutter
+      ru: Электро- и бензорезы
+    - name: metal_pipes
+      ru: Трубный металлопрокат
+    - name: sheetmetal
+      ru: Листовой металлопрокат
+    - name: armatura
+      ru: Арматура
+    - name: rabitz
+      ru: Строительные сетки
+    - name: buildingmaterial
+      ru: Общестроительные материалы
+    - name: bricks
+      ru: Кирпич
+    - name: pavers
+      ru: Тротуарная плитка
+- name: books
+  ru: Книги

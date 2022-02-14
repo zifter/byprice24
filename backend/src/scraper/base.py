@@ -2,7 +2,6 @@ import logging
 from typing import Generator
 from typing import Optional
 
-from common.item_types import Category
 from scraper.items import ProductScrapingResult
 from scrapy.http import Request
 from scrapy.http import Response
@@ -30,8 +29,8 @@ class CategoryRule(Rule):
         )
 
 
-class ParseProductBase():
-    def parse_product(self, response: Response, category: Category
+class ParseProductBase:
+    def parse_product(self, response: Response, category: str
                       ) -> Generator[ProductScrapingResult, None, None]:
         logging.info('parse_item %s', response.url)
 
@@ -42,7 +41,7 @@ class ParseProductBase():
 
         yield result
 
-    def parse_product_impl(self, response: Response, category: Category
+    def parse_product_impl(self, response: Response, category: str
                            ) -> Optional[ProductScrapingResult]:
         raise NotImplementedError('must be overridden')
 

@@ -1,0 +1,2 @@
+pyyaml==6.0
+transliterate==1.10.2

@@ -5,7 +5,10 @@ from search.logic import find_closest_product
 
 
 class SearchLogicTestCase(TestCase):
-    fixtures = ['test/products.yaml', ]
+    fixtures = [
+        'prod/categories.yaml',
+        'test/products.yaml',
+    ]
 
     @classmethod
     def setUpClass(cls):
