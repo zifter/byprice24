@@ -115,8 +115,8 @@ class StructuredDataMixin:
 
     @classmethod
     def extract_price_currency(cls, offer) -> str:
-        priceCurrency = offer['properties']['priceCurrency']
-        return priceCurrency if not priceCurrency == 'BYR' else 'BYN'
+        price_currency = offer['properties']['priceCurrency']
+        return price_currency if not price_currency == 'BYR' else 'BYN'
 
     @classmethod
     def extract_offer(cls, properties) -> str:
