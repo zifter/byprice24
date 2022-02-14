@@ -20,7 +20,7 @@
   pk: 1
   fields:
     name: Электронная книга PocketBook 740 Color (серебристый)
-    category: Category.TABLET
+    category: tabletpc
     description: экран 7.8" E-Ink New Kaleido, цветной, 1404 x 1872, сенсорный, с
       подсветкой, память 16 ГБ, карты памяти, Wi-Fi
     preview_url: https://www.amd.by/image/cache/catalog/products/840809/619d793751662-500x500.jpeg
@@ -28,7 +28,7 @@
   pk: 2
   fields:
     name: Телевизор Thomson T32RTM6020
-    category: Category.TV
+    category: tv
     description: 32" 1366x768 (HD), частота матрицы 60 Гц, Smart TV (Android TV),
       Wi-Fi
     preview_url: https://www.amd.by/image/cache/catalog/products/598897/1633637450-500x500.jpg
@@ -36,56 +36,56 @@
   pk: 3
   fields:
     name: AVS BH-0264
-    category: Category.MOBILE
+    category: mobile
     description: щетка, для мытья авто
     preview_url: https://www.amd.by/image/cache/catalog/products/591224/1633610376-500x500.jpg
 - model: marketplace.product
   pk: 4
   fields:
     name: AVS SB-0505 L
-    category: Category.MOBILE
+    category: mobile
     description: водосгон, для мытья авто, резина
     preview_url: https://www.amd.by/image/cache/catalog/products/591290/1633610376-500x500.jpg
 - model: marketplace.product
   pk: 5
   fields:
     name: Grass Скребок для льда IT-0263
-    category: Category.MOBILE
+    category: mobile
     description: скребок, для очистки стекла, пластик
     preview_url: https://www.amd.by/image/cache/catalog/products/600876/1633610376-500x500.jpg
 - model: marketplace.product
   pk: 6
   fields:
     name: Аксессуары для мойки и ухода за автомобилем Oasis MD-Pen
-    category: Category.MOBILE
+    category: mobile
     description: пеногенератор, для мытья авто, пластик
     preview_url: https://www.amd.by/image/cache/catalog/products/691615/1633611409-500x500.jpg
 - model: marketplace.product
   pk: 7
   fields:
     name: Водосгон Airline AB-M-02
-    category: Category.MOBILE
+    category: mobile
     description: водосгон, для очистки стекла, резина
     preview_url: https://www.amd.by/image/cache/catalog/products/855221/61c25c901d903-500x500.jpeg
 - model: marketplace.product
   pk: 8
   fields:
     name: Водосгон ZEUS ZB008
-    category: Category.MOBILE
+    category: mobile
     description: водосгон, для очистки стекла
     preview_url: https://www.amd.by/image/cache/catalog/products/855251/61c25c92e4016-500x500.jpeg
 - model: marketplace.product
   pk: 9
   fields:
     name: ABRO Фиксатор резьбы синий удаляемый 6 мл TL-342
-    category: Category.MOBILE
+    category: mobile
     description: герметик, 8 мл
     preview_url: https://www.amd.by/image/cache/catalog/products/626478/1633637450-500x500.jpg
 - model: marketplace.product
   pk: 10
   fields:
     name: Монитор Acer K272HLHbi
-    category: Category.DISPLAY
+    category: display
     description: 27", 16:9, 1920x1080, VA, 75 Гц, AMD FreeSync, интерфейсы HDMI+D-Sub
       (VGA)
     preview_url: https://www.amd.by/image/cache/catalog/products/856396/61b928fa8e34e-500x500.jpeg
@@ -93,7 +93,7 @@
   pk: 11
   fields:
     name: Монитор Samsung F24T350FHI
-    category: Category.DISPLAY
+    category: display
     description: 23.8", 16:9, 1920x1080, IPS, 75 Гц, AMD FreeSync, интерфейсы HDMI+D-Sub
       (VGA)
     preview_url: https://www.amd.by/image/cache/catalog/products/591075/1633610376-500x500.jpg
@@ -101,7 +101,7 @@
   pk: 12
   fields:
     name: Ноутбук Lenovo ThinkPad E14 Gen 2 Intel 20TA0028RT
-    category: Category.NOTEBOOK
+    category: notebook
     description: 14.0" 1920 x 1080 IPS, 60 Гц, несенсорный, Intel Core i5 1135G7 2400
       МГц, 8 ГБ, SSD 512 ГБ, видеокарта встроенная, без ОС, цвет крышки черный
     preview_url: https://www.amd.by/image/cache/catalog/products/617384/1633610376-500x500.jpg
@@ -109,14 +109,14 @@
   pk: 13
   fields:
     name: JBL Tune 215TWS (белый)
-    category: Category.HEADPHONE
+    category: headphones
     description: ''
     preview_url: https://www.amd.by/image/cache/catalog/products/590894/1633610376-500x500.jpg
 - model: marketplace.product
   pk: 14
   fields:
     name: Наушники Panasonic RP-TCM115GC-P
-    category: Category.HEADPHONE
+    category: headphones
     description: наушники с микрофоном, портативные, оформление закрытое, излучатель
       9 мм, 10-24000 Гц, 16 Ом, кабель 1.2 м
     preview_url: https://www.amd.by/image/cache/catalog/products/32970/1633608375-500x500.jpg
@@ -124,7 +124,7 @@
   pk: 15
   fields:
     name: Наушники Bose SoundLink around-ear II (черный)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, мониторные (охватывающие), портативные,
       Bluetooth, NFC, 20-18000 Гц, поворотные чашки, время работы 15 ч, кабель 1.2
       м
@@ -133,7 +133,7 @@
   pk: 16
   fields:
     name: Монитор Philips 242B1V/00
-    category: Category.DISPLAY
+    category: display
     description: 23.8", 16:9, 1920x1080, IPS, 75 Гц, динамики, интерфейсы HDMI+DVI+D-Sub
       (VGA)+DisplayPort
     preview_url: https://www.amd.by/image/cache/catalog/products/589391/1633610376-500x500.jpg
@@ -141,7 +141,7 @@
   pk: 17
   fields:
     name: Проектор AOPEN AV10
-    category: Category.TV
+    category: tv
     description: портативный, DLP, WVGA (854x480), яркость 700 лм, контраст 10000:1,
       расстояние 0.7-3 м, экран 30-120", Wi-Fi
     preview_url: https://www.amd.by/image/cache/catalog/products/636735/1633611409-500x500.jpg
@@ -149,7 +149,7 @@
   pk: 18
   fields:
     name: Проекционный экран ScreenMedia Economy P 180x180 SPM-1102
-    category: Category.TV
+    category: tv
     description: 174x174 см 1:1, мобильный, рулонный ручной, настенный/потолочный,
       покрытие матовое белое
     preview_url: https://www.amd.by/image/cache/catalog/products/856911/61b92b7d5e35b-500x500.jpeg
@@ -157,7 +157,7 @@
   pk: 19
   fields:
     name: Наушники Xiaomi Redmi Buds 3 Pro TWSEJ01ZM (белый)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, внутриканальные, портативные,
       Bluetooth, 20-20000 Гц, время работы 6 ч, с кейсом 28 ч, активное шумоподавление
     preview_url: https://www.amd.by/image/cache/catalog/products/805120/616f4e953b6e0-500x500.jpeg
@@ -165,7 +165,7 @@
   pk: 20
   fields:
     name: Наушники Bang & Olufsen Beoplay HX (черный антрацит)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, мониторные (охватывающие), портативные,
       Bluetooth, 20-22000 Гц, поворотные чашки, время работы 40 ч, кабель 1.3 м, активное
       шумоподавление
@@ -174,7 +174,7 @@
   pk: 21
   fields:
     name: Наушники Jabra Evolve2 65 MS Stereo USB-A (бежевый)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, накладные, для общения, Bluetooth
       5.0, 20-20000 Гц, поворотные чашки, быстрая зарядка, время работы 37 ч
     preview_url: https://www.amd.by/image/cache/catalog/products/544811/1633610376-500x500.jpg
@@ -182,14 +182,14 @@
   pk: 22
   fields:
     name: Наушники Rexant 18-1990
-    category: Category.HEADPHONE
+    category: headphones
     description: наушники с микрофоном, вставные, портативные
     preview_url: https://www.amd.by/image/cache/catalog/products/785083/1633612788-500x500.jpg
 - model: marketplace.product
   pk: 23
   fields:
     name: Наушники Smart Buy S9 SBH-650
-    category: Category.HEADPHONE
+    category: headphones
     description: наушники с микрофоном, портативные, оформление закрытое, излучатель
       10 мм, 18-22000 Гц, 16 Ом, кабель 1.1 м
     preview_url: https://www.amd.by/image/cache/catalog/products/127282/1633618604-500x500.jpg
@@ -197,7 +197,7 @@
   pk: 24
   fields:
     name: Наушники Accutone UM610 USB
-    category: Category.HEADPHONE
+    category: headphones
     description: наушники с микрофоном, накладные, для общения, 50-10000 Гц, кабель
       1.5 м
     preview_url: https://www.amd.by/image/cache/catalog/products/199623/1633609400-500x500.jpg
@@ -205,7 +205,7 @@
   pk: 25
   fields:
     name: Офисная гарнитура Yealink UH36 Mono UC
-    category: Category.HEADPHONE
+    category: headphones
     description: офисная гарнитура, накладные, для общения, 20-20000 Гц, кабель 1.2
       м
     preview_url: https://www.amd.by/image/cache/catalog/products/712923/1633611409-500x500.jpg
@@ -213,7 +213,7 @@
   pk: 26
   fields:
     name: Наушники Edifier TWS6 (черный)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, внутриканальные, портативные/спортивные,
       Bluetooth 5.0, 20-20000 Гц, время работы 8 ч
     preview_url: https://www.amd.by/image/cache/catalog/products/634038/1633611409-500x500.jpg
@@ -221,7 +221,7 @@
   pk: 27
   fields:
     name: Наушники Skullcandy Riff Wireless (черный)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, накладные, портативные, Bluetooth,
       20-20000 Гц, поворотные чашки/складное оголовье, быстрая зарядка, время работы
       12 ч
@@ -230,7 +230,7 @@
   pk: 28
   fields:
     name: Ноутбук Dell Latitude 13 7320-6541
-    category: Category.NOTEBOOK
+    category: notebook
     description: 13.3" 1920 x 1080 IPS, 60 Гц, несенсорный, Intel Core i5 1145G7 2600
       МГц, 16 ГБ, SSD 256 ГБ, видеокарта встроенная, Windows 10 Pro, цвет крышки темно-серый
     preview_url: https://www.amd.by/image/cache/catalog/products/853549/61b3df79477f0-500x500.jpeg
@@ -238,7 +238,7 @@
   pk: 29
   fields:
     name: Ноутбук Lenovo ThinkBook 15 G2 ARE 20VG00APRU
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1920 x 1080 IPS, 60 Гц, несенсорный, AMD Ryzen 5 4500U 2300
       МГц, 8 ГБ, SSD 256 ГБ, видеокарта встроенная, без ОС, цвет крышки серый
     preview_url: https://www.amd.by/image/cache/catalog/products/715963/1633611409-500x500.jpg
@@ -246,7 +246,7 @@
   pk: 30
   fields:
     name: Нетбук Lenovo IdeaPad 1 11ADA05 82GV003VRU
-    category: Category.NOTEBOOK
+    category: notebook
     description: 11.6" 1366 x 768 TN+Film, 60 Гц, несенсорный, AMD Athlon Silver 3050e
       1400 МГц, 4 ГБ, SSD 128 ГБ, видеокарта встроенная, Windows 10, цвет крышки серый
     preview_url: https://www.amd.by/image/cache/catalog/products/733706/1633611409-500x500.jpg
@@ -254,7 +254,7 @@
   pk: 31
   fields:
     name: Ноутбук HP 14s-fq1014ur 3B3N0EA
-    category: Category.NOTEBOOK
+    category: notebook
     description: 14.0" 1920 x 1080 IPS, 60 Гц, несенсорный, AMD Ryzen 5 5500U 2100
       МГц, 8 ГБ, SSD 512 ГБ, видеокарта встроенная, Windows 10, цвет крышки серебристый
     preview_url: https://www.amd.by/image/cache/catalog/products/704356/1633611409-500x500.jpg
@@ -262,7 +262,7 @@
   pk: 32
   fields:
     name: Проектор NEC PE455WL
-    category: Category.TV
+    category: tv
     description: презентационный, LCD, WXGA (1280x800), яркость 4500 лм, контраст
       450000:1, экран 25-300", LAN
     preview_url: https://www.amd.by/image/cache/catalog/products/648156/1633611409-500x500.jpg
@@ -270,7 +270,7 @@
   pk: 33
   fields:
     name: Проектор BenQ TH585
-    category: Category.TV
+    category: tv
     description: для домашнего кинотеатра, DLP, FullHD (1920x1080), яркость 3500 лм,
       контраст 10000:1, экран 30-300"
     preview_url: https://www.amd.by/image/cache/catalog/products/497877/1633609400-500x500.jpg
@@ -278,7 +278,7 @@
   pk: 34
   fields:
     name: Наушники Celebrat FLY-4 (черный)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, внутриканальные, портативные,
       Bluetooth 5.0, 20-10000 Гц, время работы 4 ч
     preview_url: https://www.amd.by/image/cache/catalog/products/564622/1633610376-500x500.jpg
@@ -286,14 +286,14 @@
   pk: 35
   fields:
     name: Наушники QUMO Accord 3 (черный/красный)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, портативные, оформление закрытое
     preview_url: https://www.amd.by/image/cache/catalog/products/61149/1633608375-500x500.jpg
 - model: marketplace.product
   pk: 36
   fields:
     name: Наушники AULA Prime
-    category: Category.HEADPHONE
+    category: headphones
     description: наушники с микрофоном, геймерские, оформление закрытое, излучатель
       40 мм, 20-20000 Гц, 32 Ом, кабель 2.2 м
     preview_url: https://www.amd.by/image/cache/catalog/products/749091/1633612788-500x500.jpg
@@ -301,7 +301,7 @@
   pk: 37
   fields:
     name: Наушники Sennheiser PC 2 CHAT
-    category: Category.HEADPHONE
+    category: headphones
     description: наушники с микрофоном, для общения, оформление открытое, 42-17000
       Гц, 32 Ом, кабель 2 м
     preview_url: https://www.amd.by/image/cache/catalog/products/37156/1633608375-500x500.jpg
@@ -309,7 +309,7 @@
   pk: 38
   fields:
     name: Ноутбук Acer TravelMate P2 TMP214-53-51BT NX.VPKER.00D
-    category: Category.NOTEBOOK
+    category: notebook
     description: 14.0" 1920 x 1080 IPS, 60 Гц, несенсорный, Intel Core i5 1135G7 2400
       МГц, 8 ГБ, HDD 1000 ГБ, видеокарта встроенная, Windows 10 Pro, цвет крышки черный
     preview_url: https://www.amd.by/image/cache/catalog/products/653120/1633611409-500x500.jpg
@@ -317,7 +317,7 @@
   pk: 39
   fields:
     name: Игровой ноутбук Lenovo Legion S7 15ACH6 82K8001FRK
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 3840 x 2160 IPS, 60 Гц, несенсорный, AMD Ryzen 7 5800H 3200
       МГц, 32 ГБ, SSD 1024 ГБ, видеокарта NVIDIA GeForce RTX 3060 6 ГБ, без ОС, цвет
       крышки темно-серый
@@ -326,7 +326,7 @@
   pk: 40
   fields:
     name: Ноутбук Acer Extensa 15 EX215-52-560F NX.EG8ER.01K
-    category: Category.NOTEBOOK
+    category: notebook
     description: '15.6" 1920 x 1080 TN+Film, Intel Core i5 1035G1 1000 МГц, 8 ГБ,
       SSD 512 ГБ, граф. адаптер: встроенный, Windows 10, цвет крышки черный'
     preview_url: https://www.amd.by/image/cache/catalog/products/597098/1633610376-500x500.jpg
@@ -334,7 +334,7 @@
   pk: 41
   fields:
     name: Проектор Acer P5630
-    category: Category.TV
+    category: tv
     description: профессиональный, DLP, WUXGA (1920x1200), яркость 4000 лм, контраст
       20000:1, расстояние 1-7.3 м, экран 32-300", LAN
     preview_url: https://www.amd.by/image/cache/catalog/products/678630/1633611409-500x500.jpg
@@ -342,7 +342,7 @@
   pk: 42
   fields:
     name: Проектор CACTUS CS-PRE.09B.WVGA
-    category: Category.TV
+    category: tv
     description: презентационный, LCD, WXGA (1280x800), яркость 1200 лм, контраст
       350:1, расстояние 1-3 м, экран 32-120"
     preview_url: https://www.amd.by/image/cache/catalog/products/647997/1633611409-500x500.jpg
@@ -350,7 +350,7 @@
   pk: 43
   fields:
     name: Наушники Sony MDR-XB55AP (черный)
-    category: Category.HEADPHONE
+    category: headphones
     description: наушники с микрофоном, внутриканальные, портативные, 4-24000 Гц,
       кабель 1.2 м
     preview_url: https://www.amd.by/image/cache/catalog/products/826965/61846e73d2c82-500x500.jpeg
@@ -358,7 +358,7 @@
   pk: 44
   fields:
     name: Наушники ASUS ROG Delta (белый)
-    category: Category.HEADPHONE
+    category: headphones
     description: наушники с микрофоном, мониторные (охватывающие), геймерские, 20-40000
       Гц, поворотные чашки, кабель 1.5 м
     preview_url: https://www.amd.by/image/cache/catalog/products/775342/1633646013-500x500.jpg
@@ -366,7 +366,7 @@
   pk: 45
   fields:
     name: Наушники Senicc ST-2688 (черный/серебристый)
-    category: Category.HEADPHONE
+    category: headphones
     description: наушники с микрофоном, мониторные (охватывающие), для общения, 20-20000
       Гц, кабель 2.5 м
     preview_url: https://www.amd.by/image/cache/catalog/products/823293/617c88018023c-500x500.jpeg
@@ -374,14 +374,14 @@
   pk: 46
   fields:
     name: Наушники KOSS KPH8 (белый)
-    category: Category.HEADPHONE
+    category: headphones
     description: наушники, накладные, портативные, 80-18000 Гц, кабель 1.2 м
     preview_url: https://www.amd.by/image/cache/catalog/products/188928/1633609400-500x500.jpg
 - model: marketplace.product
   pk: 47
   fields:
     name: Наушники BBK BT03
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, внутриканальные, портативные,
       Bluetooth 4.2, 20-20000 Гц, время работы 4.5 ч
     preview_url: https://www.amd.by/image/cache/catalog/products/11118/1633608375-500x500.jpg
@@ -389,7 +389,7 @@
   pk: 48
   fields:
     name: Проектор Epson EB-990U
-    category: Category.TV
+    category: tv
     description: презентационный, 3LCD, WUXGA (1920x1200), яркость 3800 лм, контраст
       15000:1, расстояние 1.8-2.9 м, экран 30-300", LAN, Wi-Fi
     preview_url: https://www.amd.by/image/cache/catalog/products/790572/1633612788-500x500.jpg
@@ -397,7 +397,7 @@
   pk: 49
   fields:
     name: Ноутбук ASUS Vivobook 14 X409FA-BV593
-    category: Category.NOTEBOOK
+    category: notebook
     description: 14.0" 1366 x 768 TN+Film, 60 Гц, несенсорный, Intel Core i3 10110U
       2100 МГц, 4 ГБ, SSD 256 ГБ, видеокарта встроенная, без ОС, цвет крышки серый
     preview_url: https://www.amd.by/image/cache/catalog/products/851708/61b28c58388d1-500x500.jpeg
@@ -405,7 +405,7 @@
   pk: 50
   fields:
     name: Проектор ViewSonic PG707X
-    category: Category.TV
+    category: tv
     description: презентационный, DLP, XGA (1024x768), яркость 4000 лм, контраст 22000:1,
       расстояние 0.9-12 м, экран 30-300", LAN
     preview_url: https://www.amd.by/image/cache/catalog/products/714056/1633611409-500x500.jpg
@@ -413,7 +413,7 @@
   pk: 51
   fields:
     name: Наушники Hiper Live QTX5 (черный)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, накладные, портативные, Bluetooth,
       20-20000 Гц, время работы 10 ч, кабель 1 м
     preview_url: https://www.amd.by/image/cache/catalog/products/853694/61b3e01d12dd5-500x500.jpeg
@@ -421,7 +421,7 @@
   pk: 52
   fields:
     name: Наушники Marley Liberate Air
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, внутриканальные, портативные,
       Bluetooth 5.0, 20-20000 Гц, быстрая зарядка, время работы 9 ч
     preview_url: https://www.amd.by/image/cache/catalog/products/614727/1633610376-500x500.jpg
@@ -429,7 +429,7 @@
   pk: 53
   fields:
     name: Наушники Marvo HG8901
-    category: Category.HEADPHONE
+    category: headphones
     description: наушники с микрофоном, мониторные (охватывающие), геймерские, 20-20000
       Гц, кабель 2.1 м
     preview_url: https://www.amd.by/image/cache/catalog/products/737145/1633611409-500x500.jpg
@@ -437,7 +437,7 @@
   pk: 54
   fields:
     name: Проектор Panasonic PT-VW360
-    category: Category.TV
+    category: tv
     description: портативный, LCD, WXGA (1280x800), яркость 4000 лм, контраст 20000:1,
       экран 30-300", LAN
     preview_url: https://www.amd.by/image/cache/catalog/products/419169/1633609400-500x500.jpg
@@ -445,7 +445,7 @@
   pk: 55
   fields:
     name: Наушники KOSS GMR-545-AIR USB
-    category: Category.HEADPHONE
+    category: headphones
     description: наушники с микрофоном, мониторные (охватывающие), портативные/геймерские,
       15-22000 Гц, кабель 2.4 м
     preview_url: https://www.amd.by/image/cache/catalog/products/429129/1633609400-500x500.jpg
@@ -453,7 +453,7 @@
   pk: 56
   fields:
     name: Наушники Harper Kids HK-39 (голубой)
-    category: Category.HEADPHONE
+    category: headphones
     description: наушники с микрофоном, внутриканальные, портативные/детские, 17-21000
       Гц, кабель 1.2 м
     preview_url: https://www.amd.by/image/cache/catalog/products/483366/1633609400-500x500.jpg
@@ -461,7 +461,7 @@
   pk: 57
   fields:
     name: Наушники Ritmix RH-428BTH
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, внутриканальные, портативные,
       Bluetooth 4.2, 20-20000 Гц, магниты
     preview_url: https://www.amd.by/image/cache/catalog/products/35524/1633608375-500x500.jpg
@@ -469,7 +469,7 @@
   pk: 58
   fields:
     name: Ноутбук ASUS X515JF-BR241T
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1366 x 768 TN+Film, 60 Гц, несенсорный, Intel Pentium 6805
       1100 МГц, 4 ГБ, SSD 128 ГБ, видеокарта NVIDIA GeForce MX130 2 ГБ, Windows 10,
       цвет крышки серый
@@ -478,7 +478,7 @@
   pk: 59
   fields:
     name: Наушники Urbanears Jakan (синий)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, портативные/спортивные, складные,
       оформление закрытое, излучатель 14 мм, 20-20000 Гц, 32 Ом
     preview_url: https://www.amd.by/image/cache/catalog/products/61198/1633608375-500x500.jpg
@@ -486,14 +486,14 @@
   pk: 60
   fields:
     name: Наушники Perfeo Base (белый) [PF-BAS-WHT]
-    category: Category.HEADPHONE
+    category: headphones
     description: наушники, внутриканальные, портативные, 20-20000 Гц
     preview_url: https://www.amd.by/image/cache/catalog/products/33190/1633608375-500x500.jpg
 - model: marketplace.product
   pk: 61
   fields:
     name: Наушники Harper HB-518 (черный)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, внутриканальные, портативные,
       Bluetooth, 20-20000 Гц, время работы 4 ч
     preview_url: https://www.amd.by/image/cache/catalog/products/639122/1633611409-500x500.jpg
@@ -501,7 +501,7 @@
   pk: 62
   fields:
     name: Наушники JBL Wave 100 (черный)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, внутриканальные, портативные,
       Bluetooth, 20-20000 Гц, время работы 5 ч, с кейсом 20 ч
     preview_url: https://www.amd.by/image/cache/catalog/products/837881/6196dba054a08-500x500.jpeg
@@ -509,7 +509,7 @@
   pk: 63
   fields:
     name: Ноутбук Acer Aspire 3 A315-34-P7TD NX.HE3EU.059
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1920 x 1080 TN+Film, 60 Гц, несенсорный, Intel Pentium Silver
       N5030 1100 МГц, 4 ГБ, SSD 256 ГБ, видеокарта встроенная, без ОС, цвет крышки
       черный
@@ -518,7 +518,7 @@
   pk: 64
   fields:
     name: Наушники Haylou GT2S
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, внутриканальные, портативные,
       Bluetooth 5.0, 20-20000 Гц, время работы 4 ч, с кейсом 12 ч
     preview_url: https://www.amd.by/image/cache/catalog/products/593007/1633610376-500x500.jpg
@@ -526,14 +526,14 @@
   pk: 65
   fields:
     name: Наушники AKG K701
-    category: Category.HEADPHONE
+    category: headphones
     description: наушники, оформление открытое, 10-39800 Гц, 62 Ом, кабель 3 м
     preview_url: https://www.amd.by/image/cache/catalog/products/795884/1633612788-500x500.jpg
 - model: marketplace.product
   pk: 66
   fields:
     name: Наушники HONOR Sport AM61 (черный)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, внутриканальные, портативные/спортивные,
       Bluetooth 4.1, 20-20000 Гц, магниты, время работы 11 ч
     preview_url: https://www.amd.by/image/cache/catalog/products/815053/6175f69171205-500x500.jpeg
@@ -541,7 +541,7 @@
   pk: 67
   fields:
     name: Наушники Hoco ES34 (черный)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, внутриканальные, портативные,
       Bluetooth 5.0, время работы 5 ч
     preview_url: https://www.amd.by/image/cache/catalog/products/805936/6170a131b5398-500x500.jpeg
@@ -549,7 +549,7 @@
   pk: 68
   fields:
     name: Gigabyte A7 X1-CRU1130SH
-    category: Category.NOTEBOOK
+    category: notebook
     description: 17.3" 1920 x 1080 IPS, 144 Гц, несенсорный, AMD Ryzen 9 5900HX 3300
       МГц, 16 ГБ, SSD 512 ГБ, видеокарта NVIDIA GeForce RTX 3070 8 ГБ, Windows 10,
       цвет крышки черный
@@ -558,7 +558,7 @@
   pk: 69
   fields:
     name: Huawei MateBook D 15 BoB-WAI9
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1920 x 1080 IPS, 60 Гц, несенсорный, Intel Core i3 10110U 2100
       МГц, 8 ГБ, SSD 256 ГБ, видеокарта встроенная, Windows 10, цвет крышки серый
     preview_url: https://cdn.dataimgstore.com/preview/64/6/5468866/kL2BcL8M6h.jpeg
@@ -566,7 +566,7 @@
   pk: 70
   fields:
     name: HONOR MagicBook Pro 16 HLYL-WFQ9 53011NHQ
-    category: Category.NOTEBOOK
+    category: notebook
     description: '16.1" 1920 x 1080 IPS, несенсорный, AMD Ryzen 5 4600H 3000 МГц,
       16 ГБ, SSD 512 ГБ, граф. адаптер: встроенный, Windows 10, цвет крышки серебристый'
     preview_url: https://cdn.dataimgstore.com/preview/64/8/4939438/gOctOBpugA.jpeg
@@ -574,7 +574,7 @@
   pk: 71
   fields:
     name: HP 17-ca2036ur 22V23EA
-    category: Category.NOTEBOOK
+    category: notebook
     description: '17.3" 1600 x 900 TN+Film, AMD Ryzen 3 3250U 2600 МГц, 8 ГБ, SSD
       512 ГБ, граф. адаптер: встроенный, без ОС, цвет крышки серебристый'
     preview_url: https://cdn.dataimgstore.com/preview/64/0/4318710/ivVrJhZcgm.jpeg
@@ -582,7 +582,7 @@
   pk: 72
   fields:
     name: Apple Macbook Air 13" M1 2020 MGNE3
-    category: Category.NOTEBOOK
+    category: notebook
     description: '13.3" 2560 x 1600 IPS, Apple M1, 8 ГБ, SSD 512 ГБ, граф. адаптер:
       встроенный, Mac OS, цвет крышки золотистый'
     preview_url: https://cdn.dataimgstore.com/preview/64/2/2915282/YlHyYNxkF8.jpeg
@@ -590,7 +590,7 @@
   pk: 73
   fields:
     name: MSI Thin GF63 11UC-219XRU
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1920 x 1080 IPS, 144 Гц, несенсорный, Intel Core i5 11400H
       2700 МГц, 8 ГБ, SSD 512 ГБ, видеокарта NVIDIA GeForce RTX 3050 4 ГБ, без ОС,
       цвет крышки черный
@@ -599,7 +599,7 @@
   pk: 74
   fields:
     name: HP 240 G8 2X7J2EA
-    category: Category.NOTEBOOK
+    category: notebook
     description: '14.0" 1920 x 1080 IPS, 60 Гц, несенсорный, Intel Core i3 1005G1
       1200 МГц, 8 ГБ, SSD 256 ГБ, граф. адаптер: встроенный, Windows 10 Pro, цвет
       крышки черный'
@@ -608,7 +608,7 @@
   pk: 75
   fields:
     name: Dell Vostro 14 3400-276196
-    category: Category.NOTEBOOK
+    category: notebook
     description: '14.0" 1920 x 1080 IPS, 60 Гц, несенсорный, Intel Core i7 1165G7
       2800 МГц, 8 ГБ, SSD 512 ГБ, граф. адаптер: NVIDIA GeForce MX330 2 ГБ, Windows
       10 Pro, цвет крышки черный'
@@ -617,7 +617,7 @@
   pk: 76
   fields:
     name: Acer Nitro 5 AN517-54-55LE NH.QC6EU.003
-    category: Category.NOTEBOOK
+    category: notebook
     description: 17.3" 1920 x 1080 IPS, 144 Гц, несенсорный, Intel Core i5 11400H
       2700 МГц, 16 ГБ, SSD 512 ГБ, видеокарта NVIDIA GeForce RTX 3060 Max-Q 6 ГБ,
       Linux, цвет крышки черный
@@ -626,7 +626,7 @@
   pk: 77
   fields:
     name: Lenovo V14-IGL 82C2001ARU
-    category: Category.NOTEBOOK
+    category: notebook
     description: '14.0" 1920 x 1080 TN+Film, 60 Гц, несенсорный, Intel Celeron N4020
       1100 МГц, 4 ГБ, SSD 128 ГБ, граф. адаптер: встроенный, без ОС, цвет крышки темно-серый'
     preview_url: https://cdn.dataimgstore.com/preview/64/3/5097543/MuUvoExQAr.jpeg
@@ -634,7 +634,7 @@
   pk: 78
   fields:
     name: Наушники Jabra Elite 3 (сиреневый)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, внутриканальные, портативные,
       Bluetooth, 20-20000 Гц, быстрая зарядка, время работы 7 ч, с кейсом 28 ч
     preview_url: https://www.amd.by/image/cache/catalog/products/854479/61b3e48f10f5e-500x500.jpeg
@@ -642,7 +642,7 @@
   pk: 79
   fields:
     name: Lenovo Yoga Slim 7 15ITL05 82AC001VRU
-    category: Category.NOTEBOOK
+    category: notebook
     description: '15.6" 1920 x 1080 IPS, 60 Гц, несенсорный, Intel Core i7 1165G7
       2800 МГц, 16 ГБ, SSD 512 ГБ, граф. адаптер: встроенный, Windows 10, цвет крышки
       серый'
@@ -651,7 +651,7 @@
   pk: 80
   fields:
     name: Наушники Huawei FreeBuds 4 (мерцающий серебристый)
-    category: Category.HEADPHONE
+    category: headphones
     description: беспроводные наушники с микрофоном, вставные, портативные, Bluetooth,
       20-20000 Гц, быстрая зарядка, время работы 4 ч, с кейсом 22 ч, активное шумоподавление
     preview_url: https://www.amd.by/image/cache/catalog/products/758070/1633612788-500x500.jpg
@@ -659,7 +659,7 @@
   pk: 81
   fields:
     name: Lenovo V130-15IKB 81HN00XURU
-    category: Category.NOTEBOOK
+    category: notebook
     description: '15.6" 1920 x 1080 TN+Film, Intel Core i3 7020U 2300 МГц, 4 ГБ, SSD
       256 ГБ, граф. адаптер: встроенный, без ОС, DVD, цвет крышки темно-серый'
     preview_url: https://cdn.dataimgstore.com/preview/64/6/2356366/3n7BXhOStC.jpeg
@@ -667,7 +667,7 @@
   pk: 82
   fields:
     name: Lenovo V15-ADA 82C7008TGE
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1366 x 768 TN+Film, 60 Гц, несенсорный, AMD 3020e 1200 МГц,
       4 ГБ, SSD 256 ГБ, видеокарта встроенная, без ОС, цвет крышки темно-серый
     preview_url: https://cdn.dataimgstore.com/preview/64/2/6024242/vMlWercCf7.jpeg
@@ -675,7 +675,7 @@
   pk: 83
   fields:
     name: Проектор Optoma HD29HLV
-    category: Category.TV
+    category: tv
     description: для домашнего кинотеатра/игровой, DLP, FullHD (1920x1080), яркость
       4500 лм, контраст 50000:1, расстояние 1-7.5 м, экран 30.8-301.4"
     preview_url: https://www.amd.by/image/cache/catalog/products/754936/1633612788-500x500.jpg
@@ -683,7 +683,7 @@
   pk: 84
   fields:
     name: Acer Swift 3 SF314-43-R0BS NX.AB1ER.002
-    category: Category.NOTEBOOK
+    category: notebook
     description: 14.0" 1920 x 1080 IPS, 60 Гц, несенсорный, AMD Ryzen 3 5300U 2600
       МГц, 8 ГБ, SSD 256 ГБ, видеокарта встроенная, Windows 10, цвет крышки серебристый
     preview_url: https://cdn.dataimgstore.com/preview/64/8/5925328/SdcHyBZIMN.jpeg
@@ -691,7 +691,7 @@
   pk: 85
   fields:
     name: Dell G15 5511 G515-0228
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1920 x 1080 IPS, 120 Гц, несенсорный, Intel Core i5 11400H
       2700 МГц, 8 ГБ, SSD 512 ГБ, видеокарта NVIDIA GeForce RTX 3050 Ti 4 ГБ, Linux,
       цвет крышки темно-серый
@@ -700,7 +700,7 @@
   pk: 86
   fields:
     name: Dell Precision 17 5760-0686
-    category: Category.NOTEBOOK
+    category: notebook
     description: 17.0" 1920 x 1200 IPS, 60 Гц, несенсорный, Intel Core i7 11850H 2500
       МГц, 16 ГБ, SSD 1024 ГБ, видеокарта NVIDIA RTX A3000 6 ГБ, Windows 10 Pro, цвет
       крышки черный/серый
@@ -709,7 +709,7 @@
   pk: 87
   fields:
     name: ASUS D515DA-BR028
-    category: Category.NOTEBOOK
+    category: notebook
     description: '15.6" 1366 x 768 TN+Film, несенсорный, AMD Ryzen 3 3250U 2600 МГц,
       4 ГБ, SSD 256 ГБ, граф. адаптер: встроенный, без ОС, цвет крышки серый'
     preview_url: https://cdn.dataimgstore.com/preview/64/6/4941996/GQiLCsDV7c.jpeg
@@ -717,7 +717,7 @@
   pk: 88
   fields:
     name: ASUS ZenBook Pro 15 UX535LI-BN223R
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1920 x 1080 IPS, 60 Гц, несенсорный, Intel Core i7 10870H 2200
       МГц, 16 ГБ, SSD 1024 ГБ, видеокарта NVIDIA GeForce GTX 1650 Ti Max-Q 4 ГБ, Windows
       10, цвет крышки серый
@@ -726,7 +726,7 @@
   pk: 89
   fields:
     name: ASUS BR1100CKA-GJ0328R
-    category: Category.NOTEBOOK
+    category: notebook
     description: 11.6" 1366 x 768 TN+Film, 60 Гц, Intel Pentium Silver N6000 1100
       МГц, 4 ГБ, eMMC 128 ГБ, видеокарта встроенная, Windows 10 Pro, цвет крышки темно-серый
     preview_url: https://cdn.dataimgstore.com/preview/64/3/5420613/Ui0JnonDZd.jpeg
@@ -734,7 +734,7 @@
   pk: 90
   fields:
     name: ASUS TUF Gaming Dash F15 FX516PM-AZ102
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1920 x 1080 IPS, 240 Гц, несенсорный, Intel Core i7 11370H
       3300 МГц, 16 ГБ, SSD 512 ГБ, видеокарта NVIDIA GeForce RTX 3060 6 ГБ, без ОС,
       цвет крышки темно-серый
@@ -743,7 +743,7 @@
   pk: 91
   fields:
     name: ASUS ASUSPro P1440FA-FQ3042T
-    category: Category.NOTEBOOK
+    category: notebook
     description: 14.0" 1366 x 768 TN+Film, 60 Гц, несенсорный, Intel Core i3 10110U
       2100 МГц, 4 ГБ, HDD 1000 ГБ, видеокарта встроенная, Windows 10, цвет крышки
       черный
@@ -752,7 +752,7 @@
   pk: 92
   fields:
     name: HP 255 G7 202X8EA
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1366 x 768 TN+Film, 60 Гц, несенсорный, AMD Athlon Silver 3050U
       2300 МГц, 4 ГБ, HDD 500 ГБ, видеокарта встроенная, без ОС, цвет крышки черный
     preview_url: https://cdn.dataimgstore.com/preview/64/2/5976242/SXH9OCImJv.jpeg
@@ -760,7 +760,7 @@
   pk: 93
   fields:
     name: HP ENVY x360 13-ay0037ur 2X0H6EA
-    category: Category.NOTEBOOK
+    category: notebook
     description: 13.3" 1920 x 1080 IPS, 60 Гц, сенсорный, AMD Ryzen 7 4700U 2000 МГц,
       16 ГБ, SSD 512 ГБ, видеокарта встроенная, Windows 10, цвет крышки черный
     preview_url: https://cdn.dataimgstore.com/preview/64/6/5570126/z2KMu20lFS.jpeg
@@ -768,7 +768,7 @@
   pk: 94
   fields:
     name: HP 15s-eq1136ur 22P99EA
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1920 x 1080 IPS, 60 Гц, несенсорный, AMD Athlon Silver 3050U
       2300 МГц, 4 ГБ, SSD 256 ГБ, видеокарта встроенная, без ОС, цвет крышки темно-серый
     preview_url: https://cdn.dataimgstore.com/preview/64/6/5208166/HsZEFlqsQK.jpeg
@@ -776,7 +776,7 @@
   pk: 95
   fields:
     name: HP 15-dw1046ur 22N47EA
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1920 x 1080 IPS, 60 Гц, несенсорный, Intel Pentium Gold 6405U
       2400 МГц, 8 ГБ, SSD 256 ГБ, видеокарта встроенная, без ОС, цвет крышки серый
     preview_url: https://cdn.dataimgstore.com/preview/64/4/5702754/q3vqZTr4a7.jpeg
@@ -784,7 +784,7 @@
   pk: 96
   fields:
     name: Dell Inspiron 15 5505-4984
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1920 x 1080 IPS, 60 Гц, несенсорный, AMD Ryzen 7 4700U 2000
       МГц, 8 ГБ, SSD 512 ГБ, видеокарта встроенная, Windows 10, цвет крышки серебристый
     preview_url: https://cdn.dataimgstore.com/preview/64/8/5567658/mpQm2uZ4WI.jpeg
@@ -792,7 +792,7 @@
   pk: 97
   fields:
     name: ASUS E510MA-EJ593
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1920 x 1080 IPS, 60 Гц, несенсорный, Intel Celeron N4020 1100
       МГц, 4 ГБ, SSD 256 ГБ, видеокарта встроенная, Linux, цвет крышки синий
     preview_url: https://cdn.dataimgstore.com/preview/64/9/6047969/3HRUsJceWP.jpeg
@@ -800,7 +800,7 @@
   pk: 98
   fields:
     name: ASUS Expertbook B1 B1500CEAE-EJ0789R
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1920 x 1080 TN+Film, 60 Гц, несенсорный, Intel Core i3 1115G4
       3000 МГц, 8 ГБ, SSD 256 ГБ, видеокарта встроенная, Windows 10 Pro, цвет крышки
       темно-синий
@@ -809,7 +809,7 @@
   pk: 99
   fields:
     name: HP Elite Dragonfly G2 3C8C7EA
-    category: Category.NOTEBOOK
+    category: notebook
     description: 13.3" 1920 x 1080 IPS, 60 Гц, сенсорный, Intel Core i5 1135G7 2400
       МГц, 8 ГБ, SSD 256 ГБ, видеокарта встроенная, Windows 10 Pro, цвет крышки темно-синий
     preview_url: https://cdn.dataimgstore.com/preview/64/2/5209012/oLFR7mPqL5.jpeg
@@ -817,7 +817,7 @@
   pk: 100
   fields:
     name: HP ProBook 445R G6 7DD99EA
-    category: Category.NOTEBOOK
+    category: notebook
     description: '14.0" 1920 x 1080 IPS, AMD Ryzen 3 2200U 2500 МГц, 4 ГБ, SSD 128
       ГБ, граф. адаптер: встроенный, Windows 10 Pro, цвет крышки серебристый'
     preview_url: https://cdn.dataimgstore.com/preview/64/7/2498257/xigtiz15wj.jpeg
@@ -825,7 +825,7 @@
   pk: 101
   fields:
     name: Acer Enduro N3 EN314-51W-76BE NR.R0PER.004
-    category: Category.NOTEBOOK
+    category: notebook
     description: '14.0" 1920 x 1080 IPS, Intel Core i7 10510U 1800 МГц, 16 ГБ, SSD
       512 ГБ, граф. адаптер: встроенный, Windows 10 Pro, цвет крышки черный'
     preview_url: https://cdn.dataimgstore.com/preview/64/2/4367212/uoPr9vK6bZ.jpeg
@@ -833,7 +833,7 @@
   pk: 102
   fields:
     name: ASUS Zephyrus G14 GA401QC-HZ139T
-    category: Category.NOTEBOOK
+    category: notebook
     description: 14.0" 1920 x 1080 IPS, 144 Гц, несенсорный, AMD Ryzen 7 5800HS 2800
       МГц, 16 ГБ, SSD 512 ГБ, видеокарта NVIDIA GeForce RTX 3050 4 ГБ, Windows 10,
       цвет крышки темно-серый
@@ -842,7 +842,7 @@
   pk: 103
   fields:
     name: MSI Modern 14 B11SBU-613RU
-    category: Category.NOTEBOOK
+    category: notebook
     description: 14.0" 1920 x 1080 IPS, 60 Гц, несенсорный, Intel Core i5 1155G7 2500
       МГц, 16 ГБ, SSD 512 ГБ, видеокарта NVIDIA GeForce MX450 2 ГБ, Windows 10, цвет
       крышки серый
@@ -851,7 +851,7 @@
   pk: 104
   fields:
     name: MSI Pulse GL66 11UDK-420XRU
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1920 x 1080 IPS, 144 Гц, несенсорный, Intel Core i5 11400H
       2700 МГц, 8 ГБ, SSD 512 ГБ, видеокарта NVIDIA GeForce RTX 3050 Ti Max-Q 4 ГБ,
       без ОС, цвет крышки серый
@@ -860,7 +860,7 @@
   pk: 105
   fields:
     name: Xiaomi RedmiBook 13 JYU4213CN
-    category: Category.NOTEBOOK
+    category: notebook
     description: '13.3" 1920 x 1080 IPS, Intel Core i7 10510U 1800 МГц, 8 ГБ, SSD
       512 ГБ, граф. адаптер: NVIDIA GeForce MX250 2 ГБ, Windows 10, цвет крышки серебристый'
     preview_url: https://cdn.dataimgstore.com/preview/64/4/2646714/I0Kdp82QVm.jpeg
@@ -868,7 +868,7 @@
   pk: 106
   fields:
     name: Xiaomi Mi Notebook Air 13.3 2019 JYU4149CN
-    category: Category.NOTEBOOK
+    category: notebook
     description: '13.3" 1920 x 1080 IPS, Intel Core i7 8550U 1800 МГц, 8 ГБ, SSD 512
       ГБ, граф. адаптер: NVIDIA GeForce MX250 2 ГБ, Windows 10, цвет крышки темно-серый'
     preview_url: https://cdn.dataimgstore.com/preview/64/7/2237737/gXcD4dDn70.jpeg
@@ -876,7 +876,7 @@
   pk: 107
   fields:
     name: HP 14-dk1012ur 22M68EA
-    category: Category.NOTEBOOK
+    category: notebook
     description: '14.0" 1366 x 768 TN+Film, несенсорный, AMD Athlon Gold 3150U 2400
       МГц, 4 ГБ, SSD 256 ГБ, граф. адаптер: AMD Radeon 530 2 ГБ, без ОС, цвет крышки
       черный'
@@ -885,7 +885,7 @@
   pk: 108
   fields:
     name: ASUS X509JA-BQ012
-    category: Category.NOTEBOOK
+    category: notebook
     description: '15.6" 1920 x 1080 IPS, Intel Core i3 1005G1 1200 МГц, 8 ГБ, SSD
       256 ГБ, граф. адаптер: встроенный, Linux, цвет крышки темно-серый'
     preview_url: https://cdn.dataimgstore.com/preview/64/7/2902677/Zt4BOh8hSp.jpeg
@@ -893,7 +893,7 @@
   pk: 109
   fields:
     name: ASUS X543MA-DM1140
-    category: Category.NOTEBOOK
+    category: notebook
     description: '15.6" 1920 x 1080 TN+Film, несенсорный, Intel Pentium Silver N5030
       1100 МГц, 4 ГБ, SSD 128 ГБ, граф. адаптер: встроенный, Linux, цвет крышки темно-синий'
     preview_url: https://cdn.dataimgstore.com/preview/64/4/4679724/4SCjUih8Lb.jpeg
@@ -901,7 +901,7 @@
   pk: 110
   fields:
     name: MSI Bravo 15 B5DD-041XRU
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1920 x 1080 IPS, 144 Гц, несенсорный, AMD Ryzen 5 5600H 3300
       МГц, 8 ГБ, SSD 512 ГБ, видеокарта AMD Radeon RX 5500M 4 ГБ, без ОС, цвет крышки
       черный
@@ -910,7 +910,7 @@
   pk: 111
   fields:
     name: MSI GS65 9SE-483US Stealth
-    category: Category.NOTEBOOK
+    category: notebook
     description: '15.6" 1920 x 1080 IPS, Intel Core i7 9750H 2600 МГц, 16 ГБ, SSD
       512 ГБ, граф. адаптер: NVIDIA GeForce RTX 2060 Max-Q 6 ГБ, Windows 10, цвет
       крышки черный'
@@ -919,7 +919,7 @@
   pk: 112
   fields:
     name: Gigabyte AORUS 15P YD-74RU244SH
-    category: Category.NOTEBOOK
+    category: notebook
     description: 15.6" 1920 x 1080 IPS, 240 Гц, несенсорный, Intel Core i7 11800H
       2300 МГц, 32 ГБ, SSD 1024 ГБ, видеокарта NVIDIA GeForce RTX 3080 8 ГБ, Windows
       10, цвет крышки черный

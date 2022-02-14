@@ -3,7 +3,6 @@ from typing import Optional
 
 import extruct
 from common.item_types import Availability
-from common.item_types import Category
 from scraper.items import ProductScrapingResult
 from scrapy.http import Response
 
@@ -15,7 +14,7 @@ class StructuredDataMixin:
     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data
     """
 
-    def extract_structured_data(self, response: Response, category: Category) -> Optional[ProductScrapingResult]:
+    def extract_structured_data(self, response: Response, category: str) -> Optional[ProductScrapingResult]:
         logging.info('parse_structured_data %s', response.url)
 
         data = extruct.extract(response.text, base_url=response.url)
@@ -111,8 +110,8 @@ class StructuredDataMixin:
 
     @classmethod
     def extract_rating(cls, properties) -> float:
-        return float(properties['aggregateRating']['properties']['ratingValue'][0] if \
-                         'aggregateRating' in properties else '0')
+        return float(properties['aggregateRating']['properties']['ratingValue'][0] if
+                     'aggregateRating' in properties else '0')
 
     @classmethod
     def extract_price_currency(cls, offer) -> str:

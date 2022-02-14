@@ -3,7 +3,13 @@ from django.test import TestCase
 
 
 class ProductsViewTestCase(TestCase):
-    fixtures = ['test/marketplaces.yaml', 'test/products.yaml', 'test/product_pages.yaml', 'test/product_states.yaml', ]
+    fixtures = [
+        'prod/categories.yaml',
+        'test/marketplaces.yaml',
+        'test/products.yaml',
+        'test/product_pages.yaml',
+        'test/product_states.yaml',
+    ]
 
     def setUp(self):
         # Every test needs a client.

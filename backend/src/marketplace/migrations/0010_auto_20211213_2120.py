@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='product',
             name='category',
-            field=models.CharField(choices=[('MOBILE', 'Mobile'), ('NOTEBOOK', 'Notebook'), ('DISPLAY', 'Monitor'), ('DESKTOP', 'Desktop'), ('TV', 'TV'), ('TABLET', 'Tablet'), (
+            field=models.CharField(choices=[('MOBILE', 'Mobile'), ('NOTEBOOK', 'Notebook'), ('DISPLAY', 'Monitor'), ('MONITOR', 'Desktop'), ('TV', 'TV'), ('TABLET', 'Tablet'), (
                 'HEADPHONE', 'Headphones'), ('LEGO', 'ConstructionSet'), ('COSMETIC', 'Cosmetic'), ('BOOK', 'Book'), ('SMART_GADGET', 'SmartGadget')], max_length=62),
         ),
         migrations.AlterField(

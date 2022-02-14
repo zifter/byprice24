@@ -9,6 +9,7 @@ from common.shared_queue import ScrapingTarget
 from crawler.models import ScrapingState
 from crawler.structs import ProductData
 from croniter import croniter
+from marketplace.models import Category
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -96,9 +97,10 @@ class Agent:
         product = find_closest_product(data.result.title)
 
         if product is None:
+            category = Category.objects.get(name=data.result.main_category)
             product, _ = Product.objects.get_or_create(
                 name=data.result.title,
-                category=data.result.main_category,
+                category=category,
                 description=data.result.description,
                 preview_url=data.result.preview_url,
             )

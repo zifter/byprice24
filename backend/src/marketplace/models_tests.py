@@ -1,3 +1,4 @@
+from marketplace.models import Category
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -9,9 +10,14 @@ marketplace = Marketplace(
     logo_url='https://test',
 )
 
+category = Category(
+    name='electronic',
+    keywords='electronic',
+)
+
 product = Product(
     name='iPone',
-    category='electronic',
+    category=category,
     description='??',
 )
 
@@ -32,8 +38,16 @@ def test_marketplace_is_printable_ok():
     assert str(marketplace) == 'www.test.by'
 
 
+def test_category_is_printable_ok():
+    assert str(category) == 'electronic'
+
+
 def test_product_is_printable_ok():
     assert str(product) == 'iPone'
+
+
+def test_semantic_id_ok():
+    assert product.semantic_id() == 'electronic/ipone'
 
 
 def test_product_page_is_printable_ok():

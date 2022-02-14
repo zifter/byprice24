@@ -27,15 +27,31 @@ class Marketplace(models.Model):
         return str(self.domain)
 
 
+class Category(models.Model):
+    """
+    General information about product
+    """
+    name = models.CharField(max_length=128, unique=True, primary_key=True)
+    keywords = models.CharField(max_length=512)
+
+    def semantic_id(self) -> str:
+        return str(self.name)
+
+    def __str__(self):
+        return str(self.name)
+
+
 class Product(models.Model):
     """
     General information about product
     """
     name = models.CharField(max_length=128, unique=True)
-    semantic_id = models.CharField(max_length=32, unique=True)
-    category = models.CharField(max_length=32),
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = models.CharField(max_length=512)
     preview_url = models.URLField(max_length=256, null=True)
+
+    def semantic_id(self) -> str:
+        return f'{self.category.semantic_id()}/{str(self.name).lower()}'
 
     def __str__(self):
         return str(self.name)

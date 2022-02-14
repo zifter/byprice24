@@ -15,7 +15,8 @@ SERVICE_WORDS = {'и', 'под', 'над', 'на', 'для', 'по', 'к', 'за
 def get_context():
     parser = ArgumentParser()
     parser.add_argument('--source-file', default=DATA_DIR / 'onliner-25-01-2022.html')
-    parser.add_argument('--output-file', default=BACKEND_FIXTURES_DIR / 'categories.yaml')
+    parser.add_argument('--output-categories', default=BACKEND_FIXTURES_DIR / 'prod' / 'categories.yaml')
+    parser.add_argument('--output-group', default=BACKEND_FIXTURES_DIR / 'group.yaml')
     return parser.parse_args()
 
 
@@ -44,11 +45,7 @@ class CategoryExtractor:
 
     @staticmethod
     def get_keywords(title):
-        base = title.lower()
-        keywords = [base]
-        words = set(base.replace(',', ' ').replace('-', ' ').replace('(', '').replace(')', '').split()) - SERVICE_WORDS
-        keywords.extend(words)
-        return sorted(list(set(keywords)))
+        return {title.lower(), }
 
     @staticmethod
     def create_category(raw, parent):
@@ -139,9 +136,7 @@ class CategoryTransform:
         filtered.append({
             'name': 'books',
             'ru': 'Книги',
-            'keywords': [
-                'книга',
-            ]
+            'keywords': ['книга', ]
         })
 
         return {
@@ -153,12 +148,23 @@ class CategoryTransform:
         category_by_name = {}
         # deduplication
         for r in self.leaf(cs):
-            if r['name'] in category_by_name:
-                category_by_name[r['name']]['keywords'] = sorted(list(set(category_by_name[r['name']]['keywords']).union(set(r['keywords']))))
+            name = r['name']
+            if name in category_by_name:
+                category_by_name[name]['keywords'].update(r['keywords'])
             else:
-                category_by_name[r['name']] = r
+                category_by_name[name] = r
 
-        return list(category_by_name.values())
+        result = []
+        for r in category_by_name.values():
+            result.append({
+                'model': 'marketplace.category',
+                'fields': {
+                    'name': r['name'],
+                    'keywords': ', '.join(sorted(list(r['keywords'])))
+                }
+            })
+
+        return result
 
     def leaf(self, categories: List[Dict]) -> List[Dict]:
         result = []
@@ -214,14 +220,20 @@ def main(context):
     result = extractor.parse(context.source_file)
 
     prev_result = {}
-    with open(context.output_file, encoding='utf8') as f:
-        prev_result = yaml.safe_load(f)
+    with open(context.output_categories, encoding='utf8') as f:
+        prev_result['categories'] = yaml.safe_load(f)
+    with open(context.output_group, encoding='utf8') as f:
+        prev_result['group'] = yaml.safe_load(f)
+
     result = merge_categories(result, prev_result)
 
     new_result = CategoryTransform(result).transform()
 
-    with open(context.output_file, 'w', encoding='utf8') as f:
-        yaml.dump(new_result, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
+    with open(context.output_categories, 'w', encoding='utf8') as f:
+        yaml.dump(new_result['categories'], f, default_flow_style=False, allow_unicode=True, sort_keys=False)
+
+    with open(context.output_group, 'w', encoding='utf8') as f:
+        yaml.dump(new_result['group'], f, default_flow_style=False, allow_unicode=True, sort_keys=False)
 
 
 if __name__ == '__main__':

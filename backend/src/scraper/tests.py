@@ -1,6 +1,5 @@
 import pytest
 from common.item_types import Availability
-from common.item_types import Category
 from scraper.items import ProductScrapingResult
 from scraper.testing_utils import assert_spider
 
@@ -19,7 +18,7 @@ test_data = {
                 preview_url='https://texus.by/upload/Sh/imageCache/220/632/6083bb29b3ca0314102aa8ce788a6a97.jpeg',
                 rating=0.0,
                 review_count=0,
-                main_category=Category.MOBILE,
+                main_category='mobile',
                 categories=[],
             )
         ),
@@ -35,7 +34,7 @@ test_data = {
                 preview_url='https://texus.by/upload/Sh/imageCache/dd5/18e/0f0fcc05b510be63d3a875750b1bc0f8.jpeg',
                 rating=0.0,
                 review_count=0,
-                main_category=Category.MOBILE,
+                main_category='mobile',
                 categories=[],
             )
         ),
@@ -51,7 +50,7 @@ test_data = {
                 preview_url='https://texus.by/upload/Sh/imageCache/913/a54/d4b69d8bbd8154250d33656d0a9e1583.jpeg',
                 rating=0.0,
                 review_count=0,
-                main_category=Category.MOBILE,
+                main_category='mobile',
                 categories=[],
             )
         ),
@@ -69,7 +68,7 @@ test_data = {
                 preview_url='https://goldapple.by/goldapple_by_19760336702-maska-na-tkanevoj-osnove-s-ekstraktom-lastockinogo-gnezda_files/8809715721307_1_rpmaghscxygxvfo8(1).jpg',
                 rating=0.0,
                 review_count=0,
-                main_category=Category.COSMETIC,
+                main_category='face_makeup',
                 categories=[],
             )
         ),
@@ -85,7 +84,7 @@ test_data = {
                 preview_url='https://goldapple.by/goldapple_by_19760343851-collagen-toner_files/8809443284723_1_doosbvxagaabp9fe(1).jpg',
                 rating=0.0,
                 review_count=0,
-                main_category=Category.COSMETIC,
+                main_category='face_makeup',
                 categories=[],
             )
         ),
@@ -101,7 +100,7 @@ test_data = {
                 preview_url='https://goldapple.by/azija/patchi/goldapple_by_azija_patchi_99800800005-red-energy-eye-patch_files/8809340384809_1_5v3m8tdjrgtgpbcd(1).jpg',
                 rating=0.0,
                 review_count=0,
-                main_category=Category.COSMETIC,
+                main_category='face_makeup',
                 categories=[],
             )
         )
@@ -114,7 +113,7 @@ def test_spider_ilpby():
     expected = ProductScrapingResult(
         url=url,
         title='Apple MacBook Pro 13" Touch Bar 2020 MXK32',
-        main_category=Category.NOTEBOOK,
+        main_category='notebook',
         description='13.3" 2560 x 1600 IPS, Intel Core i5 8257U 1400 МГц, 8 ГБ, SSD 256 ГБ, граф. адаптер: встроенный, Mac OS, цвет крышки серый',
         price=3440.0,
         price_currency='BYN',
@@ -142,7 +141,7 @@ def test_spider_21vek_by():
         preview_url='https://static.21vek.by/img/galleries/6632/831/preview_b/x3pro8gb256gb_poco_01_60dd5ddb2379f.png',
         rating=5.0,
         review_count=4,
-        main_category=Category.MOBILE,
+        main_category='mobile',
         categories=[
             'Смартфоны, ТВ и электроника',
             'Смартфоны, аксессуары',
@@ -163,11 +162,12 @@ def test_spider_amd_by():
         price_currency='BYN',
         availability=Availability.InStock,
         preview_url='https://www.amd.by/image/cache/catalog/products/628688/1633610376-500x500.jpg',
-        main_category=Category.MOBILE,
+        main_category='mobile',
         categories=[],
     )
 
     assert_spider(url, 'poco-pro-x3.html', expected)
+
 
 def test_spider_amd_by_tv():
     url = 'https://www.amd.by/televizory/thomson-t32rtm6020/'
@@ -179,11 +179,12 @@ def test_spider_amd_by_tv():
         price_currency='BYN',
         availability=Availability.InStock,
         preview_url='https://www.amd.by/image/cache/catalog/products/598897/1633637450-500x500.jpg',
-        main_category=Category.TV,
+        main_category='tv',
         categories=[],
     )
 
     assert_spider(url, 'tv-thomson-t32rtm6020.html', expected)
+
 
 def test_spider_amd_by_tv_xiaomi():
     url = 'https://www.amd.by/televizory/xiaomi-mi-tv-4a-32-mezhdunarodnaya-versiya/'
@@ -195,13 +196,14 @@ def test_spider_amd_by_tv_xiaomi():
         price_currency='BYN',
         availability=Availability.InStock,
         preview_url='https://www.amd.by/image/cache/catalog/products/153871/1633637450-500x500.jpg',
-        main_category=Category.TV,
+        main_category='tv',
         rating=5.0,
         review_count=8,
         categories=[],
     )
 
     assert_spider(url, 'xiaomi-MI-TV.html', expected)
+
 
 def test_spider_amd_by_HEADPHONE_xiaomi():
     url = 'https://www.amd.by/naushniki-i-garnitury/xiaomi-redmi-airdots-2-twsej061ls-chernyi-kitaiskaya-versiya/'
@@ -213,7 +215,7 @@ def test_spider_amd_by_HEADPHONE_xiaomi():
         price_currency='BYN',
         availability=Availability.InStock,
         preview_url='https://www.amd.by/image/cache/catalog/products/858775/61c3af0f63fd7-500x500.jpeg',
-        main_category=Category.HEADPHONE,
+        main_category='headphones',
         categories=[],
     )
 
@@ -230,7 +232,7 @@ def test_funtastik_by():
         price_currency='BYN',
         availability=Availability.InStock,
         preview_url='https://www.funtastik.by/upload/resize_cache/iblock/2f8/720_720_040cd750bba9870f18aada2478b24840a/2f8c4ef8be4aa902ed0659f02b29607f.jpg',
-        main_category=Category.LEGO,
+        main_category='buildingkit',
         categories=[],
     )
     assert_spider(url, 'lego-city.html', expected)
@@ -246,7 +248,7 @@ def test_spider_ozon_ru():
         price_currency='RUB',
         availability=Availability.InStock,
         preview_url='https://cdn1.ozone.ru/s3/multimedia-1/6087434965.jpg',
-        main_category=Category.MOBILE,
+        main_category='mobile',
         rating=4.9,
         review_count=7,
         categories=['Электроника', 'Телефоны и смарт-часы'],

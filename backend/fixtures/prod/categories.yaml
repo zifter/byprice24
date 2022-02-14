@@ -1,7 +1,3232 @@
 - model: marketplace.category
-  name: 'Electronics'
-  semantic_id: 'electronics'
-
+  fields:
+    name: mobile
+    keywords: кнопочные телефоны, смартфоны
 - model: marketplace.category
-  name: 'Mobile'
-  semantic_id: 'Mobile'
+  fields:
+    name: headphones
+    keywords: аудиофильские наушники, геймерские наушники, наушники
+- model: marketplace.category
+  fields:
+    name: smartwatch
+    keywords: детские часы-телефон, умные часы, умные часы для детей, фитнес-браслеты
+- model: marketplace.category
+  fields:
+    name: portablecharger
+    keywords: портативные зарядные устройства
+- model: marketplace.category
+  fields:
+    name: memcards
+    keywords: карты памяти
+- model: marketplace.category
+  fields:
+    name: phonecase
+    keywords: чехлы для телефонов
+- model: marketplace.category
+  fields:
+    name: protectiveglass
+    keywords: защитные стекла и пленки
+- model: marketplace.category
+  fields:
+    name: phoneaccum
+    keywords: аккумуляторы
+- model: marketplace.category
+  fields:
+    name: bt
+    keywords: bluetooth-гарнитуры
+- model: marketplace.category
+  fields:
+    name: selfiestick
+    keywords: палки для селфи
+- model: marketplace.category
+  fields:
+    name: cable
+    keywords: акустические кабели, аудиокабели, кабели для автоакустики, кабели для
+      принтеров, кабели питания, кабели, адаптеры, кабели, адаптеры для av-аппаратуры,
+      кабели, адаптеры, разветвители, сетевые кабели
+- model: marketplace.category
+  fields:
+    name: carholder
+    keywords: автомобильные держатели, аксессуары для салона автомобиля
+- model: marketplace.category
+  fields:
+    name: chargersmobile
+    keywords: беспроводные зарядные устройства, зарядные устройства, универсальные
+      зарядные устройства
+- model: marketplace.category
+  fields:
+    name: speakerdock
+    keywords: док-станции для смартфонов
+- model: marketplace.category
+  fields:
+    name: tv
+    keywords: телевизоры
+- model: marketplace.category
+  fields:
+    name: terrestrial
+    keywords: приемники цифрового тв
+- model: marketplace.category
+  fields:
+    name: satellite
+    keywords: спутниковые ресиверы
+- model: marketplace.category
+  fields:
+    name: aerial
+    keywords: тв-антенны
+- model: marketplace.category
+  fields:
+    name: projectors
+    keywords: проекторы
+- model: marketplace.category
+  fields:
+    name: wallmount
+    keywords: кронштейны
+- model: marketplace.category
+  fields:
+    name: media
+    keywords: медиаплееры и тв-приставки
+- model: marketplace.category
+  fields:
+    name: dvd
+    keywords: dvd плееры
+- model: marketplace.category
+  fields:
+    name: bluray_player
+    keywords: blu-ray проигрыватели
+- model: marketplace.category
+  fields:
+    name: desktoppc
+    keywords: компьютеры, микро-пк (hdmi-стики)
+- model: marketplace.category
+  fields:
+    name: soundbar
+    keywords: саундбары и домашние кинотеатры
+- model: marketplace.category
+  fields:
+    name: tvaccessory
+    keywords: аксессуары для тв
+- model: marketplace.category
+  fields:
+    name: keyboards
+    keywords: игровые клавиатуры, клавиатуры, клавиатуры для smart tv
+- model: marketplace.category
+  fields:
+    name: remote
+    keywords: универсальные пульты ду
+- model: marketplace.category
+  fields:
+    name: projectorscreen
+    keywords: проекционные экраны
+- model: marketplace.category
+  fields:
+    name: tabletpc
+    keywords: планшеты
+- model: marketplace.category
+  fields:
+    name: ebook
+    keywords: электронные книги
+- model: marketplace.category
+  fields:
+    name: tabletcase
+    keywords: чехлы для планшетов
+- model: marketplace.category
+  fields:
+    name: wirelessadapter
+    keywords: 3g-модемы, 4g и 3g-модемы, беспроводные адаптеры
+- model: marketplace.category
+  fields:
+    name: ebookcover
+    keywords: обложки для электронных книг
+- model: marketplace.category
+  fields:
+    name: portableamp
+    keywords: bluetooth аудиоресиверы, настольные усилители для наушников, портативные
+      усилители для наушников
+- model: marketplace.category
+  fields:
+    name: headphones_accs
+    keywords: аксессуары для портативной аудиотехники
+- model: marketplace.category
+  fields:
+    name: player
+    keywords: hi-fi плееры, mp3-плееры
+- model: marketplace.category
+  fields:
+    name: wspeaker
+    keywords: bluetooth колонки, умные колонки
+- model: marketplace.category
+  fields:
+    name: microphones
+    keywords: микрофоны
+- model: marketplace.category
+  fields:
+    name: sound
+    keywords: компьютерная акустика, мультимедиа акустика
+- model: marketplace.category
+  fields:
+    name: radio
+    keywords: радиоприемники
+- model: marketplace.category
+  fields:
+    name: hifiaudio
+    keywords: колонки для вечеринок (патибоксы), музыкальные центры
+- model: marketplace.category
+  fields:
+    name: clockradio
+    keywords: настенные и настольные часы
+- model: marketplace.category
+  fields:
+    name: portaudio
+    keywords: бумбоксы и магнитолы
+- model: marketplace.category
+  fields:
+    name: voicerecorder
+    keywords: диктофоны
+- model: marketplace.category
+  fields:
+    name: hifisound
+    keywords: hi-fi акустика
+- model: marketplace.category
+  fields:
+    name: insthornacoust
+    keywords: инсталляционная и рупорная акустика
+- model: marketplace.category
+  fields:
+    name: recievers
+    keywords: av-ресиверы и процессоры, ламповые усилители, усилители, предусилители
+      и стереоресиверы
+- model: marketplace.category
+  fields:
+    name: cd_player
+    keywords: cd-проигрыватели
+- model: marketplace.category
+  fields:
+    name: network_player
+    keywords: сетевые проигрыватели
+- model: marketplace.category
+  fields:
+    name: turntable
+    keywords: виниловые проигрыватели
+- model: marketplace.category
+  fields:
+    name: phonopreamps
+    keywords: фонокорректоры
+- model: marketplace.category
+  fields:
+    name: turntableaccess
+    keywords: звукосниматели и тонармы
+- model: marketplace.category
+  fields:
+    name: photo
+    keywords: фотоаппараты
+- model: marketplace.category
+  fields:
+    name: lens
+    keywords: объективы
+- model: marketplace.category
+  fields:
+    name: actioncamera
+    keywords: экшен-камеры
+- model: marketplace.category
+  fields:
+    name: actioncamera_acs
+    keywords: аксессуары и крепления для экшен-камер
+- model: marketplace.category
+  fields:
+    name: video
+    keywords: видеокамеры
+- model: marketplace.category
+  fields:
+    name: printers
+    keywords: мобильные фотопринтеры, принтеры и мфу, фотопринтеры
+- model: marketplace.category
+  fields:
+    name: tripod
+    keywords: штативы
+- model: marketplace.category
+  fields:
+    name: tripod_acs
+    keywords: aксессуары для штативов и стабилизаторов
+- model: marketplace.category
+  fields:
+    name: photoframe
+    keywords: цифровые фоторамки
+- model: marketplace.category
+  fields:
+    name: flashes
+    keywords: вспышки и лампы
+- model: marketplace.category
+  fields:
+    name: battery
+    keywords: батарейки, аккумуляторы, зарядные
+- model: marketplace.category
+  fields:
+    name: photo_acs
+    keywords: дистанционное управление для фототехники
+- model: marketplace.category
+  fields:
+    name: case
+    keywords: сумки и рюкзаки для фото/видео
+- model: marketplace.category
+  fields:
+    name: cardreaders
+    keywords: карт-ридеры
+- model: marketplace.category
+  fields:
+    name: batteries
+    keywords: аккумуляторы
+- model: marketplace.category
+  fields:
+    name: photofilter
+    keywords: аксессуары для объективов
+- model: marketplace.category
+  fields:
+    name: acs_photo
+    keywords: аксессуары для фото и видеокамер
+- model: marketplace.category
+  fields:
+    name: photomaterial
+    keywords: фотоматериалы и химикаты
+- model: marketplace.category
+  fields:
+    name: photo_albums
+    keywords: фотоальбомы
+- model: marketplace.category
+  fields:
+    name: console
+    keywords: игровые приставки
+- model: marketplace.category
+  fields:
+    name: games
+    keywords: видеоигры для консолей, игры для приставок
+- model: marketplace.category
+  fields:
+    name: pcgames
+    keywords: видеоигры для пк, игры для пк
+- model: marketplace.category
+  fields:
+    name: paymentcard
+    keywords: карты оплаты и подписки
+- model: marketplace.category
+  fields:
+    name: virtualreality
+    keywords: очки виртуальной реальности
+- model: marketplace.category
+  fields:
+    name: controllers
+    keywords: геймпады для playstation, геймпады для xbox, геймпады с держателем для
+      телефона, зарядные устройства, игровые контроллеры и аксессуары, чехлы для приставок
+- model: marketplace.category
+  fields:
+    name: office_chair
+    keywords: геймерские кресла, игровые кресла, офисные кресла и стулья, офисные
+      кресла, стулья
+- model: marketplace.category
+  fields:
+    name: mouse
+    keywords: игровые мыши, мыши
+- model: marketplace.category
+  fields:
+    name: gamemerch
+    keywords: игровая атрибутика, наклейки, светильники для фанатов, фигурки-держатели
+      для геймпадов и смартфонов
+- model: marketplace.category
+  fields:
+    name: robots
+    keywords: роботы, трансформеры, фигурки, тематические фигурки
+- model: marketplace.category
+  fields:
+    name: heart_rate
+    keywords: пульсоксиметры, пульсометры, пульсометры, пульсоксиметры
+- model: marketplace.category
+  fields:
+    name: replacementstrap
+    keywords: сменные ремешки и браслеты
+- model: marketplace.category
+  fields:
+    name: scales
+    keywords: напольные весы, умные весы
+- model: marketplace.category
+  fields:
+    name: sleepgood
+    keywords: гаджеты для сна
+- model: marketplace.category
+  fields:
+    name: nitrate
+    keywords: нитратомеры, дозиметры, экотестеры
+- model: marketplace.category
+  fields:
+    name: smoke
+    keywords: электронные парогенераторы
+- model: marketplace.category
+  fields:
+    name: smart_home
+    keywords: умные розетки, умный дом
+- model: marketplace.category
+  fields:
+    name: thermostat
+    keywords: терморегуляторы, умные терморегуляторы
+- model: marketplace.category
+  fields:
+    name: lightbulb
+    keywords: лампочки, умные лампочки
+- model: marketplace.category
+  fields:
+    name: ipcamera
+    keywords: ip-камеры
+- model: marketplace.category
+  fields:
+    name: videodoorphone
+    keywords: видеодомофоны, умные вызывные панели
+- model: marketplace.category
+  fields:
+    name: cctvcamera
+    keywords: камеры cctv
+- model: marketplace.category
+  fields:
+    name: dvr
+    keywords: видеорегистраторы
+- model: marketplace.category
+  fields:
+    name: camera_traps
+    keywords: фотоловушки
+- model: marketplace.category
+  fields:
+    name: electric_scooter
+    keywords: электросамокаты и электроскутеры, электроскутеры
+- model: marketplace.category
+  fields:
+    name: segway
+    keywords: гироциклы
+- model: marketplace.category
+  fields:
+    name: electrobike
+    keywords: электровелосипеды
+- model: marketplace.category
+  fields:
+    name: dect
+    keywords: беспроводные ip-телефоны, радиотелефоны dect
+- model: marketplace.category
+  fields:
+    name: phone
+    keywords: проводные ip-телефоны, проводные телефоны
+- model: marketplace.category
+  fields:
+    name: fax
+    keywords: факсы
+- model: marketplace.category
+  fields:
+    name: portableradio
+    keywords: портативные радиостанции
+- model: marketplace.category
+  fields:
+    name: synthandworkst
+    keywords: синтезаторы и рабочие станции
+- model: marketplace.category
+  fields:
+    name: audiointerface
+    keywords: аудиоинтерфейсы
+- model: marketplace.category
+  fields:
+    name: mixing_consoles
+    keywords: микшерные пульты и консоли
+- model: marketplace.category
+  fields:
+    name: concertacoustics
+    keywords: концертная акустика
+- model: marketplace.category
+  fields:
+    name: studio_monitor
+    keywords: студийные мониторы
+- model: marketplace.category
+  fields:
+    name: guitarcombo
+    keywords: гитарные комбоусилители
+- model: marketplace.category
+  fields:
+    name: acoustic_acs
+    keywords: аксессуары для акустики и микрофонов
+- model: marketplace.category
+  fields:
+    name: guitar
+    keywords: гитары
+- model: marketplace.category
+  fields:
+    name: optic
+    keywords: бинокли, подзорные трубы и приборы ночного видения
+- model: marketplace.category
+  fields:
+    name: telescope
+    keywords: телескопы
+- model: marketplace.category
+  fields:
+    name: notebook
+    keywords: игровые ноутбуки, ноутбуки
+- model: marketplace.category
+  fields:
+    name: monoblock
+    keywords: моноблоки
+- model: marketplace.category
+  fields:
+    name: display
+    keywords: все мониторы, игровые мониторы, профессиональные мониторы
+- model: marketplace.category
+  fields:
+    name: videocard
+    keywords: видеокарты
+- model: marketplace.category
+  fields:
+    name: cpu
+    keywords: процессоры
+- model: marketplace.category
+  fields:
+    name: motherboard
+    keywords: материнские платы
+- model: marketplace.category
+  fields:
+    name: dram
+    keywords: оперативная память
+- model: marketplace.category
+  fields:
+    name: fan
+    keywords: системы охлаждения
+- model: marketplace.category
+  fields:
+    name: ssd
+    keywords: ssd
+- model: marketplace.category
+  fields:
+    name: hdd
+    keywords: жесткие диски
+- model: marketplace.category
+  fields:
+    name: chassis
+    keywords: корпуса
+- model: marketplace.category
+  fields:
+    name: powersupply
+    keywords: блоки питания
+- model: marketplace.category
+  fields:
+    name: soundcard
+    keywords: звуковые карты
+- model: marketplace.category
+  fields:
+    name: networkadapter
+    keywords: сетевые адаптеры, сетевые адаптеры (ethernet)
+- model: marketplace.category
+  fields:
+    name: optical
+    keywords: оптические приводы
+- model: marketplace.category
+  fields:
+    name: tvtuner
+    keywords: тв-тюнеры и карты видеозахвата
+- model: marketplace.category
+  fields:
+    name: scanner
+    keywords: сканеры
+- model: marketplace.category
+  fields:
+    name: officeequip_acs
+    keywords: аксессуары для оргтехники
+- model: marketplace.category
+  fields:
+    name: tablets
+    keywords: графические планшеты
+- model: marketplace.category
+  fields:
+    name: stylus_pens
+    keywords: стилусы и сменные наконечники
+- model: marketplace.category
+  fields:
+    name: cartridges
+    keywords: картриджи, картриджи для принтеров
+- model: marketplace.category
+  fields:
+    name: photopaper
+    keywords: бумага и материалы для печати, офисная бумага, самоклеящаяся бумага,
+      термотрансферная бумага, фотобумага
+- model: marketplace.category
+  fields:
+    name: consumablespaper
+    keywords: расходные материалы для ламинаторов и брошюровщиков
+- model: marketplace.category
+  fields:
+    name: laminator
+    keywords: ламинаторы
+- model: marketplace.category
+  fields:
+    name: bindingmachines
+    keywords: брошюровщики
+- model: marketplace.category
+  fields:
+    name: matrixprinter
+    keywords: матричные принтеры
+- model: marketplace.category
+  fields:
+    name: 3dprinter
+    keywords: 3d-принтеры
+- model: marketplace.category
+  fields:
+    name: 3d_pen
+    keywords: 3d-ручки
+- model: marketplace.category
+  fields:
+    name: 3d_filament
+    keywords: расходные материалы для 3d-печати
+- model: marketplace.category
+  fields:
+    name: peripheralkits
+    keywords: наборы периферии (клавиатура + мышь)
+- model: marketplace.category
+  fields:
+    name: mousepad
+    keywords: коврики для мыши
+- model: marketplace.category
+  fields:
+    name: externalhdd
+    keywords: внешние накопители (hdd и ssd)
+- model: marketplace.category
+  fields:
+    name: usbflash
+    keywords: флешки usb
+- model: marketplace.category
+  fields:
+    name: hddbox
+    keywords: боксы для накопителей
+- model: marketplace.category
+  fields:
+    name: nas
+    keywords: сетевые накопители (nas)
+- model: marketplace.category
+  fields:
+    name: opticaldisk
+    keywords: оптические диски
+- model: marketplace.category
+  fields:
+    name: usbhub
+    keywords: usb-хабы и док-станции
+- model: marketplace.category
+  fields:
+    name: webcams
+    keywords: веб-камеры
+- model: marketplace.category
+  fields:
+    name: wrouter
+    keywords: 4g маршрутизаторы, беспроводные маршрутизаторы
+- model: marketplace.category
+  fields:
+    name: wirelessap
+    keywords: беспроводные точки доступа, усилители wi-fi
+- model: marketplace.category
+  fields:
+    name: switch
+    keywords: коммутаторы
+- model: marketplace.category
+  fields:
+    name: dslmodem
+    keywords: dsl-модемы и маршрутизаторы
+- model: marketplace.category
+  fields:
+    name: household_tools
+    keywords: инструмент для обжимки кабелей, строительный, слесарный, монтажный инструмент
+- model: marketplace.category
+  fields:
+    name: powerline
+    keywords: сети по электропроводке (powerline)
+- model: marketplace.category
+  fields:
+    name: wantenna
+    keywords: антенны беспроводной связи
+- model: marketplace.category
+  fields:
+    name: backpack
+    keywords: рюкзаки, рюкзаки для ноутбуков, туристические рюкзаки, школьные рюкзаки
+- model: marketplace.category
+  fields:
+    name: notebookcase
+    keywords: женские и мужские сумки, сумки для ноутбуков
+- model: marketplace.category
+  fields:
+    name: laptopstand
+    keywords: охлаждающие подставки, подставки для ноутбуков, планшетов и телефонов
+- model: marketplace.category
+  fields:
+    name: notebatteries
+    keywords: аккумуляторы для ноутбуков
+- model: marketplace.category
+  fields:
+    name: computer_cleanin
+    keywords: чистящие принадлежности для компьютерной техники
+- model: marketplace.category
+  fields:
+    name: ups
+    keywords: источники бесперебойного питания
+- model: marketplace.category
+  fields:
+    name: voltageregulator
+    keywords: сетевые фильтры-удлинители, стабилизаторы и сетевые фильтры, стабилизаторы
+      напряжения и сетевые фильтры, удлинители
+- model: marketplace.category
+  fields:
+    name: ups_battery
+    keywords: аккумуляторы для ибп
+- model: marketplace.category
+  fields:
+    name: antivirus
+    keywords: антивирусы и безопасность
+- model: marketplace.category
+  fields:
+    name: refrigerator
+    keywords: морозильники, холодильники
+- model: marketplace.category
+  fields:
+    name: washingmachine
+    keywords: стиральные машины, сушильные машины
+- model: marketplace.category
+  fields:
+    name: hoods
+    keywords: вытяжки
+- model: marketplace.category
+  fields:
+    name: cooker
+    keywords: кухонные плиты
+- model: marketplace.category
+  fields:
+    name: dishwasher
+    keywords: посудомоечные машины
+- model: marketplace.category
+  fields:
+    name: wine_cabinets
+    keywords: винные шкафы
+- model: marketplace.category
+  fields:
+    name: largehomeapp_acs
+    keywords: аксессуары для встраиваемой техники, аксессуары для крупной бытовой
+      и встраиваемой техники, аксессуары для крупной бытовой техники
+- model: marketplace.category
+  fields:
+    name: hob_cooker
+    keywords: варочные панели
+- model: marketplace.category
+  fields:
+    name: oven_cooker
+    keywords: духовые шкафы
+- model: marketplace.category
+  fields:
+    name: microvawe
+    keywords: микроволновые печи
+- model: marketplace.category
+  fields:
+    name: coffee
+    keywords: капсульные кофеварки, кофеварки, кофемашины, кофемашины и кофеварки
+- model: marketplace.category
+  fields:
+    name: disposer
+    keywords: измельчители пищевых отходов
+- model: marketplace.category
+  fields:
+    name: vacuumcleaner
+    keywords: пылесосы, стеклоочистители, хозяйственные пылесосы
+- model: marketplace.category
+  fields:
+    name: robotcleaner
+    keywords: роботы для мытья окон, роботы-пылесосы
+- model: marketplace.category
+  fields:
+    name: steamcleaner
+    keywords: гладильные станции и прессы, отпариватели, пароочистители
+- model: marketplace.category
+  fields:
+    name: electric_mop
+    keywords: электрошвабры, паровые швабры и полотеры
+- model: marketplace.category
+  fields:
+    name: sweeper
+    keywords: садовые подметальные машины, электровеники
+- model: marketplace.category
+  fields:
+    name: mop
+    keywords: швабры и аксессуары
+- model: marketplace.category
+  fields:
+    name: vacuum_acs
+    keywords: аксессуары для пароочистителей, аксессуары для пылесосов, аксессуары
+      для пылесосов, пароочистителей
+- model: marketplace.category
+  fields:
+    name: iron
+    keywords: утюги
+- model: marketplace.category
+  fields:
+    name: sewingmachines
+    keywords: вышивальные и швейно-вышивальные машины, швейные машины
+- model: marketplace.category
+  fields:
+    name: overlock
+    keywords: оверлоки
+- model: marketplace.category
+  fields:
+    name: lintshaver
+    keywords: машинки для удаления катышков
+- model: marketplace.category
+  fields:
+    name: shoes_dryer
+    keywords: электрические сушилки для обуви
+- model: marketplace.category
+  fields:
+    name: climate_acs
+    keywords: аксессуары для климатической техники, аксессуары для утюгов, гладильных
+      систем
+- model: marketplace.category
+  fields:
+    name: conditioners
+    keywords: кондиционеры
+- model: marketplace.category
+  fields:
+    name: waterheater
+    keywords: водонагреватели
+- model: marketplace.category
+  fields:
+    name: heater
+    keywords: обогреватели
+- model: marketplace.category
+  fields:
+    name: humidifier
+    keywords: увлажнители воздуха
+- model: marketplace.category
+  fields:
+    name: boiler
+    keywords: отопительные котлы
+- model: marketplace.category
+  fields:
+    name: blower
+    keywords: вентиляторы и охладители воздуха
+- model: marketplace.category
+  fields:
+    name: airpurifier
+    keywords: очистители и мойки воздуха
+- model: marketplace.category
+  fields:
+    name: exhaustfan
+    keywords: вытяжные вентиляторы, приточные и вытяжные вентиляторы, приточные проветриватели
+- model: marketplace.category
+  fields:
+    name: meteostations
+    keywords: метеостанции, гигрометры и термогигрометры
+- model: marketplace.category
+  fields:
+    name: electrofireplace
+    keywords: электрокамины и биокамины
+- model: marketplace.category
+  fields:
+    name: dehumidifier
+    keywords: осушители воздуха
+- model: marketplace.category
+  fields:
+    name: insect_killer
+    keywords: уничтожители насекомых, электронные уничтожители насекомых
+- model: marketplace.category
+  fields:
+    name: multicooker
+    keywords: мультиварки
+- model: marketplace.category
+  fields:
+    name: tabletop_cooker
+    keywords: настольные плиты
+- model: marketplace.category
+  fields:
+    name: roaster
+    keywords: мини-печи
+- model: marketplace.category
+  fields:
+    name: toaster
+    keywords: тостеры
+- model: marketplace.category
+  fields:
+    name: waffle
+    keywords: вафельницы
+- model: marketplace.category
+  fields:
+    name: sandwichers
+    keywords: сэндвичницы
+- model: marketplace.category
+  fields:
+    name: aerogrill
+    keywords: аэрогрили
+- model: marketplace.category
+  fields:
+    name: breadmaker
+    keywords: хлебопечки
+- model: marketplace.category
+  fields:
+    name: electricgrill
+    keywords: электрогрили
+- model: marketplace.category
+  fields:
+    name: electrobarbecue
+    keywords: электрошашлычницы
+- model: marketplace.category
+  fields:
+    name: steamers
+    keywords: пароварки
+- model: marketplace.category
+  fields:
+    name: yogurtmaker
+    keywords: йогуртницы и мороженицы
+- model: marketplace.category
+  fields:
+    name: fryer
+    keywords: фритюрницы
+- model: marketplace.category
+  fields:
+    name: crepemaker
+    keywords: блинницы
+- model: marketplace.category
+  fields:
+    name: eggmaker
+    keywords: яйцеварки
+- model: marketplace.category
+  fields:
+    name: kitchen_acs
+    keywords: аксессуары для блендеров, комбайнов, мясорубок, аксессуары для вакуумных
+      упаковщиков, аксессуары для кофемашин, кофеварок, чайников, аксессуары для кухонной
+      техники, аксессуары для мультиварок, аэрогрилей, сменные панели для сэндвичниц
+- model: marketplace.category
+  fields:
+    name: kettle
+    keywords: электрочайники и термопоты
+- model: marketplace.category
+  fields:
+    name: kettles
+    keywords: чайники
+- model: marketplace.category
+  fields:
+    name: teapot
+    keywords: заварочные чайники, кофеварки, френч-прессы
+- model: marketplace.category
+  fields:
+    name: coffeegrinders
+    keywords: кофемолки
+- model: marketplace.category
+  fields:
+    name: milkfrother
+    keywords: вспениватели молока
+- model: marketplace.category
+  fields:
+    name: coffeejava
+    keywords: весь кофе, все капсулы nespresso, капсулы lavazza, кофе, кофе без кофеина,
+      кофе в дрип-пакетиках, кофе в зернах, кофе в капсулах, кофе в чалдах, молотый
+      кофе, оригинальные капсулы nespresso, растворимый кофе
+- model: marketplace.category
+  fields:
+    name: hot_drinks
+    keywords: кружки, чашки, стаканы для горячих напитков, посуда для кофейных напитков
+- model: marketplace.category
+  fields:
+    name: blender
+    keywords: блендеры
+- model: marketplace.category
+  fields:
+    name: foodprocessors
+    keywords: кухонные комбайны, машины и планетарные миксеры
+- model: marketplace.category
+  fields:
+    name: meatgrinder
+    keywords: мясорубки
+- model: marketplace.category
+  fields:
+    name: mixer
+    keywords: ручные миксеры
+- model: marketplace.category
+  fields:
+    name: juicer
+    keywords: соковыжималки
+- model: marketplace.category
+  fields:
+    name: food_dehydrator
+    keywords: сушилки для овощей и фруктов
+- model: marketplace.category
+  fields:
+    name: kitchenscales
+    keywords: кухонные весы
+- model: marketplace.category
+  fields:
+    name: slicer
+    keywords: ломтерезки
+- model: marketplace.category
+  fields:
+    name: chopper
+    keywords: измельчители (чопперы)
+- model: marketplace.category
+  fields:
+    name: vacuummachine
+    keywords: вакуумные упаковщики
+- model: marketplace.category
+  fields:
+    name: marinator
+    keywords: маринаторы
+- model: marketplace.category
+  fields:
+    name: hairclipper
+    keywords: машинки для стрижки волос
+- model: marketplace.category
+  fields:
+    name: styler
+    keywords: плойки, стайлеры, щипцы, расчески с ионизацией
+- model: marketplace.category
+  fields:
+    name: hairdryer
+    keywords: фены
+- model: marketplace.category
+  fields:
+    name: toothbrush
+    keywords: электрические зубные щетки и ирригаторы
+- model: marketplace.category
+  fields:
+    name: shaver
+    keywords: мужские электробритвы
+- model: marketplace.category
+  fields:
+    name: ladyshaver
+    keywords: женские электробритвы и эпиляторы
+- model: marketplace.category
+  fields:
+    name: footbath
+    keywords: гидромассажные ванночки
+- model: marketplace.category
+  fields:
+    name: manicure
+    keywords: аппараты для маникюра и педикюра, маникюрные и педикюрные наборы
+- model: marketplace.category
+  fields:
+    name: beauty_acs
+    keywords: аксессуары для зубных щеток и ирригаторов, аксессуары для приборов по
+      уходу за кожей, аксессуары для электробритв и машинок, аксессуары к товарам
+      для красоты и здоровья
+- model: marketplace.category
+  fields:
+    name: inhaler
+    keywords: ингаляторы
+- model: marketplace.category
+  fields:
+    name: tonometers
+    keywords: тонометры
+- model: marketplace.category
+  fields:
+    name: medthermometer
+    keywords: термометры
+- model: marketplace.category
+  fields:
+    name: glucosemeter
+    keywords: глюкометры
+- model: marketplace.category
+  fields:
+    name: contact_lense
+    keywords: контактные линзы
+- model: marketplace.category
+  fields:
+    name: solutionlenses
+    keywords: растворы для линз
+- model: marketplace.category
+  fields:
+    name: linendryer
+    keywords: сушилки для белья, уличные сушки для белья
+- model: marketplace.category
+  fields:
+    name: ironingboard
+    keywords: гладильные доски
+- model: marketplace.category
+  fields:
+    name: washingpowder
+    keywords: детские стиральные порошки, средства для стирки и ухода за бельем
+- model: marketplace.category
+  fields:
+    name: dishwashertablet
+    keywords: средства для посудомоечных машин
+- model: marketplace.category
+  fields:
+    name: razorsandblades
+    keywords: бритвенные станки и лезвия, сменные лезвия для бритвенных станков
+- model: marketplace.category
+  fields:
+    name: drills
+    keywords: дрели-миксеры, электродрели и строительные миксеры
+- model: marketplace.category
+  fields:
+    name: rotaryhammers
+    keywords: перфораторы
+- model: marketplace.category
+  fields:
+    name: tool_kits
+    keywords: наборы инструментов, наборы ручных инструментов
+- model: marketplace.category
+  fields:
+    name: screwdriver
+    keywords: шуруповерты, гайковерты, электроотвертки
+- model: marketplace.category
+  fields:
+    name: tools_accum
+    keywords: аккумуляторы и зарядные устройства для инструмента
+- model: marketplace.category
+  fields:
+    name: angle_grinder
+    keywords: угловые шлифмашины (болгарки)
+- model: marketplace.category
+  fields:
+    name: grinder
+    keywords: мультифункциональные шлифмашины, полировальные машины, шлифмашины
+- model: marketplace.category
+  fields:
+    name: electric_saw
+    keywords: дисковые пилы, сабельные пилы
+- model: marketplace.category
+  fields:
+    name: fretsaw
+    keywords: лобзики
+- model: marketplace.category
+  fields:
+    name: plane
+    keywords: рубанки
+- model: marketplace.category
+  fields:
+    name: toolbox
+    keywords: органайзеры и системы хранения инструментов
+- model: marketplace.category
+  fields:
+    name: woodrouter
+    keywords: фрезеры
+- model: marketplace.category
+  fields:
+    name: industrialdryer
+    keywords: промышленные фены
+- model: marketplace.category
+  fields:
+    name: hotgluegun
+    keywords: термоклеевые пистолеты
+- model: marketplace.category
+  fields:
+    name: engraver
+    keywords: граверы
+- model: marketplace.category
+  fields:
+    name: electricspraygun
+    keywords: краскораспылители, электрические краскопульты
+- model: marketplace.category
+  fields:
+    name: wallchaser
+    keywords: штроборезы
+- model: marketplace.category
+  fields:
+    name: tilecutter
+    keywords: плиткорезные станки, плиткорезы
+- model: marketplace.category
+  fields:
+    name: solderingiron
+    keywords: паяльники и паяльные лампы
+- model: marketplace.category
+  fields:
+    name: pipe_welding
+    keywords: аппараты для сварки труб
+- model: marketplace.category
+  fields:
+    name: jackhammer
+    keywords: отбойные молотки, электрические отбойные молотки
+- model: marketplace.category
+  fields:
+    name: metal_cutter
+    keywords: электрические ножницы по металлу
+- model: marketplace.category
+  fields:
+    name: powertoolset
+    keywords: наборы электроинструментов
+- model: marketplace.category
+  fields:
+    name: nailer
+    keywords: скобозабиватели, гвоздезабиватели, степлеры
+- model: marketplace.category
+  fields:
+    name: thermal_imaging
+    keywords: диагностические тепловизоры и пирометры
+- model: marketplace.category
+  fields:
+    name: bits_heads
+    keywords: биты, головки, насадки, держатели
+- model: marketplace.category
+  fields:
+    name: drillbits
+    keywords: сверла, буры, зенкеры
+- model: marketplace.category
+  fields:
+    name: chiselshamdrills
+    keywords: зубила для перфораторов и отбойных молотков
+- model: marketplace.category
+  fields:
+    name: saw_blades
+    keywords: пильные диски
+- model: marketplace.category
+  fields:
+    name: sawzall_blades
+    keywords: пильные полотна
+- model: marketplace.category
+  fields:
+    name: cutting_circle
+    keywords: отрезные диски
+- model: marketplace.category
+  fields:
+    name: sanding_disk
+    keywords: шлифовальные диски, насадки, листы
+- model: marketplace.category
+  fields:
+    name: grinding_cups
+    keywords: шлифовальные чашки
+- model: marketplace.category
+  fields:
+    name: milling_cutters
+    keywords: фрезы
+- model: marketplace.category
+  fields:
+    name: brush_electro
+    keywords: щетки для электроинструмента
+- model: marketplace.category
+  fields:
+    name: holesaw
+    keywords: коронки
+- model: marketplace.category
+  fields:
+    name: engraveraccs
+    keywords: оснастка для граверов
+- model: marketplace.category
+  fields:
+    name: stirring_nozzles
+    keywords: насадки для размешивания растворов
+- model: marketplace.category
+  fields:
+    name: staples
+    keywords: скобы, штифты, гвозди забивные
+- model: marketplace.category
+  fields:
+    name: glue_stick
+    keywords: клеевые и пластиковые стержни
+- model: marketplace.category
+  fields:
+    name: powertool_chucks
+    keywords: патроны и переходники для электроинструмента
+- model: marketplace.category
+  fields:
+    name: powertools_sp
+    keywords: запчасти для электроинструмента
+- model: marketplace.category
+  fields:
+    name: industrialdr_acs
+    keywords: оснастка для строительных фенов
+- model: marketplace.category
+  fields:
+    name: weldinginverter
+    keywords: сварочные аппараты
+- model: marketplace.category
+  fields:
+    name: compressor
+    keywords: компрессоры
+- model: marketplace.category
+  fields:
+    name: laserlevel
+    keywords: лазерные нивелиры
+- model: marketplace.category
+  fields:
+    name: heat_gun
+    keywords: тепловые пушки
+- model: marketplace.category
+  fields:
+    name: powerstations
+    keywords: генераторы
+- model: marketplace.category
+  fields:
+    name: concrete
+    keywords: бетономешалки
+- model: marketplace.category
+  fields:
+    name: weldingmask
+    keywords: сварочные маски
+- model: marketplace.category
+  fields:
+    name: barrow
+    keywords: садовые тачки, строительные тачки
+- model: marketplace.category
+  fields:
+    name: stairandladder
+    keywords: лестницы и стремянки
+- model: marketplace.category
+  fields:
+    name: laserdistmeter
+    keywords: лазерные дальномеры
+- model: marketplace.category
+  fields:
+    name: measuringacs
+    keywords: штативы и аксессуары для измерительных приборов
+- model: marketplace.category
+  fields:
+    name: platecompactor
+    keywords: виброплиты
+- model: marketplace.category
+  fields:
+    name: powercutter
+    keywords: электро- и бензорезы
+- model: marketplace.category
+  fields:
+    name: motopump
+    keywords: мотопомпы
+- model: marketplace.category
+  fields:
+    name: laminate
+    keywords: ламинат
+- model: marketplace.category
+  fields:
+    name: linoleum
+    keywords: линолеум
+- model: marketplace.category
+  fields:
+    name: vinyl_floor
+    keywords: виниловые полы
+- model: marketplace.category
+  fields:
+    name: tile
+    keywords: керамическая плитка, керамическая плитка, керамогранит, клинкерная плитка,
+      плитка, плитка для ванных комнат
+- model: marketplace.category
+  fields:
+    name: parquetboard
+    keywords: паркетная доска
+- model: marketplace.category
+  fields:
+    name: kitchensink
+    keywords: кухонные мойки, мойки
+- model: marketplace.category
+  fields:
+    name: faucet
+    keywords: смесители
+- model: marketplace.category
+  fields:
+    name: acs_faucet
+    keywords: комплектующие для смесителей
+- model: marketplace.category
+  fields:
+    name: bathtub
+    keywords: ванны
+- model: marketplace.category
+  fields:
+    name: bath_panels
+    keywords: экраны под ванну
+- model: marketplace.category
+  fields:
+    name: bathtub_frame
+    keywords: ножки, каркасы, опоры для ванн
+- model: marketplace.category
+  fields:
+    name: bathtub_curtain
+    keywords: шторки и карнизы для ванн и поддонов
+- model: marketplace.category
+  fields:
+    name: towelrail
+    keywords: полотенцесушители
+- model: marketplace.category
+  fields:
+    name: towelrail_acs
+    keywords: аксессуары и комплектующие для полотенцесушителей
+- model: marketplace.category
+  fields:
+    name: showerbox
+    keywords: душевые кабины
+- model: marketplace.category
+  fields:
+    name: washbasin
+    keywords: умывальники
+- model: marketplace.category
+  fields:
+    name: shower
+    keywords: гигиенические души, душевые системы и гарнитуры
+- model: marketplace.category
+  fields:
+    name: pedestal
+    keywords: пьедесталы для умывальников
+- model: marketplace.category
+  fields:
+    name: siphon
+    keywords: сифоны
+- model: marketplace.category
+  fields:
+    name: wcpan
+    keywords: унитазы
+- model: marketplace.category
+  fields:
+    name: toilet_cisterns
+    keywords: бачки для унитазов
+- model: marketplace.category
+  fields:
+    name: toilet_seat
+    keywords: сиденья и крышки для унитазов и биде
+- model: marketplace.category
+  fields:
+    name: bidet
+    keywords: биде
+- model: marketplace.category
+  fields:
+    name: installations
+    keywords: инсталляции для унитазов, раковин, биде и писсуаров
+- model: marketplace.category
+  fields:
+    name: acs_wcpan
+    keywords: комплектующие для унитазов, писсуаров, биде
+- model: marketplace.category
+  fields:
+    name: flushing_system
+    keywords: клавиши и системы смыва
+- model: marketplace.category
+  fields:
+    name: toilet_shower
+    keywords: электронные крышки-биде
+- model: marketplace.category
+  fields:
+    name: biotoilet
+    keywords: биотуалеты
+- model: marketplace.category
+  fields:
+    name: shower_trays
+    keywords: душевые поддоны
+- model: marketplace.category
+  fields:
+    name: dispenser
+    keywords: аксессуары для ванной и туалета
+- model: marketplace.category
+  fields:
+    name: bathtub_acs
+    keywords: ручки, сиденья и подголовники для ванн
+- model: marketplace.category
+  fields:
+    name: handsdryer
+    keywords: сушилки для рук, волос
+- model: marketplace.category
+  fields:
+    name: pump
+    keywords: насосы, насосы для систем отопления
+- model: marketplace.category
+  fields:
+    name: ventil_grates
+    keywords: вентиляционные решетки
+- model: marketplace.category
+  fields:
+    name: hydroaccum
+    keywords: гидроаккумуляторы, гидроаккумуляторы и расширительные баки, расширительные
+      баки
+- model: marketplace.category
+  fields:
+    name: tube_fitting
+    keywords: трубы, фитинг
+- model: marketplace.category
+  fields:
+    name: access_panel
+    keywords: сантехнические ревизионные люки
+- model: marketplace.category
+  fields:
+    name: metal_pipes
+    keywords: трубный металлопрокат, трубы водогазопроводные
+- model: marketplace.category
+  fields:
+    name: radiators
+    keywords: радиаторы отопления
+- model: marketplace.category
+  fields:
+    name: radiators_acs
+    keywords: аксессуары и комплектующие для радиаторов
+- model: marketplace.category
+  fields:
+    name: water_meter
+    keywords: счетчики воды
+- model: marketplace.category
+  fields:
+    name: wall_socket
+    keywords: дверные звонки, розетки, выключатели
+- model: marketplace.category
+  fields:
+    name: multimeter
+    keywords: мультиметры, токовые клещи, индикаторные отвертки
+- model: marketplace.category
+  fields:
+    name: luster
+    keywords: светильники, люстры, бра, споты
+- model: marketplace.category
+  fields:
+    name: electro_meter
+    keywords: счетчики электроэнергии
+- model: marketplace.category
+  fields:
+    name: therminsulation
+    keywords: теплоизоляция
+- model: marketplace.category
+  fields:
+    name: soundproofing
+    keywords: звуко- и виброизоляция помещений
+- model: marketplace.category
+  fields:
+    name: heatedfloor
+    keywords: теплые полы
+- model: marketplace.category
+  fields:
+    name: stove
+    keywords: дровяные камины, печи-камины, порталы
+- model: marketplace.category
+  fields:
+    name: heatcarrier
+    keywords: теплоносители и промывка систем отопления
+- model: marketplace.category
+  fields:
+    name: gas_meter
+    keywords: счетчики газа
+- model: marketplace.category
+  fields:
+    name: steeldoor
+    keywords: входные двери, металлические двери
+- model: marketplace.category
+  fields:
+    name: interiordoor
+    keywords: межкомнатные двери
+- model: marketplace.category
+  fields:
+    name: vynilwindows
+    keywords: окна пвх
+- model: marketplace.category
+  fields:
+    name: spraygun
+    keywords: краскопульты, пневматические краскопульты
+- model: marketplace.category
+  fields:
+    name: wrench
+    keywords: гайковерты, пневматические гайковерты
+- model: marketplace.category
+  fields:
+    name: pneumogrinder
+    keywords: пневматические шлифмашины, пневмошлифмашины
+- model: marketplace.category
+  fields:
+    name: woodworking
+    keywords: деревообрабатывающие и металлообрабатывающие станки
+- model: marketplace.category
+  fields:
+    name: benchgrinder
+    keywords: заточные станки (точила)
+- model: marketplace.category
+  fields:
+    name: buildingmaterial
+    keywords: общестроительные материалы
+- model: marketplace.category
+  fields:
+    name: plaster
+    keywords: штукатурка
+- model: marketplace.category
+  fields:
+    name: adhesivemix
+    keywords: клеевые смеси
+- model: marketplace.category
+  fields:
+    name: floormix
+    keywords: смеси для полов
+- model: marketplace.category
+  fields:
+    name: putty
+    keywords: шпатлевка
+- model: marketplace.category
+  fields:
+    name: primer
+    keywords: грунтовка
+- model: marketplace.category
+  fields:
+    name: drywall
+    keywords: гипсокартон
+- model: marketplace.category
+  fields:
+    name: wall_panels
+    keywords: стеновые панели
+- model: marketplace.category
+  fields:
+    name: wallpapers
+    keywords: обои
+- model: marketplace.category
+  fields:
+    name: decorative_stone
+    keywords: гибкий камень, декоративный камень и кирпич
+- model: marketplace.category
+  fields:
+    name: paints
+    keywords: краски и эмали
+- model: marketplace.category
+  fields:
+    name: lacquer
+    keywords: лаки, пропитки, антисептики
+- model: marketplace.category
+  fields:
+    name: roof
+    keywords: кровельные материалы
+- model: marketplace.category
+  fields:
+    name: bricks
+    keywords: кирпич
+- model: marketplace.category
+  fields:
+    name: caementum
+    keywords: цемент
+- model: marketplace.category
+  fields:
+    name: pavers
+    keywords: тротуарная плитка
+- model: marketplace.category
+  fields:
+    name: sheetmetal
+    keywords: листовой металлопрокат
+- model: marketplace.category
+  fields:
+    name: armatura
+    keywords: арматура
+- model: marketplace.category
+  fields:
+    name: rabitz
+    keywords: сетка-рабица, строительные сетки
+- model: marketplace.category
+  fields:
+    name: tree
+    keywords: елки
+- model: marketplace.category
+  fields:
+    name: xmaslights
+    keywords: световые деревья, фигуры, электрические гирлянды
+- model: marketplace.category
+  fields:
+    name: christmasdecor
+    keywords: елочные игрушки, украшения
+- model: marketplace.category
+  fields:
+    name: flowersbouquets
+    keywords: цветы, букеты
+- model: marketplace.category
+  fields:
+    name: stuffedtoys
+    keywords: мягкие игрушки
+- model: marketplace.category
+  fields:
+    name: giftbox
+    keywords: подарочные наборы
+- model: marketplace.category
+  fields:
+    name: fancydress
+    keywords: маскарадные костюмы
+- model: marketplace.category
+  fields:
+    name: party_acs
+    keywords: аксессуары для праздников
+- model: marketplace.category
+  fields:
+    name: certificates
+    keywords: сертификаты
+- model: marketplace.category
+  fields:
+    name: bath_furniture
+    keywords: мебель для ванных комнат
+- model: marketplace.category
+  fields:
+    name: toystorage
+    keywords: комоды для игрушек, корзины для белья, ящики, корзины, органайзеры
+- model: marketplace.category
+  fields:
+    name: air_fresheners
+    keywords: ароматизаторы и освежители воздуха
+- model: marketplace.category
+  fields:
+    name: toilet_paper
+    keywords: туалетная бумага, бумажные полотенца и салфетки
+- model: marketplace.category
+  fields:
+    name: waterfilter
+    keywords: картриджи для фильтра воды, фильтры и системы очистки воды
+- model: marketplace.category
+  fields:
+    name: trashbin
+    keywords: мусорки, урны, контейнеры для мусора
+- model: marketplace.category
+  fields:
+    name: trashbag
+    keywords: пакеты для мусора
+- model: marketplace.category
+  fields:
+    name: dishwashliquid
+    keywords: средства для мытья посуды
+- model: marketplace.category
+  fields:
+    name: food_packaging
+    keywords: фольга, пленка, пакеты
+- model: marketplace.category
+  fields:
+    name: officechair_acs
+    keywords: аксессуары и комплектующие для офисных кресел
+- model: marketplace.category
+  fields:
+    name: divan
+    keywords: диваны, офисные диваны
+- model: marketplace.category
+  fields:
+    name: table
+    keywords: офисные столы, письменные и компьютерные столы
+- model: marketplace.category
+  fields:
+    name: kitchen_table
+    keywords: кухонные столы и обеденные группы
+- model: marketplace.category
+  fields:
+    name: coffee_table
+    keywords: журнальные столики, столы-трансформеры и столы-книги
+- model: marketplace.category
+  fields:
+    name: chair
+    keywords: стулья для кухни и бара
+- model: marketplace.category
+  fields:
+    name: kitchenfurniture
+    keywords: готовые кухни
+- model: marketplace.category
+  fields:
+    name: interior_chair
+    keywords: кресла
+- model: marketplace.category
+  fields:
+    name: bed
+    keywords: детские кровати, кровати
+- model: marketplace.category
+  fields:
+    name: dresser
+    keywords: комоды, тумбы, тумбы под телевизор
+- model: marketplace.category
+  fields:
+    name: wall_units
+    keywords: мебель для прихожей, стенки, секции
+- model: marketplace.category
+  fields:
+    name: hangers
+    keywords: напольные и настенные вешалки, стойки для одежды
+- model: marketplace.category
+  fields:
+    name: wardrobes
+    keywords: шкафы
+- model: marketplace.category
+  fields:
+    name: dressing_table
+    keywords: туалетные столики
+- model: marketplace.category
+  fields:
+    name: babycotbed
+    keywords: детские кроватки, кроватки
+- model: marketplace.category
+  fields:
+    name: kidsdesk
+    keywords: детские столы и парты, столы и парты
+- model: marketplace.category
+  fields:
+    name: babydresser
+    keywords: детские комоды
+- model: marketplace.category
+  fields:
+    name: shelf
+    keywords: полки
+- model: marketplace.category
+  fields:
+    name: banquettes
+    keywords: банкетки, тумбы и полки для обуви
+- model: marketplace.category
+  fields:
+    name: puffs
+    keywords: пуфы
+- model: marketplace.category
+  fields:
+    name: airbed
+    keywords: надувная мебель
+- model: marketplace.category
+  fields:
+    name: beanbag
+    keywords: бескаркасная мебель
+- model: marketplace.category
+  fields:
+    name: orthobase
+    keywords: основания для кроватей
+- model: marketplace.category
+  fields:
+    name: massagechair
+    keywords: массажеры и массажные кресла, массажные кресла
+- model: marketplace.category
+  fields:
+    name: mattress
+    keywords: детские матрасы, матрасы
+- model: marketplace.category
+  fields:
+    name: pillow
+    keywords: ортопедические подушки
+- model: marketplace.category
+  fields:
+    name: pillows
+    keywords: декоративные подушки, классические подушки для сна, одеяла, подушки,
+      подушки для беременных
+- model: marketplace.category
+  fields:
+    name: plaid
+    keywords: пледы, покрывала
+- model: marketplace.category
+  fields:
+    name: bedlinen
+    keywords: детское постельное белье, комплекты для выписки, постельное белье
+- model: marketplace.category
+  fields:
+    name: mattresspad
+    keywords: наматрасники
+- model: marketplace.category
+  fields:
+    name: mobile_heater
+    keywords: электрогрелки, электроодеяла, электропростыни
+- model: marketplace.category
+  fields:
+    name: minitractor
+    keywords: мини-тракторы
+- model: marketplace.category
+  fields:
+    name: motoblock
+    keywords: мотоблоки и мотокультиваторы
+- model: marketplace.category
+  fields:
+    name: attachmentgarden
+    keywords: навесное оборудование для садовой техники
+- model: marketplace.category
+  fields:
+    name: engine
+    keywords: двигатели
+- model: marketplace.category
+  fields:
+    name: trimmers
+    keywords: триммеры
+- model: marketplace.category
+  fields:
+    name: mowers
+    keywords: аэраторы, скарификаторы, газонокосилки
+- model: marketplace.category
+  fields:
+    name: chainsaw
+    keywords: цепные пилы
+- model: marketplace.category
+  fields:
+    name: logsplitter
+    keywords: дровоколы
+- model: marketplace.category
+  fields:
+    name: washers
+    keywords: мойки высокого давления
+- model: marketplace.category
+  fields:
+    name: washers_acs
+    keywords: аксессуары для моек высокого давления
+- model: marketplace.category
+  fields:
+    name: hedgetrimmers
+    keywords: кусторезы и высоторезы
+- model: marketplace.category
+  fields:
+    name: gardenshredder
+    keywords: садовые измельчители
+- model: marketplace.category
+  fields:
+    name: snowblower
+    keywords: снегоуборщики
+- model: marketplace.category
+  fields:
+    name: leafblower
+    keywords: воздуходувки
+- model: marketplace.category
+  fields:
+    name: gardentool
+    keywords: садовый инструмент
+- model: marketplace.category
+  fields:
+    name: garden_hose
+    keywords: поливочные шланги
+- model: marketplace.category
+  fields:
+    name: watering_system
+    keywords: системы автоматического полива, распылители
+- model: marketplace.category
+  fields:
+    name: sprayer
+    keywords: опрыскиватели
+- model: marketplace.category
+  fields:
+    name: bath
+    keywords: бани, купели
+- model: marketplace.category
+  fields:
+    name: garden_house
+    keywords: беседки
+- model: marketplace.category
+  fields:
+    name: pool
+    keywords: бассейны
+- model: marketplace.category
+  fields:
+    name: pool_chem
+    keywords: химия для бассейнов
+- model: marketplace.category
+  fields:
+    name: pool_accs
+    keywords: аксессуары для бассейнов
+- model: marketplace.category
+  fields:
+    name: grill
+    keywords: мангалы, грили, барбекю
+- model: marketplace.category
+  fields:
+    name: bbq_accessories
+    keywords: принадлежности для барбекю, грилей, мангалов, решетки и шампуры
+- model: marketplace.category
+  fields:
+    name: bathstove
+    keywords: банные печи
+- model: marketplace.category
+  fields:
+    name: kidwallbars
+    keywords: детские уличные комплексы и горки, уличные комплексы и горки, шведские
+      стенки
+- model: marketplace.category
+  fields:
+    name: gardenswing
+    keywords: садовые качели
+- model: marketplace.category
+  fields:
+    name: trampoline
+    keywords: батуты
+- model: marketplace.category
+  fields:
+    name: trampoline_acs
+    keywords: аксессуары и комплектующие для батутов
+- model: marketplace.category
+  fields:
+    name: gardenfurniture
+    keywords: садовая мебель
+- model: marketplace.category
+  fields:
+    name: hammock
+    keywords: гамаки
+- model: marketplace.category
+  fields:
+    name: canopy_tents
+    keywords: шатры, тенты, шатры, тенты для торговли
+- model: marketplace.category
+  fields:
+    name: lounger
+    keywords: шезлонги
+- model: marketplace.category
+  fields:
+    name: street_umbrella
+    keywords: зонты садовые, пляжные
+- model: marketplace.category
+  fields:
+    name: insect_repellent
+    keywords: средства для защиты от насекомых
+- model: marketplace.category
+  fields:
+    name: garden_cabin
+    keywords: дачные бытовки и хозблоки
+- model: marketplace.category
+  fields:
+    name: outdoor_light
+    keywords: уличное освещение и прожекторы
+- model: marketplace.category
+  fields:
+    name: summer_shower
+    keywords: летние души
+- model: marketplace.category
+  fields:
+    name: outdoor_toilet
+    keywords: дачные туалеты
+- model: marketplace.category
+  fields:
+    name: wc_liquid
+    keywords: средства для биотуалетов, выгребных ям
+- model: marketplace.category
+  fields:
+    name: flowerpot
+    keywords: кашпо, горшки для растений
+- model: marketplace.category
+  fields:
+    name: desk_lamp
+    keywords: настольные лампы, торшеры, ночники
+- model: marketplace.category
+  fields:
+    name: houseplant
+    keywords: комнатные растения, флорариумы
+- model: marketplace.category
+  fields:
+    name: roller_blinds
+    keywords: рулонные шторы
+- model: marketplace.category
+  fields:
+    name: interiormirror
+    keywords: интерьерные зеркала
+- model: marketplace.category
+  fields:
+    name: curtain_rods
+    keywords: карнизы для штор
+- model: marketplace.category
+  fields:
+    name: extinguisher
+    keywords: огнетушители
+- model: marketplace.category
+  fields:
+    name: shoe_care
+    keywords: товары для ухода за обувью и одеждой
+- model: marketplace.category
+  fields:
+    name: cleaning_product
+    keywords: чистящие и моющие средства
+- model: marketplace.category
+  fields:
+    name: broomandscoop
+    keywords: веники, совки, щетки для пола
+- model: marketplace.category
+  fields:
+    name: household_gloves
+    keywords: перчатки хозяйственные
+- model: marketplace.category
+  fields:
+    name: rags_sponges
+    keywords: тряпки, губки, щетки, салфетки
+- model: marketplace.category
+  fields:
+    name: pan
+    keywords: сковороды, сотейники
+- model: marketplace.category
+  fields:
+    name: saucepan
+    keywords: кастрюли
+- model: marketplace.category
+  fields:
+    name: kazan
+    keywords: казаны
+- model: marketplace.category
+  fields:
+    name: stewingdish
+    keywords: утятницы, тажины
+- model: marketplace.category
+  fields:
+    name: steamer
+    keywords: пароварки, мантоварки
+- model: marketplace.category
+  fields:
+    name: pressure_cooker
+    keywords: скороварки
+- model: marketplace.category
+  fields:
+    name: pots
+    keywords: чугунки, горшочки
+- model: marketplace.category
+  fields:
+    name: fondue
+    keywords: мармиты, фондю
+- model: marketplace.category
+  fields:
+    name: breadpan
+    keywords: формы для выпечки, противни
+- model: marketplace.category
+  fields:
+    name: lids
+    keywords: диски для индукционной плиты, крышки для посуды
+- model: marketplace.category
+  fields:
+    name: dishset
+    keywords: тарелки, салатники, блюда и наборы
+- model: marketplace.category
+  fields:
+    name: glassware
+    keywords: стаканы, бокалы, рюмки
+- model: marketplace.category
+  fields:
+    name: cutlery
+    keywords: столовые приборы
+- model: marketplace.category
+  fields:
+    name: serving
+    keywords: предметы сервировки
+- model: marketplace.category
+  fields:
+    name: kitchen_knife
+    keywords: кухонные ножи, ножницы, овощечистки, точилки
+- model: marketplace.category
+  fields:
+    name: handjuicer
+    keywords: ручные соковыжималки
+- model: marketplace.category
+  fields:
+    name: bar_accessories
+    keywords: аксессуары для бара
+- model: marketplace.category
+  fields:
+    name: grater
+    keywords: терки, измельчители, овощерезки
+- model: marketplace.category
+  fields:
+    name: pasta_machine
+    keywords: машинки для раскатки теста, лапшерезки, пельменницы
+- model: marketplace.category
+  fields:
+    name: bowls
+    keywords: миски, дуршлаги, сита
+- model: marketplace.category
+  fields:
+    name: kitchen_tools
+    keywords: кухонные инструменты
+- model: marketplace.category
+  fields:
+    name: cutting_boards
+    keywords: разделочные доски
+- model: marketplace.category
+  fields:
+    name: food_storage
+    keywords: посуда для хранения продуктов
+- model: marketplace.category
+  fields:
+    name: washdrystore_acs
+    keywords: принадлежности для мытья, сушки, хранения посуды
+- model: marketplace.category
+  fields:
+    name: otherkitchenaccs
+    keywords: другие кухонные аксессуары
+- model: marketplace.category
+  fields:
+    name: tea
+    keywords: чай
+- model: marketplace.category
+  fields:
+    name: cacao
+    keywords: какао, горячий шоколад, цикорий, кэроб
+- model: marketplace.category
+  fields:
+    name: foodfordog
+    keywords: корма для собак
+- model: marketplace.category
+  fields:
+    name: catfood
+    keywords: корма для кошек
+- model: marketplace.category
+  fields:
+    name: rodbirdfood
+    keywords: корм для грызунов и птиц
+- model: marketplace.category
+  fields:
+    name: fishfood
+    keywords: корм для рыб и рептилий
+- model: marketplace.category
+  fields:
+    name: animal_plate
+    keywords: миски, поилки, кормушки для животных
+- model: marketplace.category
+  fields:
+    name: pet_toilet
+    keywords: туалеты и пеленки для животных
+- model: marketplace.category
+  fields:
+    name: catlitter
+    keywords: наполнители для туалетов
+- model: marketplace.category
+  fields:
+    name: pet_carrier
+    keywords: сумки, переноски для животных
+- model: marketplace.category
+  fields:
+    name: pet_house
+    keywords: лежанки, домики, когтеточки для кошек и собак
+- model: marketplace.category
+  fields:
+    name: pet_cage
+    keywords: клетки и аксессуары для птиц и грызунов
+- model: marketplace.category
+  fields:
+    name: collar
+    keywords: ошейники, поводки, намордники для животных
+- model: marketplace.category
+  fields:
+    name: animalclothes
+    keywords: одежда, обувь, украшения для животных
+- model: marketplace.category
+  fields:
+    name: pet_toys
+    keywords: игрушки для кошек и собак
+- model: marketplace.category
+  fields:
+    name: pet_grooming
+    keywords: уход за шерстью и когтями животных
+- model: marketplace.category
+  fields:
+    name: pet_cosmetics
+    keywords: косметика и средства по уходу за животными
+- model: marketplace.category
+  fields:
+    name: fleaprotection
+    keywords: защита от блох и клещей для животных
+- model: marketplace.category
+  fields:
+    name: animaltraining
+    keywords: товары для дрессировки и коррекции поведения животных
+- model: marketplace.category
+  fields:
+    name: aquarium
+    keywords: аквариумы
+- model: marketplace.category
+  fields:
+    name: aquariumequip
+    keywords: оборудование для аквариумов
+- model: marketplace.category
+  fields:
+    name: aquariumacs
+    keywords: аксессуары для аквариумов
+- model: marketplace.category
+  fields:
+    name: aquariumdecor
+    keywords: декорации для аквариумов и террариумов
+- model: marketplace.category
+  fields:
+    name: aquariumchem
+    keywords: витамины, лекарства и химия для аквариумов
+- model: marketplace.category
+  fields:
+    name: terrarium
+    keywords: террариумы
+- model: marketplace.category
+  fields:
+    name: terrariumacs
+    keywords: аксессуары для террариумов
+- model: marketplace.category
+  fields:
+    name: terrariumequip
+    keywords: оборудование для террариумов
+- model: marketplace.category
+  fields:
+    name: greenhouse
+    keywords: теплицы и парники
+- model: marketplace.category
+  fields:
+    name: polycarbonate
+    keywords: поликарбонат для теплиц
+- model: marketplace.category
+  fields:
+    name: coveringmaterial
+    keywords: укрывной материал
+- model: marketplace.category
+  fields:
+    name: lawn
+    keywords: семена трав, газон
+- model: marketplace.category
+  fields:
+    name: soilforplants
+    keywords: грунты для растений
+- model: marketplace.category
+  fields:
+    name: fertilizer
+    keywords: удобрения
+- model: marketplace.category
+  fields:
+    name: shrubtree
+    keywords: саженцы декоративных кустарников, саженцы плодовых деревьев и кустарников,
+      саженцы хвойных растений
+- model: marketplace.category
+  fields:
+    name: flowersseed
+    keywords: луковицы цветов, семена цветов
+- model: marketplace.category
+  fields:
+    name: vegetableseed
+    keywords: семена овощей, зелени и ягод
+- model: marketplace.category
+  fields:
+    name: tires
+    keywords: автомобильные шины
+- model: marketplace.category
+  fields:
+    name: wheel
+    keywords: автомобильные диски
+- model: marketplace.category
+  fields:
+    name: moto_tires
+    keywords: мотоциклетные шины
+- model: marketplace.category
+  fields:
+    name: exterior_carcare
+    keywords: автохимия и автокосметика для кузова
+- model: marketplace.category
+  fields:
+    name: interior_carcare
+    keywords: автохимия и автокосметика для салона
+- model: marketplace.category
+  fields:
+    name: carwashandcare
+    keywords: аксессуары для мойки и ухода за автомобилем
+- model: marketplace.category
+  fields:
+    name: grease
+    keywords: размораживатели, смазки, пасты и очистители для механических, электрических
+      узлов
+- model: marketplace.category
+  fields:
+    name: adhesivecar
+    keywords: клеи и герметики для автомобилей
+- model: marketplace.category
+  fields:
+    name: carpaints
+    keywords: автомобильные краски, лаки, эмали, грунтовки
+- model: marketplace.category
+  fields:
+    name: autofiller
+    keywords: автомобильные шпатлевки и отвердители
+- model: marketplace.category
+  fields:
+    name: anticorrosive
+    keywords: антикоррозийные, антигравийные средства для кузова
+- model: marketplace.category
+  fields:
+    name: solvents
+    keywords: растворители, обезжириватели и преобразователи ржавчины
+- model: marketplace.category
+  fields:
+    name: carbattery
+    keywords: аккумуляторы
+- model: marketplace.category
+  fields:
+    name: autolamps
+    keywords: лампы
+- model: marketplace.category
+  fields:
+    name: xenon
+    keywords: ксенон
+- model: marketplace.category
+  fields:
+    name: motobatteries
+    keywords: мотоциклетные аккумуляторы
+- model: marketplace.category
+  fields:
+    name: dieselfuelheater
+    keywords: предпусковые подогреватели двигателя и топливной системы
+- model: marketplace.category
+  fields:
+    name: wiperblades
+    keywords: щетки стеклоочистителей
+- model: marketplace.category
+  fields:
+    name: motor_oil
+    keywords: моторные масла
+- model: marketplace.category
+  fields:
+    name: gearoil
+    keywords: трансмиссионные масла
+- model: marketplace.category
+  fields:
+    name: antifreeze
+    keywords: охлаждающие жидкости
+- model: marketplace.category
+  fields:
+    name: brakefluid
+    keywords: тормозные жидкости
+- model: marketplace.category
+  fields:
+    name: additive4fuel
+    keywords: присадки для авто
+- model: marketplace.category
+  fields:
+    name: washerfluid
+    keywords: стеклоомывающие жидкости
+- model: marketplace.category
+  fields:
+    name: caraudio
+    keywords: магнитолы
+- model: marketplace.category
+  fields:
+    name: carspeakers
+    keywords: акустика, сабвуферы
+- model: marketplace.category
+  fields:
+    name: caramps
+    keywords: усилители
+- model: marketplace.category
+  fields:
+    name: videoregistrator
+    keywords: видеорегистраторы
+- model: marketplace.category
+  fields:
+    name: radar
+    keywords: радар-детекторы
+- model: marketplace.category
+  fields:
+    name: gps
+    keywords: gps-навигаторы
+- model: marketplace.category
+  fields:
+    name: caralarm
+    keywords: автосигнализации, мотосигнализации
+- model: marketplace.category
+  fields:
+    name: car_radio
+    keywords: радиостанции cb
+- model: marketplace.category
+  fields:
+    name: carkit
+    keywords: громкая связь
+- model: marketplace.category
+  fields:
+    name: fmmodulators
+    keywords: fm-модуляторы
+- model: marketplace.category
+  fields:
+    name: car_inverter
+    keywords: автомобильные инверторы
+- model: marketplace.category
+  fields:
+    name: parkingradar
+    keywords: парковочные радары и камеры заднего вида
+- model: marketplace.category
+  fields:
+    name: gps_tracker
+    keywords: gps-трекеры
+- model: marketplace.category
+  fields:
+    name: antenforradio
+    keywords: автомобильные антенны
+- model: marketplace.category
+  fields:
+    name: portabletvdvd
+    keywords: автомобильные видеоплееры и dvd
+- model: marketplace.category
+  fields:
+    name: compressor_auto
+    keywords: автомобильные компрессоры
+- model: marketplace.category
+  fields:
+    name: start_charge
+    keywords: пускозарядные устройства
+- model: marketplace.category
+  fields:
+    name: carjack
+    keywords: домкраты
+- model: marketplace.category
+  fields:
+    name: torque_wrenches
+    keywords: динамометрические ключи и отвертки
+- model: marketplace.category
+  fields:
+    name: carlift
+    keywords: подъемники
+- model: marketplace.category
+  fields:
+    name: arrefrigerator
+    keywords: автохолодильники, термобоксы, термосумки
+- model: marketplace.category
+  fields:
+    name: car_organizer
+    keywords: автомобильные сумки и органайзеры
+- model: marketplace.category
+  fields:
+    name: car_intcover
+    keywords: защитные накидки на сидения, чехлы, накидки и оплетки для салона автомобиля
+- model: marketplace.category
+  fields:
+    name: car_tent
+    keywords: чехлы, тенты, накидки для автомобилей
+- model: marketplace.category
+  fields:
+    name: car_mat
+    keywords: автомобильные коврики
+- model: marketplace.category
+  fields:
+    name: car_blinds
+    keywords: автомобильные шторки
+- model: marketplace.category
+  fields:
+    name: breathalyzer
+    keywords: алкотестеры
+- model: marketplace.category
+  fields:
+    name: thickmeasure
+    keywords: толщиномеры
+- model: marketplace.category
+  fields:
+    name: bicyclerack
+    keywords: велобагажники
+- model: marketplace.category
+  fields:
+    name: trailers
+    keywords: прицепы для автомобилей
+- model: marketplace.category
+  fields:
+    name: car_vacuum_clean
+    keywords: автомобильные пылесосы
+- model: marketplace.category
+  fields:
+    name: car_racks
+    keywords: багажники на крышу
+- model: marketplace.category
+  fields:
+    name: charging_station
+    keywords: электрические зарядные станции
+- model: marketplace.category
+  fields:
+    name: firstaidkit
+    keywords: аптечки
+- model: marketplace.category
+  fields:
+    name: motorcycle
+    keywords: мотоциклы
+- model: marketplace.category
+  fields:
+    name: scooter
+    keywords: скутеры и мопеды
+- model: marketplace.category
+  fields:
+    name: quad
+    keywords: квадроциклы
+- model: marketplace.category
+  fields:
+    name: motohelmet
+    keywords: мотошлемы
+- model: marketplace.category
+  fields:
+    name: motoaccessories
+    keywords: мотоаксессуары
+- model: marketplace.category
+  fields:
+    name: bike
+    keywords: велосипеды
+- model: marketplace.category
+  fields:
+    name: kidsbike
+    keywords: детские велосипеды, детские велосипеды-каталки, трехколесные велосипеды
+- model: marketplace.category
+  fields:
+    name: bicycle_tires
+    keywords: велопокрышки, велокамеры
+- model: marketplace.category
+  fields:
+    name: bikehelmet
+    keywords: велошлемы
+- model: marketplace.category
+  fields:
+    name: bikecomp
+    keywords: велокомпьютеры
+- model: marketplace.category
+  fields:
+    name: bikelock
+    keywords: велозамки
+- model: marketplace.category
+  fields:
+    name: bike_light
+    keywords: велосипедные фонари
+- model: marketplace.category
+  fields:
+    name: bike_pump
+    keywords: велосипедные насосы, манометры, шланги
+- model: marketplace.category
+  fields:
+    name: bike_accessories
+    keywords: аксессуары для велосипеда
+- model: marketplace.category
+  fields:
+    name: sportsprotection
+    keywords: защита, защита для велосипедиста, спортивная защита
+- model: marketplace.category
+  fields:
+    name: bikeseat
+    keywords: велокресла, детские велокресла
+- model: marketplace.category
+  fields:
+    name: bike_trailer
+    keywords: велоприцепы и буксиры, детские велоприцепы
+- model: marketplace.category
+  fields:
+    name: bike_parts
+    keywords: велозапчасти
+- model: marketplace.category
+  fields:
+    name: bike_tools
+    keywords: инструменты для ремонта и обслуживания велосипеда
+- model: marketplace.category
+  fields:
+    name: rollerskates
+    keywords: роликовые коньки
+- model: marketplace.category
+  fields:
+    name: skateboard
+    keywords: скейтборды
+- model: marketplace.category
+  fields:
+    name: kickscooter
+    keywords: самокаты
+- model: marketplace.category
+  fields:
+    name: watch
+    keywords: наручные часы
+- model: marketplace.category
+  fields:
+    name: caskets
+    keywords: шкатулки для украшений и часов
+- model: marketplace.category
+  fields:
+    name: suitcase
+    keywords: чемоданы, сумки-тележки
+- model: marketplace.category
+  fields:
+    name: road_sport_bag
+    keywords: дорожные и спортивные сумки
+- model: marketplace.category
+  fields:
+    name: wallet
+    keywords: визитницы, кошельки
+- model: marketplace.category
+  fields:
+    name: umbrella
+    keywords: зонты
+- model: marketplace.category
+  fields:
+    name: cigarettelighter
+    keywords: зажигалки
+- model: marketplace.category
+  fields:
+    name: conte
+    keywords: гольфы и гольфины conte, гольфы и гольфины conte-kids, детские носки
+      и колготки conte-kids, женские носки conte, женские подследники conte, колготки
+      conte, колготки conte-kids, мужские носки diwari, мужские подследники diwari,
+      носки conte-kids, чулки conte
+- model: marketplace.category
+  fields:
+    name: parfume
+    keywords: парфюмерия
+- model: marketplace.category
+  fields:
+    name: face_makeup
+    keywords: декоративная косметика для лица
+- model: marketplace.category
+  fields:
+    name: eye_makeup
+    keywords: декоративная косметика для глаз
+- model: marketplace.category
+  fields:
+    name: lip_makeup
+    keywords: декоративная косметика для губ
+- model: marketplace.category
+  fields:
+    name: nailcare
+    keywords: декоративная и уходовая косметика для ногтей
+- model: marketplace.category
+  fields:
+    name: facial_cosmetics
+    keywords: уход за лицом
+- model: marketplace.category
+  fields:
+    name: haircare
+    keywords: уход за волосами
+- model: marketplace.category
+  fields:
+    name: body_care
+    keywords: уход за телом
+- model: marketplace.category
+  fields:
+    name: toothpaste
+    keywords: средства для ухода за полостью рта
+- model: marketplace.category
+  fields:
+    name: hair_styling
+    keywords: средства для укладки волос
+- model: marketplace.category
+  fields:
+    name: hair_color
+    keywords: средства для окрашивания волос
+- model: marketplace.category
+  fields:
+    name: brusherscurlers
+    keywords: щетки, расчески, брашинги и бигуди
+- model: marketplace.category
+  fields:
+    name: hairdressertools
+    keywords: парикмахерские инструменты и принадлежности
+- model: marketplace.category
+  fields:
+    name: eyebrowslashes
+    keywords: ламинирование, окрашивание и наращивание бровей и ресниц
+- model: marketplace.category
+  fields:
+    name: manicuretools
+    keywords: инструменты для маникюра и педикюра
+- model: marketplace.category
+  fields:
+    name: depilation
+    keywords: средства для депиляции
+- model: marketplace.category
+  fields:
+    name: antiperspirants
+    keywords: дезодоранты и антиперспиранты
+- model: marketplace.category
+  fields:
+    name: tanning
+    keywords: средства для загара, автозагар
+- model: marketplace.category
+  fields:
+    name: massagebrush
+    keywords: массажные щетки и мочалки
+- model: marketplace.category
+  fields:
+    name: shaving
+    keywords: средства для бритья
+- model: marketplace.category
+  fields:
+    name: beardmustache
+    keywords: средства для бороды и усов
+- model: marketplace.category
+  fields:
+    name: makeupaccs
+    keywords: аксессуары и принадлежности для макияжа
+- model: marketplace.category
+  fields:
+    name: cosmetic_mirror
+    keywords: косметические зеркала
+- model: marketplace.category
+  fields:
+    name: cosmeticbag
+    keywords: бьюти-холодильники, косметички и органайзеры для косметики
+- model: marketplace.category
+  fields:
+    name: manualtoothbrush
+    keywords: зубные щетки и аксессуары
+- model: marketplace.category
+  fields:
+    name: physical_therapy
+    keywords: приборы для физиотерапии
+- model: marketplace.category
+  fields:
+    name: tampons
+    keywords: гигиенические прокладки, тампоны и менструальные чаши
+- model: marketplace.category
+  fields:
+    name: wetwipes
+    keywords: влажные салфетки
+- model: marketplace.category
+  fields:
+    name: medicalmask
+    keywords: медицинские маски, респираторы, защитные очки
+- model: marketplace.category
+  fields:
+    name: sanitizer
+    keywords: антисептики для кожи
+- model: marketplace.category
+  fields:
+    name: disinfectant
+    keywords: дезинфицирующие средства
+- model: marketplace.category
+  fields:
+    name: ball
+    keywords: гимнастические мячи, массажные мячи, мячи, спортивные мячи
+- model: marketplace.category
+  fields:
+    name: water_bottles
+    keywords: бутылки для воды
+- model: marketplace.category
+  fields:
+    name: uflamp
+    keywords: рециркуляторы, бактерицидные светильники
+- model: marketplace.category
+  fields:
+    name: skin_care_app
+    keywords: приборы для ухода за кожей
+- model: marketplace.category
+  fields:
+    name: fidget_spinner
+    keywords: игрушки антистресс
+- model: marketplace.category
+  fields:
+    name: buildingkit
+    keywords: конструкторы
+- model: marketplace.category
+  fields:
+    name: scale_model
+    keywords: сборные модели
+- model: marketplace.category
+  fields:
+    name: puzzles
+    keywords: пазлы
+- model: marketplace.category
+  fields:
+    name: boardgame
+    keywords: настольные игры
+- model: marketplace.category
+  fields:
+    name: logic_puzzles
+    keywords: логические игры, головоломки
+- model: marketplace.category
+  fields:
+    name: radiocontrolair
+    keywords: радиоуправляемые авиамодели, радиоуправляемые самолеты и вертолеты
+- model: marketplace.category
+  fields:
+    name: radioautomodel
+    keywords: радиоуправляемые автомодели, радиоуправляемые машинки
+- model: marketplace.category
+  fields:
+    name: radiomodelwater
+    keywords: радиоуправляемые катера, радиоуправляемые судомодели
+- model: marketplace.category
+  fields:
+    name: hookahs
+    keywords: кальяны
+- model: marketplace.category
+  fields:
+    name: hookah_acs
+    keywords: аксессуары для кальянов
+- model: marketplace.category
+  fields:
+    name: hookah_comp
+    keywords: комплектующие для кальянов
+- model: marketplace.category
+  fields:
+    name: tents
+    keywords: палатки
+- model: marketplace.category
+  fields:
+    name: camp_furniture
+    keywords: кемпинговая мебель
+- model: marketplace.category
+  fields:
+    name: sleepingbag
+    keywords: спальные мешки
+- model: marketplace.category
+  fields:
+    name: travel_mat
+    keywords: туристические коврики
+- model: marketplace.category
+  fields:
+    name: lights
+    keywords: фонари
+- model: marketplace.category
+  fields:
+    name: foldingknives
+    keywords: туристические ножи
+- model: marketplace.category
+  fields:
+    name: thermosbottle
+    keywords: термосы, термокружки
+- model: marketplace.category
+  fields:
+    name: camping_cookware
+    keywords: туристическая посуда
+- model: marketplace.category
+  fields:
+    name: gascylinder
+    keywords: туристические горелки и плиты
+- model: marketplace.category
+  fields:
+    name: travelgps
+    keywords: туристические навигаторы
+- model: marketplace.category
+  fields:
+    name: inflatableboat
+    keywords: надувные лодки
+- model: marketplace.category
+  fields:
+    name: outboardmotors
+    keywords: лодочные моторы
+- model: marketplace.category
+  fields:
+    name: sounder
+    keywords: эхолоты
+- model: marketplace.category
+  fields:
+    name: rod
+    keywords: удочки, спиннинги
+- model: marketplace.category
+  fields:
+    name: coil
+    keywords: рыболовные катушки
+- model: marketplace.category
+  fields:
+    name: icescrew
+    keywords: ледобуры
+- model: marketplace.category
+  fields:
+    name: twostrokeoil
+    keywords: масла для лодочных моторов
+- model: marketplace.category
+  fields:
+    name: hunter_clothes
+    keywords: одежда для охоты, рыбалки
+- model: marketplace.category
+  fields:
+    name: strengthtrain
+    keywords: силовые тренажеры
+- model: marketplace.category
+  fields:
+    name: velosimulator
+    keywords: велотренажеры
+- model: marketplace.category
+  fields:
+    name: treadmills
+    keywords: беговые дорожки
+- model: marketplace.category
+  fields:
+    name: ellipsoids
+    keywords: эллиптические тренажеры
+- model: marketplace.category
+  fields:
+    name: rowingmachines
+    keywords: гребные тренажеры
+- model: marketplace.category
+  fields:
+    name: stepper
+    keywords: степперы
+- model: marketplace.category
+  fields:
+    name: freeweights
+    keywords: гантели, штанги, гири
+- model: marketplace.category
+  fields:
+    name: nordic_walking
+    keywords: палки для скандинавской ходьбы
+- model: marketplace.category
+  fields:
+    name: punching_bags
+    keywords: груши, мешки, манекены для бокса и единоборств
+- model: marketplace.category
+  fields:
+    name: glovesmartialart
+    keywords: перчатки для бокса и единоборств
+- model: marketplace.category
+  fields:
+    name: yoga_mat
+    keywords: коврики для йоги и фитнеса
+- model: marketplace.category
+  fields:
+    name: hoola_hoops
+    keywords: обручи
+- model: marketplace.category
+  fields:
+    name: protein
+    keywords: протеин
+- model: marketplace.category
+  fields:
+    name: amino_acids
+    keywords: аминокислоты
+- model: marketplace.category
+  fields:
+    name: creatine
+    keywords: креатин
+- model: marketplace.category
+  fields:
+    name: tabletennis
+    keywords: теннисные столы
+- model: marketplace.category
+  fields:
+    name: racktabletennis
+    keywords: ракетки, мячи и аксессуары для настольного тенниса
+- model: marketplace.category
+  fields:
+    name: tennis_rocket
+    keywords: ракетки для большого тенниса
+- model: marketplace.category
+  fields:
+    name: tennis_acs
+    keywords: аксессуары для большого тенниса
+- model: marketplace.category
+  fields:
+    name: billiardtable
+    keywords: бильярдные столы
+- model: marketplace.category
+  fields:
+    name: airhockey
+    keywords: аэрохоккей, настольный футбол, мини-бильярд
+- model: marketplace.category
+  fields:
+    name: chess
+    keywords: шахматы, шашки, нарды
+- model: marketplace.category
+  fields:
+    name: active_games
+    keywords: активные игры
+- model: marketplace.category
+  fields:
+    name: darts
+    keywords: дартс
+- model: marketplace.category
+  fields:
+    name: squash
+    keywords: ракетки и аксессуары для сквоша
+- model: marketplace.category
+  fields:
+    name: sled
+    keywords: санки
+- model: marketplace.category
+  fields:
+    name: skates
+    keywords: коньки
+- model: marketplace.category
+  fields:
+    name: skis
+    keywords: лыжи
+- model: marketplace.category
+  fields:
+    name: hockeystick
+    keywords: хоккейные клюшки
+- model: marketplace.category
+  fields:
+    name: skigoggles
+    keywords: аксессуары для горнолыжного спорта
+- model: marketplace.category
+  fields:
+    name: vibrators
+    keywords: вибраторы
+- model: marketplace.category
+  fields:
+    name: pram
+    keywords: коляски
+- model: marketplace.category
+  fields:
+    name: childcarseat
+    keywords: автокресла
+- model: marketplace.category
+  fields:
+    name: babycarrier
+    keywords: рюкзаки-переноски (кенгуру)
+- model: marketplace.category
+  fields:
+    name: balancebike
+    keywords: беговелы
+- model: marketplace.category
+  fields:
+    name: babywalker
+    keywords: ходунки, прыгунки
+- model: marketplace.category
+  fields:
+    name: electricrideon
+    keywords: электромобили
+- model: marketplace.category
+  fields:
+    name: rideon
+    keywords: каталки, педальные машинки
+- model: marketplace.category
+  fields:
+    name: highchair
+    keywords: стульчики для кормления
+- model: marketplace.category
+  fields:
+    name: playpen
+    keywords: манежи
+- model: marketplace.category
+  fields:
+    name: babyswing
+    keywords: детские шезлонги и качалки
+- model: marketplace.category
+  fields:
+    name: officeboard
+    keywords: маркерные и меловые доски, офисные доски, флипчарты
+- model: marketplace.category
+  fields:
+    name: babymonitor
+    keywords: радионяни и видеоняни
+- model: marketplace.category
+  fields:
+    name: edu_toys
+    keywords: развивающие игрушки
+- model: marketplace.category
+  fields:
+    name: playmats
+    keywords: развивающие коврики
+- model: marketplace.category
+  fields:
+    name: science_kits
+    keywords: игры-опыты, эксперименты
+- model: marketplace.category
+  fields:
+    name: doll
+    keywords: детские куклы
+- model: marketplace.category
+  fields:
+    name: dollhouses
+    keywords: кукольные домики
+- model: marketplace.category
+  fields:
+    name: race_track
+    keywords: детские автотреки, трассы
+- model: marketplace.category
+  fields:
+    name: toy_cars
+    keywords: игрушечный транспорт
+- model: marketplace.category
+  fields:
+    name: kidsrailroad
+    keywords: детские железные дороги
+- model: marketplace.category
+  fields:
+    name: interactive_toys
+    keywords: интерактивные игрушки и роботы
+- model: marketplace.category
+  fields:
+    name: playhouse
+    keywords: игровые домики и палатки, сухие бассейны
+- model: marketplace.category
+  fields:
+    name: bath_toys
+    keywords: игрушки для ванной
+- model: marketplace.category
+  fields:
+    name: toy_weapon
+    keywords: игрушечное оружие
+- model: marketplace.category
+  fields:
+    name: musical_toys
+    keywords: детские музыкальные инструменты
+- model: marketplace.category
+  fields:
+    name: toy_kitchens
+    keywords: детские кухни, посуда, продукты
+- model: marketplace.category
+  fields:
+    name: toy_hairdresser
+    keywords: игровые наборы стилиста и парикмахера
+- model: marketplace.category
+  fields:
+    name: toy_police
+    keywords: игровые наборы полицейских, военных, пожарных
+- model: marketplace.category
+  fields:
+    name: toy_tool_sets
+    keywords: детские наборы инструментов
+- model: marketplace.category
+  fields:
+    name: kids_tablets
+    keywords: детские планшеты для рисования
+- model: marketplace.category
+  fields:
+    name: jumping_toys
+    keywords: игрушки-прыгуны
+- model: marketplace.category
+  fields:
+    name: bubble_blow
+    keywords: мыльные пузыри
+- model: marketplace.category
+  fields:
+    name: slime_orbiz
+    keywords: слаймы и орбиз
+- model: marketplace.category
+  fields:
+    name: toy_household
+    keywords: игрушечная бытовая техника, уход за домом
+- model: marketplace.category
+  fields:
+    name: toy_medical_sets
+    keywords: игровые наборы доктора, ветеринара
+- model: marketplace.category
+  fields:
+    name: toy_shop
+    keywords: игрушечные магазины, мини-кафе
+- model: marketplace.category
+  fields:
+    name: sandbox_toys
+    keywords: игрушки для песочницы
+- model: marketplace.category
+  fields:
+    name: diapers
+    keywords: подгузники
+- model: marketplace.category
+  fields:
+    name: underpads
+    keywords: пеленки для новорожденных
+- model: marketplace.category
+  fields:
+    name: babyscales
+    keywords: весы для новорожденных
+- model: marketplace.category
+  fields:
+    name: baby_bath
+    keywords: ванночки и аксессуары для купания малышей
+- model: marketplace.category
+  fields:
+    name: babyfoodmaker
+    keywords: устройства для приготовления детского питания
+- model: marketplace.category
+  fields:
+    name: bottlesterilizer
+    keywords: подогреватели и стерилизаторы бутылочек
+- model: marketplace.category
+  fields:
+    name: breast_pump
+    keywords: молокоотсосы и аксессуары
+- model: marketplace.category
+  fields:
+    name: child_cosmetics
+    keywords: детская уходовая косметика
+- model: marketplace.category
+  fields:
+    name: kids_makeup
+    keywords: декоративная косметика и духи для детей
+- model: marketplace.category
+  fields:
+    name: bath_shampoo
+    keywords: шампуни и средства для купания детей
+- model: marketplace.category
+  fields:
+    name: shredder
+    keywords: уничтожители бумаг (шредеры)
+- model: marketplace.category
+  fields:
+    name: officeboard_acs
+    keywords: аксессуары для офисных досок
+- model: marketplace.category
+  fields:
+    name: papercutter
+    keywords: резаки для бумаги
+- model: marketplace.category
+  fields:
+    name: furnituresafes
+    keywords: сейфы
+- model: marketplace.category
+  fields:
+    name: cashregister
+    keywords: кассовые аппараты
+- model: marketplace.category
+  fields:
+    name: counters
+    keywords: счетчики банкнот и монет
+- model: marketplace.category
+  fields:
+    name: barcode
+    keywords: сканеры штрих-кодов
+- model: marketplace.category
+  fields:
+    name: currencydetector
+    keywords: детекторы валют
+- model: marketplace.category
+  fields:
+    name: thermal
+    keywords: принтеры на этикетках и чеках
+- model: marketplace.category
+  fields:
+    name: digitalsignage
+    keywords: информационные панели
+- model: marketplace.category
+  fields:
+    name: commfrige
+    keywords: торговые холодильники
+- model: marketplace.category
+  fields:
+    name: aircurtain
+    keywords: тепловые завесы
+- model: marketplace.category
+  fields:
+    name: water_cooler
+    keywords: кулеры для воды
+- model: marketplace.category
+  fields:
+    name: books
+    keywords: книга
