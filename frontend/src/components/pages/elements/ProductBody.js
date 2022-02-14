@@ -16,8 +16,7 @@ const ProductBody = ({productData}) => {
         <Col size={{lg: 3, xs: 12}}>
           <Image
             src={productData.preview_url}
-            h="100"
-            w="100"
+            w="14rem"
           />
         </Col>
         <Col size={{lg: 4, xs: 12}}>

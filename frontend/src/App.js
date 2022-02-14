@@ -12,6 +12,7 @@ import Index from './components/pages/Index.js';
 import SearchResult from './components/pages/SearchResult.js';
 import ProductPage from './components/pages/ProductPage.js';
 import NotFound from './components/pages/NotFound.js';
+import DisclaimerPage from './components/pages/DisclaimerPage';
 
 import ReactGA from 'react-ga';
 import {
@@ -42,7 +43,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <StyleReset />
         <Container
-          pos="fixed"
+          pos="absolute"
           bg="info600"
           maxW={{xs: 'auto', md: '100vw'}}
           h="4rem"
@@ -63,6 +64,7 @@ function App() {
             <Route exact path="/products/:id" element={<ProductPage />}/>
             <Route exact path="/404" element={<NotFound />}/>
             <Route path="*" element={<Navigate replace to="/404" />} />
+            <Route exact path="/disclaimer" element={<DisclaimerPage />} />
           </Routes>
         </Container>
 

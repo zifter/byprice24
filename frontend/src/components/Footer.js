@@ -1,5 +1,6 @@
 import React from 'react';
-import {Text, Container} from 'atomize';
+import {Text, Container,
+  Col, Row, Anchor} from 'atomize';
 
 const Footer = () => {
   return (
@@ -7,13 +8,34 @@ const Footer = () => {
       pos="relative"
       h="100%"
       bottom="0">
-      <Text
-        textSize="body"
-        pos="relative"
-        p="0"
-        textAlign="center">
+      <Row>
+        <Col size={5} />
+        <Col size={2}>
+          <Text
+            textSize="body"
+            pos="relative"
+            p="0"
+            textAlign="center">
         2021 by zifter
-      </Text>
+          </Text>
+        </Col>
+        <Col size={5}>
+          <Anchor
+            href="/disclaimer"
+            d="block"
+            m={{b: '1rem'}}
+          >
+            <Text
+              textSize="body"
+              pos="relative"
+              p="0"
+              textAlign="left"
+              textColor="black">
+        Правовая информация
+            </Text>
+          </Anchor>
+        </Col>
+      </Row>
     </Container>
   );
 };

@@ -9,7 +9,8 @@ import {
 
 const PriceTab = ({productData}) => {
   return (
-    <Container>
+    <Container
+      p={{b: '3rem'}}>
       {productData.product_pages.map((productPage) => (
         // eslint-disable-next-line react/jsx-key
         <Row>
@@ -67,7 +68,7 @@ const PriceTab = ({productData}) => {
                           <Text textSize={'caption'}
                             textAlign={{lg: 'right', xs: 'center'}}>
                             {productPage.product_states.availability ===
-                            'InStock' ?
+                            'Availability.InStock' ?
                                  <Icon name="Success" size="15px"
                                    color='success800' m={{t: '0.5rem'}}/>:
                                 <Icon name="Close" size="15px"
