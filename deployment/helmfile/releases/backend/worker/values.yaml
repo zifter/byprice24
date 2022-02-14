@@ -11,3 +11,10 @@ redis:
 
 elasticsearch:
   url: "es://elasticsearch-master:9200/"
+
+autoscalingKEDA:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  threshold: 3
+  prometheusUrl: http://prometheus-operated.monitoring.svc:9090/prometheus

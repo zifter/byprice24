@@ -64,3 +64,13 @@ releases:
       - releases/certificates/values-backoffice-{{ .Environment.Name }}.yaml
     needs:
       - cert-cluster-issuer
+
+  - name: keda
+    namespace: kube-system
+    chart: kedacore/keda
+    installed: {{ .Values.monitoring.enabled | toYaml }}
+    version: 2.5.1
+    values:
+      - releases/keda/values.yaml
+    needs:
+     - prometheus-stack
