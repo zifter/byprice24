@@ -1,6 +1,7 @@
 # Specific toolset installation
 setup-pipenv:
 	$(info Install pipenv)
+	python3 -m pip install --upgrade pip setuptools wheel
 	python3 -m pip install pipenv
 
 setup-helm:
