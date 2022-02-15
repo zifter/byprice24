@@ -209,16 +209,20 @@ class SentryMixin:
 
 
 class Dev(PostgresMixin, Base):
+    # Dev configuration (for example, in pycharm)
     pass
 
 
 class Test(Dev):
+    # Configuration will be used for while running tests
     pass
 
 
-class Local(PostgresMixin, SentryMixin, Base):
+class Local(SentryMixin, Dev):
+    # Will be used in Local k8s cluster
     pass
 
 
-class Prod(PostgresMixin, SentryMixin, Base):
+class Prod(Local, Base):
+    # Local k8s cluster
     DEBUG = False  # TODO Make it False and run behind wsgi server (gunicron)
