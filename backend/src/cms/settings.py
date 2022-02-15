@@ -225,4 +225,7 @@ class Local(SentryMixin, Dev):
 
 class Prod(Local):
     # Local k8s cluster
-    DEBUG = False  # TODO Make it False and run behind wsgi server (gunicron)
+    # TODO Make it False and run behind wsgi server (gunicron)
+    # TODO Need to share static via CDN
+    # DEBUG = False
+    pass
