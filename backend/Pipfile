@@ -23,7 +23,7 @@ elasticsearch = "==7.16.1"
 elasticsearch-dsl = "==7.4.0"
 pytz = '==2021.3'
 sentry-sdk = "==1.5.5"
-scrapy-user-agents = "==0.1.1"
+scrapy-fake-useragent = "==1.4.4"
 
 [dev-packages]
 pytest = "==7.0.1"

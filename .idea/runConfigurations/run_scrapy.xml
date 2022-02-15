@@ -23,7 +23,7 @@
       </ENTRIES>
     </EXTENSION>
     <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/src/run_scrapy.py" />
-    <option name="PARAMETERS" value="crawl schema.org -a target_url=https://www.ilp.by" />
+    <option name="PARAMETERS" value="crawl www.funtastik.by -a target_url=https://www.funtastik.by" />
     <option name="SHOW_COMMAND_LINE" value="false" />
     <option name="EMULATE_TERMINAL" value="false" />
     <option name="MODULE_MODE" value="false" />

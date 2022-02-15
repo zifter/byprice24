@@ -29,7 +29,7 @@ def assert_spider(url, test_file, expected):
     results = list(spider.parse_product(fake_response, category=expected.main_category))
 
     assert len(results) == 1, f'result list len is {len(results)}, but expected 1'
-    assert results[0] == expected
+    assert results[0] == expected, f'\n{results[0]}\n{expected}'
 
 
 def fake_response_from_file(filepath, url=None):

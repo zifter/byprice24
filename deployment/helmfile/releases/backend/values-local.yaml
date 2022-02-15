@@ -3,3 +3,6 @@ domain:
   admin: localhost
 
 configuration: Dev
+
+sentry:
+  debug: true

@@ -1,6 +1,8 @@
 # Default values for cms.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+envName: 'env-unknown'
+release: 'release-unknown'
 
 replicaCount: 1
 
@@ -81,8 +83,11 @@ tolerations: []
 
 affinity: {}
 
-cron: "0 0 * * *"
-suspend: false
-
 scheduleScraping:
+  cron: "0 0 * * *"
+  suspend: false
   force: false
+
+sentry:
+  dsn: ''
+  debug: false

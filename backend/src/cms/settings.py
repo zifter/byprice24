@@ -198,6 +198,14 @@ class PostgresMixin:
     }
 
 
+class SentryMixin:
+    # Sentry
+    SENTRY_DSN = os.environ.setdefault('SENTRY_DSN', '')
+
+    def __init__(self):
+        sentry_sdk.init(dsn=SentryMixin.SENTRY_DSN, integrations=[DjangoIntegration(), ])
+
+
 class Dev(PostgresMixin, Base):
     DEBUG = True
 
@@ -206,10 +214,5 @@ class Test(Dev):
     pass
 
 
-class Prod(PostgresMixin, Base):
-
-    # Sentry
-    SENTRY_DSN = os.environ.setdefault('SENTRY_DSN', 'https://607627c21d7642ab878a8aaa4fe0da98@o1101110.ingest.sentry.io/6126818')
-    sentry_sdk.init(dsn=SENTRY_DSN, integrations=[DjangoIntegration(), ])
-
+class Prod(PostgresMixin, SentryMixin, Base):
     DEBUG = False  # TODO Make it False and run behind wsgi server (gunicron)

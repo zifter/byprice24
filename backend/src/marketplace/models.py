@@ -34,6 +34,10 @@ class Category(models.Model):
     name = models.CharField(max_length=128, unique=True, primary_key=True)
     keywords = models.CharField(max_length=512)
 
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
     def semantic_id(self) -> str:
         return str(self.name)
 

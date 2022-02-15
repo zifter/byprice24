@@ -223,19 +223,67 @@ def test_spider_amd_by_HEADPHONE_xiaomi():
 
 
 def test_funtastik_by():
-    url = 'https://www.funtastik.by/igrushki/konstruktory/konstruktor-lego-super-mario-71360-priklyucheniya-vmeste-s-mario-startovyy-nabor/'
-    expected = ProductScrapingResult(
-        url=url,
-        title='Конструктор LEGO City 60297: Разрушительный трюковый мотоцикл',
-        description='Конструктор LEGO City 60297: Разрушительный трюковый мотоцикл\nОсобенности:\n- мотоцикл с маховиком;\n- 1 минифигурка в комплекте;\n- набор можно объединять с другими наборами LEGO City.\nРазмер мотоцикла в собранном виде: 6х2х3 см.\nМатериал: пластмасса.\nВ наборе: 12 деталей, 1 минифигурка, инструкция.',
-        price=19.61,
-        price_currency='BYN',
-        availability=Availability.InStock,
-        preview_url='https://www.funtastik.by/upload/resize_cache/iblock/2f8/720_720_040cd750bba9870f18aada2478b24840a/2f8c4ef8be4aa902ed0659f02b29607f.jpg',
-        main_category='buildingkit',
-        categories=[],
-    )
-    assert_spider(url, 'lego-city.html', expected)
+    tests = [
+        (
+            'lego-city.html',
+            ProductScrapingResult(
+                url='https://www.funtastik.by/igrushki/LEGO/konstruktor-lego-city-60297-razrushitelnyy-tryukovyy-mototsikl/',
+                title='Конструктор LEGO City 60297: Разрушительный трюковый мотоцикл',
+                description='Конструктор LEGO City 60297: Разрушительный трюковый мотоцикл\nОсобенности:\n- мотоцикл с маховиком;\n- 1 минифигурка в комплекте;\n- набор можно объединять с другими наборами LEGO City.\nРазмер мотоцикла в собранном виде: 6х2х3 см.\nМатериал: пластмасса.\nВ наборе: 12 деталей, 1 минифигурка, инструкция.',
+                price=19.61,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://www.funtastik.by/upload/resize_cache/iblock/2f8/720_720_040cd750bba9870f18aada2478b24840a/2f8c4ef8be4aa902ed0659f02b29607f.jpg',
+                main_category='buildingkit',
+                categories=[],
+            ),
+        ),
+        (
+            'lego-technic-42129.html',
+            ProductScrapingResult(
+                url='https://www.funtastik.by/igrushki/konstruktory/konstruktor-lego-technic-42129-polnoprivodnyy-gruzovik-vnedorozhnik-mercedes-benz-zetros/',
+                title='Конструктор LEGO Technic 42129: Полноприводный грузовик-внедорожник Mercedes-Benz Zetros',
+                description='Конструктор LEGO Technic 42129: Полноприводный грузовик-внедорожник Mercedes-Benz Zetros\nОсобенности:\n- модель полноприводного грузовика-внедорожника имеет рабочую подвеску для всех четырех колес, детализированную коробку передач и блокировку дифференциала;\n- грузовик управляется при помощи мобильного приложения CONTROL+ (бесплатно);\n- модель работает от одного хаба с управлением по Bluetooth, трех больших моторов и одного среднего мотора (всё входит в комплект);',
+                price=855.87,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://www.funtastik.by/upload/resize_cache/iblock/cce/720_720_040cd750bba9870f18aada2478b24840a/ccea6052a54a713213230f8c07f70da7.jpg',
+                main_category='buildingkit',
+                categories=[],
+            ),
+        ),
+        (
+            'sluban-kids-briks-girl.html',
+            ProductScrapingResult(
+                url='https://www.funtastik.by/igrushki/konstruktory/konstruktor-sluban-kiddi-briks-B0503/',
+                title='Конструктор Sluban Кидди Брикс',
+                description='Конструктор Sluban Кидди Брикс\nМатериал: пластмасса.\nВ наборе: 415 деталей конструктора.\nКонструктор Sluban (Слубан) является аналогом ЛЕГО (LEGO) и Брик (Brick) и совместим с ними.',
+                price=44.31,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://www.funtastik.by/upload/resize_cache/iblock/8d8/720_720_040cd750bba9870f18aada2478b24840a/8d878904a8089cb0df80ab8ca69c4195.jpg',
+                main_category='buildingkit',
+                categories=[],
+            ),
+        ),
+        (
+            'lego-technic-42122.html',
+            ProductScrapingResult(
+                url='https://www.funtastik.by/igrushki/konstruktory-lego-30/konstruktor-lego-technic-42122-jeep-wrangler/',
+                title='Конструктор LEGO Technic 42122: Jeep Wrangler',
+                description='Конструктор LEGO Technic 42122: Jeep Wrangler\nОсобенности:\n- двери и капот открываются;\n- откидываются задние сиденья;\n- есть полноразмерное запасное колесо, лебедка и классические логотипы Jeep;\n- большие рифленые колеса обеспечивают отличное сцепление с поверхностями;\n- все детали прочно крепятся друг с другом;\n- можно объединять с другими наборами LEGO Technic.\nРазмер джипа в собранном виде: 24х13х12 см.\nМатериал: пластмасса.\nВ наборе: 665 деталей, инструкция.',
+                price=0.0,
+                price_currency='',
+                availability=Availability.OutOfStock,
+                preview_url='https://www.funtastik.by/upload/resize_cache/iblock/e22/720_720_040cd750bba9870f18aada2478b24840a/e22f3755969a48d804ba1ef1cc8fd307.jpg',
+                main_category='buildingkit',
+                categories=[],
+            ),
+        ),
+    ]
+
+    for content_file, expected in tests:
+        assert_spider(expected.url, content_file, expected)
 
 
 def test_spider_ozon_ru():

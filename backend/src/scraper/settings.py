@@ -14,6 +14,11 @@ NEWSPIDER_MODULE = 'scraper.spiders'
 
 DEPTH_STATS_VERBOSE = True
 
+FAKEUSERAGENT_PROVIDERS = [
+    'scrapy_fake_useragent.providers.FakeUserAgentProvider',  # this is the first provider we'll try
+    'scrapy_fake_useragent.providers.FakerProvider',  # if FakeUserAgentProvider fails, we'll use faker to generate a user-agent string for us
+    'scrapy_fake_useragent.providers.FixedUserAgentProvider',  # fall back to USER_AGENT value
+]
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'scraper (+https://www.findprice.by)'
 
@@ -55,7 +60,9 @@ DOWNLOADER_MIDDLEWARES = {
     # 'scraper.middlewares.ScraperDownloaderMiddleware': 543,
     'scraper.middlewares.ScraperAPIMiddleware': 543,
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-    'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 400,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
+    'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
+    'scrapy_fake_useragent.middleware.RetryUserAgentMiddleware': 401,
 }
 
 # Enable or disable extensions

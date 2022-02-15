@@ -50,10 +50,10 @@ class AgentTestCase(TestCase):
         agent.now.return_value = datetime.datetime(2022, 1, 13, 2, 0, 0, tzinfo=pytz.UTC)
         vek21 = ScrapingState.objects.get(id=1)
         ilp = ScrapingState.objects.get(id=2)
-        vek21.last_scraping = datetime.datetime(2022, 1, 12, 0, 0, 0)
+        vek21.last_scraping = datetime.datetime(2022, 1, 12, 0, 0, 0, tzinfo=pytz.UTC)
         vek21.scraping_schedule = '0 0 * * 1 *'
         vek21.save()
-        ilp.last_scraping = datetime.datetime(2022, 1, 12, 0, 0, 0)
+        ilp.last_scraping = datetime.datetime(2022, 1, 12, 0, 0, 0, tzinfo=pytz.UTC)
         ilp.scraping_schedule = '0 0 * * * *'
         ilp.save()
 
@@ -73,9 +73,9 @@ class AgentTestCase(TestCase):
         agent.now.return_value = datetime.datetime(2022, 1, 13, 2, 0, 0, tzinfo=pytz.UTC)
         vek21 = ScrapingState.objects.get(id=1)
         ilp = ScrapingState.objects.get(id=2)
-        vek21.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 0)
+        vek21.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 0, tzinfo=pytz.UTC)
         vek21.save()
-        ilp.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 0)
+        ilp.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 0, tzinfo=pytz.UTC)
         ilp.save()
 
         agent.schedule()
@@ -104,9 +104,9 @@ class AgentTestCase(TestCase):
         agent.now.return_value = datetime.datetime(2022, 1, 13, 2, 0, 0, tzinfo=pytz.UTC)
         vek21 = ScrapingState.objects.get(id=1)
         ilp = ScrapingState.objects.get(id=2)
-        vek21.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 1)
+        vek21.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 1, tzinfo=pytz.UTC)
         vek21.save()
-        ilp.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 1)
+        ilp.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 1, tzinfo=pytz.UTC)
         ilp.save()
 
         agent.schedule(force=True)

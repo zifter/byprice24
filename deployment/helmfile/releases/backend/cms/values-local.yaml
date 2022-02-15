@@ -9,10 +9,5 @@ ingress:
         - path: /api
           pathType: Prefix
 
-domain:
-  api: localhost
-  admin: localhost
-
-configuration: Dev
-
-suspend: true
+scheduleScraping:
+  suspend: true

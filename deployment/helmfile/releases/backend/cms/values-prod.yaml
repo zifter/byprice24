@@ -22,11 +22,6 @@ ingress:
         - path: /admin-static
           pathType: Prefix
 
-domain:
-  api: www.findprice.by
-  admin: www.findprice.site
-
-configuration: Prod
-
-cron: "0 * * * *"
-suspend: false
+scheduleScraping:
+  cron: "0 * * * *"
+  suspend: false

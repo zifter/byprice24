@@ -41,6 +41,7 @@ spec:
             - {{ $queue }}
 {{- end }}
           env:
+            {{- include "cms-lib.sentry" . | nindent 12 }}
             {{- include "cms-lib.env" . | nindent 12 }}
           ports:
             - name: http

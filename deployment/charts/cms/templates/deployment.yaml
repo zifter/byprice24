@@ -39,6 +39,7 @@ spec:
             - runserver
             - 0.0.0.0:8080
           env:
+            {{- include "cms-lib.sentry" . | nindent 12 }}
             {{- include "cms-lib.env" . | nindent 12 }}
           ports:
             - name: http
@@ -65,6 +66,7 @@ spec:
             - manage.py
             - migrate
           env:
+            {{- include "cms-lib.sentry" . | nindent 12 }}
             {{- include "cms-lib.env" . | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
@@ -78,6 +80,7 @@ spec:
             - manage.py
             - prepare_index
           env:
+            {{- include "cms-lib.sentry" . | nindent 12 }}
             {{- include "cms-lib.env" . | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
