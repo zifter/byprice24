@@ -1,3 +1,4 @@
+import gc
 import logging
 from typing import Generator
 from typing import Optional
@@ -40,6 +41,9 @@ class ParseProductBase:
             return
 
         yield result
+
+        # try to reduce memory usage of scarpy
+        gc.collect()
 
     def parse_product_impl(self, response: Response, category: str
                            ) -> Optional[ProductScrapingResult]:

@@ -15,5 +15,5 @@ spec:
         serverAddress: {{ .Values.autoscalingKEDA.prometheusUrl }}
         metricName: rq_worker_total_amount
         threshold: {{ .Values.autoscalingKEDA.threshold | quote }}
-        query: sum(rq_jobs{status="queued", queue=~"{{ join "|" .Values.rqQueues }}")
+        query: sum(rq_jobs{status="queued", queue=~"{{ join "|" .Values.rqQueues }}"})
 {{- end }}

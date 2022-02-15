@@ -35,11 +35,30 @@ docker-login:
 
 ####################
 # Backend Image
+<<<<<<< Updated upstream
 backend-image-update: IMAGE_TAG := zifter/byprice24-cms:test
 backend-image-update:
 	cd backend && make image-build
 	cd deployment && make backend-image-load
 	cd deployment && make restart-deployments
+=======
+backend-image-build: IMAGE_TAG := zifter/byprice24-cms:test
+backend-image-build:
+	$(info Build docker image for backend - CMS and workes)
+	docker build . -t $(IMAGE_TAG)
+
+# Test Docker image
+backend-image-test: IMAGE_TAG := zifter/byprice24-cms:test
+backend-image-test: DJANGO_CONFIGURATION := Test
+backend-image-test:
+	$(info Run tests for docker image)
+	docker run $(IMAGE_TAG) python3 manage.py check --configuration=${DJANGO_CONFIGURATION}
+	docker run $(IMAGE_TAG) /bin/bash -c "\
+		pytest . --cov=. && \
+		coverage report --include="*tests.py" --rcfile=pytest.ini --fail-under=100 && \
+		coverage report --include="*" --rcfile=pytest.ini --fail-under=95 \
+		"
+>>>>>>> Stashed changes
 
 backend-image-publish: IMAGE_TAG := zifter/byprice24-cms:test
 backend-image-publish: PUBLISH_IMAGE_TAG := zifter/byprice24-cms:latest
@@ -105,3 +124,74 @@ install-full-cluster:
 	make backend-install
 	make frontend-install
 	cd deployment && make print-urls
+<<<<<<< Updated upstream
+=======
+
+###########
+# Backend Local Dev
+pipenv-install:
+	$(info Setup pipenv dependencies)
+	pipenv install --dev
+
+pytest:
+	$(info Run pytest)
+	pipenv run pytest src --cov=src
+
+test:
+	$(info Run all necessary tests locally)
+	pipenv run ./src/manage.py check --configuration=Test
+	make pytest
+	make coverage-report
+
+coverage-report:
+	pipenv run coverage report --include="src/**tests.py" --rcfile=src/pytest.ini --fail-under=100
+	pipenv run coverage report --include="src/*" --rcfile=src/pytest.ini --fail-under=95
+
+open-coverage:
+	make pytest
+	pipenv run coverage html --rcfile=src/pytest.ini
+	xdg-open htmlcov/index.html || open htmlcov/index.html
+
+makemigrations:
+	$(info Make migrations for all applications)
+	pipenv run ./src/manage.py makemigrations
+
+migrations-check:
+	$(info Check if migrations is needed)
+	pipenv run ./src/manage.py makemigrations --check --dry-run
+
+collectstatic:
+	$(info Collect static files)
+	pipenv run ./src/manage.py collectstatic --noinput
+
+migrate:
+	make makemigrations
+	$(info Run migration for database)
+	pipenv run ./src/manage.py migrate
+
+createuser:
+	$(info Create test user in cms)
+	pipenv run ./src/manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('root', '', '1234')"
+
+load-fixtures:
+	$(info Load fixtures to database)
+	pipenv run ./src/manage.py loaddata fixtures/prod/*.yaml
+
+load-fixtures-test:
+	$(info Load test fixtures to database)
+	pipenv run ./src/manage.py loaddata fixtures/test/*.yaml
+
+dump-fixtures-test:
+	$(info Load test fixtures to database)
+	pipenv run ./src/manage.py dumpdata marketplace --format yaml > ./fixtures/dump/marketplace.yaml
+
+workers:
+	$(info Load workes for all queues)
+	pipenv run ./src/manage.py rqworker crawler-feed crawler-result
+
+runserver:
+	$(info Run server)
+	pipenv run ./src/manage.py runserver 0.0.0.0:8080
+
+cms-init: createuser load-fixtures
+>>>>>>> Stashed changes

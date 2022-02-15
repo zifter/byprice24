@@ -64,7 +64,7 @@ class ProductPage(models.Model):
     product = models.ForeignKey(Product, related_name='product_pages', on_delete=models.CASCADE)
     marketplace = models.ForeignKey(Marketplace, related_name='marketplace', on_delete=models.CASCADE)
     url = models.URLField()
-    name = models.CharField(max_length=128)
+    name = models.CharField(max_length=192)
     description = models.CharField(max_length=512)
 
     def __str__(self):

@@ -94,23 +94,23 @@ class Agent:
 
         marketplace = Marketplace.objects.filter(domain=data.domain).get()
 
-        product = find_closest_product(data.result.title)
+        product = find_closest_product(data._result.title)
 
         if product is None:
-            category = Category.objects.get(name=data.result.main_category)
+            category = Category.objects.get(name=data._result.main_category)
             product, _ = Product.objects.get_or_create(
-                name=data.result.title,
+                name=data._result.title,
                 category=category,
-                description=data.result.description,
-                preview_url=data.result.preview_url,
+                description=data._result.description,
+                preview_url=data._result.preview_url,
             )
 
         page, _ = ProductPage.objects.get_or_create(
             product=product,
             marketplace=marketplace,
-            url=data.result.url,
-            name=data.result.title,
-            description=data.result.description,
+            url=data.url,
+            name=data._result.title,
+            description=data._result.description,
         )
 
         def models_has_equal_fields(model_1, model_2, *fields):
@@ -124,13 +124,13 @@ class Agent:
         last_product_state = ProductState.objects.filter(product_page=page).last()
         new_product_state = ProductState.objects.model(
             product_page=page,
-            created=data.result.timestamp,
-            last_check=data.result.timestamp,
-            price=data.result.price,
-            price_currency=data.result.price_currency,
-            rating=data.result.rating,
-            review_count=data.result.review_count,
-            availability=data.result.availability,
+            created=data._result.timestamp,
+            last_check=data._result.timestamp,
+            price=data._result.price,
+            price_currency=data._result.price_currency,
+            rating=data._result.rating,
+            review_count=data._result.review_count,
+            availability=data._result.availability,
         )
         if not last_product_state or not models_has_equal_fields(
                 last_product_state,
@@ -138,7 +138,7 @@ class Agent:
                 'price', 'price_currency', 'rating', 'review_count', 'availability'):
             new_product_state.save(force_insert=True, using=ProductState.objects.db)
         else:
-            setattr(last_product_state, 'last_check', data.result.timestamp)
+            setattr(last_product_state, 'last_check', data._result.timestamp)
             last_product_state.save(using=ProductState.objects.db)
 
 
