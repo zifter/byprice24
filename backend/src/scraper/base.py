@@ -1,3 +1,4 @@
+import gc
 import logging
 from typing import Generator
 from typing import Optional
@@ -30,6 +31,9 @@ class CategoryRule(Rule):
 
 
 class ParseProductBase:
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
     def parse_product(self, response: Response, category: str
                       ) -> Generator[ProductScrapingResult, None, None]:
         logging.info('parse_item %s', response.url)
@@ -41,24 +45,46 @@ class ParseProductBase:
 
         yield result
 
+        # try to reduce memory usage of scarpy
+        gc.collect()
+
     def parse_product_impl(self, response: Response, category: str
                            ) -> Optional[ProductScrapingResult]:
         raise NotImplementedError('must be overridden')
 
 
-class CrawlSpiderBase(CrawlSpider, ParseProductBase):
+class AnySpiderMixin:
+    """
+    Mixin для всех спайдеров
+    """
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # specify target url for debug purpose
+        if hasattr(self, 'target_url') and hasattr(self, 'start_urls'):
+            self.start_urls.append(self.target_url)
+
+
+class CrawlSpiderBase(ParseProductBase, AnySpiderMixin, CrawlSpider):
     """
     Базовой CrawlSpider для большинства наших парсеров
     """
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
     def parse(self, response, **kwargs):
         raise NotImplementedError('method should not be called')
 
 
-class SpiderBase(Spider, ParseProductBase):
+class SpiderBase(ParseProductBase, AnySpiderMixin, Spider):
     """
     Базовой Spider для некоторых наших парсеров
     """
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
     def start_requests(self) -> list[Request] | Generator[Request, None, None]:
         raise NotImplementedError('must be overridden')

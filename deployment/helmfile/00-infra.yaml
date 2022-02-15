@@ -68,7 +68,7 @@ releases:
   - name: keda
     namespace: kube-system
     chart: kedacore/keda
-    installed: {{ .Values.monitoring.enabled | toYaml }}
+    installed: {{ .Values.keda.enabled | toYaml }}
     version: 2.5.1
     values:
       - releases/keda/values.yaml

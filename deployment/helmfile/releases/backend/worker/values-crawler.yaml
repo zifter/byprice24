@@ -1,2 +1,13 @@
+resources:
+  requests:
+    cpu: "200m"
+    memory: "200Mi"
+  limits:
+    cpu: "300m"
+    memory: "400Mi"
+
 rqQueues:
   - crawler-feed
+
+autoscalingKEDA:
+  threshold: 1

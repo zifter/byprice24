@@ -8,9 +8,3 @@ resources:
 
 ingress:
   enabled: true
-
-redis:
-  url: "redis://redis-master:6379/0"
-
-elasticsearch:
-  url: "es://elasticsearch-master:9200/"

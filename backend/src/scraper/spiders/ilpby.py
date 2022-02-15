@@ -18,5 +18,8 @@ class Spider(CrawlSpiderBase, StructuredDataMixin):
         CategoryRule(LinkExtractor(allow=('notebook', )), category='notebook'),
     )
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
     def parse_product_impl(self, response: Response, category: str) -> Optional[ProductScrapingResult]:
         return self.extract_structured_data(response, category)

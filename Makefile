@@ -52,6 +52,7 @@ backend-install: IMAGE_TAG := zifter/byprice24-cms:test
 backend-install:
 	$(info Install actual application to k8s)
 	cd backend && make image-build
+
 	cd deployment && make backend-image-load
 	cd deployment && make backend-helm-install
 	cd backend && make cms-init

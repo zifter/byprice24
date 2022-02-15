@@ -26,3 +26,16 @@
 - name: ELASTICSEARCH_DSL
   value: {{ required "Elasticsearch url is required" .Values.elasticsearch.url | quote }}
 {{- end }}
+
+{{- define "cms-lib.sentry" -}}
+- name: RQ_SENTRY_DSN # https://python-rq.org/patterns/sentry/
+  value: {{ .Values.sentry.dsn | quote }}
+- name: SENTRY_DSN
+  value: {{ .Values.sentry.dsn | quote }}
+- name: SENTRY_RELEASE
+  value: {{ .Values.release  | quote }}
+- name: SENTRY_ENVIRONMENT
+  value: {{ .Values.envName  | quote }}
+- name: SENTRY_DEBUG
+  value: {{ .Values.sentry.debug | quote }}
+{{- end }}

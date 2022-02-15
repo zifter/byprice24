@@ -10,17 +10,10 @@ releases:
     labels:
       side: "backend"
     values:
+      - releases/backend/values.yaml.gotmpl
       - releases/backend/cms/values.yaml
+      - releases/backend/values-{{ .Environment.Name }}.yaml
       - releases/backend/cms/values-{{ .Environment.Name }}.yaml
-      - image:
-          tag: {{ .Values.app.backend }}
-      - postgres:
-          dbname: {{ .Values.postgres.dbName }}
-          username: {{ .Values.postgres.user }}
-          password: {{ .Values.postgres.pass }}
-          host: {{ .Values.postgres.host }}
-          port: {{ .Values.postgres.port }}
-      - secretKey: {{ .Values.app.cms.secretKey }}
 
   - name: worker-crawler
     namespace: {{ .Values.namespace }}
@@ -28,18 +21,10 @@ releases:
     labels:
       side: "backend"
     values:
+      - releases/backend/values.yaml.gotmpl
       - releases/backend/worker/values.yaml
       - releases/backend/worker/values-crawler.yaml
-      - releases/backend/worker/values-{{ .Environment.Name }}.yaml
-      - image:
-          tag: {{ .Values.app.backend }}
-      - postgres:
-          dbname: {{ .Values.postgres.dbName }}
-          username: {{ .Values.postgres.user }}
-          password: {{ .Values.postgres.pass }}
-          host: {{ .Values.postgres.host }}
-          port: {{ .Values.postgres.port }}
-      - secretKey: {{ .Values.app.cms.secretKey }}
+      - releases/backend/values-{{ .Environment.Name }}.yaml
 
   - name: worker-etc
     namespace: {{ .Values.namespace }}
@@ -47,18 +32,10 @@ releases:
     labels:
       side: "backend"
     values:
+      - releases/backend/values.yaml.gotmpl
       - releases/backend/worker/values.yaml
       - releases/backend/worker/values-etc.yaml
-      - releases/backend/worker/values-{{ .Environment.Name }}.yaml
-      - image:
-          tag: {{ .Values.app.backend }}
-      - postgres:
-          dbname: {{ .Values.postgres.dbName }}
-          username: {{ .Values.postgres.user }}
-          password: {{ .Values.postgres.pass }}
-          host: {{ .Values.postgres.host }}
-          port: {{ .Values.postgres.port }}
-      - secretKey: {{ .Values.app.cms.secretKey }}
+      - releases/backend/values-{{ .Environment.Name }}.yaml
 
   # Frontend
   - name: site

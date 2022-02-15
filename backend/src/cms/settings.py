@@ -120,6 +120,8 @@ class Base(Configuration):
 
     USE_TZ = True
 
+    DEBUG = True
+
     FIXTURE_DIRS = [
         os.path.join(BACKEND_DIR, 'fixtures'),
     ]
@@ -198,18 +200,29 @@ class PostgresMixin:
     }
 
 
+class SentryMixin:
+    # Sentry
+    SENTRY_DSN = os.environ.setdefault('SENTRY_DSN', '')
+
+    def __init__(self):
+        sentry_sdk.init(dsn=SentryMixin.SENTRY_DSN, integrations=[DjangoIntegration(), ])
+
+
 class Dev(PostgresMixin, Base):
-    DEBUG = True
-
-
-class Test(Dev):
+    # Dev configuration (for example, in pycharm)
     pass
 
 
-class Prod(PostgresMixin, Base):
+class Test(Dev):
+    # Configuration will be used for while running tests
+    pass
 
-    # Sentry
-    SENTRY_DSN = os.environ.setdefault('SENTRY_DSN', 'https://607627c21d7642ab878a8aaa4fe0da98@o1101110.ingest.sentry.io/6126818')
-    sentry_sdk.init(dsn=SENTRY_DSN, integrations=[DjangoIntegration(), ])
 
+class Local(SentryMixin, Dev):
+    # Will be used in Local k8s cluster
+    pass
+
+
+class Prod(Local):
+    # Local k8s cluster
     DEBUG = False  # TODO Make it False and run behind wsgi server (gunicron)

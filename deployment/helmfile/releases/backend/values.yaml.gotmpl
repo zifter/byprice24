@@ -1,0 +1,23 @@
+envName: {{ .Environment.Name }}
+release: {{ env "GIT_COMMIT" | default "release-local" }}
+
+image:
+  tag: {{ .Values.app.backend }}
+
+secretKey: {{ .Values.app.cms.secretKey }}
+
+postgres:
+  dbname: {{ .Values.postgres.dbName }}
+  username: {{ .Values.postgres.user }}
+  password: {{ .Values.postgres.pass }}
+  host: {{ .Values.postgres.host }}
+  port: {{ .Values.postgres.port }}
+
+redis:
+  url: "redis://redis-master:6379/0"
+
+elasticsearch:
+  url: "es://elasticsearch-master:9200/"
+
+sentry:
+  dsn: https://607627c21d7642ab878a8aaa4fe0da98@o1101110.ingest.sentry.io/6126818
