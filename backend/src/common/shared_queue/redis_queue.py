@@ -38,11 +38,11 @@ class FlowQueueRedis(FlowQueueBase):
         self.query = search_query
 
     def scrape(self, target: ScrapingTarget):
-        rq_job = self.feed.enqueue('crawler.tasks.scrape_target', target, job_timeout=-1)
+        rq_job = self.feed.enqueue('crawler.tasks.scrape_target', target, job_timeout=-1, ttl=-1, failure_ttl=-1)
         return rq_job.id
 
     def process_product(self, product):
-        self.result.enqueue('crawler.tasks.process_product', product, job_timeout=30)
+        self.result.enqueue('crawler.tasks.process_product', product, job_timeout=30, retry=3)
 
     def push_query(self, query: str, number_found_products):
-        self.query.enqueue('search.tasks.push_query', query, number_found_products, job_timeout=1)
+        self.query.enqueue('search.tasks.push_query', query, number_found_products, job_timeout=30, retry=3)

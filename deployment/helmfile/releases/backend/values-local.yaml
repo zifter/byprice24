@@ -2,7 +2,7 @@ domain:
   api: localhost
   admin: localhost
 
-configuration: Dev
+configuration: Local
 
 sentry:
   debug: true

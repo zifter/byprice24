@@ -1,14 +1,5 @@
-resources:
-  requests:
-    cpu: "200m"
-    memory: "200Mi"
-  limits:
-    cpu: "300m"
-    memory: "250Mi"
-
 autoscalingKEDA:
   enabled: true
   minReplicas: 1
   maxReplicas: 3
-  threshold: 3
   prometheusUrl: http://prometheus-operated.monitoring.svc:9090/prometheus

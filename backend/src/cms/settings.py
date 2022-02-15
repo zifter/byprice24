@@ -120,6 +120,8 @@ class Base(Configuration):
 
     USE_TZ = True
 
+    DEBUG = True
+
     FIXTURE_DIRS = [
         os.path.join(BACKEND_DIR, 'fixtures'),
     ]
@@ -207,10 +209,14 @@ class SentryMixin:
 
 
 class Dev(PostgresMixin, Base):
-    DEBUG = True
+    pass
 
 
 class Test(Dev):
+    pass
+
+
+class Local(PostgresMixin, SentryMixin, Base):
     pass
 
 
