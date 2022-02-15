@@ -28,7 +28,7 @@ on:
 jobs:
   image-build:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
@@ -60,7 +60,7 @@ jobs:
 
   test-mac:
     runs-on: macos-11
-    timeout-minutes: 5
+    timeout-minutes: 8
     needs: image-build  # to be sure that we don't waste time of mac agent in case when build is failed
     if: github.ref == 'refs/heads/main'
     steps:
