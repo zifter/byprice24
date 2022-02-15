@@ -1,14 +1,14 @@
 from typing import Optional
 
 from scraper.base import CategoryRule
-from scraper.base import SpiderBase
+from scraper.base import CrawlSpiderBase
 from scraper.items import ProductScrapingResult
 from scraper.mixin import StructuredDataMixin
 from scrapy.http import Response
 from scrapy.linkextractors import LinkExtractor
 
 
-class Spider(SpiderBase, StructuredDataMixin):
+class Spider(CrawlSpiderBase, StructuredDataMixin):
     name: str = 'www.amd.by'
     allowed_domains = [
         'www.amd.by',

@@ -223,6 +223,6 @@ class Local(SentryMixin, Dev):
     pass
 
 
-class Prod(Local, Base):
+class Prod(Local):
     # Local k8s cluster
     DEBUG = False  # TODO Make it False and run behind wsgi server (gunicron)

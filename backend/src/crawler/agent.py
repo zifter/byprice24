@@ -9,7 +9,6 @@ from common.shared_queue import ScrapingTarget
 from crawler.models import ScrapingState
 from crawler.structs import ProductData
 from croniter import croniter
-from marketplace.models import Category
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -17,7 +16,6 @@ from marketplace.models import ProductState
 from scraper.items import ProductScrapingResult
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
-from search.logic import find_closest_product
 from twisted.internet.defer import Deferred
 from twisted.python.failure import Failure
 
@@ -93,14 +91,12 @@ class Agent:
         logging.info('Process product %s', data)
 
         marketplace = Marketplace.objects.filter(domain=data.domain).get()
-
-        product = find_closest_product(data._result.title)
+        product = data.closest_product()
 
         if product is None:
-            category = Category.objects.get(name=data._result.main_category)
             product, _ = Product.objects.get_or_create(
                 name=data._result.title,
-                category=category,
+                category=data.category(),
                 description=data._result.description,
                 preview_url=data._result.preview_url,
             )
