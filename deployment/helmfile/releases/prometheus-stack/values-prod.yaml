@@ -20,6 +20,7 @@ prometheus:
 # Alertmanager settings
 alertmanager:
   ingress:
+    enabled: false # TODO Make auth proxy to access this site
     annotations:
       nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
       nginx.ingress.kubernetes.io/rewrite-target: /$2
