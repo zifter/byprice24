@@ -82,7 +82,7 @@ migrate:
 
 createuser:
 	$(info Create test user in cms)
-	pipenv run ./src/manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('root', '', '1234')" || true
+	pipenv run ./src/manage.py create-admin-user --username root --password 1234
 
 load-fixtures:
 	$(info Load fixtures to database)

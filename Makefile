@@ -55,7 +55,6 @@ backend-install:
 
 	cd deployment && make backend-image-load
 	cd deployment && make backend-helm-install
-	cd backend && make cms-init
 	cd deployment && make print-urls
 
 #############
