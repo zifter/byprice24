@@ -5,6 +5,7 @@ from rq import Queue
 
 from .base import FlowQueueBase
 from .base import ScrapingTarget
+from .structs import QueryRequest
 
 CRAWLER_FEED = 'crawler-feed'
 CRAWLER_RESULT = 'crawler-result'
@@ -44,5 +45,5 @@ class FlowQueueRedis(FlowQueueBase):
     def process_product(self, product):
         self.result.enqueue('crawler.tasks.process_product', product, job_timeout=30)
 
-    def push_query(self, query: str, number_found_products):
-        self.query.enqueue('search.tasks.push_query', query, number_found_products, job_timeout=30)
+    def push_query(self, obj: QueryRequest):
+        self.query.enqueue('search.tasks.push_query', obj, job_timeout=30)

@@ -1,4 +1,8 @@
+from datetime import datetime
+
+import pytz
 from common import shared_queue
+from common.shared_queue.structs import QueryRequest
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from search.logic import ProductSearch
@@ -31,5 +35,9 @@ class SearchProductViewSet(APIView):
 
     @staticmethod
     def push_query_into_db(query, number_found_products):
-        shared_queue.get_flow_queue().push_query(query=query,
-                                                 number_found_products=number_found_products)
+        obj = QueryRequest(
+            query=query,
+            result_count=number_found_products,
+            timestamp=datetime.now(tz=pytz.UTC)
+        )
+        shared_queue.get_flow_queue().push_query(obj)

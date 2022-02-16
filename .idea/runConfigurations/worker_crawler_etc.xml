@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="worker crawler-result" type="PythonConfigurationType" factoryName="Python">
+  <configuration default="false" name="worker crawler-etc" type="PythonConfigurationType" factoryName="Python">
     <module name="byprice24" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
