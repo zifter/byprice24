@@ -91,3 +91,10 @@ scheduleScraping:
 sentry:
   dsn: ''
   debug: false
+
+fixtures: []
+
+admin:
+  create: false
+  user: root
+  pass: 1234

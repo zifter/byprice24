@@ -22,6 +22,10 @@ ingress:
         - path: /admin-static
           pathType: Prefix
 
+fixtures:
+  - prod/markets.yaml
+  - prod/categories.yaml
+
 scheduleScraping:
   cron: "0 * * * *"
   suspend: false

@@ -11,3 +11,13 @@ ingress:
 
 scheduleScraping:
   suspend: true
+
+fixtures:
+  - prod/markets.yaml
+  - prod/categories.yaml
+  - dump/marketplace.yaml
+
+admin:
+  create: true
+  user: root
+  pass: 1234

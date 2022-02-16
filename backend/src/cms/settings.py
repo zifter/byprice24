@@ -50,6 +50,7 @@ class Base(Configuration):
         'health_check.storage',
         'health_check.contrib.migrations',
         'django_rq',
+        'backoffice',
         'marketplace',
         'crawler',
         'search',
