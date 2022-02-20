@@ -1,0 +1,41 @@
+name: Feature
+description: Новая фича
+title: "Feature: "
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Каждая фича должна быть согласована c [MVP](https://github.com/zifter/byprice24/wiki/MVP)
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Описание запроса
+      description: Опишите подробно, что нужно сделать
+      value: |
+        *
+    validations:
+      required: true
+  - type: dropdown
+    id: system
+    attributes:
+      label: System
+      description: В какой подсистеме нужны изменения
+      options:
+        - frontend
+        - backend
+        - devops
+    validations:
+      required: true
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Difficulty
+      description: Уровень сложности задачи
+      options:
+        - 0 - easy
+        - 1 - normal
+        - 2 - hard
+        - 3 - expert
+    validations:
+      required: true
