@@ -10,4 +10,7 @@ rqQueues:
   - crawler-feed
 
 autoscalingKEDA:
+  enabled: false # TODO Fix long process problem https://keda.sh/docs/2.6/concepts/scaling-deployments/#long-running-executions
   threshold: 1
+  minReplicas: 1
+  maxReplicas: 1
