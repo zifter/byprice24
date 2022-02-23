@@ -89,7 +89,7 @@ frontend-install:
 # Dev cluster
 # Run cluster from scratch for dev, without application
 run-dev-cluster:
-	cd deployment && make cluster-delete
+	stop-cluster
 	cd deployment && make cluster-create
 	cd deployment && make infra-install
 	cd deployment && make print-urls
@@ -105,3 +105,6 @@ install-full-cluster:
 	make backend-install
 	make frontend-install
 	cd deployment && make print-urls
+
+stop-cluster:
+	cd deployment && make cluster-delete

@@ -15,9 +15,6 @@ class StructuredDataMixin:
     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data
     """
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
     def extract_structured_data(self, response: Response, category: str) -> Optional[ProductScrapingResult]:
         logging.info('parse_structured_data %s', response.url)
 

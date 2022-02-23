@@ -11,4 +11,7 @@ rqQueues:
   - search-query
 
 autoscalingKEDA:
-  threshold: 20
+  enabled: true
+  threshold: 1
+  minReplicas: 0
+  maxReplicas: 3

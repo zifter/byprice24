@@ -12,31 +12,30 @@ CRAWLER_RESULT = 'crawler-result'
 SEARCH_QUERY = 'search-query'
 
 
-def crawler_feed() -> Queue:
+def _connection():
     url = os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0')
-    redis = Redis.from_url(url)
-    return Queue(name=CRAWLER_FEED, connection=redis)
+    return Redis.from_url(url)
+
+
+def crawler_feed() -> Queue:
+    return Queue(name=CRAWLER_FEED, connection=_connection())
 
 
 def crawler_result() -> Queue:
-    url = os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0')
-    redis = Redis.from_url(url)
-    return Queue(name=CRAWLER_RESULT, connection=redis)
+    return Queue(name=CRAWLER_RESULT, connection=_connection())
 
 
 def search_query() -> Queue:
-    url = os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0')
-    redis = Redis.from_url(url)
-    return Queue(name=SEARCH_QUERY, connection=redis)
+    return Queue(name=SEARCH_QUERY, connection=_connection())
 
 
 class FlowQueueRedis(FlowQueueBase):
-    def __init__(self, feed: Queue, result: Queue, search_query: Queue):
+    def __init__(self, feed: Queue, result: Queue, query: Queue):
         super().__init__()
 
         self.feed = feed
         self.result = result
-        self.query = search_query
+        self.query = query
 
     def scrape(self, target: ScrapingTarget):
         rq_job = self.feed.enqueue('crawler.tasks.scrape_target', target, job_timeout=-1, failure_ttl=-1)
