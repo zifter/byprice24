@@ -13,6 +13,7 @@ import SearchResult from './components/pages/SearchResult.js';
 import ProductPage from './components/pages/ProductPage.js';
 import NotFound from './components/pages/NotFound.js';
 import DisclaimerPage from './components/pages/DisclaimerPage';
+import Contacts from './components/pages/Contacts';
 
 import ReactGA from 'react-ga';
 import {
@@ -20,6 +21,7 @@ import {
   StyleReset,
   Container,
 } from 'atomize';
+
 
 const theme = {
   fontFamily: {
@@ -61,6 +63,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Index />} />
             <Route exact path="/search" element={<SearchResult />} />
+            <Route exact path="/contacts" element={<Contacts />} />
             <Route exact path="/products/:id" element={<ProductPage />}/>
             <Route exact path="/404" element={<NotFound />}/>
             <Route path="*" element={<Navigate replace to="/404" />} />
