@@ -7,7 +7,7 @@ setup-pipenv:
 setup-helm:
 	$(info Install helm)
 	curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 && \
-	chmod 700 get_helm.sh && \
+	sudo chmod 700 get_helm.sh && \
 	./get_helm.sh --version v3.6.3 \
 	&& rm -f ./get_helm.sh
 
