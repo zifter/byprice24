@@ -4,10 +4,11 @@ import {
   Div, Text, Container,
 } from 'atomize';
 
-const TextContact = ({text, bottomValue, textSize}) => {
+const TextContact = ({text, bottomValue, textSize, textWeight, tag}) => {
   return (
     <Div textAlign="left">
-      <Text tag="section" textSize={textSize || 'paragraph'} textWeight="400"
+      <Text tag={tag || 'section'} textSize={textSize || 'paragraph'}
+        textWeight={textWeight || '400'}
         m={{b: bottomValue}}>
         {text}
       </Text>
@@ -18,17 +19,14 @@ TextContact.propTypes = {
   text: PropTypes.string.isRequired,
   bottomValue: PropTypes.string,
   textSize: PropTypes.string,
+  textWeight: PropTypes.string,
+  tag: PropTypes.string,
 };
 const Contacts = () => {
   return (<>
     <Container p="0" d="flex" flexDir="column" align="flex-start">
-
-      <Div
-        textAlign="left">
-        <Text tag="h1" textSize="display1" textWeight="600" m={{b: '0.5rem'}}>
-          Контакты
-        </Text>
-      </Div>
+      <TextContact tag={'h1'} text={'Контакты'} textSize={'display1'}
+        bottomValue={'0.5rem'} textWeight={'600'}/>
       <TextContact text={'У Вас возникли вопросы? Мы здесь чтобы помочь.'}
         bottomValue={'1.7rem'}/>
       <TextContact text={'Информация о компании:'} textSize={'heading'} />
