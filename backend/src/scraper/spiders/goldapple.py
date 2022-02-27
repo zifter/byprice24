@@ -97,25 +97,34 @@ class Spider(SpiderBase, StructuredDataMixin):
 
         headers = {'referer': 'https://goldapple.by'}
 
-        for url in urls:
-            for page in itertools.count(1):
-                response = requests.get(
-                    url=url[self.SCRIPT_URL].format(page=page),
-                    headers=headers
-                )
+        if self.follow:
+            for url in urls:
+                for page in itertools.count(1):
+                    response = requests.get(
+                        url=url[self.SCRIPT_URL].format(page=page),
+                        headers=headers
+                    )
 
-                data = response.json()
+                    data = response.json()
 
-                if 'products' not in data:
-                    break
+                    if 'products' not in data:
+                        break
 
-                for product in data['products']:
-                    item_url = product['url']
+                    for product in data['products']:
+                        item_url = product['url']
 
-                    yield Request(url=item_url,
-                                  callback=self.parse_product,
-                                  headers=headers,
-                                  cb_kwargs={'category': url[self.CATEGORY]})
+                        yield Request(url=item_url,
+                                      callback=self.parse_product,
+                                      headers=headers,
+                                      cb_kwargs={'category': url[self.CATEGORY]})
+        else:
+            category = [url.get(self.CATEGORY) for url in urls
+                        if url.get(self.CATALOG_URL) in self.start_urls[0]][0]
+
+            yield Request(url=self.start_urls[0],
+                          callback=self.parse_product,
+                          headers=headers,
+                          cb_kwargs={'category': category})
 
     def parse_product_impl(self, response: Response, category: str) -> Optional[ProductScrapingResult]:
         return self.extract_structured_data(response, category)

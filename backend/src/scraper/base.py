@@ -18,10 +18,10 @@ class CategoryRule(Rule):
     Добавлен функционал возможности указания категории
     """
 
-    def __init__(self, *args, category='', **kwargs):
+    def __init__(self, *args, category='', follow=True, **kwargs):
         super().__init__(
             *args,
-            follow=True,
+            follow=follow,
             callback='parse_product',
             cb_kwargs={
                 'category': category
@@ -72,6 +72,9 @@ class CrawlSpiderBase(ParseProductBase, AnySpiderMixin, CrawlSpider):
     """
 
     def __init__(self, *args, **kwargs):
+        for rule in self.rules:
+            rule.follow = kwargs['follow']
+
         super().__init__(*args, **kwargs)
 
     def parse(self, response, **kwargs):
