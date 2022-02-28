@@ -29,8 +29,8 @@ class StructuredDataMixin:
                 continue
 
             properties = item['properties']
-            image = properties['image']
-            preview_url = image if isinstance(image, str) else image[0]
+            # image = properties['image']
+            # preview_url = image if isinstance(image, str) else image[0]
 
             offer = StructuredDataMixin.extract_offer(properties)
 
@@ -44,6 +44,7 @@ class StructuredDataMixin:
             categories = self.extract_categories(data)
             price_currency = self.extract_price_currency(offer)
             rating = self.extract_rating(properties)
+            preview_url = self.extract_preview_url(properties)
 
             price = round(float(offer['properties']['price'].replace(' ', '')), 2)
 
@@ -123,3 +124,12 @@ class StructuredDataMixin:
     def extract_offer(cls, properties) -> str:
         offers = properties['offers']
         return offers[0] if isinstance(offers, list) else offers
+
+    @classmethod
+    def extract_preview_url(cls, properties) -> str:
+        try:
+            image = properties['image']
+            preview_url = image if isinstance(image, str) else image[0]
+        except KeyError:
+            preview_url = ''
+        return preview_url

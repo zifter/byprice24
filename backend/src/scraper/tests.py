@@ -254,6 +254,24 @@ def test_spider_ozon_ru():
 
     assert_spider(url, 'Infinix-HOT-10-Lite.html', expected)
 
+def test_spider_ilp_image():
+    url = 'https://www.ilp.by/notebook/msi/a11mt092ru'
+    expected = ProductScrapingResult(
+        url=url,
+        title='MSI Summit E16 Flip Evo A11MT-092RU',
+        description='13.4" 1920 x 1200 IPS, 60 Гц, сенсорный, Intel Core i7 1185G7 3000 МГц, 16 ГБ, SSD 1000 ГБ, видеокарта встроенная, Windows 10, цвет крышки черный',
+        price=6462.5,
+        price_currency='BYN',
+        availability=Availability.InStock,
+        preview_url='',
+        main_category=Category.NOTEBOOK,
+        rating=0.0,
+        review_count=0,
+        categories=['Ноутбуки'],
+    )
+
+    assert_spider(url, 'msi-summit-e16-flip.html', expected)
+
 
 @pytest.mark.parametrize('test_html,expected', test_data['texus.by'])
 def test_texus_by(test_html, expected):
