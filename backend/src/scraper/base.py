@@ -72,8 +72,9 @@ class CrawlSpiderBase(ParseProductBase, AnySpiderMixin, CrawlSpider):
     """
 
     def __init__(self, *args, **kwargs):
+        follow = kwargs.get('follow', True)
         for rule in self.rules:
-            rule.follow = kwargs['follow']
+            rule.follow = follow
 
         super().__init__(*args, **kwargs)
 
