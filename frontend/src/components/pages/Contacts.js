@@ -4,13 +4,17 @@ import {
   Div, Text, Container,
 } from 'atomize';
 
-const TextContact = ({text, bottomValue, textSize, textWeight, tag}) => {
+const TextContact = ({text, bottomValue, textSize, textWeight,
+  tag, children}) => {
   return (
-    <Div textAlign="left">
-      <Text tag={tag || 'section'} textSize={textSize || 'paragraph'}
+    <Div itemscope itemtype="http://schema.org/Organization" textAlign="left">
+      <Text itemprop="email" tag={tag || 'section'}
+        textSize={textSize || 'paragraph'}
         textWeight={textWeight || '400'}
         m={{b: bottomValue}}>
         {text}
+        <a href="mailto:contact@findprice.by">
+          <span>{children}</span></a>
       </Text>
     </Div>
   );
@@ -21,6 +25,7 @@ TextContact.propTypes = {
   textSize: PropTypes.string,
   textWeight: PropTypes.string,
   tag: PropTypes.string,
+  children: PropTypes.string,
 };
 const Contacts = () => {
   return (<>
@@ -29,16 +34,8 @@ const Contacts = () => {
         bottomValue={'0.5rem'} textWeight={'600'}/>
       <TextContact text={'У Вас возникли вопросы? Мы здесь чтобы помочь.'}
         bottomValue={'1.7rem'}/>
-      <TextContact text={'Информация о компании:'} textSize={'heading'} />
-      <TextContact text={'UAB Elektroninės prekybos centras'}
-        bottomValue={'0'}/>
-      <TextContact text={'Код предприятия: 304298127'}/>
-      <TextContact text={'НДС код: LT100010323218'}
-        bottomValue={'1.7rem'}/>
-      <TextContact text={'Адрес:'} textSize={'heading'}/>
-      <TextContact text={'Laisvės pr. 60-1107, LT-05120 Vilnius'}
-        bottomValue={'1.7rem'}/>
-      <TextContact text={'E. почта: contact@findprice.by'}/>
+      <TextContact text=''>e-mail: contact@findprice.by
+      </TextContact>
     </Container>
   </>
   );

@@ -13,7 +13,7 @@ import SearchResult from './components/pages/SearchResult.js';
 import ProductPage from './components/pages/ProductPage.js';
 import NotFound from './components/pages/NotFound.js';
 import DisclaimerPage from './components/pages/DisclaimerPage';
-import Contacts from './components/pages/Contacts';
+import Contacts from "./components/pages/Contacts";
 
 import ReactGA from 'react-ga';
 import {
