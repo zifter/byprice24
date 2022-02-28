@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, Container,
   Col, Row, Anchor} from 'atomize';
+import {NavLink} from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -17,6 +18,7 @@ const Footer = () => {
             p="0"
             textAlign="center">
         2021 by zifter
+
           </Text>
         </Col>
         <Col size={5}>
@@ -31,11 +33,13 @@ const Footer = () => {
               p="0"
               textAlign="left"
               textColor="black">
-        Правовая информация
+        Правовая информация. Свяжитесь с нами:
+              <NavLink to={'/contacts'}> контакты</NavLink>
             </Text>
           </Anchor>
         </Col>
       </Row>
+
     </Container>
   );
 };
