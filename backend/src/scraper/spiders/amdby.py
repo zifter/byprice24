@@ -5,7 +5,6 @@ from scraper.base import CrawlSpiderBase
 from scraper.items import ProductScrapingResult
 from scraper.mixin import StructuredDataMixin
 from scrapy.http import Response
-from scrapy.linkextractors import LinkExtractor
 
 
 class Spider(CrawlSpiderBase, StructuredDataMixin):
@@ -15,25 +14,25 @@ class Spider(CrawlSpiderBase, StructuredDataMixin):
     ]
 
     rules = (
-        CategoryRule(LinkExtractor(allow=('mobile', )), category='mobile'),
-        CategoryRule(LinkExtractor(allow=('noutbuki',)), category='notebook'),
-        CategoryRule(LinkExtractor(allow=('monitory',)), category='display'),
-        CategoryRule(LinkExtractor(allow=('kompyutery',)), category='desktoppc'),
-        CategoryRule(LinkExtractor(allow=('monobloki',)), category='desktoppc'),
-        CategoryRule(LinkExtractor(allow=('televizory',)), category='tv'),
-        CategoryRule(LinkExtractor(allow=('saundbary-i-domashnie-kinoteatry',)), category='tv'),
-        CategoryRule(LinkExtractor(allow=('proektory',)), category='tv'),
-        CategoryRule(LinkExtractor(allow=('proekcionnye-ekrany',)), category='tv'),
-        CategoryRule(LinkExtractor(allow=('planshety',)), category='tabletpc'),
-        CategoryRule(LinkExtractor(allow=('elektronnye-knigi',)), category='tabletpc'),
-        CategoryRule(LinkExtractor(allow=('naushniki-i-garnitury',)), category='headphones'),
-        CategoryRule(LinkExtractor(allow=('elektronnye-knigi',)), category='tabletpc'),
-        CategoryRule(LinkExtractor(allow=('buildingkit',)), category='buildingkit'),
+        CategoryRule('mobile', category='mobile'),
+        CategoryRule('noutbuki', category='notebook'),
+        CategoryRule('monitory', category='display'),
+        CategoryRule('kompyutery', category='desktoppc'),
+        CategoryRule('monobloki', category='desktoppc'),
+        CategoryRule('televizory', category='tv'),
+        CategoryRule('saundbary-i-domashnie-kinoteatry', category='tv'),
+        CategoryRule('proektory', category='tv'),
+        CategoryRule('proekcionnye-ekrany', category='tv'),
+        CategoryRule('planshety', category='tabletpc'),
+        CategoryRule('elektronnye-knigi', category='tabletpc'),
+        CategoryRule('naushniki-i-garnitury', category='headphones'),
+        CategoryRule('elektronnye-knigi', category='tabletpc'),
+        CategoryRule('buildingkit', category='buildingkit'),
         # COSMETIC
-        CategoryRule(LinkExtractor(allow=('umnye-chasy-i-braslety',)), category='smartwatch'),
-        CategoryRule(LinkExtractor(allow=('smennye-remeshki-i-braslety',)), category='smartwatch'),
-        CategoryRule(LinkExtractor(allow=('ochki-virtualnoi-realnosti',)), category='smartwatch'),
-        CategoryRule(LinkExtractor(allow=('elektronnye-parogeneratory',)), category='smartwatch'),
+        CategoryRule('umnye-chasy-i-braslety', category='smartwatch'),
+        CategoryRule('smennye-remeshki-i-braslety', category='smartwatch'),
+        CategoryRule('ochki-virtualnoi-realnosti', category='smartwatch'),
+        CategoryRule('elektronnye-parogeneratory', category='smartwatch'),
     )
 
     def parse_product_impl(self, response: Response, category: str) -> Optional[ProductScrapingResult]:

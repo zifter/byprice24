@@ -5,7 +5,6 @@ from scraper.base import CrawlSpiderBase
 from scraper.items import ProductScrapingResult
 from scraper.mixin import StructuredDataMixin
 from scrapy.http import Response
-from scrapy.linkextractors import LinkExtractor
 
 
 class Spider(CrawlSpiderBase, StructuredDataMixin):
@@ -15,7 +14,7 @@ class Spider(CrawlSpiderBase, StructuredDataMixin):
     ]
 
     rules = (
-        CategoryRule(LinkExtractor(allow=('notebook', )), category='notebook'),
+        CategoryRule('notebook', category='notebook'),
     )
 
     def __init__(self, *args, **kwargs):
