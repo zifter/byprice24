@@ -44,8 +44,9 @@ class Agent:
             scraping_schedule = scraping.scraping_schedule
             next_scraping = croniter(scraping_schedule, scraping.last_scraping).get_next(datetime)
 
+            url = 'https://' + scraping.marketplace.domain if not url_page else url_page
             target = ScrapingTarget(
-                url='https://' + scraping.marketplace.domain if not url_page else url_page,
+                url=url,
                 domain=scraping.marketplace.domain,
                 follow=follow,
                 use_proxy=scraping.use_proxy)
