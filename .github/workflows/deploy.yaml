@@ -1,10 +1,11 @@
 name: deploy
 on:
-  workflow_run:
-    workflows: ["backend-ci"]
-    branches: [main]
-    types:
-      - completed
+# TODO Run only when tag will be created https://github.com/zifter/byprice24/issues/130
+#  workflow_run:
+#    workflows: ["backend-ci"]
+#    branches: [main]
+#    types:
+#      - completed
   workflow_dispatch:
 
 jobs:

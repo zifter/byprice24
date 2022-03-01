@@ -1,5 +1,2 @@
 autoscalingKEDA:
-  enabled: true
-  minReplicas: 1
-  maxReplicas: 3
   prometheusUrl: http://prometheus-operated.monitoring.svc:9090/prometheus

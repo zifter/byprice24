@@ -35,8 +35,6 @@ class CategoryRule(Rule):
 
 
 class ParseProductBase:
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
 
     def parse_product(self, response: Response, category: str
                       ) -> Generator[ProductScrapingResult, None, None]:
@@ -92,9 +90,6 @@ class SpiderBase(ParseProductBase, AnySpiderMixin, Spider):
     """
     Базовой Spider для некоторых наших парсеров
     """
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
 
     def start_requests(self) -> list[Request] | Generator[Request, None, None]:
         raise NotImplementedError('must be overridden')
