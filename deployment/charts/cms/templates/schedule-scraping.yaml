@@ -5,9 +5,9 @@ metadata:
   labels:
     {{- include "cms.labels" . | nindent 4 }}
 spec:
-  schedule: {{ .Values.cron | quote }}
+  schedule: {{ .Values.scheduleScraping.cron | quote }}
   concurrencyPolicy: Forbid
-  suspend: {{ .Values.suspend }}
+  suspend: {{ .Values.scheduleScraping.suspend }}
   jobTemplate:
     spec:
       template:
@@ -41,6 +41,7 @@ spec:
                 - --force
                 {{- end }}
               env:
+                {{- include "cms-lib.sentry" . | nindent 16 }}
                 {{- include "cms-lib.env" . | nindent 16 }}
               resources:
                 {{- toYaml .Values.resources | nindent 16 }}

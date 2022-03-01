@@ -8,7 +8,6 @@ from typing import List
 import attr
 import pytz
 from common.item_types import Availability
-from common.item_types import Category
 
 
 @attr.s(on_setattr=attr.setters.validate)
@@ -19,7 +18,7 @@ class ProductScrapingResult:
     """
     url: str = attr.ib(validator=attr.validators.instance_of(str))
     title: str = attr.ib(validator=attr.validators.instance_of(str))
-    main_category: Category = attr.ib(validator=attr.validators.instance_of(Category))
+    main_category: str = attr.ib(validator=attr.validators.instance_of(str))
     description: str = attr.ib(validator=attr.validators.instance_of(str))
     price: float = attr.ib(validator=attr.validators.instance_of(float))
     price_currency: str = attr.ib(validator=attr.validators.instance_of(str))

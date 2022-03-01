@@ -1,0 +1,36 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Спасибо за репорт бага!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Что произошло?
+      description: Опишите подробно, что произошло и что вы ожидаете?
+      value: |
+        Текущее поведение:
+        *
+
+        Ожидаемый результат:
+        *
+
+        Шаги воспроизведения:
+        *
+    validations:
+      required: true
+  - type: dropdown
+    id: system
+    attributes:
+      label: System
+      description: В какой подсистеме проблема?
+      options:
+        - frontend
+        - backend
+        - devops
+    validations:
+      required: true

@@ -30,7 +30,7 @@ image-test:
 	docker run --rm --network=backend --env-file=image-test.env $(IMAGE_TAG) /bin/bash -c "\
 		pytest . --cov=. && \
 		coverage report --include="*tests.py" --rcfile=pytest.ini --fail-under=100 && \
-		coverage report --include="*" --rcfile=pytest.ini --fail-under=95 \
+		coverage report --include="*" --rcfile=pytest.ini --fail-under=96 \
 		"
 
 image-migrations-check: IMAGE_TAG := zifter/byprice24-cms:test
@@ -56,10 +56,9 @@ test:
 
 coverage-report:
 	pipenv run coverage report --include="src/**tests.py" --rcfile=src/pytest.ini --fail-under=100
-	pipenv run coverage report --include="src/*" --rcfile=src/pytest.ini --fail-under=95
+	pipenv run coverage report --include="src/*" --rcfile=src/pytest.ini --fail-under=96
 
 open-coverage:
-	make pytest
 	pipenv run coverage html --rcfile=src/pytest.ini
 	xdg-open htmlcov/index.html || open htmlcov/index.html
 
@@ -82,7 +81,7 @@ migrate:
 
 createuser:
 	$(info Create test user in cms)
-	pipenv run ./src/manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('root', '', '1234')" || true
+	pipenv run ./src/manage.py create-admin-user --username root --password 1234
 
 load-fixtures:
 	$(info Load fixtures to database)

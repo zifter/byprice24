@@ -1,13 +1,2 @@
-resources:
-  requests:
-    cpu: "200m"
-    memory: "150Mi"
-  limits:
-    cpu: "300m"
-    memory: "150Mi"
-
-redis:
-  url: "redis://redis-master:6379/0"
-
-elasticsearch:
-  url: "es://elasticsearch-master:9200/"
+autoscalingKEDA:
+  prometheusUrl: http://prometheus-operated.monitoring.svc:9090/prometheus

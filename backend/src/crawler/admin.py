@@ -14,7 +14,8 @@ class ScrapingStateAdmin(admin.ModelAdmin):
             job_ids = get_agent().schedule(force=True, marketplace=obj.marketplace)
             url = f'/admin/django-rq/queues/0/{job_ids[0]}/'
 
-            self.message_user(request, mark_safe(f"This <a href='{url}'>Marketplace</a> is scheduled to scrape"))
+            msg = mark_safe(f"This marketplace is scheduled to scrape - <a href='{url}'>Look at Job</a>")
+            self.message_user(request, msg)
             return HttpResponseRedirect('.')
 
         return super().response_change(request, obj)

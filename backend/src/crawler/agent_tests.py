@@ -1,21 +1,23 @@
 import datetime
-from unittest.mock import MagicMock, call
+from unittest.mock import call
+from unittest.mock import MagicMock
 
 import pytz
-
 from common.item_types import Availability
-from common.item_types import Category
-from common.shared_queue import FlowQueueBase, ScrapingTarget
+from common.shared_queue import FlowQueueBase
+from common.shared_queue import ScrapingTarget
 from crawler.agent import Agent
+from crawler.models import ScrapingState
 from django.core.management import call_command
 from django.test import TestCase
-
-from crawler.models import ScrapingState
 from scraper.items import ProductScrapingResult
 
 
 class AgentTestCase(TestCase):
-    fixtures = ['test/agent/markets.yaml']
+    fixtures = [
+        'prod/categories.yaml',
+        'test/agent/markets.yaml'
+    ]
 
     @classmethod
     def setUpClass(cls):
@@ -48,11 +50,11 @@ class AgentTestCase(TestCase):
         agent.now.return_value = datetime.datetime(2022, 1, 13, 2, 0, 0, tzinfo=pytz.UTC)
         vek21 = ScrapingState.objects.get(id=1)
         ilp = ScrapingState.objects.get(id=2)
-        vek21.last_scraping = datetime.datetime(2022, 1, 12, 0, 0, 0)
-        vek21.scraping_schedule = "0 0 * * 1 *"
+        vek21.last_scraping = datetime.datetime(2022, 1, 12, 0, 0, 0, tzinfo=pytz.UTC)
+        vek21.scraping_schedule = '0 0 * * 1 *'
         vek21.save()
-        ilp.last_scraping = datetime.datetime(2022, 1, 12, 0, 0, 0)
-        ilp.scraping_schedule = "0 0 * * * *"
+        ilp.last_scraping = datetime.datetime(2022, 1, 12, 0, 0, 0, tzinfo=pytz.UTC)
+        ilp.scraping_schedule = '0 0 * * * *'
         ilp.save()
 
         agent.schedule()
@@ -71,9 +73,9 @@ class AgentTestCase(TestCase):
         agent.now.return_value = datetime.datetime(2022, 1, 13, 2, 0, 0, tzinfo=pytz.UTC)
         vek21 = ScrapingState.objects.get(id=1)
         ilp = ScrapingState.objects.get(id=2)
-        vek21.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 0)
+        vek21.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 0, tzinfo=pytz.UTC)
         vek21.save()
-        ilp.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 0)
+        ilp.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 0, tzinfo=pytz.UTC)
         ilp.save()
 
         agent.schedule()
@@ -102,9 +104,9 @@ class AgentTestCase(TestCase):
         agent.now.return_value = datetime.datetime(2022, 1, 13, 2, 0, 0, tzinfo=pytz.UTC)
         vek21 = ScrapingState.objects.get(id=1)
         ilp = ScrapingState.objects.get(id=2)
-        vek21.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 1)
+        vek21.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 1, tzinfo=pytz.UTC)
         vek21.save()
-        ilp.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 1)
+        ilp.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 1, tzinfo=pytz.UTC)
         ilp.save()
 
         agent.schedule(force=True)
@@ -119,7 +121,6 @@ class AgentTestCase(TestCase):
                 domain='www.ilp.by',
                 use_proxy=False))])
 
-
     def test_process_product(self):
         mock = FlowQueueBase()
         agent = Agent(mock)
@@ -127,7 +128,7 @@ class AgentTestCase(TestCase):
         item = ProductScrapingResult(
             url='https://www.21vek.by/mobile/x3pro8gb256gb_poco_01.html',
             title='Смартфон POCO X3 Pro 8GB/256GB (синий)',
-            main_category=Category.MOBILE,
+            main_category='mobile',
             description='test',
             price=1049.0,
             price_currency='BYN',

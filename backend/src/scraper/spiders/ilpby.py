@@ -1,6 +1,5 @@
 from typing import Optional
 
-from common.item_types import Category
 from scraper.base import CategoryRule
 from scraper.base import CrawlSpiderBase
 from scraper.items import ProductScrapingResult
@@ -16,8 +15,11 @@ class Spider(CrawlSpiderBase, StructuredDataMixin):
     ]
 
     rules = (
-        CategoryRule(LinkExtractor(allow=('notebook', )), category=Category.NOTEBOOK),
+        CategoryRule(LinkExtractor(allow=('notebook', )), category='notebook'),
     )
 
-    def parse_product_impl(self, response: Response, category: Category) -> Optional[ProductScrapingResult]:
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def parse_product_impl(self, response: Response, category: str) -> Optional[ProductScrapingResult]:
         return self.extract_structured_data(response, category)

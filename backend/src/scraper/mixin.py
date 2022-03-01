@@ -1,9 +1,9 @@
 import logging
+from typing import Dict
 from typing import Optional
 
 import extruct
 from common.item_types import Availability
-from common.item_types import Category
 from scraper.items import ProductScrapingResult
 from scrapy.http import Response
 
@@ -15,7 +15,7 @@ class StructuredDataMixin:
     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data
     """
 
-    def extract_structured_data(self, response: Response, category: Category) -> Optional[ProductScrapingResult]:
+    def extract_structured_data(self, response: Response, category: str) -> Optional[ProductScrapingResult]:
         logging.info('parse_structured_data %s', response.url)
 
         data = extruct.extract(response.text, base_url=response.url)
@@ -29,24 +29,17 @@ class StructuredDataMixin:
                 continue
 
             properties = item['properties']
-            # image = properties['image']
-            # preview_url = image if isinstance(image, str) else image[0]
-
-            offer = StructuredDataMixin.extract_offer(properties)
-
-            availability = Availability.InStock.value
-            if 'availability' in offer['properties']:
-                availability = offer['properties']['availability'].replace('http://schema.org/', '').replace('https://schema.org', '')
-            availability = Availability(availability)
-
+            
             title = self.extract_title(properties)
             description = self.extract_description(data, item)
             categories = self.extract_categories(data)
-            price_currency = self.extract_price_currency(offer)
             rating = self.extract_rating(properties)
             preview_url = self.extract_preview_url(properties)
 
-            price = round(float(offer['properties']['price'].replace(' ', '')), 2)
+            offer = StructuredDataMixin.extract_offer(properties)
+            price = self.extract_price(offer)
+            price_currency = self.extract_price_currency(offer)
+            availability = StructuredDataMixin.extract_availability(offer, price)
 
             review_count = 0
             if 'aggregateRating' in properties:
@@ -89,17 +82,22 @@ class StructuredDataMixin:
 
     @classmethod
     def extract_description(cls, data, item) -> str:
+        description = ''
         properties = item['properties']
         if 'description' in properties:
-            if len(properties['description']) > 512:
-                return cls.shorten_description(properties['description'])
-            return properties['description']
+            description = properties['description']
 
-        dublincore = data['dublincore']
-        if dublincore:
-            return dublincore[0]['elements'][0]['content']
+            if isinstance(description, list):
+                description = description[0]
+        else:
+            dublincore = data['dublincore']
+            if dublincore:
+                description = dublincore[0]['elements'][0]['content']
 
-        return ''
+        if len(description) > 512:
+            description = cls.shorten_description(description)
+
+        return description
 
     @classmethod
     def shorten_description(cls, description) -> str:
@@ -112,18 +110,17 @@ class StructuredDataMixin:
 
     @classmethod
     def extract_rating(cls, properties) -> float:
-        return float(properties['aggregateRating']['properties']['ratingValue'][0] if \
-                         'aggregateRating' in properties else '0')
+        return float(properties['aggregateRating']['properties']['ratingValue'][0] if
+                     'aggregateRating' in properties else '0')
 
     @classmethod
     def extract_price_currency(cls, offer) -> str:
-        priceCurrency = offer['properties']['priceCurrency']
-        return priceCurrency if not priceCurrency == 'BYR' else 'BYN'
+        price_currency = ''
+        if 'properties' in offer:
+            value = offer['properties']['priceCurrency']
+            price_currency = value if not value == 'BYR' else 'BYN'
 
-    @classmethod
-    def extract_offer(cls, properties) -> str:
-        offers = properties['offers']
-        return offers[0] if isinstance(offers, list) else offers
+        return price_currency
 
     @classmethod
     def extract_preview_url(cls, properties) -> str:
@@ -133,3 +130,34 @@ class StructuredDataMixin:
         except KeyError:
             preview_url = ''
         return preview_url
+      
+    @classmethod
+    def extract_offer(cls, properties) -> Dict:
+        offer = {}
+        if 'offers' in properties:
+            offers = properties['offers']
+            offer = offers[0] if isinstance(offers, list) else offers
+
+        return offer
+
+    @classmethod
+    def extract_availability(cls, offer: Dict, price: float) -> Availability:
+        if price > 0:
+            availability = Availability.InStock
+        else:
+            availability = Availability.OutOfStock
+
+        if 'properties' in offer:
+            if 'availability' in offer['properties']:
+                value = offer['properties']['availability'].replace('http://schema.org/', '').replace('https://schema.org', '')
+                availability = Availability(value)
+
+        return availability
+
+    @classmethod
+    def extract_price(cls, offer) -> float:
+        price = 0.0
+        if 'properties' in offer:
+            price = round(float(offer['properties']['price'].replace(' ', '')), 2)
+
+        return price

@@ -1,3 +1,5 @@
+envName: 'prod'
+
 domain:
   api: www.findprice.by
   admin: www.findprice.site

@@ -1,4 +1,3 @@
-
 - model: marketplace.marketplace
   pk: 1
   fields:
@@ -8,6 +7,7 @@
   pk: 1
   fields:
     marketplace: 1
+    scraping_schedule: 0 0 * * 3
 
 - model: marketplace.marketplace
   pk: 2
@@ -18,6 +18,7 @@
   pk: 2
   fields:
     marketplace: 2
+    scraping_schedule: 0 0 * * 3
 
 - model: marketplace.marketplace
   pk: 3
@@ -28,6 +29,7 @@
   pk: 3
   fields:
     marketplace: 3
+    scraping_schedule: 0 0 * * 3
 
 - model: marketplace.marketplace
   pk: 4
@@ -38,6 +40,7 @@
   pk: 4
   fields:
     marketplace: 4
+    scraping_schedule: 0 0 * * 3
 
 - model: marketplace.marketplace
   pk: 5
@@ -48,6 +51,7 @@
   pk: 5
   fields:
     marketplace: 5
+    scraping_schedule: 0 0 * * 3
 
 - model: marketplace.marketplace
   pk: 6
@@ -58,6 +62,7 @@
   pk: 6
   fields:
     marketplace: 6
+    scraping_schedule: 0 0 * * 3
 
 - model: marketplace.marketplace
   pk: 7
@@ -68,3 +73,4 @@
   pk: 7
   fields:
     marketplace: 7
+    scraping_schedule: 0 0 * * 3

@@ -1,6 +1,5 @@
 from typing import Optional
 
-from common.item_types import Category
 from scraper.base import CategoryRule
 from scraper.base import CrawlSpiderBase
 from scraper.items import ProductScrapingResult
@@ -16,14 +15,14 @@ class Spider(CrawlSpiderBase, StructuredDataMixin):
     ]
 
     rules = (
-        CategoryRule(LinkExtractor(allow=('mobilnye_telefony',)), category=Category.MOBILE),
-        CategoryRule(LinkExtractor(allow=('noutbuki',)), category=Category.NOTEBOOK),
-        CategoryRule(LinkExtractor(allow=('planshety',)), category=Category.TABLET),
-        CategoryRule(LinkExtractor(allow=('monitory',)), category=Category.MONITOR),
-        CategoryRule(LinkExtractor(allow=('kompyutery',)), category=Category.DESKTOP),
-        CategoryRule(LinkExtractor(allow=('televizory',)), category=Category.TV),
-        CategoryRule(LinkExtractor(allow=('naushniki,garnitury',)), category=Category.HEADPHONE),
+        CategoryRule(LinkExtractor(allow=('mobilnye_telefony',)), category='mobile'),
+        CategoryRule(LinkExtractor(allow=('noutbuki',)), category='notebook'),
+        CategoryRule(LinkExtractor(allow=('planshety',)), category='tabletpc'),
+        CategoryRule(LinkExtractor(allow=('monitory',)), category='display'),
+        CategoryRule(LinkExtractor(allow=('kompyutery',)), category='desktoppc'),
+        CategoryRule(LinkExtractor(allow=('televizory',)), category='tv'),
+        CategoryRule(LinkExtractor(allow=('naushniki,garnitury',)), category='headphones'),
     )
 
-    def parse_product_impl(self, response: Response, category: Category) -> Optional[ProductScrapingResult]:
+    def parse_product_impl(self, response: Response, category: str) -> Optional[ProductScrapingResult]:
         return self.extract_structured_data(response, category)

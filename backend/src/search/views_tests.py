@@ -7,7 +7,14 @@ from django.test import TestCase
 
 
 class ProductViewTestCase(TestCase):
-    fixtures = ['test/marketplaces.yaml', 'test/products.yaml', 'test/product_pages.yaml', 'test/product_states.yaml', ]
+    fixtures = [
+        'prod/categories.yaml',
+        'test/marketplaces.yaml',
+        'test/products.yaml',
+        'test/product_pages.yaml',
+        'test/product_states.yaml',
+    ]
+
     expected = {'count': 2,
                 'next_page': 2,
                 'previous_page': 0,

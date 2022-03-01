@@ -4,7 +4,7 @@ cluster-delete:
 
 cluster-create:
 	$(info Create kind cluster)
-	kind create cluster -v 1 --config kind-config.yaml
+	kind create cluster -v 1 --config kind-config.yaml --wait 3m
 
 cluster-pause:
 	$(info Pause kind cluster for a while)
@@ -31,14 +31,14 @@ cluster-images:
 
 infra-install:
 	$(info Install infra releases to k8s)
-	helmfile -e local -l tier!=app sync
+	helmfile -e local -l tier!=app sync --concurrency 1
 
 ###########
 # BACKEND
 backend-helm-install: IMAGE_TAG := zifter/byprice24-cms:test
 backend-helm-install:
 	$(info Install actual application to k8s)
-	helmfile -e local -l side=backend sync
+	helmfile -e local -l side=backend sync --concurrency 1
 
 backend-helm-uninstall:
 	$(info Uninstall backend)
@@ -54,7 +54,7 @@ backend-image-load:
 frontend-helm-install: IMAGE_TAG := zifter/byprice24-site:test
 frontend-helm-install:
 	$(info Install frontend)
-	helmfile -e local -l side=frontend sync
+	helmfile -e local -l side=frontend sync --concurrency 1
 
 frontend-helm-uninstall:
 	$(info Uninstall frontend)
@@ -67,7 +67,7 @@ frontend-image-load:
 
 helmfile-sync:
 	$(info Sync all releases)
-	helmfile -e local sync
+	helmfile -e local sync --concurrency 1
 
 restart-deployments:
 	$(info Restart deployment in order to use latest version of docker image)
@@ -99,6 +99,7 @@ helmfile-prod:
 	docker pull ${BACKEND_IMAGE_TAG}
 	docker pull ${FRONTEND_IMAGE_TAG}
 	export `cat .env | xargs` && \
+	export GIT_COMMIT=`git rev-parse --short HEAD` && \
 	export BACKEND_IMAGE_SHA256=`docker inspect --format='{{index .RepoDigests 0}}' ${BACKEND_IMAGE_TAG} | cut -f 2 -d @` && \
 	export FRONTEND_IMAGE_SHA256=`docker inspect --format='{{index .RepoDigests 0}}' ${FRONTEND_IMAGE_TAG} | cut -f 2 -d @` && \
 	kubectl config current-context && \

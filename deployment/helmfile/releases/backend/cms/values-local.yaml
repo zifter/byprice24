@@ -9,10 +9,15 @@ ingress:
         - path: /api
           pathType: Prefix
 
-domain:
-  api: localhost
-  admin: localhost
+scheduleScraping:
+  suspend: true
 
-configuration: Dev
+fixtures:
+  - prod/markets.yaml
+  - prod/categories.yaml
+  - dump/marketplace.yaml
 
-suspend: true
+admin:
+  create: true
+  user: root
+  pass: 1234

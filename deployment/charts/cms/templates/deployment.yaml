@@ -39,6 +39,7 @@ spec:
             - runserver
             - 0.0.0.0:8080
           env:
+            {{- include "cms-lib.sentry" . | nindent 12 }}
             {{- include "cms-lib.env" . | nindent 12 }}
           ports:
             - name: http
@@ -55,6 +56,7 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       initContainers:
+        # MIGRATE
         - name: migrate
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
@@ -65,9 +67,12 @@ spec:
             - manage.py
             - migrate
           env:
+            {{- include "cms-lib.sentry" . | nindent 12 }}
             {{- include "cms-lib.env" . | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+
+        # PREPARE INDEX
         - name: prepare-index
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
@@ -78,9 +83,54 @@ spec:
             - manage.py
             - prepare_index
           env:
+            {{- include "cms-lib.sentry" . | nindent 12 }}
             {{- include "cms-lib.env" . | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+
+        # LOAD DATA
+{{- if .Values.fixtures }}
+        - name: load-data
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args:
+            - python3
+            - manage.py
+            - loaddata
+{{- range $queue := .Values.fixtures }}
+            - {{ $queue }}
+{{- end }}
+          env:
+            {{- include "cms-lib.sentry" . | nindent 12 }}
+            {{- include "cms-lib.env" . | nindent 12 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+{{- end }}
+
+{{- if .Values.admin.create }}
+        # Create admin user
+        - name: create-admin-user
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args:
+            - python3
+            - manage.py
+            - create-admin-user
+            - "--username"
+            - {{ .Values.admin.user | quote }}
+            - "--password"
+            - {{ .Values.admin.pass | quote }}
+          env:
+            {{- include "cms-lib.sentry" . | nindent 12 }}
+            {{- include "cms-lib.env" . | nindent 12 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+{{- end }}
+
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

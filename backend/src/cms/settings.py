@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 
 import sentry_sdk
-from common.paths import REPO_DIR
+from common.paths import BACKEND_DIR
 from common.shared_queue.redis_queue import CRAWLER_FEED
 from common.shared_queue.redis_queue import CRAWLER_RESULT
 from common.shared_queue.redis_queue import SEARCH_QUERY
@@ -50,6 +50,7 @@ class Base(Configuration):
         'health_check.storage',
         'health_check.contrib.migrations',
         'django_rq',
+        'backoffice',
         'marketplace',
         'crawler',
         'search',
@@ -120,8 +121,10 @@ class Base(Configuration):
 
     USE_TZ = True
 
+    DEBUG = True
+
     FIXTURE_DIRS = [
-        os.path.join(REPO_DIR, 'fixtures'),
+        os.path.join(BACKEND_DIR, 'fixtures'),
     ]
 
     LOGGING = {
@@ -154,7 +157,7 @@ class Base(Configuration):
 
     STATIC_URL = '/admin-static/'
 
-    STATIC_ROOT = os.path.join(REPO_DIR, 'static')
+    STATIC_ROOT = os.path.join(BACKEND_DIR, 'static')
 
     # Default primary key field type
     # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -198,18 +201,32 @@ class PostgresMixin:
     }
 
 
+class SentryMixin:
+    # Sentry
+    SENTRY_DSN = os.environ.setdefault('SENTRY_DSN', '')
+
+    def __init__(self):
+        sentry_sdk.init(dsn=SentryMixin.SENTRY_DSN, integrations=[DjangoIntegration(), ])
+
+
 class Dev(PostgresMixin, Base):
-    DEBUG = True
-
-
-class Test(Dev):
+    # Dev configuration (for example, in pycharm)
     pass
 
 
-class Prod(PostgresMixin, Base):
+class Test(Dev):
+    # Configuration will be used for while running tests
+    pass
 
-    # Sentry
-    SENTRY_DSN = os.environ.setdefault('SENTRY_DSN', 'https://607627c21d7642ab878a8aaa4fe0da98@o1101110.ingest.sentry.io/6126818')
-    sentry_sdk.init(dsn=SENTRY_DSN, integrations=[DjangoIntegration(), ])
 
-    DEBUG = False  # TODO Make it False and run behind wsgi server (gunicron)
+class Local(SentryMixin, Dev):
+    # Will be used in Local k8s cluster
+    pass
+
+
+class Prod(Local):
+    # Local k8s cluster
+    # TODO Make it False and run behind wsgi server (gunicron)
+    # TODO Need to share static via CDN
+    # DEBUG = False
+    pass

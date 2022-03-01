@@ -1,5 +1,6 @@
 import abc
 
+from .structs import QueryRequest
 from .structs import ScrapingTarget
 
 
@@ -13,5 +14,5 @@ class FlowQueueBase:
         pass
 
     @abc.abstractmethod
-    def push_query(self, query, number_found_products):
+    def push_query(self, obj: QueryRequest):
         pass

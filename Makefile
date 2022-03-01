@@ -52,9 +52,9 @@ backend-install: IMAGE_TAG := zifter/byprice24-cms:test
 backend-install:
 	$(info Install actual application to k8s)
 	cd backend && make image-build
+
 	cd deployment && make backend-image-load
 	cd deployment && make backend-helm-install
-	cd backend && make cms-init
 	cd deployment && make print-urls
 
 #############
@@ -89,7 +89,7 @@ frontend-install:
 # Dev cluster
 # Run cluster from scratch for dev, without application
 run-dev-cluster:
-	cd deployment && make cluster-delete
+	stop-cluster
 	cd deployment && make cluster-create
 	cd deployment && make infra-install
 	cd deployment && make print-urls
@@ -105,3 +105,6 @@ install-full-cluster:
 	make backend-install
 	make frontend-install
 	cd deployment && make print-urls
+
+stop-cluster:
+	cd deployment && make cluster-delete

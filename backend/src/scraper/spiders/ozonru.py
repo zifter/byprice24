@@ -2,7 +2,6 @@ import json
 from typing import Optional
 
 from common.item_types import Availability
-from common.item_types import Category
 from scraper.base import CategoryRule
 from scraper.base import CrawlSpiderBase
 from scraper.items import ProductScrapingResult
@@ -18,12 +17,12 @@ class Spider(CrawlSpiderBase, StructuredDataMixin):
     ]
 
     rules = (
-        CategoryRule(LinkExtractor(allow=(r'smartfon-\w+',)), category=Category.MOBILE),
-        CategoryRule(LinkExtractor(allow=(r'noutbuk-\w+',)), category=Category.NOTEBOOK),
-        CategoryRule(LinkExtractor(allow=(r'naushniki-\w+',)), category=Category.HEADPHONE),
+        CategoryRule(LinkExtractor(allow=(r'smartfon-\w+',)), category='mobile'),
+        CategoryRule(LinkExtractor(allow=(r'noutbuk-\w+',)), category='notebook'),
+        CategoryRule(LinkExtractor(allow=(r'naushniki-\w+',)), category='headphones'),
     )
 
-    def parse_product_impl(self, response: Response, category: Category) -> Optional[ProductScrapingResult]:
+    def parse_product_impl(self, response: Response, category: str) -> Optional[ProductScrapingResult]:
 
         data = json.loads(response.xpath("//script[@type='application/ld+json']//text()").extract_first())
 

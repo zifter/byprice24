@@ -1,0 +1,19 @@
+{{- if .Values.autoscalingKEDA.enabled }}
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: {{ include "worker.fullname" . }}
+spec:
+  scaleTargetRef:
+    name: {{ include "worker.fullname" . }}
+  cooldownPeriod:  60
+  minReplicaCount: {{ .Values.autoscalingKEDA.minReplicas }}
+  maxReplicaCount: {{ .Values.autoscalingKEDA.maxReplicas }}
+  triggers:
+    - type: prometheus
+      metadata:
+        serverAddress: {{ .Values.autoscalingKEDA.prometheusUrl }}
+        metricName: rq_worker_total_amount
+        threshold: {{ .Values.autoscalingKEDA.threshold | quote }}
+        query: sum(rq_jobs{status="queued", queue=~"{{ join "|" .Values.rqQueues }}"})
+{{- end }}

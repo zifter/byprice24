@@ -2,7 +2,6 @@ from datetime import datetime
 
 import pytz
 from common.item_types import Availability
-from common.item_types import Category
 from django.db import models
 
 """
@@ -28,14 +27,35 @@ class Marketplace(models.Model):
         return str(self.domain)
 
 
+class Category(models.Model):
+    """
+    General information about product
+    """
+    name = models.CharField(max_length=128, unique=True, primary_key=True)
+    keywords = models.CharField(max_length=512)
+
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
+    def semantic_id(self) -> str:
+        return str(self.name)
+
+    def __str__(self):
+        return str(self.name)
+
+
 class Product(models.Model):
     """
     General information about product
     """
     name = models.CharField(max_length=128, unique=True)
-    category = models.CharField(max_length=64, choices=Category.choices())
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = models.CharField(max_length=512)
     preview_url = models.URLField(max_length=256, null=True)
+
+    def semantic_id(self) -> str:
+        return f'{self.category.semantic_id()}/{str(self.name).lower()}'
 
     def __str__(self):
         return str(self.name)
@@ -48,7 +68,7 @@ class ProductPage(models.Model):
     product = models.ForeignKey(Product, related_name='product_pages', on_delete=models.CASCADE)
     marketplace = models.ForeignKey(Marketplace, related_name='marketplace', on_delete=models.CASCADE)
     url = models.URLField()
-    name = models.CharField(max_length=128)
+    name = models.CharField(max_length=192)
     description = models.CharField(max_length=512)
 
     def __str__(self):
