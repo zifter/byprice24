@@ -14,7 +14,7 @@ class Spider(CrawlSpiderBase, StructuredDataMixin):
     ]
 
     rules = (
-        CategoryRule('notebook', category='notebook'),
+        CategoryRule(allow='notebook', category='notebook'),
     )
 
     def __init__(self, *args, **kwargs):

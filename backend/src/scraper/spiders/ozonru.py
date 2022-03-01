@@ -16,9 +16,9 @@ class Spider(CrawlSpiderBase, StructuredDataMixin):
     ]
 
     rules = (
-        CategoryRule(r'smartfon-\w+', category='mobile'),
-        CategoryRule(r'noutbuk-\w+', category='notebook'),
-        CategoryRule(r'naushniki-\w+', category='headphones'),
+        CategoryRule(allow=r'smartfon-\w+', category='mobile'),
+        CategoryRule(allow=r'noutbuk-\w+', category='notebook'),
+        CategoryRule(allow=r'naushniki-\w+', category='headphones'),
     )
 
     def parse_product_impl(self, response: Response, category: str) -> Optional[ProductScrapingResult]:

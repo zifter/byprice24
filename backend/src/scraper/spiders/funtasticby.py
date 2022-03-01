@@ -14,7 +14,7 @@ class Spider(CrawlSpiderBase, StructuredDataMixin):
     ]
 
     rules = (
-        CategoryRule('igrushki/konstruktory', category='buildingkit'),
+        CategoryRule(allow='igrushki/konstruktory', category='buildingkit'),
     )
 
     def parse_product_impl(self, response: Response, category: str) -> Optional[ProductScrapingResult]:

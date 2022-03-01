@@ -14,13 +14,13 @@ class Spider(CrawlSpiderBase, StructuredDataMixin):
     ]
 
     rules = (
-        CategoryRule('mobilnye_telefony', category='mobile'),
-        CategoryRule('noutbuki', category='notebook'),
-        CategoryRule('planshety', category='tabletpc'),
-        CategoryRule('monitory', category='display'),
-        CategoryRule('kompyutery', category='desktoppc'),
-        CategoryRule('televizory', category='tv'),
-        CategoryRule('naushniki,garnitury', category='headphones'),
+        CategoryRule(allow='mobilnye_telefony', category='mobile'),
+        CategoryRule(allow='noutbuki', category='notebook'),
+        CategoryRule(allow='planshety', category='tabletpc'),
+        CategoryRule(allow='monitory', category='display'),
+        CategoryRule(allow='kompyutery', category='desktoppc'),
+        CategoryRule(allow='televizory', category='tv'),
+        CategoryRule(allow='naushniki,garnitury', category='headphones'),
     )
 
     def parse_product_impl(self, response: Response, category: str) -> Optional[ProductScrapingResult]:

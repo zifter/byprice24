@@ -13,9 +13,9 @@ class Spider(CrawlSpiderBase, StructuredDataMixin):
         'www.21vek.by',
     ]
     rules = (
-        CategoryRule('mobile', category='mobile'),
-        CategoryRule('notebooks', category='notebook'),
-        CategoryRule('headphones', category='headphones'),
+        CategoryRule(allow='mobile', category='mobile'),
+        CategoryRule(allow='notebooks', category='notebook'),
+        CategoryRule(allow='headphones', category='headphones'),
     )
 
     def parse_product_impl(self, response: Response, category: str) -> Optional[ProductScrapingResult]:
