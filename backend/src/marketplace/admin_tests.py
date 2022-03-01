@@ -1,3 +1,4 @@
+import uuid
 from unittest.mock import Mock
 from unittest.mock import patch
 
@@ -34,6 +35,7 @@ class ProductPageAdminTestCase(TestCase):
         self.assertTrue('Force Scrape' in str(resp.content))
 
     @patch('django.contrib.admin.ModelAdmin.message_user', (lambda: Mock())())
+    @patch('crawler.agent.Agent.schedule', (lambda: Mock(return_value=[uuid.uuid4()]))())
     def test_click_on_force_scrape(self):
         request = RequestFactory().post('/')
         request.POST = {'force-scrape': True}
