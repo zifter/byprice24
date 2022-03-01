@@ -1,6 +1,8 @@
 from unittest.mock import Mock
 from unittest.mock import patch
 
+from crawler.admin import ScrapingStateAdmin
+from crawler.models import ScrapingState
 from django.contrib.admin import AdminSite
 from django.contrib.auth.models import User
 from django.http import HttpResponse
@@ -8,16 +10,11 @@ from django.test import Client
 from django.test import TestCase
 from django.test.client import RequestFactory
 from django.urls import reverse
-from marketplace.admin import ProductPageAdmin
-from marketplace.models import ProductPage
 
 
-class ProductPageAdminTestCase(TestCase):
+class ScrapingStateAdminTestCase(TestCase):
     fixtures = [
-        'prod/markets.yaml',
-        'prod/categories.yaml',
-        'test/product_pages.yaml',
-        'test/products.yaml'
+        'prod/markets.yaml'
     ]
 
     def setUp(self) -> None:
@@ -27,9 +24,9 @@ class ProductPageAdminTestCase(TestCase):
         self.client = Client()
         self.client.login(username='admin', password='admin')
 
-    def test_productpage_loads_correctly(self):
+    def test_scraping_state_admin_loads_correctly(self):
         resp = self.client.get(reverse(
-            'admin:marketplace_productpage_change',
+            'admin:crawler_scrapingstate_change',
             args=(1,)
         ))
         self.assertTrue('Force Scrape' in str(resp.content))
@@ -40,6 +37,6 @@ class ProductPageAdminTestCase(TestCase):
         request = RequestFactory().post('/')
         request.POST = {'force-scrape': True}
 
-        admin_scraping_state = ProductPageAdmin(ProductPage, AdminSite())
-        resp = admin_scraping_state.response_change(request, ProductPage.objects.first())
+        admin_scraping_state = ScrapingStateAdmin(ScrapingState, AdminSite())
+        resp = admin_scraping_state.response_change(request, ScrapingState.objects.first())
         self.assertEqual(302, resp.status_code)
