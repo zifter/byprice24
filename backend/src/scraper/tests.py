@@ -314,7 +314,7 @@ def test_spider_ilp_image():
         price_currency='BYN',
         availability=Availability.InStock,
         preview_url='',
-        main_category=Category.NOTEBOOK,
+        main_category='notebook',
         rating=0.0,
         review_count=0,
         categories=['Ноутбуки'],
