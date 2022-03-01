@@ -5,7 +5,6 @@ from crawler.admin import ScrapingStateAdmin
 from crawler.models import ScrapingState
 from django.contrib.admin import AdminSite
 from django.contrib.auth.models import User
-from django.http import HttpResponse
 from django.test import Client
 from django.test import TestCase
 from django.test.client import RequestFactory
@@ -31,7 +30,6 @@ class ScrapingStateAdminTestCase(TestCase):
         ))
         self.assertTrue('Force Scrape' in str(resp.content))
 
-    @patch('django.contrib.admin.ModelAdmin.response_change', (lambda: Mock(return_value=HttpResponse(status=201)))())
     @patch('django.contrib.admin.ModelAdmin.message_user', (lambda: Mock())())
     def test_click_on_force_scrape(self):
         request = RequestFactory().post('/')
