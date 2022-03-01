@@ -19,61 +19,63 @@ class Spider(SpiderBase, StructuredDataMixin):
     SCRIPT_URL = 'script_url'
     CATEGORY = 'category'
 
+    DEFAULT_CATEGORY = 'face_makeup'
+
     def start_requests(self) -> list[Request] | Generator[Request, None, None]:
         urls = [
             {
                 self.CATALOG_URL: 'https://goldapple.by/azija',
                 self.SCRIPT_URL: ('https://goldapple.by/web_scripts/discover/'
                                   'category/products?cat=10&page={page}'),
-                self.CATEGORY: 'face_makeup',
+                self.CATEGORY: self.DEFAULT_CATEGORY,
             },
             {
                 self.CATALOG_URL: 'https://goldapple.by/makijazh',
                 self.SCRIPT_URL: ('https://goldapple.by/web_scripts/discover/'
                                   'category/products?cat=3&page={page}'),
-                self.CATEGORY: 'face_makeup',
+                self.CATEGORY: self.DEFAULT_CATEGORY,
             },
             {
                 self.CATALOG_URL: 'https://goldapple.by/uhod',
                 self.SCRIPT_URL: ('https://goldapple.by/web_scripts/discover/'
                                   'category/products?cat=4&page={page}'),
-                self.CATEGORY: 'face_makeup',
+                self.CATEGORY: self.DEFAULT_CATEGORY,
             },
             {
                 self.CATALOG_URL: 'https://goldapple.by/volosy',
                 self.SCRIPT_URL: ('https://goldapple.by/web_scripts/discover/'
                                   'category/products?cat=6&page={page}'),
-                self.CATEGORY: 'face_makeup',
+                self.CATEGORY: self.DEFAULT_CATEGORY,
             },
             {
                 self.CATALOG_URL: 'https://goldapple.by/parfjumerija',
                 self.SCRIPT_URL: ('https://goldapple.by/web_scripts/discover/'
                                   'category/products?cat=7&page={page}'),
-                self.CATEGORY: 'face_makeup',
+                self.CATEGORY: self.DEFAULT_CATEGORY,
             },
             {
                 self.CATALOG_URL: 'https://goldapple.by/aptechnaja-kosmetika',
                 self.SCRIPT_URL: ('https://goldapple.by/web_scripts/discover/'
                                   'category/products?cat=3747&page={page}'),
-                self.CATEGORY: 'face_makeup',
+                self.CATEGORY: self.DEFAULT_CATEGORY,
             },
             {
                 self.CATALOG_URL: 'https://goldapple.by/organika',
                 self.SCRIPT_URL: ('https://goldapple.by/web_scripts/discover/'
                                   'category/products?cat=12&page={page}'),
-                self.CATEGORY: 'face_makeup',
+                self.CATEGORY: self.DEFAULT_CATEGORY,
             },
             {
                 self.CATALOG_URL: 'https://goldapple.by/dlja-muzhchin',
                 self.SCRIPT_URL: ('https://goldapple.by/web_scripts/discover/'
                                   'category/products?cat=3887&page={page}'),
-                self.CATEGORY: 'face_makeup',
+                self.CATEGORY: self.DEFAULT_CATEGORY,
             },
             {
                 self.CATALOG_URL: 'https://goldapple.by/detjam',
                 self.SCRIPT_URL: ('https://goldapple.by/web_scripts/discover/'
                                   'category/products?cat=4357&page={page}'),
-                self.CATEGORY: 'face_makeup',
+                self.CATEGORY: self.DEFAULT_CATEGORY,
             },
             {
                 self.CATALOG_URL: 'https://goldapple.by/podrostkam',
@@ -85,13 +87,13 @@ class Spider(SpiderBase, StructuredDataMixin):
                 self.CATALOG_URL: 'https://goldapple.by/mini-formaty',
                 self.SCRIPT_URL: ('https://goldapple.by/web_scripts/discover/'
                                   'category/products?cat=5159&page={page}'),
-                self.CATEGORY: 'face_makeup',
+                self.CATEGORY: self.DEFAULT_CATEGORY,
             },
             {
                 self.CATALOG_URL: 'https://goldapple.by/exclusives',
                 self.SCRIPT_URL: ('https://goldapple.by/web_scripts/discover/'
                                   'category/products?cat=4349&page={page}'),
-                self.CATEGORY: 'face_makeup',
+                self.CATEGORY: self.DEFAULT_CATEGORY,
             }
         ]
 
@@ -118,8 +120,12 @@ class Spider(SpiderBase, StructuredDataMixin):
                                       headers=headers,
                                       cb_kwargs={'category': url[self.CATEGORY]})
         else:
-            category = [url.get(self.CATEGORY) for url in urls
-                        if url.get(self.CATALOG_URL) in self.start_urls[0]][0]
+            category = self.DEFAULT_CATEGORY
+
+            matched_categories = [url.get(self.CATEGORY) for url in urls
+                                  if url.get(self.CATALOG_URL) in self.start_urls[0]]
+            if len(matched_categories) > 0:
+                category = matched_categories[0]
 
             yield Request(url=self.start_urls[0],
                           callback=self.parse_product,
