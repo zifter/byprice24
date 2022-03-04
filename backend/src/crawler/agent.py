@@ -27,7 +27,7 @@ class Agent:
     def now(self):
         return datetime.now(tz=pytz.UTC)
 
-    def schedule(self, marketplace=None, force=False) -> List[str]:
+    def schedule(self, marketplace=None, url_page=None, follow=True, force=False) -> List[str]:
         logging.info('Schedule marketplace [%s], force [%s]', marketplace, force)
         now = self.now()
 
@@ -44,9 +44,11 @@ class Agent:
             scraping_schedule = scraping.scraping_schedule
             next_scraping = croniter(scraping_schedule, scraping.last_scraping).get_next(datetime)
 
+            url = 'https://' + scraping.marketplace.domain if not url_page else url_page
             target = ScrapingTarget(
-                url='https://' + scraping.marketplace.domain,
+                url=url,
                 domain=scraping.marketplace.domain,
+                follow=follow,
                 use_proxy=scraping.use_proxy)
 
             if force or next_scraping <= now:
@@ -65,7 +67,8 @@ class Agent:
             ],
             'use_proxy': [
                 target.use_proxy
-            ]
+            ],
+            'follow': target.follow
         }
 
         scrapy_failure = None

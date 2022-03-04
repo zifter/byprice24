@@ -7,7 +7,6 @@ from scraper.base import CrawlSpiderBase
 from scraper.items import ProductScrapingResult
 from scraper.mixin import StructuredDataMixin
 from scrapy.http import Response
-from scrapy.linkextractors import LinkExtractor
 
 
 class Spider(CrawlSpiderBase, StructuredDataMixin):
@@ -17,9 +16,9 @@ class Spider(CrawlSpiderBase, StructuredDataMixin):
     ]
 
     rules = (
-        CategoryRule(LinkExtractor(allow=(r'smartfon-\w+',)), category='mobile'),
-        CategoryRule(LinkExtractor(allow=(r'noutbuk-\w+',)), category='notebook'),
-        CategoryRule(LinkExtractor(allow=(r'naushniki-\w+',)), category='headphones'),
+        CategoryRule(allow=r'smartfon-\w+', category='mobile'),
+        CategoryRule(allow=r'noutbuk-\w+', category='notebook'),
+        CategoryRule(allow=r'naushniki-\w+', category='headphones'),
     )
 
     def parse_product_impl(self, response: Response, category: str) -> Optional[ProductScrapingResult]:

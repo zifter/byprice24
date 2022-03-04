@@ -5,7 +5,6 @@ from scraper.base import CrawlSpiderBase
 from scraper.items import ProductScrapingResult
 from scraper.mixin import StructuredDataMixin
 from scrapy.http import Response
-from scrapy.linkextractors import LinkExtractor
 
 
 class Spider(CrawlSpiderBase, StructuredDataMixin):
@@ -15,8 +14,7 @@ class Spider(CrawlSpiderBase, StructuredDataMixin):
     ]
 
     rules = (
-
-        CategoryRule(LinkExtractor(allow=('igrushki/konstruktory',)), category='buildingkit'),
+        CategoryRule(allow='igrushki/konstruktory', category='buildingkit'),
     )
 
     def parse_product_impl(self, response: Response, category: str) -> Optional[ProductScrapingResult]:

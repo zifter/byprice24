@@ -36,11 +36,13 @@ class AgentTestCase(TestCase):
             ScrapingTarget(
                 url='https://www.21vek.by',
                 domain='www.21vek.by',
-                use_proxy=False)),
+                use_proxy=False,
+                follow=True)),
             call(ScrapingTarget(
                 url='https://www.ilp.by',
                 domain='www.ilp.by',
-                use_proxy=False))])
+                use_proxy=False,
+                follow=True))])
 
     def test_schedule_by_cron(self):
         queue = FlowQueueBase()
@@ -63,7 +65,8 @@ class AgentTestCase(TestCase):
             call(ScrapingTarget(
                 url='https://www.ilp.by',
                 domain='www.ilp.by',
-                use_proxy=False))])
+                use_proxy=False,
+                follow=True))])
 
     def test_schedule_no_scraping(self):
         queue = FlowQueueBase()
@@ -94,7 +97,8 @@ class AgentTestCase(TestCase):
             ScrapingTarget(
                 url='https://www.21vek.by',
                 domain='www.21vek.by',
-                use_proxy=False))])
+                use_proxy=False,
+                follow=True))])
 
     def test_schedule_force(self):
         queue = FlowQueueBase()
@@ -115,11 +119,30 @@ class AgentTestCase(TestCase):
             ScrapingTarget(
                 url='https://www.21vek.by',
                 domain='www.21vek.by',
-                use_proxy=False)),
+                use_proxy=False,
+                follow=True)),
             call(ScrapingTarget(
                 url='https://www.ilp.by',
                 domain='www.ilp.by',
-                use_proxy=False))])
+                use_proxy=False,
+                follow=True))])
+
+    def test_schedule_productpage(self):
+        queue = FlowQueueBase()
+        queue.scrape = MagicMock()
+        agent = Agent(queue)
+        marketplace = 1
+
+        agent.schedule(marketplace=marketplace,
+                       url_page='https://www.ilp.by/notebook/acer/nxvller00q',
+                       follow=False)
+
+        queue.scrape.assert_has_calls([call(
+            ScrapingTarget(
+                url='https://www.ilp.by/notebook/acer/nxvller00q',
+                domain='www.21vek.by',
+                use_proxy=False,
+                follow=False))])
 
     def test_process_product(self):
         mock = FlowQueueBase()

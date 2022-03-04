@@ -1,5 +1,5 @@
+from crawler.agent import get_agent
 from crawler.models import ScrapingState
-from crawler.tasks import get_agent
 from django.contrib import admin
 from django.http import HttpResponseRedirect
 from django.utils.safestring import mark_safe
