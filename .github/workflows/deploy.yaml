@@ -1,12 +1,8 @@
 name: deploy
 on:
-# TODO Run only when tag will be created https://github.com/zifter/byprice24/issues/130
-#  workflow_run:
-#    workflows: ["backend-ci"]
-#    branches: [main]
-#    types:
-#      - completed
-  workflow_dispatch:
+  push:
+    tags:
+      - '*'
 
 jobs:
   deploy:
@@ -39,4 +35,4 @@ jobs:
           mkdir /home/runner/.kube
           echo "${{ secrets.KUBECONFIG }}" > /home/runner/.kube/config
           touch .env
-          make helmfile-prod ARGS=apply
+          make helmfile-prod GIT_RELEASE=${GITHUB_REF##*/} ARGS=apply

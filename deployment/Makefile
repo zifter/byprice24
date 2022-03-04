@@ -95,11 +95,11 @@ validate:
 helmfile-prod: ARGS := diff
 helmfile-prod: BACKEND_IMAGE_TAG := zifter/byprice24-cms:latest
 helmfile-prod: FRONTEND_IMAGE_TAG := zifter/byprice24-site:latest
+helmfile-prod: GIT_RELEASE := latest
 helmfile-prod:
 	docker pull ${BACKEND_IMAGE_TAG}
 	docker pull ${FRONTEND_IMAGE_TAG}
 	export `cat .env | xargs` && \
-	export GIT_COMMIT=`git rev-parse --short HEAD` && \
 	export BACKEND_IMAGE_SHA256=`docker inspect --format='{{index .RepoDigests 0}}' ${BACKEND_IMAGE_TAG} | cut -f 2 -d @` && \
 	export FRONTEND_IMAGE_SHA256=`docker inspect --format='{{index .RepoDigests 0}}' ${FRONTEND_IMAGE_TAG} | cut -f 2 -d @` && \
 	kubectl config current-context && \
