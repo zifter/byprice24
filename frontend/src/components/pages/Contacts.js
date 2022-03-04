@@ -28,7 +28,7 @@ TextContact.propTypes = {
   children: PropTypes.string,
 };
 const Contacts = () => {
-  return (<>
+  return (
     <Container p="0" d="flex" flexDir="column" align="flex-start">
       <TextContact tag={'h1'} text={'Контакты'} textSize={'display1'}
         bottomValue={'0.5rem'} textWeight={'600'}/>
@@ -37,7 +37,6 @@ const Contacts = () => {
       <TextContact text=''>e-mail: contact@findprice.by
       </TextContact>
     </Container>
-  </>
   );
 };
 
