@@ -8,15 +8,15 @@ run:
 	yarn start
 
 # Build image of site for
-image-build: IMAGE_TAG := zifter/byprice24-site:test
+image-build: IMAGE_TAG := test
 image-build:
 	$(info Build docker image)
-	docker build . -t $(IMAGE_TAG)
+	docker build . -t zifter/byprice24-site:$(IMAGE_TAG)
 
-run-image: IMAGE_TAG := zifter/byprice24-site:test
+run-image: IMAGE_TAG := test
 run-image:
 	$(info Build docker image)
-	docker run -p 3000:3000 -t $(IMAGE_TAG)
+	docker run -p 3000:3000 -t zifter/byprice24-site:$(IMAGE_TAG)
 
 lint:
 	npm run eslint

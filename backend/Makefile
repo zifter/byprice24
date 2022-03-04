@@ -16,27 +16,27 @@ docker-compose-prune:
 
 ####################
 # Backend Image
-image-build: IMAGE_TAG := zifter/byprice24-cms:test
+image-build: IMAGE_TAG := test
 image-build:
 	$(info Build docker image for backend - CMS and workes)
-	docker build . -t $(IMAGE_TAG)
+	docker build . -t zifter/byprice24-cms:$(IMAGE_TAG)
 
 # Test Docker image
-image-test: IMAGE_TAG := zifter/byprice24-cms:test
+image-test: IMAGE_TAG := test
 image-test: DJANGO_CONFIGURATION := Test
 image-test:
 	$(info Run tests for docker image)
-	docker run --rm $(IMAGE_TAG) python3 manage.py check --configuration=${DJANGO_CONFIGURATION}
-	docker run --rm --network=backend --env-file=image-test.env $(IMAGE_TAG) /bin/bash -c "\
+	docker run --rm zifter/byprice24-cms:$(IMAGE_TAG) python3 manage.py check --configuration=${DJANGO_CONFIGURATION}
+	docker run --rm --network=backend --env-file=image-test.env zifter/byprice24-cms:$(IMAGE_TAG) /bin/bash -c "\
 		pytest . --cov=. && \
 		coverage report --include="*tests.py" --rcfile=pytest.ini --fail-under=100 && \
 		coverage report --include="*" --rcfile=pytest.ini --fail-under=96 \
 		"
 
-image-migrations-check: IMAGE_TAG := zifter/byprice24-cms:test
+image-migrations-check: IMAGE_TAG := test
 image-migrations-check:
 	$(info Check if migrations is needed)
-	docker run --rm $(IMAGE_TAG) python3 manage.py makemigrations --check --dry-run
+	docker run --rm zifter/byprice24-cms:$(IMAGE_TAG) python3 manage.py makemigrations --check --dry-run
 
 ###########
 # Backend Local Dev

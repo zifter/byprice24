@@ -35,7 +35,7 @@ infra-install:
 
 ###########
 # BACKEND
-backend-helm-install: IMAGE_TAG := zifter/byprice24-cms:test
+backend-helm-install: IMAGE_TAG := test
 backend-helm-install:
 	$(info Install actual application to k8s)
 	helmfile -e local -l side=backend sync --concurrency 1
@@ -44,14 +44,14 @@ backend-helm-uninstall:
 	$(info Uninstall backend)
 	helmfile -e local -l side=backend delete
 
-backend-image-load: IMAGE_TAG := zifter/byprice24-cms:test
+backend-image-load: IMAGE_TAG := test
 backend-image-load:
 	$(info Load docker to kind cluster)
-	kind load docker-image --name byprice24 ${IMAGE_TAG}
+	kind load docker-image --name byprice24 zifter/byprice24-cms:${IMAGE_TAG}
 
 ###########
 # FRONTEND
-frontend-helm-install: IMAGE_TAG := zifter/byprice24-site:test
+frontend-helm-install: IMAGE_TAG := test
 frontend-helm-install:
 	$(info Install frontend)
 	helmfile -e local -l side=frontend sync --concurrency 1
@@ -60,10 +60,10 @@ frontend-helm-uninstall:
 	$(info Uninstall frontend)
 	helmfile -e local -l side=frontend delete
 
-frontend-image-load: IMAGE_TAG := zifter/byprice24-site:test
+frontend-image-load: IMAGE_TAG := test
 frontend-image-load:
 	$(info Load docker to kind cluster)
-	kind load docker-image --name byprice24 ${IMAGE_TAG}
+	kind load docker-image --name byprice24 zifter/byprice24-site:${IMAGE_TAG}
 
 helmfile-sync:
 	$(info Sync all releases)
@@ -93,14 +93,14 @@ validate:
 	helmfile -e prod lint
 
 helmfile-prod: ARGS := diff
-helmfile-prod: BACKEND_IMAGE_TAG := zifter/byprice24-cms:latest
-helmfile-prod: FRONTEND_IMAGE_TAG := zifter/byprice24-site:latest
+helmfile-prod: BACKEND_IMAGE_TAG := latest
+helmfile-prod: FRONTEND_IMAGE_TAG := latest
 helmfile-prod: GIT_RELEASE := latest
 helmfile-prod:
-	docker pull ${BACKEND_IMAGE_TAG}
-	docker pull ${FRONTEND_IMAGE_TAG}
+	docker pull zifter/byprice24-cms:${BACKEND_IMAGE_TAG}
+	docker pull zifter/byprice24-site:${FRONTEND_IMAGE_TAG}
 	export `cat .env | xargs` && \
-	export BACKEND_IMAGE_SHA256=`docker inspect --format='{{index .RepoDigests 0}}' ${BACKEND_IMAGE_TAG} | cut -f 2 -d @` && \
-	export FRONTEND_IMAGE_SHA256=`docker inspect --format='{{index .RepoDigests 0}}' ${FRONTEND_IMAGE_TAG} | cut -f 2 -d @` && \
+	export BACKEND_IMAGE_SHA256=`docker inspect --format='{{index .RepoDigests 0}}' zifter/byprice24-cms:${BACKEND_IMAGE_TAG} | cut -f 2 -d @` && \
+	export FRONTEND_IMAGE_SHA256=`docker inspect --format='{{index .RepoDigests 0}}' zifter/byprice24-site:${FRONTEND_IMAGE_TAG} | cut -f 2 -d @` && \
 	kubectl config current-context && \
 	helmfile -e prod ${ARGS}
