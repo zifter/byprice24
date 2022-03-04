@@ -1,11 +1,14 @@
 name: deploy
 on:
-  push:
-    tags:
-      - '*'
+  workflow_run:
+    workflows: ["backend-ci"]
+    tags: ['*']
+    types:
+      - completed
 
 jobs:
   deploy:
+    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
@@ -35,4 +38,4 @@ jobs:
           mkdir /home/runner/.kube
           echo "${{ secrets.KUBECONFIG }}" > /home/runner/.kube/config
           touch .env
-          make helmfile-prod GIT_RELEASE=${GITHUB_REF##*/} ARGS=apply
+          make helmfile-prod BACKEND_IMAGE_TAG=${GITHUB_REF##*/} FRONTEND_IMAGE_TAG=${GITHUB_REF##*/} GIT_RELEASE=${GITHUB_REF##*/} ARGS=apply

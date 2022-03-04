@@ -39,7 +39,7 @@ jobs:
         run: make test
 
       - name: Build Docker Image
-        run: make frontend-image-build IMAGE_TAG=zifter/byprice24-site:${GITHUB_REF##*/}
+        run: make frontend-image-build IMAGE_TAG=${GITHUB_REF##*/}
 
       - name: Publish Docker Image
         env:
@@ -48,4 +48,4 @@ jobs:
         if: ${{ startsWith(github.ref, 'refs/tags/v') }}
         run: |
           make docker-login DOCKER_USER=$DOCKER_USER DOCKER_PASS=$DOCKER_PASS
-          make frontend-image-publish IMAGE_TAG=zifter/byprice24-site:${GITHUB_REF##*/}
+          make frontend-image-publish IMAGE_TAG=${GITHUB_REF##*/}
