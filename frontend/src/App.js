@@ -13,6 +13,7 @@ import SearchResult from './components/pages/SearchResult.js';
 import ProductPage from './components/pages/ProductPage.js';
 import NotFound from './components/pages/NotFound.js';
 import DisclaimerPage from './components/pages/DisclaimerPage';
+import Contacts from './components/pages/Contacts';
 
 import ReactGA from 'react-ga';
 import {
@@ -20,6 +21,7 @@ import {
   StyleReset,
   Container,
 } from 'atomize';
+
 
 const theme = {
   fontFamily: {
@@ -39,47 +41,48 @@ function App() {
     console.log(window.location.pathname);
   });
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <StyleReset />
-        <Container
-          pos="absolute"
-          bg="info600"
-          maxW={{xs: 'auto', md: '100vw'}}
-          h="4rem"
-        >
-          <HeaderBar/>
-        </Container>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <StyleReset />
+          <Container
+              pos="absolute"
+              bg="info600"
+              maxW={{xs: 'auto', md: '100vw'}}
+              h="4rem"
+          >
+            <HeaderBar/>
+          </Container>
 
-        <Container
-          pos="absolute"
-          top="4rem"
-          bottom="1rem"
-          textAlign="center"
-          maxW={{xs: 'auto', md: '100vw'}}
-        >
-          <Routes>
-            <Route exact path="/" element={<Index />} />
-            <Route exact path="/search" element={<SearchResult />} />
-            <Route exact path="/products/:id" element={<ProductPage />}/>
-            <Route exact path="/404" element={<NotFound />}/>
-            <Route path="*" element={<Navigate replace to="/404" />} />
-            <Route exact path="/disclaimer" element={<DisclaimerPage />} />
-          </Routes>
-        </Container>
+          <Container
+              pos="absolute"
+              top="4rem"
+              bottom="1rem"
+              textAlign="center"
+              maxW={{xs: 'auto', md: '100vw'}}
+          >
+            <Routes>
+              <Route exact path="/" element={<Index />} />
+              <Route exact path="/search" element={<SearchResult />} />
+              <Route exact path="/contacts" element={<Contacts />} />
+              <Route exact path="/products/:id" element={<ProductPage />}/>
+              <Route exact path="/404" element={<NotFound />}/>
+              <Route path="*" element={<Navigate replace to="/404" />} />
+              <Route exact path="/disclaimer" element={<DisclaimerPage />} />
+            </Routes>
+          </Container>
 
-        <Container
-          pos="fixed"
-          bottom="0"
-          bg="gray200"
-          h="1.5rem"
-          maxW={{xs: 'auto', md: '100vw'}}
-          textAlign="center"
-        >
-          <Footer/>
-        </Container>
-      </ThemeProvider>
-    </BrowserRouter>
+          <Container
+              pos="fixed"
+              bottom="0"
+              bg="gray200"
+              h="1.5rem"
+              maxW={{xs: 'auto', md: '100vw'}}
+              textAlign="center"
+          >
+            <Footer/>
+          </Container>
+        </ThemeProvider>
+      </BrowserRouter>
   );
 }
 
