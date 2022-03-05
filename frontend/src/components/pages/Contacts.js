@@ -7,8 +7,8 @@ import {
 const TextContact = ({text, bottomValue, textSize, textWeight,
   tag, children}) => {
   return (
-    <Div itemscope itemtype="http://schema.org/Organization" textAlign="left">
-      <Text itemprop="email" tag={tag || 'section'}
+    <Div itemScope itemType="http://schema.org/Organization" textAlign="left">
+      <Text itemProp="email" tag={tag || 'section'}
         textSize={textSize || 'paragraph'}
         textWeight={textWeight || '400'}
         m={{b: bottomValue}}>
