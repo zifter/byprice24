@@ -12,5 +12,5 @@ test('should navigate to ... when link is clicked', () => {
   const {getByTestId} = render(<a data-testid='link'
     href="mailto:contact@findprice.by">Click Me</a>);
   expect(getByTestId('link')).toHaveAttribute('href',
-   'mailto:contact@findprice.by');
+      'mailto:contact@findprice.by');
 });
