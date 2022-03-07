@@ -30,7 +30,7 @@ jobs:
         if: ${{ inputs.validate }}
         working-directory: ./deployment
         run: |
-          make validate
+          make validate-local
 
       - name: Validate Prod
         if: ${{ inputs.validate }}
