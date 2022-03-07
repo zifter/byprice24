@@ -11,12 +11,18 @@ jobs:
     with:
       publish: true
       test: false
+    secrets:
+      DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+      DOCKER_USER: ${{ secrets.DOCKER_USER }}
 
   call-ci-frontend:
     uses: zifter/byprice24/.github/workflows/_ci_frontend.yaml@main
     with:
       publish: true
       test: false
+    secrets:
+      DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+      DOCKER_USER: ${{ secrets.DOCKER_USER }}
 
   call-deploy:
     needs:
