@@ -84,13 +84,11 @@ print-urls:
 	$(info AlertManager: 	http://localhost:1080/alertmanager)
 	$(info ===========================================================)
 
-validate:
-	$(info Validate helmfile for all environments)
+validate-local:
+	$(info Validate helmfile for local environments)
 	helmfile -e local build
 	helmfile -e local lint
 	helmfile -e local template
-	helmfile -e prod build
-	helmfile -e prod lint
 
 helmfile-prod: ARGS := diff
 helmfile-prod: BACKEND_IMAGE_TAG := latest

@@ -48,7 +48,7 @@ jobs:
 
   test-mac:
     runs-on: macos-11
-    timeout-minutes: 8
+    timeout-minutes: 10
     needs: image-build  # to be sure that we don't waste time of mac agent in case when build is failed
     if: github.ref == 'refs/heads/main'
     steps:

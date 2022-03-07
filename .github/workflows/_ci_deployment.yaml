@@ -1,4 +1,4 @@
-name: deploy
+name: ci-deployment
 on:
   workflow_call:
     inputs:
@@ -22,11 +22,17 @@ jobs:
       - name: Setup helmfile
         uses: mamezou-tech/setup-helmfile@v0.8.0
         with:
-          install-kubectl: yes
+          install-kubectl: ${{ inputs.deploy }}
           helm-version: "v3.6.3"
           helmfile-version: "v0.140.1"
 
-      - name: Validate
+      - name: Validate Local
+        if: ${{ inputs.validate }}
+        working-directory: ./deployment
+        run: |
+          make validate
+
+      - name: Validate Prod
         if: ${{ inputs.validate }}
         working-directory: ./deployment
         env:
@@ -41,10 +47,11 @@ jobs:
           GRAFANA_PASS: ${{ secrets.GRAFANA_PASS }}
           DJANGO_SECRET: ${{ secrets.DJANGO_SECRET }}
         run: |
-          make validate
           mkdir /home/runner/.kube
           echo "${{ secrets.KUBECONFIG }}" > /home/runner/.kube/config
           touch .env
+          make helmfile-prod ARGS=build
+          make helmfile-prod ARGS=lint
           make helmfile-prod ARGS=template
 
       - name: Deploy
