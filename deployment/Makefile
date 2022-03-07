@@ -100,5 +100,4 @@ helmfile-prod:
 	export `cat .env | xargs` && \
 	export BACKEND_IMAGE_SHA256=`docker inspect --format='{{index .RepoDigests 0}}' zifter/byprice24-cms:${BACKEND_IMAGE_TAG} | cut -f 2 -d @` && \
 	export FRONTEND_IMAGE_SHA256=`docker inspect --format='{{index .RepoDigests 0}}' zifter/byprice24-site:${FRONTEND_IMAGE_TAG} | cut -f 2 -d @` && \
-	kubectl config current-context && \
 	helmfile -e prod ${ARGS}
