@@ -1,0 +1,15 @@
+config:
+  datasource:
+    host: {{ .Values.postgres.host | toYaml }}
+    user: {{ .Values.postgres.user | toYaml }}
+    password: {{ .Values.postgres.pass | toYaml }}
+    database: {{ .Values.postgres.dbName | toYaml }}
+    port: {{ .Values.postgres.port | toYaml }}
+
+resources:
+  requests:
+    cpu: "10m"
+    memory: "30Mi"
+  limits:
+    cpu: "50m"
+    memory: "30Mi"

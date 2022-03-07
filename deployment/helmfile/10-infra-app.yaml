@@ -55,14 +55,8 @@ releases:
     needs:
       - prometheus-stack
     values:
-      - releases/postgres-exporter/values.yaml
-      - config:
-          datasource:
-            host: {{ .Values.postgres.host | toYaml }}
-            user: {{ .Values.postgres.user | toYaml }}
-            password: {{ .Values.postgres.pass | toYaml }}
-            database: {{ .Values.postgres.dbName | toYaml }}
-            port: {{ .Values.postgres.port | toYaml }}
+      - releases/postgres-exporter/values.yaml.gotmpl
+      - releases/postgres-exporter/values-{{ .Environment.Name }}.yaml
 
   - name: cert-issuer
     namespace: {{ .Values.namespace }}
