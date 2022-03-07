@@ -64,8 +64,6 @@ jobs:
           GRAFANA_PASS: ${{ secrets.GRAFANA_PASS }}
           DJANGO_SECRET: ${{ secrets.DJANGO_SECRET }}
         run: |
-          mkdir /home/runner/.kube
-          echo "${{ secrets.KUBECONFIG }}" > /home/runner/.kube/config
           touch .env
           make validate-prod
 
