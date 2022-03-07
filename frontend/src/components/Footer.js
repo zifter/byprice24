@@ -33,7 +33,7 @@ const Footer = () => {
               p="0"
               textAlign="left"
               textColor="black">
-              Правовая информация.
+              Правовая информация
             </Text>
           </Anchor>
         </Col>
