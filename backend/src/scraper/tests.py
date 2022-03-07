@@ -273,7 +273,7 @@ def test_funtastik_by():
                 title='Конструктор LEGO Technic 42122: Jeep Wrangler',
                 description='Конструктор LEGO Technic 42122: Jeep Wrangler\nОсобенности:\n- двери и капот открываются;\n- откидываются задние сиденья;\n- есть полноразмерное запасное колесо, лебедка и классические логотипы Jeep;\n- большие рифленые колеса обеспечивают отличное сцепление с поверхностями;\n- все детали прочно крепятся друг с другом;\n- можно объединять с другими наборами LEGO Technic.\nРазмер джипа в собранном виде: 24х13х12 см.\nМатериал: пластмасса.\nВ наборе: 665 деталей, инструкция.',
                 price=0.0,
-                price_currency='',
+                price_currency='BYN',
                 availability=Availability.OutOfStock,
                 preview_url='https://www.funtastik.by/upload/resize_cache/iblock/e22/720_720_040cd750bba9870f18aada2478b24840a/e22f3755969a48d804ba1ef1cc8fd307.jpg',
                 main_category='buildingkit',
@@ -303,6 +303,7 @@ def test_spider_ozon_ru():
     )
 
     assert_spider(url, 'Infinix-HOT-10-Lite.html', expected)
+
 
 def test_spider_ilp_image():
     url = 'https://www.ilp.by/notebook/msi/a11mt092ru'

@@ -10,6 +10,11 @@ import pytz
 from common.item_types import Availability
 
 
+def is_not_empty(instance, attribute, value):
+    if not value:
+        raise ValueError('value must be not empty.')
+
+
 @attr.s(on_setattr=attr.setters.validate)
 class ProductScrapingResult:
     """
@@ -21,7 +26,7 @@ class ProductScrapingResult:
     main_category: str = attr.ib(validator=attr.validators.instance_of(str))
     description: str = attr.ib(validator=attr.validators.instance_of(str))
     price: float = attr.ib(validator=attr.validators.instance_of(float))
-    price_currency: str = attr.ib(validator=attr.validators.instance_of(str))
+    price_currency: str = attr.ib(validator=[attr.validators.instance_of(str), is_not_empty])
     timestamp: datetime = attr.ib(default=datetime.now(tz=pytz.UTC))
     availability: Availability = attr.ib(default=Availability.InStock, validator=attr.validators.instance_of(Availability))
     rating: float = attr.ib(default=0.0, validator=attr.validators.instance_of(float))

@@ -206,7 +206,7 @@ class SentryMixin:
     SENTRY_DSN = os.environ.setdefault('SENTRY_DSN', '')
 
     def __init__(self):
-        sentry_sdk.init(dsn=SentryMixin.SENTRY_DSN, integrations=[DjangoIntegration(), ])
+        sentry_sdk.init(dsn=SentryMixin.SENTRY_DSN, integrations=[DjangoIntegration(), ])  # pragma: no cover
 
 
 class Dev(PostgresMixin, Base):
