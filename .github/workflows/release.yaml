@@ -26,3 +26,12 @@ jobs:
     with:
       deploy: true
       validate: true
+    secrets:
+      POSTGRES_DATABASE: ${{ secrets.POSTGRES_DATABASE }}
+      POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
+      POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+      POSTGRES_PASS: ${{ secrets.POSTGRES_PASS }}
+      POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
+      GRAFANA_USER: ${{ secrets.GRAFANA_USER }}
+      GRAFANA_PASS: ${{ secrets.GRAFANA_PASS }}
+      DJANGO_SECRET: ${{ secrets.DJANGO_SECRET }}

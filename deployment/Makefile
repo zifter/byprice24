@@ -85,10 +85,16 @@ print-urls:
 	$(info ===========================================================)
 
 validate-local:
-	$(info Validate helmfile for local environments)
+	$(info Validate helmfile for local environment)
 	helmfile -e local build
 	helmfile -e local lint
 	helmfile -e local template
+
+validate-prod:
+	$(info Validate helmfile for prod)
+	make helmfile-prod ARGS=build
+	make helmfile-prod ARGS=lint
+	make helmfile-prod ARGS=template
 
 helmfile-prod: ARGS := diff
 helmfile-prod: BACKEND_IMAGE_TAG := latest

@@ -10,6 +10,23 @@ on:
         required: false
         type: boolean
         default: false
+    secrets:
+      POSTGRES_DATABASE:
+        required: true
+      POSTGRES_HOST:
+        required: true
+      POSTGRES_USER:
+        required: true
+      POSTGRES_PASS:
+        required: true
+      POSTGRES_PORT:
+        required: true
+      GRAFANA_USER:
+        required: true
+      GRAFANA_PASS:
+        required: true
+      DJANGO_SECRET:
+        required: true
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -50,9 +67,7 @@ jobs:
           mkdir /home/runner/.kube
           echo "${{ secrets.KUBECONFIG }}" > /home/runner/.kube/config
           touch .env
-          make helmfile-prod ARGS=build
-          make helmfile-prod ARGS=lint
-          make helmfile-prod ARGS=template
+          make validate-prod
 
       - name: Deploy
         if: ${{ inputs.deploy }}
