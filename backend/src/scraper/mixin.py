@@ -29,7 +29,7 @@ class StructuredDataMixin:
                 continue
 
             properties = item['properties']
-            
+
             title = self.extract_title(properties)
             description = self.extract_description(data, item)
             categories = self.extract_categories(data)
@@ -114,11 +114,17 @@ class StructuredDataMixin:
                      'aggregateRating' in properties else '0')
 
     @classmethod
-    def extract_price_currency(cls, offer) -> str:
+    def extract_price_currency(cls, offer, default_currency='BYN') -> str:
         price_currency = ''
         if 'properties' in offer:
-            value = offer['properties']['priceCurrency']
-            price_currency = value if not value == 'BYR' else 'BYN'
+            price_currency = offer['properties']['priceCurrency']
+
+        if price_currency == 'BYR':
+            # gold apple is pretty strange
+            price_currency = 'BYN'
+
+        if not price_currency:
+            price_currency = default_currency
 
         return price_currency
 
@@ -130,7 +136,7 @@ class StructuredDataMixin:
         except KeyError:
             preview_url = ''
         return preview_url
-      
+
     @classmethod
     def extract_offer(cls, properties) -> Dict:
         offer = {}
