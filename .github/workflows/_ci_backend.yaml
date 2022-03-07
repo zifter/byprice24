@@ -1,31 +1,15 @@
-name: backend-ci
+name: ci-backend
 on:
-  push:
-    branches:
-      - main
-    tags:
-      - '*'
-    paths:
-      - '**/backend-ci.yaml'
-      - backend/**
-      - src/**
-      - fixtures/**
-      - testdata/**
-      - Pipfile
-      - Dockerfile
-      - Makefile
-  pull_request:
-    branches:
-      - main
-    paths:
-      - '**/backend-ci.yaml'
-      - backend/**
-      - src/**
-      - fixtures/**
-      - testdata/**
-      - Pipfile
-      - Dockerfile
-      - Makefile
+  workflow_call:
+    inputs:
+      test:
+        required: false
+        type: boolean
+        default: true
+      publish:
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   image-build:
@@ -44,10 +28,12 @@ jobs:
         run: make image-migrations-check IMAGE_TAG=${GITHUB_REF##*/}
 
       - name: Docker Compose Up
+        if: ${{ inputs.test }}
         working-directory: ./backend
         run: make docker-compose-up
 
       - name: Test Docker Image
+        if: ${{ inputs.test }}
         working-directory: ./backend
         run: make image-test IMAGE_TAG=${GITHUB_REF##*/}
 
@@ -55,7 +41,7 @@ jobs:
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
-        if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+        if: ${{ inputs.publish }}
         run: |
           make docker-login DOCKER_USER=$DOCKER_USER DOCKER_PASS=$DOCKER_PASS
           make backend-image-publish IMAGE_TAG=${GITHUB_REF##*/}

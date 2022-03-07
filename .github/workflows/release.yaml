@@ -1,0 +1,28 @@
+name: Release
+concurrency: production
+on:
+  workflow_dispatch: {}
+  release:
+    types: [published]
+
+jobs:
+  call-ci-backend:
+    uses: zifter/byprice24/.github/workflows/_ci_backend.yaml@main
+    with:
+      publish: true
+      test: false
+
+  call-ci-frontend:
+    uses: zifter/byprice24/.github/workflows/_ci_frontend.yaml@main
+    with:
+      publish: true
+      test: false
+
+  call-deploy:
+    needs:
+      - call-ci-frontend
+      - call-ci-backend
+    uses: zifter/byprice24/.github/workflows/_ci_deployment.yaml@main
+    with:
+      deploy: true
+      validate: true

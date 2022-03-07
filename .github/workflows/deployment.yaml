@@ -1,0 +1,21 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/*'
+      - deployment/**
+      - Makefile
+
+concurrency:
+  group: ci-backend-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  call-ci-deployment:
+    uses: zifter/byprice24/.github/workflows/_ci_deployment.yaml@main
