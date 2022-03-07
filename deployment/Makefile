@@ -90,6 +90,7 @@ validate-local:
 	helmfile -e local lint
 	helmfile -e local template
 
+helmfile-prod: RELEASE_TAG := latest
 validate-prod:
 	$(info Validate helmfile for prod)
 	make helmfile-prod ARGS=build
@@ -97,13 +98,12 @@ validate-prod:
 	make helmfile-prod ARGS=template
 
 helmfile-prod: ARGS := diff
-helmfile-prod: BACKEND_IMAGE_TAG := latest
-helmfile-prod: FRONTEND_IMAGE_TAG := latest
-helmfile-prod: GIT_RELEASE := latest
+helmfile-prod: RELEASE_TAG := latest
 helmfile-prod:
-	docker pull zifter/byprice24-cms:${BACKEND_IMAGE_TAG}
-	docker pull zifter/byprice24-site:${FRONTEND_IMAGE_TAG}
+	docker pull zifter/byprice24-cms:${RELEASE_TAG}
+	docker pull zifter/byprice24-site:${RELEASE_TAG}
 	export `cat .env | xargs` && \
-	export BACKEND_IMAGE_SHA256=`docker inspect --format='{{index .RepoDigests 0}}' zifter/byprice24-cms:${BACKEND_IMAGE_TAG} | cut -f 2 -d @` && \
-	export FRONTEND_IMAGE_SHA256=`docker inspect --format='{{index .RepoDigests 0}}' zifter/byprice24-site:${FRONTEND_IMAGE_TAG} | cut -f 2 -d @` && \
+	export RELEASE_TAG=${RELEASE_TAG} \
+	export BACKEND_IMAGE_SHA256=`docker inspect --format='{{index .RepoDigests 0}}' zifter/byprice24-cms:${RELEASE_TAG} | cut -f 2 -d @` && \
+	export FRONTEND_IMAGE_SHA256=`docker inspect --format='{{index .RepoDigests 0}}' zifter/byprice24-site:${RELEASE_TAG} | cut -f 2 -d @` && \
 	helmfile -e prod ${ARGS}

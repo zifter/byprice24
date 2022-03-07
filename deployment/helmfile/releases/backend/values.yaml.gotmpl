@@ -1,6 +1,5 @@
 envName: {{ .Environment.Name }}
-release: {{ env "GIT_RELEASE" | default "release-local" }}
-
+release: {{ .Values.release }}
 image:
   tag: {{ .Values.app.backend }}
 
