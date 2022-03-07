@@ -9,8 +9,8 @@ jobs:
   call-ci-backend:
     uses: zifter/byprice24/.github/workflows/_ci_backend.yaml@main
     with:
-      publish: true
       test: false
+      publish: true
     secrets:
       DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
@@ -18,8 +18,9 @@ jobs:
   call-ci-frontend:
     uses: zifter/byprice24/.github/workflows/_ci_frontend.yaml@main
     with:
-      publish: true
+      lint: false
       test: false
+      publish: true
     secrets:
       DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
@@ -30,8 +31,8 @@ jobs:
       - call-ci-backend
     uses: zifter/byprice24/.github/workflows/_ci_deployment.yaml@main
     with:
-      deploy: true
       validate: true
+      deploy: true
     secrets:
       KUBECONFIG: ${{ secrets.KUBECONFIG }}
       POSTGRES_DATABASE: ${{ secrets.POSTGRES_DATABASE }}

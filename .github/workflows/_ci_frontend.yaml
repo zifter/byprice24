@@ -6,6 +6,10 @@ on:
         required: false
         type: boolean
         default: true
+      lint:
+        required: false
+        type: boolean
+        default: true
       publish:
         required: false
         type: boolean
@@ -30,6 +34,7 @@ jobs:
         run: make setup
 
       - name: Lint
+        if: ${{ inputs.lint }}
         working-directory: ./frontend
         run: make lint
 
