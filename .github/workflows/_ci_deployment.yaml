@@ -86,4 +86,4 @@ jobs:
           echo "${{ secrets.KUBECONFIG }}" > /home/runner/.kube/config
           touch .env
           kubectl config current-context
-          make helmfile-prod BACKEND_IMAGE_TAG=${GITHUB_REF##*/} FRONTEND_IMAGE_TAG=${GITHUB_REF##*/} GIT_RELEASE=${GITHUB_REF##*/} ARGS=apply
+          make helmfile-prod RELEASE_TAG=${GITHUB_REF##*/} ARGS=apply

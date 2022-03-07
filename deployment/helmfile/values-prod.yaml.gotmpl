@@ -1,4 +1,5 @@
 namespace: prod
+release: {{ env "RELEASE_TAG" | default "local" }}
 monitoring:
   enabled: true
   grafana:
@@ -6,8 +7,8 @@ monitoring:
     pass: {{ requiredEnv "GRAFANA_PASS" | quote }}
 
 app:
-  backend: latest@{{ requiredEnv "BACKEND_IMAGE_SHA256" }}
-  frontend: latest@{{ requiredEnv "FRONTEND_IMAGE_SHA256" }}
+  backend: {{ env "RELEASE_TAG" }}@{{ requiredEnv "BACKEND_IMAGE_SHA256" }}
+  frontend: {{ env "RELEASE_TAG" }}@{{ requiredEnv "FRONTEND_IMAGE_SHA256" }}
   cms:
     secretKey: {{ requiredEnv "DJANGO_SECRET" }}
 
