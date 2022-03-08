@@ -35,7 +35,7 @@ const Contacts = () => {
         bottomValue={'0.5rem'} textWeight={'600'}/>
       <TextContact text={'У Вас возникли вопросы? Мы здесь чтобы помочь.'}
         bottomValue={'1.7rem'}/>
-      <TextContact text=''>e-mail: contact@findprice.by
+      <TextContact text='e-mail: '>contact@findprice.by
       </TextContact>
     </Container>
   );
