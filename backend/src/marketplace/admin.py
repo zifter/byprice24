@@ -1,5 +1,6 @@
 from crawler.agent import get_agent
 from django.contrib import admin
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.utils.safestring import mark_safe
 from marketplace.models import Category
@@ -28,7 +29,42 @@ class ProductPageAdmin(admin.ModelAdmin):
             self.message_user(request, msg)
             return HttpResponseRedirect('.')
 
+        if 'detach-product' in request.POST:
+            if Product.objects.filter(name=obj.name).exists():
+                self.attach_existed_product_to_product_page(obj, request)
+
+            else:
+                self.create_new_product_and_attach_to_product_page(obj, request)
+
+            return HttpResponseRedirect('.')
+
         return super().response_change(request, obj)
+
+    def attach_existed_product_to_product_page(self, obj, request):
+        existed_product = Product.objects.get(name=obj.name)
+
+        if obj.product.name == existed_product.name:
+            self.alert_msg(request, 'This product page has correct product', True)
+
+        else:
+            obj.product = existed_product
+            obj.save()
+            self.alert_msg(request, 'Correct product was successfully attached to product page', False)
+
+    def create_new_product_and_attach_to_product_page(self, obj, request):
+        new_product = Product.objects.create(name=obj.name, description=obj.description,
+                                             category=obj.category, preview_url=obj.preview_url)
+        new_product.save()
+
+        obj.product = new_product
+        obj.save()
+        self.alert_msg(request, 'Product was created and attached to product page', False)
+
+    def alert_msg(self, request, msg, error: bool = False):
+        if error:
+            return messages.error(request, msg)
+        else:
+            return self.message_user(request, mark_safe(msg))
 
 
 admin.site.register(ProductState)

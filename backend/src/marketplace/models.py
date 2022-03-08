@@ -70,6 +70,8 @@ class ProductPage(models.Model):
     url = models.URLField()
     name = models.CharField(max_length=192)
     description = models.CharField(max_length=512)
+    preview_url = models.CharField(max_length=256, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, default='undefined')
 
     def __str__(self):
         return f'{self.product} [{self.marketplace}]'

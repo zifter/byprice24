@@ -1,5 +1,9 @@
 - model: marketplace.category
   fields:
+    name: undefined
+    keywords: undefined
+- model: marketplace.category
+  fields:
     name: mobile
     keywords: кнопочные телефоны, смартфоны
 - model: marketplace.category
