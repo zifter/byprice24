@@ -13,6 +13,7 @@ import SearchResult from './components/pages/SearchResult.js';
 import ProductPage from './components/pages/ProductPage.js';
 import NotFound from './components/pages/NotFound.js';
 import DisclaimerPage from './components/pages/DisclaimerPage';
+import Contacts from './components/pages/Contacts';
 
 import ReactGA from 'react-ga';
 import {
@@ -20,6 +21,7 @@ import {
   StyleReset,
   Container,
 } from 'atomize';
+
 
 const theme = {
   fontFamily: {
@@ -52,31 +54,35 @@ function App() {
         </Container>
 
         <Container
+          d="flex"
+          p="0"
+          flexDir="column"
+          justify="space-between"
           pos="absolute"
           top="4rem"
-          bottom="1rem"
+          bottom="0rem"
           textAlign="center"
           maxW={{xs: 'auto', md: '100vw'}}
         >
           <Routes>
             <Route exact path="/" element={<Index />} />
             <Route exact path="/search" element={<SearchResult />} />
+            <Route exact path="/contacts" element={<Contacts />} />
             <Route exact path="/products/:id" element={<ProductPage />}/>
             <Route exact path="/404" element={<NotFound />}/>
             <Route path="*" element={<Navigate replace to="/404" />} />
             <Route exact path="/disclaimer" element={<DisclaimerPage />} />
           </Routes>
-        </Container>
-
-        <Container
-          pos="fixed"
-          bottom="0"
-          bg="gray200"
-          h="1.5rem"
-          maxW={{xs: 'auto', md: '100vw'}}
-          textAlign="center"
-        >
-          <Footer/>
+          <Container
+            align="flex-end"
+            bg="gray200"
+            p="0"
+            h="3rem"
+            maxW={{md: '100vw'}}
+            textAlign="center"
+          >
+            <Footer/>
+          </Container>
         </Container>
       </ThemeProvider>
     </BrowserRouter>
