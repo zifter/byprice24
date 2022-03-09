@@ -7,9 +7,7 @@ import {
 
 const DisclaimerPage = () => {
   return (
-    <Container
-      h="100%"
-    >
+    <Container>
       <Div m={{t: '2rem'}}>
         <Text tag="h1"
           textSize="display1"

@@ -54,9 +54,13 @@ function App() {
         </Container>
 
         <Container
+          d="flex"
+          p="0"
+          flexDir="column"
+          justify="space-between"
           pos="absolute"
           top="4rem"
-          bottom="1rem"
+          bottom="0rem"
           textAlign="center"
           maxW={{xs: 'auto', md: '100vw'}}
         >
@@ -69,17 +73,16 @@ function App() {
             <Route path="*" element={<Navigate replace to="/404" />} />
             <Route exact path="/disclaimer" element={<DisclaimerPage />} />
           </Routes>
-        </Container>
-
-        <Container
-          pos="fixed"
-          bottom="0"
-          bg="gray200"
-          h="1.5rem"
-          maxW={{xs: 'auto', md: '100vw'}}
-          textAlign="center"
-        >
-          <Footer/>
+          <Container
+            align="flex-end"
+            bg="gray200"
+            p="0"
+            h="3rem"
+            maxW={{md: '100vw'}}
+            textAlign="center"
+          >
+            <Footer/>
+          </Container>
         </Container>
       </ThemeProvider>
     </BrowserRouter>
