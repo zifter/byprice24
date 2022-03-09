@@ -31,16 +31,16 @@ class ProductPageAdmin(admin.ModelAdmin):
 
         if 'detach-product' in request.POST:
             if Product.objects.filter(name=obj.name).exists():
-                self.attach_existed_product_to_product_page(obj, request)
+                self.attach_existed_product_to_product_page(request, obj)
 
             else:
-                self.create_new_product_and_attach_to_product_page(obj, request)
+                self.create_new_product_and_attach_to_product_page(request, obj)
 
             return HttpResponseRedirect('.')
 
         return super().response_change(request, obj)
 
-    def attach_existed_product_to_product_page(self, obj, request):
+    def attach_existed_product_to_product_page(self, request, obj):
         existed_product = Product.objects.get(name=obj.name)
 
         if obj.product.name == existed_product.name:
@@ -51,14 +51,17 @@ class ProductPageAdmin(admin.ModelAdmin):
             obj.save()
             self.alert_msg(request, 'Correct product was successfully attached to product page', False)
 
-    def create_new_product_and_attach_to_product_page(self, obj, request):
+        return obj
+
+    def create_new_product_and_attach_to_product_page(self, request, obj):
         new_product = Product.objects.create(name=obj.name, description=obj.description,
                                              category=obj.category, preview_url=obj.preview_url)
         new_product.save()
-
         obj.product = new_product
         obj.save()
         self.alert_msg(request, 'Product was created and attached to product page', False)
+
+        return obj
 
     def alert_msg(self, request, msg, error: bool = False):
         if error:

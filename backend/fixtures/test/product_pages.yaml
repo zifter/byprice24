@@ -2,76 +2,121 @@
   pk: 1
   fields:
     product_id: 2
+    name: Acer Extensa 13 EX215-53G-7014 NX.EGCER.009
     marketplace_id: 1
+    category: notebook
+    preview_url: https://cdn.dataimgstore.com/preview/64/0/5915250/vPycErlz5e.jpeg
+
 - model: marketplace.productpage
   pk: 2
   fields:
     product_id: 2
     marketplace_id: 2
+    name: Acer Extensa 15 EX215-53G-7014 NX.EGCER.009
+    category: notebook
+    preview_url: https://cdn.dataimgstore.com/preview/64/0/5915250/vPycErlz5e.jpeg
+
 - model: marketplace.productpage
   pk: 3
   fields:
     product_id: 3
     marketplace_id: 2
+    category: notebook
+    preview_url: https://cdn.dataimgstore.com/preview/64/0/5915250/vPycErlz5e.jpeg
 
 - model: marketplace.productpage
   pk: 4
   fields:
     product_id: 4
     marketplace_id: 1
+    category: tv
+    preview_url: https://cdn.dataimgstore.com/preview/64/0/5915250/vPycErlz5e.jpeg
+
 - model: marketplace.productpage
   pk: 5
   fields:
     product_id: 5
     marketplace_id: 2
+    category: tv
+    preview_url: https://cdn.dataimgstore.com/preview/64/0/5915250/vPycErlz5e.jpeg
+
 - model: marketplace.productpage
   pk: 6
   fields:
     product_id: 6
     marketplace_id: 2
+    category: tv
+    preview_url: https://cdn.dataimgstore.com/preview/64/0/5915250/vPycErlz5e.jpeg
+
 - model: marketplace.productpage
   pk: 7
   fields:
     product_id: 7
     marketplace_id: 1
+    category: tv
+    preview_url: https://cdn.dataimgstore.com/preview/64/0/5915250/vPycErlz5e.jpeg
+
 - model: marketplace.productpage
   pk: 8
   fields:
     product_id: 8
     marketplace_id: 2
+    category: tv
+    preview_url: https://cdn.dataimgstore.com/preview/64/0/5915250/vPycErlz5e.jpeg
+
 - model: marketplace.productpage
   pk: 9
   fields:
     product_id: 9
     marketplace_id: 2
+    category: tv
+    preview_url: https://cdn.dataimgstore.com/preview/64/0/5915250/vPycErlz5e.jpeg
+
 - model: marketplace.productpage
   pk: 10
   fields:
     product_id: 10
     marketplace_id: 1
+    category: tv
+    preview_url: https://cdn.dataimgstore.com/preview/64/0/5915250/vPycErlz5e.jpeg
+
 - model: marketplace.productpage
   pk: 11
   fields:
     product_id: 11
     marketplace_id: 2
+    category: tv
+    preview_url: https://cdn.dataimgstore.com/preview/64/0/5915250/vPycErlz5e.jpeg
+
 - model: marketplace.productpage
   pk: 12
   fields:
     product_id: 12
     marketplace_id: 2
+    category: tv
+    preview_url: https://cdn.dataimgstore.com/preview/64/0/5915250/vPycErlz5e.jpeg
 
 - model: marketplace.productpage
   pk: 13
   fields:
     product_id: 13
     marketplace_id: 1
+    category: tv
+    preview_url: https://cdn.dataimgstore.com/preview/64/0/5915250/vPycErlz5e.jpeg
+
 - model: marketplace.productpage
   pk: 14
   fields:
     product_id: 14
     marketplace_id: 2
+    category: tv
+    preview_url: https://cdn.dataimgstore.com/preview/64/0/5915250/vPycErlz5e.jpeg
+
 - model: marketplace.productpage
   pk: 15
   fields:
-    product_id: 15
+    product_id: 14
+    name: Samsung AZAZAA
     marketplace_id: 2
+    category: tv
+    preview_url: https://cdn.dataimgstore.com/preview/64/0/5915250/vPycErlz5e.jpeg
