@@ -16,4 +16,9 @@ class Migration(migrations.Migration):
             name='category',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='marketplace.category'),
         ),
+        migrations.AlterField(
+            model_name='productpage',
+            name='preview_url',
+            field=models.CharField(max_length=256, blank=True),
+        ),
     ]

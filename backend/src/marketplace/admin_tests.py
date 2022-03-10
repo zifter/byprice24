@@ -9,6 +9,7 @@ from django.test import TestCase
 from django.test.client import RequestFactory
 from django.urls import reverse
 from marketplace.admin import ProductPageAdmin
+from marketplace.models import Product
 from marketplace.models import ProductPage
 
 
@@ -62,7 +63,8 @@ class ProductPageAdminTestCase(TestCase):
         product_page = ProductPage.objects.get(id=15)
         self.assertNotEqual(product_page.name, product_page.product.name)
 
-        resp = admin_scraping_state.attach_existed_product_to_product_page(request, product_page)
+        existing_product = Product.objects.get(name=product_page.name)
+        resp = admin_scraping_state.attach_product_page_to_existing_product(request, product_page, existing_product)
         self.assertEqual(resp.name, resp.product.name)
 
     @patch('django.contrib.messages.api.add_message', (lambda: Mock())())
@@ -70,7 +72,9 @@ class ProductPageAdminTestCase(TestCase):
         request = RequestFactory().post('/')
         admin_scraping_state = ProductPageAdmin(ProductPage, AdminSite())
 
-        resp = admin_scraping_state.attach_existed_product_to_product_page(request, ProductPage.objects.get(id=2))
+        product_page = ProductPage.objects.get(id=2)
+        existing_product = Product.objects.get(name=product_page.name)
+        resp = admin_scraping_state.attach_product_page_to_existing_product(request, product_page, existing_product)
         self.assertEqual(resp.name, resp.product.name)
 
     @patch('django.contrib.admin.ModelAdmin.message_user', (lambda: Mock())())
@@ -78,5 +82,5 @@ class ProductPageAdminTestCase(TestCase):
         request = RequestFactory().post('/')
         admin_scraping_state = ProductPageAdmin(ProductPage, AdminSite())
 
-        resp = admin_scraping_state.create_new_product_and_attach_to_product_page(request, ProductPage.objects.first())
+        resp = admin_scraping_state.create_new_product_and_attach_product_page(request, ProductPage.objects.first())
         self.assertEqual(resp.product.name, resp.name)

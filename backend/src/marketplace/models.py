@@ -70,7 +70,7 @@ class ProductPage(models.Model):
     url = models.URLField()
     name = models.CharField(max_length=192)
     description = models.CharField(max_length=512)
-    preview_url = models.CharField(max_length=256, null=True)
+    preview_url = models.CharField(max_length=256, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):

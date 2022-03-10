@@ -32,10 +32,10 @@ class ProductPageAdmin(admin.ModelAdmin):
         if 'detach-product' in request.POST:
             product = Product.objects.filter(name=obj.name).first()
             if product:
-                self.attach_existed_product_to_product_page(request, obj, existing_product=product)
+                self.attach_product_page_to_existing_product(request, obj, existing_product=product)
 
             else:
-                self.create_new_product_and_attach_to_product_page(request, obj)
+                self.create_new_product_and_attach_product_page(request, obj)
 
             return HttpResponseRedirect('.')
 
