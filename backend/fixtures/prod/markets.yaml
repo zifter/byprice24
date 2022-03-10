@@ -74,3 +74,14 @@
   fields:
     marketplace: 7
     scraping_schedule: 0 0 * * 3
+
+- model: marketplace.marketplace
+  pk: 8
+  fields:
+    domain: bukvaeshka.by
+    logo_url: 	https://bukvaeshka.by/upload/CNext/9fe/%D0%9B%D0%9E%D0%93%D0%9E.jpg
+- model: crawler.scrapingstate
+  pk: 8
+  fields:
+    marketplace: 8
+    scraping_schedule: 0 0 * * 3

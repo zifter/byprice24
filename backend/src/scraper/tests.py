@@ -104,6 +104,62 @@ test_data = {
                 categories=[],
             )
         )
+    ],
+    'bukvaeshka.by': [
+        (
+            'book_farm_94495.html',
+            ProductScrapingResult(
+                url='https://bukvaeshka.by/catalog/knigi/khudozhestvennaya_literatura/klassika/94495/',
+                title='Скотный двор. Эссе (твёрдая обложка)',
+                description=(
+                    'В книгу включены не только легендарная повесть-притча Оруэлла "Скотный Двор", но и эссе разных лет - "Литература и тоталитаризм", "Писатели и Левиафан", "Заметки о национализме" и другие.\n\nЧто привлекает читателя в художественной и публицистической прозе этого запретного в тоталитарных странах автора?\n'
+                ),
+                price=17.92,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://bukvaeshka.by/upload/iblock/f9d/cover1__w600.jpg',
+                rating=0.0,
+                review_count=0,
+                main_category='book',
+                categories=[],
+            )
+        ),
+        (
+            'board_game_cosmos_98400.html',
+            ProductScrapingResult(
+                url='https://bukvaeshka.by/catalog/nastolnye_igry_igrushki/nastolnye_igry1/98400/',
+                title='Космос. Игровой набор',
+                description=(
+                    "Игровой набор 3 в 1 'Космос' поможет отлично провести досуг с вашим ребёнком! Набор включает 3 самостоятельных игры: игра-ходилка, викторина, игра-ходилка с карточками. В набор входит: мини-энциклопедия, игровое поле для игры-ходилки, карточки для викторины, забавные фигурки из пена-EVA, кубик. Игровой набор для детей можно купить по низкой цене в интернет-магазине 'Букваешка' с доставкой по всей Беларуси!"
+                ),
+                price=29.11,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://bukvaeshka.by/upload/iblock/1d6/4305413[1].jpg',
+                rating=0.0,
+                review_count=0,
+                main_category='boardgame',
+                categories=[],
+            )
+        ),
+        (
+            'pen_pink_pearl_115200.html',
+            ProductScrapingResult(
+                url='https://bukvaeshka.by/catalog/uchebnye_posobiya_kantstovary/pismennye_prinadlezhnosti/ruchki/sharikovaya/115200/',
+                title='Ручка шариковая автоматическая  Pink pearl  синяя, 1,0мм',
+                description=(
+                    'Шариковая ручка MESHU – это привлекательный аксессуар для ярких, смелых и успешных.\nРозовый корпус ручки из металла с матовым эффектом украшен перламутровой жемчужиной на золотом пьедестале.\nРучка Pink pearl обязательно принесет удачу в заключении важных контрактов и торжественных соглашений. Изящные и плавные линии, декоративные детали станут неотъемлемой частью праздничной и радостной атмосферы. Благодаря упаковке с голографическими элементами ручка может стать приятным подарком.'
+                ),
+                price=9.54,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://bukvaeshka.by/upload/iblock/494/4745615.jpg',
+                rating=0.0,
+                review_count=0,
+                main_category='pen',
+                categories=[],
+            )
+        )
     ]
 }
 
@@ -331,4 +387,9 @@ def test_texus_by(test_html, expected):
 
 @pytest.mark.parametrize('test_html,expected', test_data['goldapple.by'])
 def test_goldapple_by(test_html, expected):
+    assert_spider(expected.url, test_html, expected)
+
+
+@pytest.mark.parametrize('test_html,expected', test_data['bukvaeshka.by'])
+def test_bukvaeshka_by(test_html, expected):
     assert_spider(expected.url, test_html, expected)
