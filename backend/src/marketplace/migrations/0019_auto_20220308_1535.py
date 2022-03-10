@@ -4,8 +4,28 @@ from django.db import migrations
 from django.db import models
 
 
-class Migration(migrations.Migration):
+def forwards_func(apps, schema_editor):
 
+    ProductPage = apps.get_model('marketplace', 'ProductPage')
+    product_pages = ProductPage.objects.all()
+
+    for product_page in product_pages:
+        product_page.preview_url = product_page.product.preview_url
+        product_page.category = product_page.product.category
+        product_page.save()
+
+
+def reverse_func(apps, schema_editor):
+    ProductPage = apps.get_model('marketplace', 'ProductPage')
+    product_pages = ProductPage.objects.all()
+
+    for product_page in product_pages:
+        product_page.preview_url = None
+        product_pages.category = None
+        product_page.save()
+
+
+class Migration(migrations.Migration):
     dependencies = [
         ('marketplace', '0018_alter_productpage_name'),
     ]
@@ -21,17 +41,5 @@ class Migration(migrations.Migration):
             name='preview_url',
             field=models.CharField(max_length=256, null=True),
         ),
-        migrations.RunSQL("""
-        UPDATE marketplace_productpage
-        SET    preview_url = marketplace_product.preview_url
-        FROM   marketplace_product
-        WHERE  marketplace_productpage.product_id = marketplace_product.id;
-
-        UPDATE marketplace_productpage
-        SET    category_id = marketplace_product.category_id
-        FROM   marketplace_product
-        WHERE  marketplace_productpage.product_id = marketplace_product.id;
-
-        COMMIT
-        """)
+        migrations.RunPython(forwards_func, reverse_func)
     ]
