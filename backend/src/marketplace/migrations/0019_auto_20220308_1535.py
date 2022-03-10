@@ -21,4 +21,20 @@ class Migration(migrations.Migration):
             name='preview_url',
             field=models.CharField(max_length=256, null=True),
         ),
+        migrations.RunSQL("""
+        UPDATE marketplace_productpage
+        SET    preview_url = marketplace_product.preview_url
+        FROM   marketplace_product
+        WHERE  marketplace_productpage.product_id = marketplace_product.id;
+        COMMIT
+        """
+                          ),
+        migrations.RunSQL("""
+        UPDATE marketplace_productpage
+        SET    category_id = marketplace_product.category_id
+        FROM   marketplace_product
+        WHERE  marketplace_productpage.product_id = marketplace_product.id;
+        COMMIT
+        """
+                          ),
     ]
