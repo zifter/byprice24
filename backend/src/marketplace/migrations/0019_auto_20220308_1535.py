@@ -26,7 +26,6 @@ class Migration(migrations.Migration):
         SET    preview_url = marketplace_product.preview_url
         FROM   marketplace_product
         WHERE  marketplace_productpage.product_id = marketplace_product.id;
-        COMMIT
         """
                           ),
         migrations.RunSQL("""
