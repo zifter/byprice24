@@ -26,14 +26,12 @@ class Migration(migrations.Migration):
         SET    preview_url = marketplace_product.preview_url
         FROM   marketplace_product
         WHERE  marketplace_productpage.product_id = marketplace_product.id;
-        """
-                          ),
-        migrations.RunSQL("""
+
         UPDATE marketplace_productpage
         SET    category_id = marketplace_product.category_id
         FROM   marketplace_product
         WHERE  marketplace_productpage.product_id = marketplace_product.id;
+
         COMMIT
-        """
-                          ),
+        """)
     ]
