@@ -11,7 +11,7 @@ class Spider(CrawlSpiderBase, StructuredDataMixin):
     name: str = 'bukvaeshka.by'
 
     allowed_domains = [
-        'www.funtastik.by',
+        'www.bukvaeshka.by',
     ]
 
     rules = (
