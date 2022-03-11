@@ -18,6 +18,8 @@ from common.shared_queue.redis_queue import CRAWLER_RESULT
 from common.shared_queue.redis_queue import SEARCH_QUERY
 from configurations import Configuration
 from sentry_sdk.integrations.django import DjangoIntegration
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -25,7 +27,8 @@ from sentry_sdk.integrations.django import DjangoIntegration
 class Base(Configuration):
     # SECURITY WARNING: keep the secret key used in production secret!
     # TODO Override secret in production
-    SECRET_KEY = os.environ.setdefault('SECRET_KEY', 'django-insecure-tfv^rapkl5+j5&c+x64-iy3#m+hpmhyj10f^b(ww2xxu&_#78+')
+    SECRET_KEY = os.environ.setdefault('SECRET_KEY',
+                                       'django-insecure-tfv^rapkl5+j5&c+x64-iy3#m+hpmhyj10f^b(ww2xxu&_#78+')
 
     ALLOWED_HOSTS = list({
         '0.0.0.0',
@@ -44,6 +47,7 @@ class Base(Configuration):
         'django.contrib.messages',
         'django.contrib.staticfiles',
         'django_elasticsearch_dsl',
+        'drf_spectacular',
         'rest_framework',
         'health_check',
         'health_check.db',
@@ -58,6 +62,7 @@ class Base(Configuration):
 
     REST_FRAMEWORK = {
         'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+        'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     }
 
     MIDDLEWARE = [
@@ -183,6 +188,14 @@ class Base(Configuration):
         'default': {
             'hosts': os.getenv('ELASTICSEARCH_DSL', 'localhost:9200'),
         },
+    }
+
+    SPECTACULAR_SETTINGS = {
+        'TITLE': 'Find Price API',
+        'DESCRIPTION': 'Marketplaces Aggregator',
+        'VERSION': '1.0.0',
+        'ENUM_NAME_OVERRIDES':
+            {'ordering': [('Ascending', 'Asc'), ('Descending', 'Desc')]}
     }
 
 
