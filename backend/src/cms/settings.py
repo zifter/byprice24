@@ -191,11 +191,9 @@ class Base(Configuration):
     }
 
     SPECTACULAR_SETTINGS = {
-        'TITLE': 'Find Price API',
-        'DESCRIPTION': 'Marketplaces Aggregator',
-        'VERSION': '1.0.0',
-        'ENUM_NAME_OVERRIDES':
-            {'ordering': [('Ascending', 'Asc'), ('Descending', 'Desc')]}
+        'TITLE': 'FindPrice API',
+        'DESCRIPTION': 'Aggregator of Belarusian marketplaces',
+        'VERSION': '1.0.0'
     }
 
 
