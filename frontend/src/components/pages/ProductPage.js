@@ -36,9 +36,7 @@ const ProductPage = () => {
   useEffect(hook, [id]);
 
   return (
-    <Container
-      h="100%"
-    >
+    <Container>
       {!isLoading &&
             <Text
               tag="h1"

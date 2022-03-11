@@ -9,13 +9,14 @@ import {
 
 
 const SearchBar = () => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(sessionStorage.getItem('query'));
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
     if (query) {
+      sessionStorage.setItem('query', query);
       navigate({
         pathname: '/search',
         search: `?q=${query}`,
@@ -37,6 +38,7 @@ const SearchBar = () => {
         onSubmit={handleSubmit}>
         <Input
           placeholder="Искать"
+          value={query}
           onChange={handleOnChange}
           suffix={
             <Button
