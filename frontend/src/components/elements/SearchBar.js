@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import {
   Button,
   Input,
@@ -9,14 +9,15 @@ import {
 
 
 const SearchBar = () => {
-  const [query, setQuery] = useState(sessionStorage.getItem('query'));
+  const search = useLocation().search;
+  const initialQuery = new URLSearchParams(search).get('q');
+  const [query, setQuery] = useState(initialQuery);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
     if (query) {
-      sessionStorage.setItem('query', query);
       navigate({
         pathname: '/search',
         search: `?q=${query}`,
