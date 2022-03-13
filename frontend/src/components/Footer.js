@@ -48,14 +48,18 @@ const Footer = () => {
           </Anchor>
         </Col></Row>
       <Col>
-        <Text
-          textSize="body"
-          pos="relative"
-          p="0"
-          textAlign="center">
-          2022 by zifter
+        <Anchor
+          href="/"
+        >
+          <Text
+            textSize="body"
+            pos="relative"
+            p="0"
+            textAlign="center">
+            2022 by zifter
 
-        </Text>
+          </Text>
+        </Anchor>
       </Col>
 
 

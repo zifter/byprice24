@@ -30,6 +30,7 @@ const SearchBar = () => {
 
   return (
     <Container
+      m={{l: {xl: '70px', xs: '0'}}}
       h="3rem">
       <form
         name="searchform"
