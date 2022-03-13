@@ -123,7 +123,7 @@ test_data = {
                 preview_url='https://bukvaeshka.by/upload/iblock/f9d/cover1__w600.jpg',
                 rating=0.0,
                 review_count=0,
-                main_category='book',
+                main_category='books',
                 categories=[],
             )
         ),
