@@ -27,8 +27,7 @@ from sentry_sdk.integrations.django import DjangoIntegration
 class Base(Configuration):
     # SECURITY WARNING: keep the secret key used in production secret!
     # TODO Override secret in production
-    SECRET_KEY = os.environ.setdefault('SECRET_KEY',
-                                       'django-insecure-tfv^rapkl5+j5&c+x64-iy3#m+hpmhyj10f^b(ww2xxu&_#78+')
+    SECRET_KEY = os.environ.setdefault('SECRET_KEY', 'django-insecure-tfv^rapkl5+j5&c+x64-iy3#m+hpmhyj10f^b(ww2xxu&_#78+')
 
     ALLOWED_HOSTS = list({
         '0.0.0.0',
@@ -193,7 +192,6 @@ class Base(Configuration):
     SPECTACULAR_SETTINGS = {
         'TITLE': 'FindPrice API',
         'DESCRIPTION': 'Aggregator of Belarusian marketplaces',
-        'VERSION': '1.0.0'
     }
 
 

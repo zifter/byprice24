@@ -16,7 +16,7 @@ from search.serializers import ProductSearchSerializer
 
 class SearchProductViewSet(APIView):
     """
-    API Product to search products
+    API Product with search functionality
     """
     page_size = 20
 
@@ -24,7 +24,7 @@ class SearchProductViewSet(APIView):
         parameters=[OpenApiParameter(name='query', description='Query to search a product', required=True, type=str),
                     OpenApiParameter(name='page', description='Page', required=False,
                                      type=int),
-                    OpenApiParameter(name='ordering', description='Result ordering by price', required=False,
+                    OpenApiParameter(name='ordering', description='Order result by price', required=False,
                                      enum=OrderingEnum.values())
                     ],
         responses=ProductSearchResponse
