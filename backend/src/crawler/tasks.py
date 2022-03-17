@@ -5,9 +5,9 @@ from scraper.items import ProductScrapingResult
 
 
 @job
-def scrape_target(task: ScrapingTarget):
+def scrape_target(target: ScrapingTarget):
     agent = get_agent()
-    agent.scrape(task)
+    agent.scrape(target)
 
 
 @job

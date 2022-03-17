@@ -2,7 +2,10 @@ configuration: Dev
 secretKey: ''
 
 redis:
-  url: "redis://localhost:6379/0"
+  rq:
+    host: "localhost"
+    port: "6379"
+    db: "0"
 
 postgres:
   dbname: "byprice24"
