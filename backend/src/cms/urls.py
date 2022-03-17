@@ -13,8 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import os
-
+from cms.settings import SWAGGER_API
 from django.contrib import admin
 from django.urls import include
 from django.urls import path
@@ -31,7 +30,7 @@ urlpatterns = [
     path('health-check/', include('health_check.urls')),
 ]
 
-if os.environ.get('DJANGO_CONFIGURATION') == 'Dev':
+if SWAGGER_API:
     urlpatterns += [path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
                     path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'),
                          name='swagger-ui')]

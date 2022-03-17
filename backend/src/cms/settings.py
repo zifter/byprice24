@@ -127,6 +127,8 @@ class Base(Configuration):
 
     DEBUG = True
 
+    SWAGGER_API = False
+
     FIXTURE_DIRS = [
         os.path.join(BACKEND_DIR, 'fixtures'),
     ]
@@ -220,6 +222,7 @@ class SentryMixin:
 
 class Dev(PostgresMixin, Base):
     # Dev configuration (for example, in pycharm)
+    SWAGGER_API = True
     pass
 
 
