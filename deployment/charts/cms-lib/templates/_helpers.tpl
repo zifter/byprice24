@@ -11,8 +11,8 @@
   valueFrom:
     fieldRef:
       fieldPath: status.podIP
-- name: RQ_REDIS_URL
-  value: {{ required "Redis url is required"  .Values.redis.url | quote }}
+- name: RQ_REDIS_HOST
+  value: {{ required "Redis host is required"  .Values.redis.rq.host | quote }}
 - name: DB_NAME
   value: {{ required "DB name is required" .Values.postgres.dbname | quote }}
 - name: DB_USERNAME

@@ -24,6 +24,13 @@ from sentry_sdk.integrations.django import DjangoIntegration
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 
+def redis_url(env_prefix='', host='localhost', port=6379, db=0) -> str:
+    host = os.getenv(f'{env_prefix}REDIS_HOST', host)
+    port = os.getenv(f'{env_prefix}REDIS_PORT', port)
+    db = os.getenv(f'{env_prefix}REDIS_DB', db)
+    return f'redis://{host}:{port}/{db}'
+
+
 class Base(Configuration):
     # SECURITY WARNING: keep the secret key used in production secret!
     # TODO Override secret in production
@@ -172,13 +179,13 @@ class Base(Configuration):
 
     RQ_QUEUES = {
         CRAWLER_FEED: {
-            'URL': os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0'),
+            'URL': redis_url(env_prefix='RQ_'),
         },
         CRAWLER_RESULT: {
-            'URL': os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0'),
+            'URL': redis_url(env_prefix='RQ_'),
         },
         SEARCH_QUERY: {
-            'URL': os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0'),
+            'URL': redis_url(env_prefix='RQ_'),
         }
     }
 

@@ -36,9 +36,7 @@ const ProductPage = () => {
   useEffect(hook, [id]);
 
   return (
-    <Container
-      h="100%"
-    >
+    <Container>
       {!isLoading &&
             <Text
               tag="h1"
@@ -48,11 +46,11 @@ const ProductPage = () => {
             </Text>
       }
 
-      {Object.keys(productData).length &&
-      <ProductBody productData={productData} />
+      {Object.keys(productData).length ?
+      <ProductBody productData={productData} /> : null
       }
-      {Object.keys(productData).length &&
-      <ProductTabs productData={productData}/>
+      {Object.keys(productData).length ?
+      <ProductTabs productData={productData}/> : null
       }
     </Container>
   );

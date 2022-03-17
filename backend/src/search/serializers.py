@@ -36,3 +36,17 @@ class ProductSearchResponse(serializers.Serializer):
     next_page = serializers.IntegerField()
     previous_page = serializers.IntegerField()
     results = ProductSearchSerializer(many=True)
+
+
+class ProductQueryAutocompleteSerializer(serializers.Serializer):
+    query = serializers.CharField(min_length=3)
+
+
+class ProductSearchAutocompleteSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    name = serializers.CharField()
+    category = serializers.CharField()
+    preview_url = serializers.CharField()
+
+    class Meta:
+        fields = '__all__'

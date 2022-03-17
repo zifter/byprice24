@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     re_path(r'^api/', include('marketplace.urls')),
+    re_path(r'^api/', include('search.urls')),
 
     path('health-check/', include('health_check.urls')),
 ]
