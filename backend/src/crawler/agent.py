@@ -110,6 +110,8 @@ class Agent:
             url=data.url,
             name=data._result.title,
             description=data._result.description,
+            preview_url=data._result.preview_url,
+            category=data.category()
         )
 
         def models_has_equal_fields(model_1, model_2, *fields):
