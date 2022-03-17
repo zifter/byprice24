@@ -3230,3 +3230,11 @@
   fields:
     name: books
     keywords: книга
+- model: marketplace.category
+  fields:
+    name: boardgame
+    keywords: настольные игры
+- model: marketplace.category
+  fields:
+    name: pen
+    keywords: ручка, шариковая ручка, автоматическая ручка
