@@ -7,5 +7,5 @@ urlpatterns = [
     path('internal/', include('marketplace.private.urls')),
 
     path('v1/products/<str:id>', ProductDetailsViewSet.as_view(), name='product-detail'),
-    path('v1/products', ProductsViewSet.as_view())
+    path('v1/products', ProductsViewSet.as_view(), name='product-list')
 ]

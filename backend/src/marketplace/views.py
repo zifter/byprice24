@@ -1,5 +1,5 @@
 from marketplace.models import Product
-from marketplace.raw_queries import SELECT_PRODUCT_WITH_MIN_PRICE
+from marketplace.raw_queries import SELECT_PRODUCT_WITH_MIN_PRICE_BY_IDS
 from marketplace.serializers import IdSerializer
 from marketplace.serializers import ProductDetailsSerializer
 from marketplace.serializers import ProductListSerializer
@@ -27,17 +27,9 @@ class ProductsViewSet(ListAPIView):
     model = Product
     queryset = Product.objects.all()
     serializer_class = ProductListSerializer
-    lookup_field = 'id'
-    ordering_fields = ('id',)
-    ordering = ('id',)
 
     def list(self, request, *args, **kwargs):
-        params = self.request.query_params.getlist('id')
-        serializer = IdSerializer(data=[{'id': product_id} for product_id in params], many=True)
-        serializer.is_valid(raise_exception=True)
-
-        queryset = self.model.objects.raw(SELECT_PRODUCT_WITH_MIN_PRICE,
-                                          [tuple(product_id['id'] for product_id in serializer.validated_data)])
+        queryset = self.get_queryset()
 
         page = self.paginate_queryset(queryset)
         if page is not None:
@@ -46,3 +38,17 @@ class ProductsViewSet(ListAPIView):
 
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
+
+    def get_queryset(self):
+        params = self.request.query_params.getlist('id')
+        serializer = IdSerializer(data=[{'id': product_id} for product_id in params] if params else [{'id': None}],
+                                  many=True)
+        serializer.is_valid(raise_exception=True)
+
+        list_of_product_ids = [product_id['id'] for product_id in serializer.validated_data]
+        return self.model.objects.raw(
+            SELECT_PRODUCT_WITH_MIN_PRICE_BY_IDS,
+            [
+                list_of_product_ids,  # To order products as the order of passed ids was
+                tuple(list_of_product_ids)  # To get products by ids
+            ])
