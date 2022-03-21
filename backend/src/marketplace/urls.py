@@ -1,7 +1,9 @@
 from django.urls import include
 from django.urls import path
+
 from marketplace.views import ProductDetailsViewSet, MarketplacesViewSet, MarketplaceDetailsViewSet
 from search.views import SearchProductViewSet
+
 
 
 urlpatterns = [

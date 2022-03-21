@@ -18,3 +18,14 @@ class ProductsViewTestCase(TestCase):
     def test_get_first_product_ok(self):
         response = self.client.get('/api/v1/products/2')
         self.assertEqual(response.data['name'], 'Acer Extensa 15 EX215-53G-7014 NX.EGCER.009')
+
+    def test_get_all_marketplaces(self):
+        response = self.client.get('/api/v1/marketplaces')
+        marketplaces = [{'domain': 'localhost', 'logo_url': 'https://www.test.by/', 'description': ''},
+                        {'domain': '0.0.0.0', 'logo_url': 'https://www.test2.by/', 'description': ''}]
+        self.assertEqual(response.data, marketplaces)
+
+    def test_get_marketplace(self):
+        response = self.client.get('/api/v1/marketplaces/1')
+        marketplace = [{'domain': 'localhost', 'logo_url': 'https://www.test.by/', 'description': ''}]
+        self.assertEqual(response.data, marketplace)
