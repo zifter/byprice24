@@ -22,10 +22,10 @@ class ProductDetailsViewSet(RetrieveAPIView):
 
 class ProductsViewSet(ListAPIView):
     """
-    API Products for getting list of products, by their ids
+    API Products for getting list of products, by their ids with order as passed ids had
     """
     model = Product
-    queryset = Product.objects.all()
+    queryset = Product.objects
     serializer_class = ProductListSerializer
 
     def list(self, request, *args, **kwargs):
