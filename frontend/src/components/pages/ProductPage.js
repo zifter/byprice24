@@ -16,6 +16,26 @@ const ProductPage = () => {
   const {id} = useParams();
   console.log('id', id);
   console.log('productData', productData);
+  const recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed'));
+  if (!recentlyViewed) {
+    localStorage.setItem('recentlyViewed',
+        JSON.stringify({'products': [{'id': id}]}));
+  } else {
+    const products = recentlyViewed['products'];
+    const found = products.some((el) => id === el['id']);
+    if (!found) {
+      products.push({'id': id});
+      localStorage.setItem('recentlyViewed',
+          JSON.stringify(recentlyViewed));
+    } else {
+      const index = products.findIndex((item) => item.id === id);
+      products.splice(index, 1);
+      products.unshift({'id': id});
+
+      localStorage.setItem('recentlyViewed',
+          JSON.stringify(recentlyViewed));
+    }
+  }
 
   const hook = () => {
     const url = '/api/v1/products/' + id;
