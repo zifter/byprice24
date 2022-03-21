@@ -27,5 +27,5 @@ class ProductsViewTestCase(TestCase):
 
     def test_get_marketplace(self):
         response = self.client.get('/api/v1/marketplaces/1')
-        marketplace = [{'domain': 'localhost', 'logo_url': 'https://www.test.by/', 'description': ''}]
+        marketplace = {'domain': 'localhost', 'logo_url': 'https://www.test.by/', 'description': ''}
         self.assertEqual(response.data, marketplace)
