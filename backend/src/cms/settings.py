@@ -18,8 +18,17 @@ from common.shared_queue.redis_queue import CRAWLER_RESULT
 from common.shared_queue.redis_queue import SEARCH_QUERY
 from configurations import Configuration
 from sentry_sdk.integrations.django import DjangoIntegration
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+
+
+def redis_url(env_prefix='', host='localhost', port=6379, db=0) -> str:
+    host = os.getenv(f'{env_prefix}REDIS_HOST', host)
+    port = os.getenv(f'{env_prefix}REDIS_PORT', port)
+    db = os.getenv(f'{env_prefix}REDIS_DB', db)
+    return f'redis://{host}:{port}/{db}'
 
 
 class Base(Configuration):
@@ -44,6 +53,7 @@ class Base(Configuration):
         'django.contrib.messages',
         'django.contrib.staticfiles',
         'django_elasticsearch_dsl',
+        'drf_spectacular',
         'rest_framework',
         'health_check',
         'health_check.db',
@@ -58,7 +68,7 @@ class Base(Configuration):
 
     REST_FRAMEWORK = {
         'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-        'PAGE_SIZE': 15
+        'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     }
 
     MIDDLEWARE = [
@@ -124,6 +134,8 @@ class Base(Configuration):
 
     DEBUG = True
 
+    SWAGGER_API = False
+
     FIXTURE_DIRS = [
         os.path.join(BACKEND_DIR, 'fixtures'),
     ]
@@ -167,13 +179,13 @@ class Base(Configuration):
 
     RQ_QUEUES = {
         CRAWLER_FEED: {
-            'URL': os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0'),
+            'URL': redis_url(env_prefix='RQ_'),
         },
         CRAWLER_RESULT: {
-            'URL': os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0'),
+            'URL': redis_url(env_prefix='RQ_'),
         },
         SEARCH_QUERY: {
-            'URL': os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0'),
+            'URL': redis_url(env_prefix='RQ_'),
         }
     }
 
@@ -184,6 +196,11 @@ class Base(Configuration):
         'default': {
             'hosts': os.getenv('ELASTICSEARCH_DSL', 'localhost:9200'),
         },
+    }
+
+    SPECTACULAR_SETTINGS = {
+        'TITLE': 'FindPrice API',
+        'DESCRIPTION': 'Aggregator of Belarusian marketplaces',
     }
 
 
@@ -212,6 +229,7 @@ class SentryMixin:
 
 class Dev(PostgresMixin, Base):
     # Dev configuration (for example, in pycharm)
+    SWAGGER_API = True
     pass
 
 

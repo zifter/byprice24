@@ -29,3 +29,24 @@ class ProductQuerySerializer(serializers.Serializer):
     query = serializers.CharField(min_length=3)
     page = serializers.IntegerField()
     ordering = serializers.CharField(min_length=3, allow_null=True)
+
+
+class ProductSearchResponse(serializers.Serializer):
+    count = serializers.IntegerField()
+    next_page = serializers.IntegerField()
+    previous_page = serializers.IntegerField()
+    results = ProductSearchSerializer(many=True)
+
+
+class ProductQueryAutocompleteSerializer(serializers.Serializer):
+    query = serializers.CharField(min_length=3)
+
+
+class ProductSearchAutocompleteSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    name = serializers.CharField()
+    category = serializers.CharField()
+    preview_url = serializers.CharField()
+
+    class Meta:
+        fields = '__all__'

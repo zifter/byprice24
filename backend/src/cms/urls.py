@@ -13,16 +13,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from cms.settings import SWAGGER_API
 from django.contrib import admin
 from django.urls import include
 from django.urls import path
 from django.urls import re_path
+from drf_spectacular.views import SpectacularAPIView
+from drf_spectacular.views import SpectacularSwaggerView
 
 urlpatterns = [
     path('admin/django-rq/', include('django_rq.urls')),
     path('admin/', admin.site.urls),
 
     re_path(r'^api/', include('marketplace.urls')),
+    re_path(r'^api/', include('search.urls')),
 
     path('health-check/', include('health_check.urls')),
 ]
+
+if SWAGGER_API:
+    urlpatterns += [path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+                    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'),
+                         name='swagger-ui')]

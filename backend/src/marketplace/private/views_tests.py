@@ -40,5 +40,5 @@ class MarketplaceViewTestCase(TestCase):
         self.assertEqual(response.data, MarketplaceViewTestCase.expected)
 
     def test_get_marketplace_not_found(self):
-        response = self.client.get('/api/internal/marketplaces/wrong-markeplace')
+        response = self.client.get('/api/internal/marketplaces/wrong-marketplace')
         self.assertEqual(response.status_code, http.client.NOT_FOUND)

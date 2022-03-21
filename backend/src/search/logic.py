@@ -1,5 +1,6 @@
 import logging
 from typing import Optional
+from typing import Tuple
 
 from django.db.models import QuerySet
 from django_elasticsearch_dsl.search import Search
@@ -40,57 +41,27 @@ def find_closest_product(title: str) -> Optional[Product]:
         title_threshold = threshold(title)
         logging.info('score %s, threshold %s', hit.meta.score, title_threshold)
         if hit.name == title or hit.meta.score > title_threshold:
-            result = list(qs)[0]
+            result = qs.first()
 
     return result
 
 
-class ProductSearch:
-
-    ORDERING_SETTINGS = {
-        'price_desc': SELECT_PRODUCT_WITH_PAGES_AND_STATES_ORDER_BY_PRICE_DESC,
-        'price_asc': SELECT_PRODUCT_WITH_PAGES_AND_STATES_ORDER_BY_PRICE_ASC
-    }
-
-    def __init__(self, query: str, page: int, page_size: int, ordering: str):
-        self.query = query
-        self.page = page
-        self.page_size = page_size
-        self.ordering = ordering
-
-        self.count = 0
-
-    def get_queryset(self) -> QuerySet:
-        ids = self.get_ids_of_matched_products()
-        if ids:
-            raw_query = SELECT_PRODUCT_WITH_PAGES_AND_STATES
-            if self.ordering in self.ORDERING_SETTINGS.keys():
-                raw_query = self.ORDERING_SETTINGS[self.ordering]
-            return Product.objects.raw(raw_query, [tuple(ids)])
-        return Product.objects.none()
-
-    def get_ids_of_matched_products(self) -> list:
-        search = self.find_all_matches()
-
-        product_ids = []
-        for product in search.execute():
-            product_ids.append(product.meta.id)
-        return product_ids
-
-    def find_all_matches(self) -> Search:
-        search_query: dict = self.get_search_query()
-        pagination_settings: dict = self.get_pagination_settings()
+class ProductElasticSearch:
+    @staticmethod
+    def get(query: str, page: int, page_size: int) -> Search:
+        search_query: dict = ProductElasticSearch.get_search_query(query)
+        pagination_settings: dict = ProductElasticSearch.get_pagination_settings(page, page_size)
 
         search = ProductDocument.search().query(search_query).extra(**pagination_settings). \
             highlight_options(order='score')
 
-        self.count = search.count()
         return search
 
-    def get_search_query(self) -> dict:
+    @staticmethod
+    def get_search_query(query) -> dict:
         search_query = Q(
             'multi_match',
-            query=self.query,
+            query=query,
             fields=[
                 'name',
                 'description'
@@ -101,6 +72,40 @@ class ProductSearch:
         )
         return search_query
 
-    def get_pagination_settings(self) -> dict:
-        return dict(from_=self.page_size * (self.page - 1) if self.page > 1 else 0,
-                    size=self.page_size)
+    @staticmethod
+    def get_pagination_settings(page: int, page_size: int) -> dict:
+        return dict(from_=page_size * (page - 1) if page > 1 else 0,
+                    size=page_size)
+
+
+class ProductSearch:
+    ORDERING_SETTINGS = {
+        'price_desc': SELECT_PRODUCT_WITH_PAGES_AND_STATES_ORDER_BY_PRICE_DESC,
+        'price_asc': SELECT_PRODUCT_WITH_PAGES_AND_STATES_ORDER_BY_PRICE_ASC
+    }
+
+    def get_queryset(self, query: str, page: int, page_size: int, ordering: str) -> Tuple[QuerySet, int]:
+        ids, count = self.get_ids_of_matched_products(query, page, page_size)
+        if ids:
+            raw_query = SELECT_PRODUCT_WITH_PAGES_AND_STATES
+            if ordering in self.ORDERING_SETTINGS.keys():
+                raw_query = self.ORDERING_SETTINGS[ordering]
+
+            return Product.objects.raw(raw_query, [tuple(ids)]), count
+
+        return Product.objects.none(), count
+
+    def get_ids_of_matched_products(self, query: str, page: int, page_size: int) -> Tuple[list, int]:
+        search = ProductElasticSearch.get(query, page, page_size)
+
+        count = search.count()
+        product_ids = []
+        for product in search.execute():
+            product_ids.append(product.meta.id)
+
+        return product_ids, count
+
+
+class ProductSearchAutocomplete:
+    def get_queryset(self, query: str, page: int, page_size: int) -> QuerySet:
+        return ProductElasticSearch.get(query, page, page_size).to_queryset()

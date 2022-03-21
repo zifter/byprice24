@@ -49,6 +49,7 @@ function App() {
           bg="info600"
           maxW={{xs: 'auto', md: '100vw'}}
           h="4rem"
+          p="0"
         >
           <HeaderBar/>
         </Container>

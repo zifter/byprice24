@@ -2,6 +2,8 @@ import abc
 from datetime import datetime
 from datetime import timedelta
 
+import pytz
+
 
 class VisitedCacheBase:
     @abc.abstractmethod
@@ -20,11 +22,11 @@ class VisitedCacheInMemory(VisitedCacheBase):
         self._cache = {}
 
     def visit(self, url, ttl):
-        self._cache[url] = datetime.now() + timedelta(seconds=ttl)
+        self._cache[url] = datetime.now(tz=pytz.UTC) + timedelta(seconds=ttl)
 
     def is_visited(self, url) -> bool:
         v: datetime = self._cache.get(url, None)
         if v:
-            return v > datetime.now()
+            return v > datetime.now(tz=pytz.UTC)
 
         return False
