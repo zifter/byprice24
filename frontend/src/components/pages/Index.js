@@ -6,7 +6,8 @@ import {
 function Index() {
   return (
     <Container
-      h="100%"
+      minH="83vh"
+
     >
         Index!
     </Container>

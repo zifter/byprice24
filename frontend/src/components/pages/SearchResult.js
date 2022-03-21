@@ -215,7 +215,7 @@ const SearchResult = () => {
 
   return (
     <Container
-      h="100%"
+
     >
       <Text
         tag="h1"

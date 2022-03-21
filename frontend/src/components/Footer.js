@@ -7,8 +7,8 @@ const Footer = () => {
   return (
     <Container
       pos="relative"
-      h="100%"
       p="0"
+      top="0rem"
       bottom="0">
       <Row
         d="flex"
@@ -24,7 +24,6 @@ const Footer = () => {
           >
             <Text
               textSize="body"
-              pos="relative"
               textAlign="center"
               textColor="black">
               Правовая информация
@@ -39,7 +38,6 @@ const Footer = () => {
           >
             <Text
               textSize="body"
-              pos="relative"
               textAlign="center"
               textColor="black">
 
@@ -53,7 +51,6 @@ const Footer = () => {
         >
           <Text
             textSize="body"
-            pos="relative"
             p="0"
             textAlign="center">
             2022 by zifter

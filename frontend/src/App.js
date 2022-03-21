@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {
   BrowserRouter,
@@ -30,6 +30,7 @@ const theme = {
 };
 
 function App() {
+  const [searchInModalWindow, setSearchInModalWindow] = useState([]);
   useEffect(() => {
     ReactGA.initialize('G-R18TXE65QV',
         {testMode: process.env.NODE_ENV === 'test'});
@@ -45,13 +46,13 @@ function App() {
       <ThemeProvider theme={theme}>
         <StyleReset />
         <Container
-          pos="absolute"
           bg="info600"
           maxW={{xs: 'auto', md: '100vw'}}
           h="4rem"
           p="0"
         >
-          <HeaderBar/>
+          <HeaderBar searchInModalWindow={searchInModalWindow}
+            setSearchInModalWindow={setSearchInModalWindow}/>
         </Container>
 
         <Container
@@ -59,11 +60,13 @@ function App() {
           p="0"
           flexDir="column"
           justify="space-between"
-          pos="absolute"
           top="4rem"
           bottom="0rem"
           textAlign="center"
           maxW={{xs: 'auto', md: '100vw'}}
+          onClick={()=>{
+            setSearchInModalWindow([]);
+          }}
         >
           <Routes>
             <Route exact path="/" element={<Index />} />
