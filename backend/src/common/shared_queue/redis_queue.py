@@ -1,6 +1,4 @@
-import os
-
-from redis import Redis
+import django_rq
 from rq import Queue
 
 from .base import FlowQueueBase
@@ -12,21 +10,16 @@ CRAWLER_RESULT = 'crawler-result'
 SEARCH_QUERY = 'search-query'
 
 
-def _connection():
-    url = os.getenv('RQ_REDIS_URL', 'redis://localhost:6379/0')
-    return Redis.from_url(url)
-
-
 def crawler_feed() -> Queue:
-    return Queue(name=CRAWLER_FEED, connection=_connection())
+    return Queue(name=CRAWLER_FEED, connection=django_rq.get_connection(CRAWLER_FEED))
 
 
 def crawler_result() -> Queue:
-    return Queue(name=CRAWLER_RESULT, connection=_connection())
+    return Queue(name=CRAWLER_RESULT, connection=django_rq.get_connection(CRAWLER_RESULT))
 
 
 def search_query() -> Queue:
-    return Queue(name=SEARCH_QUERY, connection=_connection())
+    return Queue(name=SEARCH_QUERY, connection=django_rq.get_connection(SEARCH_QUERY))
 
 
 class FlowQueueRedis(FlowQueueBase):

@@ -30,7 +30,7 @@ image-test:
 	docker run --rm --network=backend --env-file=image-test.env zifter/byprice24-cms:$(IMAGE_TAG) /bin/bash -c "\
 		pytest . --cov=. && \
 		coverage report --include="*tests.py" --rcfile=pytest.ini --fail-under=100 && \
-		coverage report --include="*" --rcfile=pytest.ini --fail-under=96 \
+		coverage report --include="*" --rcfile=pytest.ini --fail-under=98 \
 		"
 
 image-migrations-check: IMAGE_TAG := test
@@ -56,7 +56,7 @@ test:
 
 coverage-report:
 	pipenv run coverage report --include="src/**tests.py" --rcfile=src/pytest.ini --fail-under=100
-	pipenv run coverage report --include="src/*" --rcfile=src/pytest.ini --fail-under=96
+	pipenv run coverage report --include="src/*" --rcfile=src/pytest.ini --fail-under=98
 
 open-coverage:
 	pipenv run coverage html --rcfile=src/pytest.ini
