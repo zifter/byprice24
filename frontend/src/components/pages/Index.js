@@ -13,7 +13,7 @@ const RecentlyViewedProducts = ({recentlyViewedProducts}) => {
     <Row>
       {
         recentlyViewedProducts.slice(0, 4).map((product, i) =>
-          <Col size={3}
+          <Col size={{xs: 12, lg: 3}}
             key={product.id}
           >
             <Div
