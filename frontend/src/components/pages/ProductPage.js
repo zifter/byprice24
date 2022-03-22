@@ -19,6 +19,9 @@ const recentlyViewedLocalStorageHandler = (id) => {
     const found = products.some((el) => id === el['id']);
     if (!found) {
       products.unshift({'id': id});
+      if (products.length > 4) {
+        products.pop();
+      }
       localStorage.setItem('recentlyViewed',
           JSON.stringify(recentlyViewed));
     } else {

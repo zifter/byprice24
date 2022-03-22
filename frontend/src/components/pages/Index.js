@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 
 const RecentlyViewedProducts = ({recentlyViewedProducts}) => {
   return (
-    <Row>
+    <Row w={'100%'}>
       {
         recentlyViewedProducts.slice(0, 4).map((product, i) =>
           <Col size={{xs: 12, lg: 3}}
@@ -108,8 +108,7 @@ const RecentlyViewed = () => {
   };
   useEffect(hook, listIds);
   return (
-    <Row
-      bottom={'1rem'}>
+    <Row>
       <Row m={{b: '1rem'}}>
         <Text
           textSize={'title'}
