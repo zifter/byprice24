@@ -9,13 +9,7 @@ import {
   Text, Container,
 } from 'atomize';
 
-const ProductPage = () => {
-  const [productData, setProductData] = useState(Object);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const {id} = useParams();
-  console.log('id', id);
-  console.log('productData', productData);
+const recentlyViewedLocalStorageHandler = (id) => {
   const recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed'));
   if (!recentlyViewed) {
     localStorage.setItem('recentlyViewed',
@@ -24,7 +18,7 @@ const ProductPage = () => {
     const products = recentlyViewed['products'];
     const found = products.some((el) => id === el['id']);
     if (!found) {
-      products.push({'id': id});
+      products.unshift({'id': id});
       localStorage.setItem('recentlyViewed',
           JSON.stringify(recentlyViewed));
     } else {
@@ -36,6 +30,17 @@ const ProductPage = () => {
           JSON.stringify(recentlyViewed));
     }
   }
+};
+
+const ProductPage = () => {
+  const [productData, setProductData] = useState(Object);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const {id} = useParams();
+  console.log('id', id);
+  console.log('productData', productData);
+
+  recentlyViewedLocalStorageHandler(id);
 
   const hook = () => {
     const url = '/api/v1/products/' + id;
