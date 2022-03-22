@@ -26,6 +26,7 @@ const RecentlyViewedProducts = ({recentlyViewedProducts}) => {
               <Image
                 src={product.preview_url}
                 w="5rem"
+                m={{t: '0.5rem'}}
               />
               {
                 <Link to={`/products/${product.id}`}
