@@ -63,6 +63,7 @@ function App() {
           top="4rem"
           bottom="0rem"
           textAlign="center"
+          bg={searchInModalWindow.length ? 'gray400' : ''}
           maxW={{xs: 'auto', md: '100vw'}}
           onClick={()=>{
             setSearchInModalWindow([]);

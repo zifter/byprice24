@@ -49,13 +49,8 @@ const Footer = () => {
         <Anchor
           href="/"
         >
-          <Text
-            textSize="body"
-            p="0"
-            textAlign="center">
             2022 by zifter
 
-          </Text>
         </Anchor>
       </Col>
 

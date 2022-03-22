@@ -5,6 +5,7 @@ import {
   Input,
   Icon,
   Div,
+  Text,
   Container,
 } from 'atomize';
 import axios from 'axios';
@@ -16,6 +17,11 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
   const [query, setQuery] = useState(initialQuery);
   const navigate = useNavigate();
 
+  let width = '32rem';
+  if (document.getElementById('input-search')) {
+    width = document.getElementById('input-search')
+        .clientWidth + 'px';
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -45,7 +51,6 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
         });
   };
 
-
   return (
     <Container
       m={{l: {xl: '70px', xs: '0'}}}
@@ -55,6 +60,7 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
         className="search-form"
         onSubmit={handleSubmit}>
         <Input
+          id="input-search"
           placeholder="Искать"
           value={query}
           onChange={handleOnChange}
@@ -80,20 +86,27 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
       </form>
       <Div pos="absolute"
         top="3rem"
+        h="100%"
+        rounded="md"
         bottom="0rem">
-        {searchInModalWindow && searchInModalWindow.map((t)=>{
+        {searchInModalWindow && searchInModalWindow.map((t, i)=>{
           return (<Div
             key={t.id}
             cursor="pointer"
-            hoverTextColor="info700"
+            w={width}
             p={{x: '1rem', y: '0.75rem'}}
-            // border={{ b: index !== 4 && "1px solid" }}
+            rounded={i === 0 ? {tl: 'md', tr: 'md'} :
+            (i === searchInModalWindow.length - 1) ?
+            {bl: 'md', br: 'md'}:''}
             bg="gray100"
-            borderColor="gray400"
-            rounded="lg"
+            hoverBg="gray500"
           >
-            <Link to={`/products/${t.id}`}
-              href="https://www.google.com">{t.name}</Link>
+            <Link to={`/products/${t.id}`}>
+              <Text textColor="black"
+                onClick={()=>{
+                  setSearchInModalWindow([]);
+                }}>{t.name}</Text>
+            </Link>
           </Div>);
         })
         }
