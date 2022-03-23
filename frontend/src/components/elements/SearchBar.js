@@ -63,6 +63,7 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
           id="input-search"
           placeholder="Искать"
           value={query}
+          onClick={handleOnChange}
           onChange={handleOnChange}
           suffix={
             <Button
@@ -94,12 +95,14 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
             key={t.id}
             cursor="pointer"
             w={width}
+            style={{opacity: '1', zIndex: '9'}}
+            pos="relative"
             p={{x: '1rem', y: '0.75rem'}}
             rounded={i === 0 ? {tl: 'md', tr: 'md'} :
             (i === searchInModalWindow.length - 1) ?
             {bl: 'md', br: 'md'}:''}
-            bg="gray100"
-            hoverBg="gray500"
+            bg="gray200"
+            hoverBg="gray400"
           >
             <Link to={`/products/${t.id}`}>
               <Text textColor="black"

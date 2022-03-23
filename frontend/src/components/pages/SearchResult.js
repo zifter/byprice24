@@ -215,7 +215,7 @@ const SearchResult = () => {
 
   return (
     <Container
-
+      minH="83vh"
     >
       <Text
         tag="h1"
