@@ -101,7 +101,8 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
             rounded={i === 0 ? {tl: 'md', tr: 'md'} :
             (i === searchInModalWindow.length - 1) ?
             {bl: 'md', br: 'md'}:''}
-            bg="gray200"
+            bg="gray100"
+            shadow="5"
             hoverBg="gray400"
           >
             <Link to={`/products/${t.id}`}>

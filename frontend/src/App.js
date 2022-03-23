@@ -62,7 +62,9 @@ function App() {
           justify="space-between"
           top="4rem"
           style={searchInModalWindow.length ?
-              {opacity: '0.7', zIndex: '0'} : {opacity: '1'}}
+              {opacity: '0.2', zIndex: '0',
+                backgroundColor: 'rgba(210, 210, 210, 0.5)'} :
+              {opacity: '1'}}
           bottom="0rem"
           textAlign="center"
           maxW={{xs: 'auto', md: '100vw'}}
