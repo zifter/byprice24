@@ -1,6 +1,6 @@
-from marketplace.models import Product
-from marketplace.serializers import ProductDetailsSerializer
-from rest_framework.generics import RetrieveAPIView
+from marketplace.models import Product, Marketplace
+from marketplace.serializers import ProductDetailsSerializer, MarketplaceSerializer
+from rest_framework.generics import RetrieveAPIView, ListAPIView
 
 
 class ProductDetailsViewSet(RetrieveAPIView):
@@ -13,3 +13,19 @@ class ProductDetailsViewSet(RetrieveAPIView):
     lookup_field = 'id'
     ordering_fields = ('id',)
     ordering = ('id',)
+
+class MarketplacesViewSet(ListAPIView):
+    """
+    API all marketplaces
+    """
+    model = Marketplace
+    queryset = Marketplace.objects.all()
+    serializer_class = MarketplaceSerializer
+
+class MarketplaceDetailsViewSet(RetrieveAPIView):
+    """
+    API marketplace details
+    """
+    model = Marketplace
+    queryset = Marketplace.objects
+    serializer_class = MarketplaceSerializer
