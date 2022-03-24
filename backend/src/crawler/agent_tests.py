@@ -7,7 +7,7 @@ from common.item_types import Availability
 from common.shared_queue import FlowQueueBase
 from common.shared_queue import ScrapingTarget
 from crawler.agent import Agent
-from crawler.models import ScrapingState
+from crawler.models import CrawlerState
 from django.core.management import call_command
 from django.test import TestCase
 from scraper.items import ProductScrapingResult
@@ -50,8 +50,8 @@ class AgentTestCase(TestCase):
         agent = Agent(queue)
         agent.now = MagicMock()
         agent.now.return_value = datetime.datetime(2022, 1, 13, 2, 0, 0, tzinfo=pytz.UTC)
-        vek21 = ScrapingState.objects.get(id=1)
-        ilp = ScrapingState.objects.get(id=2)
+        vek21 = CrawlerState.objects.get(id=1)
+        ilp = CrawlerState.objects.get(id=2)
         vek21.last_scraping = datetime.datetime(2022, 1, 12, 0, 0, 0, tzinfo=pytz.UTC)
         vek21.scraping_schedule = '0 0 * * 1 *'
         vek21.save()
@@ -74,8 +74,8 @@ class AgentTestCase(TestCase):
         agent = Agent(queue)
         agent.now = MagicMock()
         agent.now.return_value = datetime.datetime(2022, 1, 13, 2, 0, 0, tzinfo=pytz.UTC)
-        vek21 = ScrapingState.objects.get(id=1)
-        ilp = ScrapingState.objects.get(id=2)
+        vek21 = CrawlerState.objects.get(id=1)
+        ilp = CrawlerState.objects.get(id=2)
         vek21.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 0, tzinfo=pytz.UTC)
         vek21.save()
         ilp.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 0, tzinfo=pytz.UTC)
@@ -106,8 +106,8 @@ class AgentTestCase(TestCase):
         agent = Agent(queue)
         agent.now = MagicMock()
         agent.now.return_value = datetime.datetime(2022, 1, 13, 2, 0, 0, tzinfo=pytz.UTC)
-        vek21 = ScrapingState.objects.get(id=1)
-        ilp = ScrapingState.objects.get(id=2)
+        vek21 = CrawlerState.objects.get(id=1)
+        ilp = CrawlerState.objects.get(id=2)
         vek21.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 1, tzinfo=pytz.UTC)
         vek21.save()
         ilp.last_scraping = datetime.datetime(2022, 1, 13, 0, 0, 1, tzinfo=pytz.UTC)

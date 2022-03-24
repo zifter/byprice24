@@ -6,7 +6,7 @@ import pytz
 from common.shared_queue import FlowQueueBase
 from common.shared_queue import get_flow_queue
 from common.shared_queue import ScrapingTarget
-from crawler.models import ScrapingState
+from crawler.models import CrawlerState
 from crawler.structs import ProductData
 from croniter import croniter
 from marketplace.models import Marketplace
@@ -35,7 +35,7 @@ class Agent:
         if marketplace:
             filter_args['marketplace'] = marketplace
 
-        objects: List[ScrapingState] = ScrapingState.objects.filter(**filter_args).order_by('pk')
+        objects: List[CrawlerState] = CrawlerState.objects.filter(**filter_args).order_by('pk')
 
         job_ids = []
 
