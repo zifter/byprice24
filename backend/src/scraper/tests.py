@@ -172,6 +172,64 @@ test_data = {
                 categories=[],
             )
         )
+    ],
+    'ram.by': [
+        (
+            'kompjuter-multimedijnyj-bez-monitora-na-baze-processora-amd-a6-9500.html',
+            ProductScrapingResult(
+                url='https://ram.by/kompjuter-multimedijnyj-bez-monitora-na-baze-processora-amd-a6-9500.html',
+                title='Компьютер мультимедийный без монитора на базе процессора AMD A6-9500',
+                description=(
+                    'AMD A6-9500/DDR4 4GB/500GB/DVD-RW/400W'
+                ),
+                price=790.81,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://ram.by/media/product/300x300/0/_/0_ym_1715611203_14_11_2017__07_23_01_1.jpg',
+                rating=0.0,
+                review_count=0,
+                main_category='unknown',
+                categories=['Главная', 'Компьютеры'],
+            )
+        ),
+        (
+            'noutbuk-acer-aspire-1-a114-32-c5qd-nx-gw9er-005.html',
+            ProductScrapingResult(
+                url='https://ram.by/noutbuk-acer-aspire-1-a114-32-c5qd-nx-gw9er-005.html',
+                title='Ноутбук Acer Aspire 1 A114-32-C5QD NX.GW9ER.005',
+                description=(
+                    '14.0" 1366 x 768 TN Film, 60 Гц, несенсорный, Intel Celeron N4020 1100 МГц, 4 ГБ, eMMC 64 ГБ, '
+                    'видеокарта встроенная, Windows 10, цвет крышки синий'
+                ),
+                price=1197.11,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://ram.by/media/product/300x300/1/_/1_481715.jpg',
+                rating=0.0,
+                review_count=0,
+                main_category='unknown',
+                categories=['Главная'],
+            )
+        ),
+        (
+            'monitor-20-philips-203v5lsb26.html',
+            ProductScrapingResult(
+                url='https://ram.by/monitor-20-philips-203v5lsb26.html',
+                title='Монитор Philips 203V5LSB26/10',
+                description=(
+                    'Тип - ЖК-монитор, широкоформатный, Диагональ - 19.5", Разрешение - 1600x900 (16:9), Тип матрицы '
+                    'экрана - TFT TN, Подсветка - WLED, Макс. частота обновления кадров - 75 Гц, Яркость - 200 кд/м2'
+                ),
+                price=494.53,
+                price_currency='BYN',
+                availability=Availability.InStock,
+                preview_url='https://ram.by/media/product/300x300/p/h/philips_203v5lsb26_0.jpg',
+                rating=0.0,
+                review_count=0,
+                main_category='unknown',
+                categories=['Главная'],
+            )
+        ),
     ]
 }
 
@@ -403,5 +461,10 @@ def test_goldapple_by(test_html, expected):
 
 
 @pytest.mark.parametrize('test_html,expected', test_data['bukvaeshka.by'])
+def test_bukvaeshka_by(test_html, expected):
+    assert_spider(expected.url, test_html, expected)
+
+
+@pytest.mark.parametrize('test_html,expected', test_data['ram.by'])
 def test_bukvaeshka_by(test_html, expected):
     assert_spider(expected.url, test_html, expected)
