@@ -48,25 +48,15 @@ function App() {
         <Container
           bg="info600"
           maxW={{xs: 'auto', md: '100vw'}}
-          h="4rem"
-          p="0"
+          className="app-header"
         >
           <HeaderBar searchInModalWindow={searchInModalWindow}
             setSearchInModalWindow={setSearchInModalWindow}/>
         </Container>
 
         <Container
-          d="flex"
-          p="0"
-          flexDir="column"
-          justify="space-between"
-          top="4rem"
-          style={searchInModalWindow.length ?
-              {opacity: '0.2', zIndex: '0',
-                backgroundColor: 'rgba(210, 210, 210, 0.5)'} :
-              {opacity: '1'}}
-          bottom="0rem"
-          textAlign="center"
+          className={searchInModalWindow.length ?
+              'app-main' : 'app-main_active'}
           maxW={{xs: 'auto', md: '100vw'}}
           onClick={()=>{
             setSearchInModalWindow([]);
@@ -82,12 +72,9 @@ function App() {
             <Route exact path="/disclaimer" element={<DisclaimerPage />} />
           </Routes>
           <Container
-            align="flex-end"
+            className="app-footer"
             bg="gray200"
-            p="0"
-            h="3rem"
-            maxW={{md: '100vw'}}
-            textAlign="center"
+            maxW={{xs: 'auto', md: '100vw'}}
           >
             <Footer/>
           </Container>

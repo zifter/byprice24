@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
-import {Link, useLocation, useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import {
   Button,
   Input,
   Icon,
   Div,
-  Text,
   Container,
 } from 'atomize';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import Modal from './Modal';
 
 const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
   const search = useLocation().search;
@@ -17,11 +17,6 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
   const [query, setQuery] = useState(initialQuery);
   const navigate = useNavigate();
 
-  let width = '32rem';
-  if (document.getElementById('input-search')) {
-    width = document.getElementById('input-search')
-        .clientWidth + 'px';
-  }
   const handleSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -90,30 +85,8 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
         h="100%"
         rounded="md"
         bottom="0rem">
-        {searchInModalWindow && searchInModalWindow.map((t, i)=>{
-          return (<Div
-            key={t.id}
-            cursor="pointer"
-            w={width}
-            style={{opacity: '1', zIndex: '9'}}
-            pos="relative"
-            p={{x: '1rem', y: '0.75rem'}}
-            rounded={i === 0 ? {tl: 'md', tr: 'md'} :
-            (i === searchInModalWindow.length - 1) ?
-            {bl: 'md', br: 'md'}:''}
-            bg="gray100"
-            shadow="5"
-            hoverBg="gray400"
-          >
-            <Link to={`/products/${t.id}`}>
-              <Text textColor="black"
-                onClick={()=>{
-                  setSearchInModalWindow([]);
-                }}>{t.name}</Text>
-            </Link>
-          </Div>);
-        })
-        }
+        <Modal searchInModalWindow={searchInModalWindow}
+          setSearchInModalWindow={setSearchInModalWindow}/>
       </Div>
     </Container>
   );
