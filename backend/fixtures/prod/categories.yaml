@@ -3241,4 +3241,4 @@
 - model: marketplace.category
   fields:
     name: unknown
-    keywords:
+    keywords: unknown
