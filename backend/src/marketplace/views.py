@@ -1,6 +1,8 @@
+from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.raw_queries import SELECT_PRODUCT_WITH_MIN_PRICE_BY_IDS
 from marketplace.serializers import IdSerializer
+from marketplace.serializers import MarketplaceSerializer
 from marketplace.serializers import ProductDetailsSerializer
 from marketplace.serializers import ProductListSerializer
 from rest_framework.generics import ListAPIView
@@ -52,3 +54,21 @@ class ProductsViewSet(ListAPIView):
                 list_of_product_ids,  # To order products as the order of passed ids was
                 tuple(list_of_product_ids)  # To get products by ids
             ])
+
+
+class MarketplacesViewSet(ListAPIView):
+    """
+    API all marketplaces
+    """
+    model = Marketplace
+    queryset = Marketplace.objects.all()
+    serializer_class = MarketplaceSerializer
+
+
+class MarketplaceDetailsViewSet(RetrieveAPIView):
+    """
+    API marketplace details
+    """
+    model = Marketplace
+    queryset = Marketplace.objects
+    serializer_class = MarketplaceSerializer

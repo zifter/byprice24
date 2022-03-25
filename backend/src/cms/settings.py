@@ -18,6 +18,8 @@ from common.shared_queue.redis_queue import CRAWLER_RESULT
 from common.shared_queue.redis_queue import SEARCH_QUERY
 from configurations import Configuration
 from sentry_sdk.integrations.django import DjangoIntegration
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -51,6 +53,7 @@ class Base(Configuration):
         'django.contrib.messages',
         'django.contrib.staticfiles',
         'django_elasticsearch_dsl',
+        'drf_spectacular',
         'rest_framework',
         'health_check',
         'health_check.db',
@@ -65,6 +68,7 @@ class Base(Configuration):
 
     REST_FRAMEWORK = {
         'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+        'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     }
 
     MIDDLEWARE = [
@@ -130,6 +134,8 @@ class Base(Configuration):
 
     DEBUG = True
 
+    SWAGGER_API = False
+
     FIXTURE_DIRS = [
         os.path.join(BACKEND_DIR, 'fixtures'),
     ]
@@ -192,6 +198,11 @@ class Base(Configuration):
         },
     }
 
+    SPECTACULAR_SETTINGS = {
+        'TITLE': 'FindPrice API',
+        'DESCRIPTION': 'Aggregator of Belarusian marketplaces',
+    }
+
 
 class PostgresMixin:
     # Database
@@ -218,6 +229,7 @@ class SentryMixin:
 
 class Dev(PostgresMixin, Base):
     # Dev configuration (for example, in pycharm)
+    SWAGGER_API = True
     pass
 
 

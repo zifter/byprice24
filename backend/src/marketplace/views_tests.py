@@ -29,3 +29,14 @@ class ProductsViewTestCase(TestCase):
         self.assertEqual(response.data[0]['id'], 5)
         self.assertEqual(response.data[1]['id'], 3)
         self.assertEqual(response.data[2]['id'], 4)
+
+    def test_get_all_marketplaces(self):
+        response = self.client.get('/api/v1/marketplaces')
+        marketplaces = [{'domain': 'localhost', 'logo_url': 'https://www.test.by/', 'description': ''},
+                        {'domain': '0.0.0.0', 'logo_url': 'https://www.test2.by/', 'description': ''}]
+        self.assertEqual(response.data, marketplaces)
+
+    def test_get_marketplace(self):
+        response = self.client.get('/api/v1/marketplaces/1')
+        marketplace = {'domain': 'localhost', 'logo_url': 'https://www.test.by/', 'description': ''}
+        self.assertEqual(response.data, marketplace)
