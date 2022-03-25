@@ -466,5 +466,5 @@ def test_bukvaeshka_by(test_html, expected):
 
 
 @pytest.mark.parametrize('test_html,expected', test_data['ram.by'])
-def test_bukvaeshka_by(test_html, expected):
+def test_ram_by(test_html, expected):
     assert_spider(expected.url, test_html, expected)
