@@ -7,7 +7,7 @@ SELECT p.id,
   ps.price_currency AS price_currency
 FROM marketplace_product p
   join (
-  select *
+  select unnest, ordinality
   from unnest(%s) with ordinality
     ) as x (id, ordering) on p.id = x.id
   JOIN marketplace_productpage pp ON p.id = pp.product_id

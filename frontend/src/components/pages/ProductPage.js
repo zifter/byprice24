@@ -17,18 +17,18 @@ const recentlyViewedLocalStorageHandler = (id) => {
   } else {
     const products = recentlyViewed['products'];
     const found = products.some((el) => id === el['id']);
-    if (!found) {
-      products.unshift({'id': id});
-      if (products.length > 4) {
-        products.pop();
-      }
-      localStorage.setItem('recentlyViewed',
-          JSON.stringify(recentlyViewed));
-    } else {
+    if (found) {
       const index = products.findIndex((item) => item.id === id);
       products.splice(index, 1);
       products.unshift({'id': id});
 
+      localStorage.setItem('recentlyViewed',
+          JSON.stringify(recentlyViewed));
+    } else {
+      products.unshift({'id': id});
+      if (products.length > 4) {
+        products.pop();
+      }
       localStorage.setItem('recentlyViewed',
           JSON.stringify(recentlyViewed));
     }
