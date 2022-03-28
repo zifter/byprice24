@@ -85,3 +85,14 @@
   fields:
     marketplace: 8
     scraping_schedule: 0 0 * * 3
+
+- model: marketplace.marketplace
+  pk: 9
+  fields:
+    domain: ram.by
+    logo_url: 	https://ram.by/images/logo.png
+- model: crawler.scrapingstate
+  pk: 9
+  fields:
+    marketplace: 9
+    scraping_schedule: 0 0 * * 3
