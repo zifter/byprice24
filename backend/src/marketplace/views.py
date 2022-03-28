@@ -1,10 +1,10 @@
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.raw_queries import SELECT_PRODUCT_WITH_MIN_PRICE_BY_IDS
-from marketplace.serializers import IdSerializer
 from marketplace.serializers import MarketplaceSerializer
 from marketplace.serializers import ProductDetailsSerializer
 from marketplace.serializers import ProductListSerializer
+from marketplace.serializers import ProductsQuerySerializer
 from rest_framework.generics import ListAPIView
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.response import Response
@@ -43,8 +43,8 @@ class ProductsViewSet(ListAPIView):
 
     def get_queryset(self):
         params = self.request.query_params.getlist('id')
-        serializer = IdSerializer(data=[{'id': product_id} for product_id in params] if params else [{'id': None}],
-                                  many=True)
+        serializer = ProductsQuerySerializer(data=[{'id': product_id} for product_id in params] if params else [{'id': None}],
+                                             many=True)
         serializer.is_valid(raise_exception=True)
 
         list_of_product_ids = [product_id['id'] for product_id in serializer.validated_data]

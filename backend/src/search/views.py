@@ -10,9 +10,9 @@ from rest_framework.views import APIView
 from search.enum import OrderingEnum
 from search.logic import ProductSearch
 from search.logic import ProductSearchAutocomplete
-from search.serializers import ProductQueryAutocompleteSerializer
-from search.serializers import ProductQuerySerializer
+from search.serializers import ProductSearchAutocompleteQuerySerializer
 from search.serializers import ProductSearchAutocompleteSerializer
+from search.serializers import ProductSearchQuerySerializer
 from search.serializers import ProductSearchResponse
 from search.serializers import ProductSearchSerializer
 
@@ -33,9 +33,9 @@ class SearchProductViewSet(APIView):
         responses=ProductSearchResponse
     )
     def get(self, request, *args, **kwargs):
-        params = ProductQuerySerializer(data={'query': self.request.query_params.get('query'),
-                                              'page': self.request.query_params.get('page', '1'),
-                                              'ordering': self.request.query_params.get('ordering')})
+        params = ProductSearchQuerySerializer(data={'query': self.request.query_params.get('query'),
+                                                    'page': self.request.query_params.get('page', '1'),
+                                                    'ordering': self.request.query_params.get('ordering')})
         params.is_valid(raise_exception=True)
 
         qs, count = ProductSearch().get_queryset(page_size=self.page_size, **params.data)
@@ -65,7 +65,7 @@ class SearchProductQueryAutocompleteView(APIView):
     page_size = 5
 
     def get(self, request, *args, **kwargs):
-        params = ProductQueryAutocompleteSerializer(data={'query': self.request.query_params.get('query')})
+        params = ProductSearchAutocompleteQuerySerializer(data={'query': self.request.query_params.get('query')})
         params.is_valid(raise_exception=True)
 
         qs = ProductSearchAutocomplete().get_queryset(query=params.data['query'], page=0, page_size=self.page_size)

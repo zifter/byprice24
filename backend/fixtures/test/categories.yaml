@@ -1,0 +1,8 @@
+- model: marketplace.category
+  fields:
+    name: mobile
+    keywords: кнопочные телефоны, смартфоны
+- model: marketplace.category
+  fields:
+    name: notebook
+    keywords: игровые ноутбуки, ноутбуки

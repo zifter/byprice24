@@ -51,7 +51,7 @@ class ProductDetailsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'category', 'description', 'preview_url', 'product_pages']
+        fields = ['id', 'name', 'category', 'categories', 'description', 'preview_url', 'product_pages']
 
     def to_representation(self, instance):
         response = super().to_representation(instance)
@@ -59,7 +59,7 @@ class ProductDetailsSerializer(serializers.ModelSerializer):
         return response
 
 
-class IdSerializer(serializers.Serializer):
+class ProductsQuerySerializer(serializers.Serializer):
     id = serializers.IntegerField()
 
 

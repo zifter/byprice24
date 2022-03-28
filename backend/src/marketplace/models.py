@@ -3,6 +3,7 @@ from datetime import datetime
 import pytz
 from common.item_types import Availability
 from django.db import models
+from marketplace.category_group import group_path
 
 """
 Some requirements and thoughts for data model:
@@ -29,7 +30,7 @@ class Marketplace(models.Model):
 
 class Category(models.Model):
     """
-    General information about product
+    General information about category
     """
     name = models.CharField(max_length=128, unique=True, primary_key=True)
     keywords = models.CharField(max_length=512)
@@ -38,6 +39,7 @@ class Category(models.Model):
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
 
+    @property
     def semantic_id(self) -> str:
         return str(self.name)
 
@@ -54,8 +56,13 @@ class Product(models.Model):
     description = models.CharField(max_length=512)
     preview_url = models.URLField(max_length=256, null=True)
 
+    @property
     def semantic_id(self) -> str:
-        return f'{self.category.semantic_id()}/{str(self.name).lower()}'
+        return f'{self.category.semantic_id}/{str(self.name).lower()}'
+
+    @property
+    def categories(self):
+        return group_path(self.category)
 
     def __str__(self):
         return str(self.name)

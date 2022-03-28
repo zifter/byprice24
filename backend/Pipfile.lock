@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e134aa36c23173b6e48e547c01a92c5b6dda351febda14d7d0e5de24fe381993"
+            "sha256": "255218ea498dae45d9d1d889c6c6e79f1a0996b3b8f5604c3ab847ecacbd5663"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -127,11 +127,11 @@
         },
         "click": {
             "hashes": [
-                "sha256:6a7a62563bbfabfda3a38f3023a1db4a35978c0abd76f6c9605ecd6554d6d9b1",
-                "sha256:8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
+                "sha256:19a4baa64da924c5e0cd889aba8e947f280309f1a2ce0947a3e3a7bcb7cc72d6",
+                "sha256:977c213473c7665d3aa092b41ff12063227751c41d7b17165013e10069cc5cd2"
             ],
-            "markers": "python_version >= '3.6'",
-            "version": "==8.0.4"
+            "markers": "python_version >= '3.7'",
+            "version": "==8.1.0"
         },
         "constantly": {
             "hashes": [
@@ -308,11 +308,11 @@
         },
         "faker": {
             "hashes": [
-                "sha256:5536ceb63380f0d598c026b7c330c17d719a19d1a495e9397ee8f5259420a696",
-                "sha256:85ed0cb379e3b7414bdb6b484994beaf9bddc74472c8c35f743c16cf5fc0c314"
+                "sha256:188961065fb5c78ea639f42176f55100f72c90c3a3179ac6c955c4bd712b0511",
+                "sha256:7758ece2593ce603db117db3d27393c31f4af03f783e176f3f0e14839a4f3426"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==13.3.3"
+            "version": "==13.3.4"
         },
         "filelock": {
             "hashes": [
@@ -538,7 +538,7 @@
                 "sha256:fa56bb08b3dd8eac3a8c5b7d075c94e74f755fd9d8a04543ae8d37b1612dd170",
                 "sha256:fa9b7c450be85bfc6cd39f6df8c5b8cbd76b5d6fc1f69efec80203f9894b885f"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
+            "markers": "platform_python_implementation == 'CPython'",
             "version": "==4.8.0"
         },
         "markupsafe": {
@@ -586,6 +586,14 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==2.1.1"
+        },
+        "mashumaro": {
+            "hashes": [
+                "sha256:0e5c06faf17c9b7731e138c280fec56d8ccf9ffaccb7b0e2d9d8a923c850ff66",
+                "sha256:2537081099d004d0bdb2916c7d5c6e7616f10defd860b90ffa93fcf5902e4e60"
+            ],
+            "index": "pypi",
+            "version": "==3.0"
         },
         "mf2py": {
             "hashes": [

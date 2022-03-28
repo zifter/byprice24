@@ -203,6 +203,8 @@ class Base(Configuration):
         'DESCRIPTION': 'Aggregator of Belarusian marketplaces',
     }
 
+    CATEGORY_GROUP_FIXTURE = os.path.join(BACKEND_DIR, 'fixtures', 'prod', 'category_group.yaml')
+
 
 class PostgresMixin:
     # Database
@@ -235,7 +237,7 @@ class Dev(PostgresMixin, Base):
 
 class Test(Dev):
     # Configuration will be used for while running tests
-    pass
+    CATEGORY_GROUP_FIXTURE = os.path.join(BACKEND_DIR, 'fixtures', 'test', 'category_group.yaml')
 
 
 class Local(SentryMixin, Dev):

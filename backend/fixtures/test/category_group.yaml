@@ -1,0 +1,50 @@
+- name: elektronika
+  ru: Электроника
+  child:
+  - name: mobilnye-telefony-i-aksessuary
+    ru: Мобильные телефоны и аксессуары
+    child:
+    - name: mobile
+      ru: Смартфоны
+    - name: headphones
+      ru: Наушники
+  - name: televidenie-i-video
+    ru: Телевидение и видео
+    child:
+    - name: tv
+      ru: Телевизоры
+    - name: projectors
+      ru: Проекторы
+    - name: media
+      ru: Медиаплееры и ТВ-приставки
+  - name: planshety-elektronnye-knigi
+    ru: Планшеты, электронные книги
+    child:
+    - name: tabletpc
+      ru: Планшеты
+    - name: ebook
+      ru: Электронные книги
+- name: kompjutery-i-seti
+  ru: Компьютеры и сети
+  child:
+  - name: noutbuki-kompjutery-monitory
+    ru: Ноутбуки, компьютеры, мониторы
+    child:
+    - name: notebook
+      ru: Ноутбуки
+    - name: notebook
+      ru: Игровые ноутбуки
+- name: books
+  ru: Книги
+- name: group1
+  ru: группа1
+  child:
+  - name: group1_1
+    ru: группа1_1
+  - name: group1_2
+    ru: группа1_2
+    child:
+    - name: group1_2_1
+      ru: группа1_2_1
+    - name: group1_2_2
+      ru: группа1_2_2
