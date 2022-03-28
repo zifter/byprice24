@@ -1,3 +1,5 @@
+import pytest
+from django.core.management import call_command
 from marketplace.models import Category
 from marketplace.models import Marketplace
 from marketplace.models import Product
@@ -56,3 +58,8 @@ def test_product_page_is_printable_ok():
 
 def test_product_state_is_printable_ok():
     assert str(product_state) == 'iPone [www.test.by] [199 BYN]'
+
+
+@pytest.mark.django_db
+def test_load_dump_ok():
+    call_command('loaddata', 'dump/marketplace.yaml')
