@@ -13,9 +13,9 @@ const RecentlyViewedProduct = ({product}) => {
       border="0.3px solid"
       borderColor="gray400"
       rounded="sm"
-      h={'12rem'}
+      h='12rem'
       hoverShadow="3"
-      pos={'relative'}>
+      pos='relative'>
       <Image
         src={product.preview_url}
         w="5rem"
@@ -24,12 +24,12 @@ const RecentlyViewedProduct = ({product}) => {
       {
         <Link to={`/products/${product.id}`}>
           <Text
-            textSize={'paragraph'}
-            textAlign={'left'}
-            w={'80%'}
-            textWeight={600}
+            textSize='paragraph'
+            textAlign='left'
+            w='80%'
+            textWeight='600'
             m={{l: '1rem'}}
-            textColor={'black'}>
+            textColor='black'>
             {product.name.slice(0, 40)}
           </Text>
         </Link>
@@ -40,22 +40,22 @@ const RecentlyViewedProduct = ({product}) => {
         bottom='0'>
         {
           <Text
-            textSize={'paragraph'}
-            textAlign={'left'}
-            w={'80%'}
-            textWeight={400}
+            textSize='paragraph'
+            textAlign='left'
+            w='80%'
+            textWeight='400'
             m={{l: '1rem'}}
             textTransform="capitalize"
-            textColor={'gray900'}
+            textColor='gray900'
           >
             {product.category}
           </Text>
         }
         {
           <Text
-            textSize={'paragraph'}
-            textAlign={'left'}
-            textWeight={700}
+            textSize='paragraph'
+            textAlign='left'
+            textWeight='700'
             m={{l: '1rem'}}
           >
             {product.min_offer.price}  {' '}
@@ -81,7 +81,7 @@ RecentlyViewedProduct.propTypes = {
 
 const RecentlyViewedProducts = ({recentlyViewedProducts}) => {
   return (
-    <Row w={'100%'}>
+    <Row w='100%'>
       {
         recentlyViewedProducts.slice(0, 4).map((product, i) =>
           <Col size={{xs: 12, lg: 3}}
@@ -129,7 +129,7 @@ const RecentlyViewedTab = () => {
     <Row>
       <Row m={{b: '1rem'}}>
         <Text
-          textSize={'title'}
+          textSize='title'
           m={{t: '2rem', l: '0.5rem'}}>
             Недавно просмотренные
         </Text>
