@@ -1,7 +1,7 @@
 from django_redis import get_redis_connection
 
 
-class ViewCounterRedis:
+class CounterViewsRedis:
     REDIS_CLIENT = get_redis_connection('default')
     STORAGE_NAME = 'storage:product_view_counts'
 

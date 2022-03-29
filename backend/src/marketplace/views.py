@@ -1,3 +1,4 @@
+from marketplace.counter_views import CounterViewsRedis
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.raw_queries import SELECT_PRODUCT_WITH_MIN_PRICE_BY_IDS
@@ -5,7 +6,6 @@ from marketplace.serializers import IdSerializer
 from marketplace.serializers import MarketplaceSerializer
 from marketplace.serializers import ProductDetailsSerializer
 from marketplace.serializers import ProductListSerializer
-from marketplace.view_counter import ViewCounterRedis
 from rest_framework.generics import ListAPIView
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.response import Response
@@ -25,7 +25,7 @@ class ProductDetailsViewSet(RetrieveAPIView):
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
         serializer = self.get_serializer(instance)
-        ViewCounterRedis(kwargs['id']).increment_product_views()
+        CounterViewsRedis(kwargs['id']).increment_product_views()
         return Response(serializer.data)
 
 
@@ -36,17 +36,6 @@ class ProductsViewSet(ListAPIView):
     model = Product
     queryset = Product.objects
     serializer_class = ProductListSerializer
-
-    def list(self, request, *args, **kwargs):
-        queryset = self.get_queryset()
-
-        page = self.paginate_queryset(queryset)
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
-
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
 
     def get_queryset(self):
         params = self.request.query_params.getlist('id')
@@ -72,8 +61,16 @@ class PopularProductsViewSet(ListAPIView):
     serializer_class = ProductListSerializer
     number_of_products = 5
 
+    def list(self, request, *args, **kwargs):
+        if not self.get_queryset():
+            return Response(status=404)
+        return super().list(request, *args, **kwargs)
+
     def get_queryset(self):
-        product_ids = ViewCounterRedis(self.number_of_products).get_most_popular_products_id()
+        product_ids = CounterViewsRedis(self.number_of_products).get_most_popular_products_id()
+        if not product_ids:
+            return []
+
         return self.model.objects.raw(
             SELECT_PRODUCT_WITH_MIN_PRICE_BY_IDS,
             [
