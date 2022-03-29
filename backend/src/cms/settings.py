@@ -191,6 +191,16 @@ class Base(Configuration):
 
     RQ_SHOW_ADMIN_LINK = True
 
+    CACHES = {
+        'default': {
+            'BACKEND': 'django_redis.cache.RedisCache',
+            'LOCATION': redis_url(env_prefix='STORAGE_'),
+            'OPTIONS': {
+                'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            }
+        }
+    }
+
     # https://django-elasticsearch-dsl.readthedocs.io/en/latest/quickstart.html
     ELASTICSEARCH_DSL = {
         'default': {

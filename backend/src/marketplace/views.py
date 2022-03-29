@@ -5,6 +5,7 @@ from marketplace.serializers import IdSerializer
 from marketplace.serializers import MarketplaceSerializer
 from marketplace.serializers import ProductDetailsSerializer
 from marketplace.serializers import ProductListSerializer
+from marketplace.view_counter import ViewCounterRedis
 from rest_framework.generics import ListAPIView
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.response import Response
@@ -20,6 +21,12 @@ class ProductDetailsViewSet(RetrieveAPIView):
     lookup_field = 'id'
     ordering_fields = ('id',)
     ordering = ('id',)
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        ViewCounterRedis(kwargs['id']).increment_product_views()
+        return Response(serializer.data)
 
 
 class ProductsViewSet(ListAPIView):
@@ -53,6 +60,25 @@ class ProductsViewSet(ListAPIView):
             [
                 list_of_product_ids,  # To order products as the order of passed ids was
                 tuple(list_of_product_ids)  # To get products by ids
+            ])
+
+
+class PopularProductsViewSet(ListAPIView):
+    """
+    API Products for getting the most popular products
+    """
+    model = Product
+    queryset = Product.objects
+    serializer_class = ProductListSerializer
+    number_of_products = 5
+
+    def get_queryset(self):
+        product_ids = ViewCounterRedis(self.number_of_products).get_most_popular_products_id()
+        return self.model.objects.raw(
+            SELECT_PRODUCT_WITH_MIN_PRICE_BY_IDS,
+            [
+                product_ids,
+                tuple(product_ids)
             ])
 
 
