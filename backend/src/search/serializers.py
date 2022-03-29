@@ -31,6 +31,13 @@ class ProductQuerySerializer(serializers.Serializer):
     ordering = serializers.CharField(min_length=3, allow_null=True)
 
 
+class ProductSearchResponse(serializers.Serializer):
+    count = serializers.IntegerField()
+    next_page = serializers.IntegerField()
+    previous_page = serializers.IntegerField()
+    results = ProductSearchSerializer(many=True)
+
+
 class ProductQueryAutocompleteSerializer(serializers.Serializer):
     query = serializers.CharField(min_length=3)
 

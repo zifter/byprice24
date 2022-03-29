@@ -9,6 +9,32 @@ import {
   Text, Container,
 } from 'atomize';
 
+const recentlyViewedLocalStorageHandler = (id) => {
+  const recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed'));
+  if (!recentlyViewed) {
+    localStorage.setItem('recentlyViewed',
+        JSON.stringify({'products': [{'id': id}]}));
+  } else {
+    const products = recentlyViewed['products'];
+    const found = products.some((el) => id === el['id']);
+    if (found) {
+      const index = products.findIndex((item) => item.id === id);
+      products.splice(index, 1);
+      products.unshift({'id': id});
+
+      localStorage.setItem('recentlyViewed',
+          JSON.stringify(recentlyViewed));
+    } else {
+      products.unshift({'id': id});
+      if (products.length > 4) {
+        products.pop();
+      }
+      localStorage.setItem('recentlyViewed',
+          JSON.stringify(recentlyViewed));
+    }
+  }
+};
+
 const ProductPage = () => {
   const [productData, setProductData] = useState(Object);
   const [isLoading, setIsLoading] = useState(false);
@@ -16,6 +42,8 @@ const ProductPage = () => {
   const {id} = useParams();
   console.log('id', id);
   console.log('productData', productData);
+
+  recentlyViewedLocalStorageHandler(id);
 
   const hook = () => {
     const url = '/api/v1/products/' + id;

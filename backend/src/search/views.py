@@ -3,22 +3,35 @@ from datetime import datetime
 import pytz
 from common import shared_queue
 from common.shared_queue.structs import QueryRequest
+from drf_spectacular.utils import extend_schema
+from drf_spectacular.utils import OpenApiParameter
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from search.enum import OrderingEnum
 from search.logic import ProductSearch
 from search.logic import ProductSearchAutocomplete
 from search.serializers import ProductQueryAutocompleteSerializer
 from search.serializers import ProductQuerySerializer
 from search.serializers import ProductSearchAutocompleteSerializer
+from search.serializers import ProductSearchResponse
 from search.serializers import ProductSearchSerializer
 
 
 class SearchProductViewSet(APIView):
     """
-    API Product
+    API Product with search functionality
     """
     page_size = 20
 
+    @extend_schema(
+        parameters=[OpenApiParameter(name='query', description='Query to search a product', required=True, type=str),
+                    OpenApiParameter(name='page', description='Page', required=False,
+                                     type=int),
+                    OpenApiParameter(name='ordering', description='Order result by price', required=False,
+                                     enum=OrderingEnum.values())
+                    ],
+        responses=ProductSearchResponse
+    )
     def get(self, request, *args, **kwargs):
         params = ProductQuerySerializer(data={'query': self.request.query_params.get('query'),
                                               'page': self.request.query_params.get('page', '1'),

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, Container,
+import {Container,
   Col, Row, Anchor} from 'atomize';
 
 
@@ -19,35 +19,29 @@ const Footer = () => {
         <Col>
           <Anchor
             href="/disclaimer"
-            d="block"
             m={{b: '0rem'}}
+            textColor="black"
           >
-            <Text
-              textSize="body"
-              textAlign="center"
-              textColor="black">
+
               Правовая информация
-            </Text>
+
           </Anchor>
         </Col>
         <Col>
           <Anchor
             href="/contacts"
-            d="block"
             m={{b: '0rem'}}
+            textColor="black"
           >
-            <Text
-              textSize="body"
-              textAlign="center"
-              textColor="black">
 
               Kонтакты
-            </Text>
+
           </Anchor>
         </Col></Row>
       <Col>
         <Anchor
           href="/"
+          textColor="black"
         >
             2022 by zifter
 
