@@ -8,7 +8,8 @@ import RecentlyViewedTab from './elements/RecentlyViewedProducts';
 function Index() {
   return (
     <Container
-      h="100%"
+      minH="83vh"
+
     >
       <RecentlyViewedTab />
     </Container>
