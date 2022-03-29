@@ -49,10 +49,13 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
   return (
     <Container
       m={{l: {xl: '70px', xs: '0'}}}
+      pos="relative"
+      p="0"
       h="3rem">
       <form
         name="searchform"
         className="search-form"
+
         onSubmit={handleSubmit}>
         <Input
           id="input-search"
@@ -79,15 +82,16 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
             </Button>
           }
         />
-      </form>
-      <Div pos="absolute"
-        top="3rem"
-        h="100%"
-        rounded="md"
-        bottom="0rem">
-        <Modal searchInModalWindow={searchInModalWindow}
-          setSearchInModalWindow={setSearchInModalWindow}/>
-      </Div>
+
+        <Div pos="absolute"
+          top="3rem"
+          h="100%"
+          w="100%"
+          rounded="md"
+          bottom="0rem">
+          <Modal searchInModalWindow={searchInModalWindow}
+            setSearchInModalWindow={setSearchInModalWindow}/>
+        </Div></form>
     </Container>
   );
 };
