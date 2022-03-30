@@ -3,7 +3,6 @@ import './SearchResult.css';
 import PropTypes from 'prop-types';
 import {useEffect, useState} from 'react';
 import {useLocation} from 'react-router-dom';
-import axios from 'axios';
 import SearchProductResult from './elements/SearchProductResult.js';
 import {
   Container, Div,
@@ -11,8 +10,11 @@ import {
   Dropdown, Anchor,
 } from 'atomize';
 import ReactPaginate from 'react-paginate';
+import {useDispatch, useSelector} from 'react-redux';
+import {getSearchProducts} from "../../redux/productsReducer";
 
-const ResultBody = ({searchResult}) => {
+const ResultBody = () => {
+  const searchResult = useSelector(state => state.products.results)
   return (
     <ul>
       {
@@ -27,11 +29,6 @@ const ResultBody = ({searchResult}) => {
   );
 };
 
-ResultBody.propTypes = {
-  searchResult: PropTypes.array,
-};
-
-
 const ResultIsEmpty = ( ) => {
   return (
     <Text
@@ -43,10 +40,11 @@ const ResultIsEmpty = ( ) => {
   );
 };
 
-const SearchResultTabs = ({count,
-  searchResult,
+const SearchResultTabs = ({
   orderingComponent,
   paginationComponent}) => {
+  const count = useSelector(state => state.products.count)
+  const searchResult = useSelector(state => state.products.results)
   const [activeTab, setActiveTab] = useState('productTab');
 
   const handleProductTab= () => {
@@ -78,7 +76,7 @@ const SearchResultTabs = ({count,
       <div id="product-tab" className={activeTab === 'productTab' ?
           'tabcontent-expanded': 'tabcontent-collapsed'}>
         {searchResult.length > 0 ?
-        <ResultBody searchResult={searchResult} /> :
+        <ResultBody /> :
         <ResultIsEmpty />
         }
       </div>
@@ -88,18 +86,15 @@ const SearchResultTabs = ({count,
 };
 
 SearchResultTabs.propTypes = {
-  count: PropTypes.string.isRequired,
-  searchResult: PropTypes.array,
   orderingComponent: PropTypes.func,
   paginationComponent: PropTypes.func,
 };
 
 
 const SearchResult = () => {
-  const [countResult, setCountResult] = useState(0);
-  const [searchResult, setSearchResult] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
+  const countResult = useSelector(state => state.products.count)
+  const isLoading = useSelector(state => state.app.isLoading)
+  const dispatch = useDispatch();
   const search = useLocation().search;
   const query = new URLSearchParams(search).get('q');
 
@@ -192,21 +187,7 @@ const SearchResult = () => {
     } else {
       ordering = 'relevance';
     }
-    const url = '/api/v1/search/products?query=' + query +
-        '&page=' + page +'&ordering=' + ordering;
-    console.log('request', url);
-
-    axios
-        .get(url)
-        .then((response) => {
-          console.log('got', response.data);
-          setSearchResult(response.data.results);
-          setCountResult(response.data.count);
-        }).catch(function(error) {
-          console.log(error);
-        }).finally(function(error) {
-          setIsLoading(true);
-        });
+    dispatch(getSearchProducts(query, page, ordering))
   };
 
   useEffect(hook, [query]);
@@ -225,19 +206,18 @@ const SearchResult = () => {
           Результаты поиска для &quot;{query}&quot;
       </Text>
 
-      {!isLoading &&
+      {isLoading ?
             <Text
               tag="h1"
               textSize="heading"
               textAlign={{xs: 'center'}}>
               Загрузка...
             </Text>
-      }
-      <SearchResultTabs
-        count={countResult}
-        searchResult={searchResult}
+
+      : <SearchResultTabs
         orderingComponent={orderingComponent()}
         paginationComponent={paginationComponent()}/>
+      }
     </Container>
   );
 };

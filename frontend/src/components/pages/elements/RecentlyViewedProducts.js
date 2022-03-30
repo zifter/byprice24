@@ -1,11 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {
   Row, Col, Image,
   Text, Div,
 } from 'atomize';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
 import PropTypes from 'prop-types';
+import {useDispatch, useSelector} from "react-redux";
+import {getRecentlyViewedProducts} from "../../../redux/productsReducer";
 
 const RecentlyViewedProduct = ({product}) => {
   return (
@@ -100,7 +101,8 @@ RecentlyViewedProducts.propTypes = {
 };
 
 const RecentlyViewedTab = () => {
-  const [recentlyViewedProducts, setRecentlyViewedProducts] = useState([]);
+  const recentlyViewedProducts = useSelector(state => state.products.recentlyViewedProducts)
+  const dispatch = useDispatch();
 
   const recentlyViewed =
       JSON.parse(localStorage.getItem('recentlyViewed'));
@@ -113,17 +115,8 @@ const RecentlyViewedTab = () => {
   }
 
   const hook = () => {
-    const url = '/api/v1/products?id=' + listIds.join('&id=');
-    console.log('request', url);
+    dispatch(getRecentlyViewedProducts(listIds))
 
-    axios
-        .get(url)
-        .then((response) => {
-          console.log('got', response.data);
-          setRecentlyViewedProducts(response.data);
-        }).catch(function(error) {
-          console.log(error);
-        });
   };
   useEffect(hook, listIds);
   return (

@@ -16,9 +16,12 @@
     "react-ga": "^3.3.0",
     "react-paginate": "^8.1.0",
     "react-pagination": "^1.0.0",
+    "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
     "react-scripts": "^5.0.0",
     "react-transition-group": "^4.4.2",
+    "redux": "^4.1.2",
+    "redux-thunk": "^2.4.1",
     "styletron-react": "^6.0.2",
     "to-regex": "^3.0.2",
     "web-vitals": "^1.0.1"
