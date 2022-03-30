@@ -25,7 +25,7 @@ class ProductDetailsViewSet(RetrieveAPIView):
 
     def retrieve(self, request, *args, **kwargs):
         resp = super().retrieve(request, *args, **kwargs)
-        CounterViewsRedis(get_redis_connection('default'), kwargs['id']).increment_product_views()
+        CounterViewsRedis(get_redis_connection()).increment_product_views(kwargs['id'])
         return resp
 
 
@@ -67,8 +67,9 @@ class PopularProductsViewSet(ListAPIView):
         return super().list(request, *args, **kwargs)
 
     def get_queryset(self):
-        product_ids = CounterViewsRedis(get_redis_connection('default'),
-                                        self.number_of_products).get_most_popular_products_id()
+        counter_views_obj = CounterViewsRedis(get_redis_connection())
+        product_ids = counter_views_obj.get_most_popular_products_id(self.number_of_products)
+
         if not product_ids:
             return []
 

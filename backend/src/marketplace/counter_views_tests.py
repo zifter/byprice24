@@ -17,12 +17,14 @@ class CounterViewsTestCase(TestCase):
         self.redis_client = fakeredis.FakeStrictRedis()
 
     def test_get_product_views_none(self):
-        number_of_views = CounterViewsRedis(self.redis_client, 2).get_product_views()
+        number_of_views = CounterViewsRedis(self.redis_client).get_product_views(2)
         self.assertEqual(number_of_views, 0)
 
     def test_increment_product_views(self):
-        counter = CounterViewsRedis(self.redis_client, 2)
-        counter.create_initial_product_views()
-        counter.increment_product_views()
-        number_of_views = counter.get_product_views()
+        counter_views_obj = CounterViewsRedis(self.redis_client)
+        product_id = 2
+
+        counter_views_obj.create_initial_product_views(product_id)
+        counter_views_obj.increment_product_views(product_id)
+        number_of_views = counter_views_obj.get_product_views(product_id)
         self.assertEqual(number_of_views, 1)
