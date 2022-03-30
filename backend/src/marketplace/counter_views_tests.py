@@ -19,7 +19,7 @@ class CounterViewsTestCase(TestCase):
 
     def test_get_product_views_none(self):
         number_of_views = CounterViewsRedis(self.client, 2).get_product_views()
-        self.assertEqual(number_of_views, None)
+        self.assertEqual(number_of_views, 0)
 
     def test_increment_product_views(self):
         counter = CounterViewsRedis(self.client, 2)
