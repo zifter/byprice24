@@ -1,3 +1,4 @@
+from django_redis import get_redis_connection
 from marketplace.counter_views import CounterViewsRedis
 from marketplace.models import Marketplace
 from marketplace.models import Product
@@ -23,10 +24,9 @@ class ProductDetailsViewSet(RetrieveAPIView):
     ordering = ('id',)
 
     def retrieve(self, request, *args, **kwargs):
-        instance = self.get_object()
-        serializer = self.get_serializer(instance)
-        CounterViewsRedis(kwargs['id']).increment_product_views()
-        return Response(serializer.data)
+        resp = super().retrieve(request, *args, **kwargs)
+        CounterViewsRedis(get_redis_connection('default'), kwargs['id']).increment_product_views()
+        return resp
 
 
 class ProductsViewSet(ListAPIView):
@@ -67,7 +67,8 @@ class PopularProductsViewSet(ListAPIView):
         return super().list(request, *args, **kwargs)
 
     def get_queryset(self):
-        product_ids = CounterViewsRedis(self.number_of_products).get_most_popular_products_id()
+        product_ids = CounterViewsRedis(get_redis_connection('default'),
+                                        self.number_of_products).get_most_popular_products_id()
         if not product_ids:
             return []
 

@@ -51,12 +51,12 @@ class ProductsViewTestCase(TestCase):
     @patch('marketplace.counter_views.CounterViewsRedis.get_most_popular_products_id',
            (lambda: Mock(return_value=[]))())
     def test_get_no_popular_products(self):
-        response = self.client.get('/api/v1/products-popular')
+        response = self.client.get('/api/v1/popular-products')
         self.assertEqual(response.status_code, 404)
 
     @patch('marketplace.counter_views.CounterViewsRedis.get_most_popular_products_id',
            (lambda: Mock(return_value=[2, 3, 4]))())
     def test_get_popular_products(self):
-        response = self.client.get('/api/v1/products-popular')
+        response = self.client.get('/api/v1/popular-products')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data[0]['id'], 2)
