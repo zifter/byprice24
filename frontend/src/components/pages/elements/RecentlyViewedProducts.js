@@ -19,6 +19,7 @@ const RecentlyViewedProduct = ({product}) => {
       <Image
         src={product.preview_url}
         w="5rem"
+        maxH="5rem"
         m={{t: '0.5rem'}}
       />
       {

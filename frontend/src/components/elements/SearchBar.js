@@ -61,6 +61,7 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
           id="input-search"
           placeholder="Искать"
           value={query}
+          autocomplete="off"
           onClick={handleOnChange}
           onChange={handleOnChange}
           suffix={

@@ -21,6 +21,7 @@ import {
   StyleReset,
   Container,
 } from 'atomize';
+import MarketplaceTab from "./components/pages/MarketplacesPage";
 
 
 const theme = {
@@ -70,6 +71,7 @@ function App() {
             <Route exact path="/404" element={<NotFound />}/>
             <Route path="*" element={<Navigate replace to="/404" />} />
             <Route exact path="/disclaimer" element={<DisclaimerPage />} />
+            <Route exact path="/marketplace" element={<MarketplaceTab />} />
           </Routes>
           <Container
             className="app-footer"
