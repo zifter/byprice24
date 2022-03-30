@@ -14,15 +14,14 @@ class CounterViewsTestCase(TestCase):
     ]
 
     def setUp(self):
-        # Every test needs a client.
-        self.client = fakeredis.FakeStrictRedis()
+        self.redis_client = fakeredis.FakeStrictRedis()
 
     def test_get_product_views_none(self):
-        number_of_views = CounterViewsRedis(self.client, 2).get_product_views()
+        number_of_views = CounterViewsRedis(self.redis_client, 2).get_product_views()
         self.assertEqual(number_of_views, 0)
 
     def test_increment_product_views(self):
-        counter = CounterViewsRedis(self.client, 2)
+        counter = CounterViewsRedis(self.redis_client, 2)
         counter.create_initial_product_views()
         counter.increment_product_views()
         number_of_views = counter.get_product_views()
