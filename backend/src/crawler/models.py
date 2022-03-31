@@ -6,6 +6,8 @@ from marketplace.models import Marketplace
 
 
 class CrawlerState(models.Model):
+    class Meta:
+        db_table = 'crawlerstate'
     """
     General information about site
     """

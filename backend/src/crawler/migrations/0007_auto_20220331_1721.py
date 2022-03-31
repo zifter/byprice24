@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterModelTable(
-            name='CrawlerState',
-            table='crawler_crawlerstate',
+            name='crawlerstate',
+            table='crawlerstate',
         ),
     ]
