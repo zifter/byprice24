@@ -3238,3 +3238,7 @@
   fields:
     name: pen
     keywords: ручка, шариковая ручка, автоматическая ручка
+- model: marketplace.category
+  fields:
+    name: unknown
+    keywords: unknown

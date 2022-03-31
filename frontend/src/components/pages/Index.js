@@ -2,13 +2,16 @@ import React from 'react';
 import {
   Container,
 } from 'atomize';
+import RecentlyViewedTab from './elements/RecentlyViewedProducts';
+
 
 function Index() {
   return (
     <Container
-      h="100%"
+      minH="83vh"
+
     >
-        Index!
+      <RecentlyViewedTab />
     </Container>
   );
 }

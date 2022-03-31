@@ -7,7 +7,7 @@ import {
 
 const NotFound = () => {
   return (
-    <Container>
+    <Container minH="83vh">
       <Text
         tag="h1"
         textSize="heading"
