@@ -5,7 +5,7 @@ from unittest.mock import MagicMock
 import pytz
 from common.item_types import Availability
 from common.shared_queue import FlowQueueBase
-from common.shared_queue import ScrapingTarget
+from common.shared_queue import CrawlerTarget
 from crawler.agent import Agent
 from crawler.models import CrawlerState
 from django.core.management import call_command
@@ -33,12 +33,12 @@ class AgentTestCase(TestCase):
         agent.schedule()
 
         queue.scrape.assert_has_calls([call(
-            ScrapingTarget(
+            CrawlerTarget(
                 url='https://www.21vek.by',
                 domain='www.21vek.by',
                 use_proxy=False,
                 follow=True)),
-            call(ScrapingTarget(
+            call(CrawlerTarget(
                 url='https://www.ilp.by',
                 domain='www.ilp.by',
                 use_proxy=False,
@@ -62,7 +62,7 @@ class AgentTestCase(TestCase):
         agent.schedule()
 
         queue.scrape.assert_has_calls([
-            call(ScrapingTarget(
+            call(CrawlerTarget(
                 url='https://www.ilp.by',
                 domain='www.ilp.by',
                 use_proxy=False,
@@ -94,7 +94,7 @@ class AgentTestCase(TestCase):
         agent.schedule(marketplace=marketplace)
 
         queue.scrape.assert_has_calls([call(
-            ScrapingTarget(
+            CrawlerTarget(
                 url='https://www.21vek.by',
                 domain='www.21vek.by',
                 use_proxy=False,
@@ -116,12 +116,12 @@ class AgentTestCase(TestCase):
         agent.schedule(force=True)
 
         queue.scrape.assert_has_calls([call(
-            ScrapingTarget(
+            CrawlerTarget(
                 url='https://www.21vek.by',
                 domain='www.21vek.by',
                 use_proxy=False,
                 follow=True)),
-            call(ScrapingTarget(
+            call(CrawlerTarget(
                 url='https://www.ilp.by',
                 domain='www.ilp.by',
                 use_proxy=False,
@@ -138,7 +138,7 @@ class AgentTestCase(TestCase):
                        follow=False)
 
         queue.scrape.assert_has_calls([call(
-            ScrapingTarget(
+            CrawlerTarget(
                 url='https://www.ilp.by/notebook/acer/nxvller00q',
                 domain='www.21vek.by',
                 use_proxy=False,

@@ -5,7 +5,7 @@ from typing import List
 import pytz
 from common.shared_queue import FlowQueueBase
 from common.shared_queue import get_flow_queue
-from common.shared_queue import ScrapingTarget
+from common.shared_queue import CrawlerTarget
 from crawler.models import CrawlerState
 from crawler.structs import ProductData
 from croniter import croniter
@@ -45,7 +45,7 @@ class Agent:
             next_scraping = croniter(scraping_schedule, scraping.last_scraping).get_next(datetime)
 
             url = 'https://' + scraping.marketplace.domain if not url_page else url_page
-            target = ScrapingTarget(
+            target = CrawlerTarget(
                 url=url,
                 domain=scraping.marketplace.domain,
                 follow=follow,
@@ -58,7 +58,7 @@ class Agent:
 
         return job_ids
 
-    def scrape(self, target: ScrapingTarget):
+    def scrape(self, target: CrawlerTarget):
         logging.info('Scrape %s', target)
 
         settings = {
