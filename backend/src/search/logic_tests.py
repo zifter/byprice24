@@ -6,7 +6,7 @@ from search.logic import find_closest_product
 
 class SearchLogicTestCase(TestCase):
     fixtures = [
-        'prod/categories.yaml',
+        'test/categories.yaml',
         'test/products.yaml',
     ]
 

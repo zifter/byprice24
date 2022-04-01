@@ -8,7 +8,7 @@ from django.test import TestCase
 
 class ProductViewTestCase(TestCase):
     fixtures = [
-        'prod/categories.yaml',
+        'test/categories.yaml',
         'test/marketplaces.yaml',
         'test/products.yaml',
         'test/product_pages.yaml',

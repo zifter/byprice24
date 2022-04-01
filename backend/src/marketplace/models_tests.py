@@ -63,3 +63,9 @@ def test_product_state_is_printable_ok():
 @pytest.mark.django_db
 def test_load_dump_ok():
     call_command('loaddata', 'dump/marketplace.yaml')
+
+
+@pytest.mark.django_db
+def test_load_prod_ok():
+    call_command('loaddata', 'prod/categories.yaml')
+    call_command('loaddata', 'prod/marketplaces.yaml')

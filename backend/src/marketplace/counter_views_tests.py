@@ -6,7 +6,7 @@ from marketplace.counter_views import CounterViewsRedis
 
 class CounterViewsTestCase(TestCase):
     fixtures = [
-        'prod/categories.yaml',
+        'test/categories.yaml',
         'test/marketplaces.yaml',
         'test/products.yaml',
         'test/product_pages.yaml',

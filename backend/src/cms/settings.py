@@ -245,7 +245,7 @@ class Dev(PostgresMixin, Base):
 
 class Test(Dev):
     # Configuration will be used for while running tests
-    pass
+    ELASTICSEARCH_DSL_AUTOSYNC = False
 
 
 class Local(SentryMixin, Dev):

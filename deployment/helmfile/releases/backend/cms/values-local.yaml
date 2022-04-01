@@ -13,7 +13,7 @@ scheduleScraping:
   suspend: true
 
 fixtures:
-  - prod/markets.yaml
+  - prod/marketplaces.yaml
   - prod/categories.yaml
   - dump/marketplace.yaml
 

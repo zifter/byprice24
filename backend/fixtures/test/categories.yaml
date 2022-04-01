@@ -1,0 +1,16 @@
+- model: marketplace.category
+  fields:
+    name: mobile
+    keywords: кнопочные телефоны, смартфоны
+- model: marketplace.category
+  fields:
+    name: notebook
+    keywords: игровые ноутбуки, ноутбуки
+- model: marketplace.category
+  fields:
+    name: coffee
+    keywords: капсульные кофеварки, кофеварки, кофемашины, кофемашины и кофеварки
+- model: marketplace.category
+  fields:
+    name: tv
+    keywords: телевизоры

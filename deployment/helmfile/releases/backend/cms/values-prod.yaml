@@ -23,7 +23,7 @@ ingress:
           pathType: Prefix
 
 fixtures:
-  - prod/markets.yaml
+  - prod/marketplaces.yaml
   - prod/categories.yaml
 
 scheduleScraping:
