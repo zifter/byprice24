@@ -77,8 +77,8 @@ releases:
   # ELASTICSEARCH
   - name: elasticsearch
     namespace: {{ .Values.namespace }}
-    chart: bitnami/elasticsearch
-    version: 17.5.4
+    chart: elastic/elasticsearch
+    version: 7.17.1
     installed: {{ .Values.elasticsearch.enabled | toYaml }}
     values:
       - releases/elasticsearch/values.yaml
