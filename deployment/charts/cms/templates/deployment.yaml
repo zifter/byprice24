@@ -50,6 +50,7 @@ spec:
 #              path: /health-check/
 #              port: http
           readinessProbe:
+            initialDelaySeconds: 5
             httpGet:
               path: /health-check/
               port: http
