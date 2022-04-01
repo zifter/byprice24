@@ -1,9 +1,11 @@
 from django.core.management import call_command
+from django.test import override_settings
 from django.test import TestCase
 from parameterized import parameterized
 from search.logic import find_closest_product
 
 
+@override_settings(ELASTICSEARCH_DSL_AUTOSYNC=True)
 class SearchLogicTestCase(TestCase):
     fixtures = [
         'test/categories.yaml',
@@ -12,9 +14,9 @@ class SearchLogicTestCase(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        call_command('search_index', '--rebuild', '-f')
-
         super().setUpClass()
+
+        call_command('search_index', '--rebuild', '-f')
 
     @parameterized.expand([
         ('apple iphone 13', ),
