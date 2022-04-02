@@ -91,7 +91,7 @@
   fields:
     domain: ram.by
     logo_url: 	https://ram.by/images/logo.png
-- model: crawler.scrapingstate
+- model: crawler.crawlerstate
   pk: 9
   fields:
     marketplace: 9
