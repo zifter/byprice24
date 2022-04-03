@@ -7,8 +7,8 @@ import ProductTabs from './elements/product_tab/ProductTabs';
 import {
   Text, Container,
 } from 'atomize';
-import {getCurrentProduct} from "../../redux/productsReducer";
-import {useDispatch, useSelector} from "react-redux";
+import {getCurrentProduct} from '../../redux/productsReducer';
+import {useDispatch, useSelector} from 'react-redux';
 
 const recentlyViewedLocalStorageHandler = (id) => {
   const recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed'));
@@ -37,21 +37,19 @@ const recentlyViewedLocalStorageHandler = (id) => {
 };
 
 const ProductPage = () => {
-  const isLoading = useSelector(state => state.app.isLoading)
-  const products = useSelector(state => state.products)
+  const isLoading = useSelector((state) => state.app.isLoading);
+  const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const {id} = useParams();
-  let productData = products.results.find(item=>item.id === +id)
+  let productData = products.results.find((item)=>item.id === +id);
 
-  if (!productData){
-    productData = products.results[0]
-
+  if (!productData) {
+    productData = products.results[0];
   }
   recentlyViewedLocalStorageHandler(id);
 
   const hook = () => {
-
-    dispatch(getCurrentProduct(id))
+    dispatch(getCurrentProduct(id));
   };
 
   useEffect(hook, [id]);

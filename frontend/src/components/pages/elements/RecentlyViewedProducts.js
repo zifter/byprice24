@@ -5,8 +5,8 @@ import {
 } from 'atomize';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {useDispatch, useSelector} from "react-redux";
-import {getRecentlyViewedProducts} from "../../../redux/productsReducer";
+import {useDispatch, useSelector} from 'react-redux';
+import {getRecentlyViewedProducts} from '../../../redux/productsReducer';
 
 const RecentlyViewedProduct = ({product}) => {
   return (
@@ -16,7 +16,7 @@ const RecentlyViewedProduct = ({product}) => {
       rounded="sm"
       h='12rem'
       hoverShadow="3"
-      pos='relative'>
+      pos="relative">
       <Image
         src={product.preview_url}
         w="5rem"
@@ -26,38 +26,38 @@ const RecentlyViewedProduct = ({product}) => {
       {
         <Link to={`/products/${product.id}`}>
           <Text
-            textSize='paragraph'
-            textAlign='left'
-            w='80%'
-            textWeight='600'
+            textSize="paragraph"
+            textAlign="left"
+            w="80%"
+            textWeight="600"
             m={{l: '1rem'}}
-            textColor='black'>
+            textColor="black">
             {product.name.slice(0, 40)}
           </Text>
         </Link>
 
       }
       <Div
-        pos='absolute'
-        bottom='0'>
+        pos="absolute"
+        bottom="0">
         {
           <Text
-            textSize='paragraph'
-            textAlign='left'
-            w='80%'
-            textWeight='400'
+            textSize="paragraph"
+            textAlign="left"
+            w="80%"
+            textWeight="400"
             m={{l: '1rem'}}
             textTransform="capitalize"
-            textColor='gray900'
+            textColor="gray900"
           >
             {product.category}
           </Text>
         }
         {
           <Text
-            textSize='paragraph'
-            textAlign='left'
-            textWeight='700'
+            textSize="paragraph"
+            textAlign="left"
+            textWeight="700"
             m={{l: '1rem'}}
           >
             {product.min_offer.price}  {' '}
@@ -83,7 +83,7 @@ RecentlyViewedProduct.propTypes = {
 
 const RecentlyViewedProducts = ({recentlyViewedProducts}) => {
   return (
-    <Row w='100%'>
+    <Row w="100%">
       {
         recentlyViewedProducts.slice(0, 4).map((product, i) =>
           <Col size={{xs: 12, lg: 3}}
@@ -101,7 +101,8 @@ RecentlyViewedProducts.propTypes = {
 };
 
 const RecentlyViewedTab = () => {
-  const recentlyViewedProducts = useSelector(state => state.products.recentlyViewedProducts)
+  const recentlyViewedProducts = useSelector((state) =>
+    state.products.recentlyViewedProducts);
   const dispatch = useDispatch();
 
   const recentlyViewed =
@@ -115,8 +116,7 @@ const RecentlyViewedTab = () => {
   }
 
   const hook = () => {
-    dispatch(getRecentlyViewedProducts(listIds))
-
+    dispatch(getRecentlyViewedProducts(listIds));
   };
   useEffect(hook, listIds);
   return (

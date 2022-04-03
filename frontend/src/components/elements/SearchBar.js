@@ -7,15 +7,18 @@ import {
   Div,
   Container,
 } from 'atomize';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import Modal from './Modal';
+import {getAutoCompleteSearch} from "../../redux/productsReducer";
+import {useDispatch} from "react-redux";
+import {setModal} from "../../redux/appReducer";
 
 const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
   const search = useLocation().search;
   const initialQuery = new URLSearchParams(search).get('q');
   const [query, setQuery] = useState(initialQuery);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,19 +34,19 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
 
   const handleOnChange = (e) => {
     setQuery(e.target.value);
-    const url = '/api/v1/search-autocomplete/products?query=' + query;
-
-    axios
-        .get(url)
-        .then((response) => {
-          console.log('got', response.data);
-          setSearchInModalWindow([]);
-          setSearchInModalWindow(response.data);
-        }).catch(function(error) {
-          setSearchInModalWindow([]);
-          console.log(error);
-        }).finally(function(error) {
-        });
+    //const url = '/api/v1/search-autocomplete/products?query=' + query;
+    dispatch(getAutoCompleteSearch(query))
+    // axios
+    //     .get(url)
+    //     .then((response) => {
+    //       console.log('got', response.data);
+    //       setSearchInModalWindow([]);
+    //       setSearchInModalWindow(response.data);
+    //     }).catch(function(error) {
+    //       setSearchInModalWindow([]);
+    //       console.log(error);
+    //     }).finally(function(error) {
+    //     });
   };
 
   return (
@@ -90,8 +93,7 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
           w="100%"
           rounded="md"
           bottom="0rem">
-          <Modal searchInModalWindow={searchInModalWindow}
-            setSearchInModalWindow={setSearchInModalWindow}/>
+          <Modal />
         </Div></form>
     </Container>
   );

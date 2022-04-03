@@ -1,9 +1,10 @@
 import {api} from './api';
-import {setError, setLoaderStatus} from './appReducer';
+import {setError, setLoaderStatus, setModal} from './appReducer';
 
 const SET_SEARCH_PRODUCTS = 'SET_SEARCH_PRODUCTS';
 const SET_CURRENT_PRODUCT = 'SET_CURRENT_PRODUCT';
 const SET_RECENTLY_VIEWED_PRODUCT = 'SET_RECENTLY_VIEWED_PRODUCT';
+const SET_AUTO_COMPETE_SEARCH_PRODUCT = 'SET_AUTO_COMPETE_SEARCH_PRODUCT';
 
 const initialState = {
   count: 0,
@@ -65,6 +66,15 @@ const initialState = {
         },
       },
     ],
+  autoCompleteSearch:
+    [
+      {
+        category: '',
+        id: 0,
+        name: '',
+        preview_url: '',
+      },
+    ],
 };
 
 export const productsReducer = (state = initialState, action) => {
@@ -73,6 +83,7 @@ export const productsReducer = (state = initialState, action) => {
       return {...state, ...action.data};
     }
     case SET_CURRENT_PRODUCT: {
+
       if (state.results[0].id === 0) {
         return {...state, results: [action.data]};
       }
@@ -86,10 +97,16 @@ export const productsReducer = (state = initialState, action) => {
                   preview_url: action.data.preview_url,
                   product_pages: action.data.product_pages} :
                 item));
+
       return {...state, results: copyResults};
     }
     case SET_RECENTLY_VIEWED_PRODUCT: {
       return {...state, recentlyViewedProducts: action.data};
+    }
+    case SET_AUTO_COMPETE_SEARCH_PRODUCT: {
+      const copyState = JSON.parse(JSON.stringify(state))
+
+      return {...state, autoCompleteSearch: action.data}
     }
     default:
       return state;
@@ -106,6 +123,10 @@ export const setCurrentProductsAC = (data) => ({
 });
 export const setRecentlyViewedProductsAC = (data) => ({
   type: SET_RECENTLY_VIEWED_PRODUCT,
+  data,
+});
+export const setAutoCompeteSearchAC = (data) => ({
+  type: SET_AUTO_COMPETE_SEARCH_PRODUCT,
   data,
 });
 
@@ -146,5 +167,20 @@ export const getRecentlyViewedProducts = (id) => async (dispatch)=> {
     dispatch(setError(error));
   } finally {
     dispatch(setLoaderStatus(false));
+  }
+};
+export const getAutoCompleteSearch = (query) => async (dispatch)=> {
+  try {
+    //dispatch(setCurrentProductsAC({id: 0}));
+    const res = await api.autoCompleteSearchProducts(query);
+    dispatch(setAutoCompeteSearchAC(res.data));
+    if (res.data.length){
+      dispatch(setModal(true))
+    }
+  } catch (error) {
+    console.log(error);
+    dispatch(setError(error));
+  } finally {
+
   }
 };

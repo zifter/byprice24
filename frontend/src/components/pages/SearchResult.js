@@ -11,10 +11,10 @@ import {
 } from 'atomize';
 import ReactPaginate from 'react-paginate';
 import {useDispatch, useSelector} from 'react-redux';
-import {getSearchProducts} from "../../redux/productsReducer";
+import {getSearchProducts} from '../../redux/productsReducer';
 
 const ResultBody = () => {
-  const searchResult = useSelector(state => state.products.results)
+  const searchResult = useSelector((state) => state.products.results);
   return (
     <ul>
       {
@@ -43,8 +43,8 @@ const ResultIsEmpty = ( ) => {
 const SearchResultTabs = ({
   orderingComponent,
   paginationComponent}) => {
-  const count = useSelector(state => state.products.count)
-  const searchResult = useSelector(state => state.products.results)
+  const count = useSelector((state) => state.products.count);
+  const searchResult = useSelector((state) => state.products.results);
   const [activeTab, setActiveTab] = useState('productTab');
 
   const handleProductTab= () => {
@@ -92,8 +92,8 @@ SearchResultTabs.propTypes = {
 
 
 const SearchResult = () => {
-  const countResult = useSelector(state => state.products.count)
-  const isLoading = useSelector(state => state.app.isLoading)
+  const countResult = useSelector((state) => state.products.count);
+  const isLoading = useSelector((state) => state.app.isLoading);
   const dispatch = useDispatch();
   const search = useLocation().search;
   const query = new URLSearchParams(search).get('q');
@@ -187,7 +187,7 @@ const SearchResult = () => {
     } else {
       ordering = 'relevance';
     }
-    dispatch(getSearchProducts(query, page, ordering))
+    dispatch(getSearchProducts(query, page, ordering));
   };
 
   useEffect(hook, [query]);
@@ -212,11 +212,11 @@ const SearchResult = () => {
               textSize="heading"
               textAlign={{xs: 'center'}}>
               Загрузка...
-            </Text>
+            </Text> :
 
-      : <SearchResultTabs
-        orderingComponent={orderingComponent()}
-        paginationComponent={paginationComponent()}/>
+        <SearchResultTabs
+          orderingComponent={orderingComponent()}
+          paginationComponent={paginationComponent()}/>
       }
     </Container>
   );
