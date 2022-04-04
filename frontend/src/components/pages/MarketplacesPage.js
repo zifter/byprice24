@@ -1,11 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {
   Row, Col, Image,
   Text, Div,
 } from 'atomize';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import './MarketplacesPage.css';
+import {useDispatch, useSelector} from 'react-redux';
+import {getMarketPlaces} from '../../redux/marketPlaceReducer';
 
 const Marketplace = ({market}) => {
   return (
@@ -36,8 +37,6 @@ const Marketplace = ({market}) => {
           {market.domain}
         </Text>
       </a>
-
-
       <Div
         pos='absolute'
         bottom='0'>
@@ -52,8 +51,6 @@ const Marketplace = ({market}) => {
         >
           {market.description}
         </Text>
-
-
       </Div>
     </Div>
   );
@@ -66,11 +63,11 @@ Marketplace.propTypes = {
   }),
 };
 
-const Marketplaces = ({listOfMarketplace}) => {
+const Marketplaces = () => {
+  const listOfMarketplace = useSelector((state)=>state.market.marketPlaces);
   return (
     <Row w="100%"
       m={{l: '140px', t: '40px', r: '80px', b: '40px'}}
-
     >
       {
         listOfMarketplace.map((market, i) =>
@@ -85,31 +82,27 @@ const Marketplaces = ({listOfMarketplace}) => {
     </Row>
   );
 };
-Marketplaces.propTypes = {
-  listOfMarketplace: PropTypes.array,
-};
 
 const MarketplaceTab = () => {
-  const [listOfMarketplace, setListOfMarketplace] = useState([]);
-
+  const isLoading = useSelector((state) => state.app.isLoading);
+  const dispatch = useDispatch();
   const hook = () => {
-    const url = '/api/v1/marketplaces';
-
-    axios
-        .get(url)
-        .then((response) => {
-          console.log('got', response.data);
-          setListOfMarketplace(response.data);
-        }).catch(function(error) {
-          console.log(error);
-        });
+    dispatch(getMarketPlaces());
   };
   useEffect(hook, []);
-  return (
+  return (<>
+    {isLoading &&
+      <Text
+        tag="h1"
+        textSize="heading"
+        textAlign={{xs: 'center'}}>
+          Загрузка...
+      </Text>
+    }
     <Row minH="83vh">
-      <Marketplaces
-        listOfMarketplace={listOfMarketplace}/>
+      <Marketplaces />
     </Row>
+  </>
   );
 };
 

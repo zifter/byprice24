@@ -83,7 +83,6 @@ export const productsReducer = (state = initialState, action) => {
       return {...state, ...action.data};
     }
     case SET_CURRENT_PRODUCT: {
-
       if (state.results[0].id === 0) {
         return {...state, results: [action.data]};
       }
@@ -104,9 +103,7 @@ export const productsReducer = (state = initialState, action) => {
       return {...state, recentlyViewedProducts: action.data};
     }
     case SET_AUTO_COMPETE_SEARCH_PRODUCT: {
-      const copyState = JSON.parse(JSON.stringify(state))
-
-      return {...state, autoCompleteSearch: action.data}
+      return {...state, autoCompleteSearch: action.data};
     }
     default:
       return state;
@@ -171,11 +168,10 @@ export const getRecentlyViewedProducts = (id) => async (dispatch)=> {
 };
 export const getAutoCompleteSearch = (query) => async (dispatch)=> {
   try {
-    //dispatch(setCurrentProductsAC({id: 0}));
     const res = await api.autoCompleteSearchProducts(query);
     dispatch(setAutoCompeteSearchAC(res.data));
-    if (res.data.length){
-      dispatch(setModal(true))
+    if (res.data.length) {
+      dispatch(setModal(true));
     }
   } catch (error) {
     console.log(error);

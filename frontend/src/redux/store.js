@@ -1,18 +1,15 @@
-
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import {applyMiddleware, combineReducers, createStore} from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import {productsReducer} from "./productsReducer";
-import {appReducer} from "./appReducer";
-
+import {productsReducer} from './productsReducer';
+import {appReducer} from './appReducer';
+import {marketPlaceReducer} from './marketPlaceReducer';
 
 const rootReducer = combineReducers({
-    // login: loginReducer,
-    products: productsReducer,
-    // newPassword: newPasswordReducer,
-    app: appReducer,
-    // cards: cardsReducer,
-})
+  products: productsReducer,
+  app: appReducer,
+  market: marketPlaceReducer,
+});
 
 export const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
-window.store = store
+window.store = store;

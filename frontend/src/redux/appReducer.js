@@ -20,7 +20,6 @@ export const appReducer = (state = initialState, action) => {
   }
 };
 
-
 export const setLoaderStatus = (status) =>({
   type: SET_LOADER_STATUS,
   status,

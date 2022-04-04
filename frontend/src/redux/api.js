@@ -20,8 +20,12 @@ export const api = {
   },
   autoCompleteSearchProducts(query) {
     const url = 'search-autocomplete/products?query=' + query;
-    return instance(url)
-  }
+    return instance(url);
+  },
+  getMarketPlaces() {
+    const url = 'marketplaces';
+    return instance(url);
+  },
 };
 
 
