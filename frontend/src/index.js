@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import {Provider as StyletronProvider, DebugEngine} from 'styletron-react';
 import {Client as Styletron} from 'styletron-engine-atomic';
 import {Provider} from 'react-redux';
-import {store} from './redux/store'
+import {store} from './redux/store';
 const debug =
   process.env.NODE_ENV === 'production' ? void 0 : new DebugEngine();
 
@@ -16,7 +16,7 @@ ReactDOM.render(
     <React.StrictMode>
       <StyletronProvider value={engine} debug={debug} debugAfterHydration>
         <Provider store={store}>
-        <App />
+          <App />
         </Provider>
       </StyletronProvider>
     </React.StrictMode>,
