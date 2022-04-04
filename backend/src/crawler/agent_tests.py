@@ -15,8 +15,8 @@ from scraper.items import ProductScrapingResult
 
 class AgentTestCase(TestCase):
     fixtures = [
-        'prod/categories.yaml',
-        'test/agent/markets.yaml'
+        'test/categories.yaml',
+        'test/marketplaces.yaml'
     ]
 
     @classmethod

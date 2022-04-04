@@ -15,8 +15,8 @@ from marketplace.models import ProductPage
 
 class ProductPageAdminTestCase(TestCase):
     fixtures = [
-        'prod/markets.yaml',
-        'prod/categories.yaml',
+        'test/marketplaces.yaml',
+        'test/categories.yaml',
         'test/product_pages.yaml',
         'test/products.yaml'
     ]

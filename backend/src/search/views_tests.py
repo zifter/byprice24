@@ -3,12 +3,14 @@ from collections import OrderedDict
 from unittest.mock import Mock
 from unittest.mock import patch
 
+from django.test import override_settings
 from django.test import TestCase
 
 
-class ProductViewTestCase(TestCase):
+@override_settings(ELASTICSEARCH_DSL_AUTOSYNC=True)
+class SearchProductViewTestCase(TestCase):
     fixtures = [
-        'prod/categories.yaml',
+        'test/categories.yaml',
         'test/marketplaces.yaml',
         'test/products.yaml',
         'test/product_pages.yaml',

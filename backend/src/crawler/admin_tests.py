@@ -14,7 +14,7 @@ from django.urls import reverse
 
 class CrawlerStateAdminTestCase(TestCase):
     fixtures = [
-        'prod/markets.yaml'
+        'test/marketplaces.yaml'
     ]
 
     def setUp(self) -> None:
