@@ -4,12 +4,12 @@ import pytz
 from scraper.items import ProductScrapingResult
 
 from . import get_flow_queue
-from . import ScrapingTarget
+from . import CrawlerTarget
 from .structs import QueryRequest
 
 
 def test_scrape_target_added():
-    target = ScrapingTarget(
+    target = CrawlerTarget(
         url='https://www.google.com',
         domain='www.amd.by',
         use_proxy=False,
