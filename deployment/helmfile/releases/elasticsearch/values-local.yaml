@@ -1,24 +1,6 @@
-coordinating:
-  service:
-    type: NodePort
-    nodePort: 30103
-  livenessProbe:
-    enabled: false
+service:
+  type: NodePort
+  nodePort: 30103
 
-master:
-  replicas: 1
-  persistence:
-    enabled: false
-  livenessProbe:
-    enabled: false
-
-data:
-  persistence:
-    enabled: false
-  livenessProbe:
-    enabled: false
-
-# Is not working on mac m1
-extraConfig:
-  bootstrap:
-    system_call_filter: false
+persistence:
+  enabled: false
