@@ -11,53 +11,53 @@ import {getRecentlyViewedProducts} from '../../../redux/productsReducer';
 const RecentlyViewedProduct = ({product}) => {
   return (
     <Div
-      border="0.3px solid"
-      borderColor="gray400"
-      rounded="sm"
+      border='0.3px solid'
+      borderColor='gray400'
+      rounded='sm'
       h='12rem'
-      hoverShadow="3"
-      pos="relative">
+      hoverShadow='3'
+      pos='relative'>
       <Image
         src={product.preview_url}
-        w="5rem"
-        maxH="5rem"
+        w='5rem'
+        maxH='5rem'
         m={{t: '0.5rem'}}
       />
       {
         <Link to={`/products/${product.id}`}>
           <Text
-            textSize="paragraph"
-            textAlign="left"
-            w="80%"
-            textWeight="600"
+            textSize='paragraph'
+            textAlign='left'
+            w='80%'
+            textWeight='600'
             m={{l: '1rem'}}
-            textColor="black">
+            textColor='black'>
             {product.name.slice(0, 40)}
           </Text>
         </Link>
 
       }
       <Div
-        pos="absolute"
-        bottom="0">
+        pos='absolute'
+        bottom='0'>
         {
           <Text
-            textSize="paragraph"
-            textAlign="left"
-            w="80%"
-            textWeight="400"
+            textSize='paragraph'
+            textAlign='left'
+            w='80%'
+            textWeight='400'
             m={{l: '1rem'}}
-            textTransform="capitalize"
-            textColor="gray900"
+            textTransform='capitalize'
+            textColor='gray900'
           >
             {product.category}
           </Text>
         }
         {
           <Text
-            textSize="paragraph"
-            textAlign="left"
-            textWeight="700"
+            textSize='paragraph'
+            textAlign='left'
+            textWeight='700'
             m={{l: '1rem'}}
           >
             {product.min_offer.price}  {' '}
@@ -83,7 +83,7 @@ RecentlyViewedProduct.propTypes = {
 
 const RecentlyViewedProducts = ({recentlyViewedProducts}) => {
   return (
-    <Row w="100%">
+    <Row w='100%'>
       {
         recentlyViewedProducts.slice(0, 4).map((product, i) =>
           <Col size={{xs: 12, lg: 3}}
