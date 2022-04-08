@@ -1,13 +1,14 @@
 import React from 'react';
 import './ProductPage.css';
 import {useParams} from 'react-router';
-import {useEffect, useState} from 'react';
-import axios from 'axios';
+import {useEffect} from 'react';
 import ProductBody from './elements/ProductBody.js';
 import ProductTabs from './elements/product_tab/ProductTabs';
 import {
   Text, Container,
 } from 'atomize';
+import {getCurrentProduct} from '../../redux/productsReducer';
+import {useDispatch, useSelector} from 'react-redux';
 
 const recentlyViewedLocalStorageHandler = (id) => {
   const recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed'));
@@ -36,36 +37,25 @@ const recentlyViewedLocalStorageHandler = (id) => {
 };
 
 const ProductPage = () => {
-  const [productData, setProductData] = useState(Object);
-  const [isLoading, setIsLoading] = useState(false);
-
+  const isLoading = useSelector((state) => state.app.isLoading);
+  const products = useSelector((state) => state.products);
+  const dispatch = useDispatch();
   const {id} = useParams();
-  console.log('id', id);
-  console.log('productData', productData);
+  let productData = products.results.find((item)=>item.id === +id);
 
+  if (!productData) {
+    productData = products.results[0];
+  }
   recentlyViewedLocalStorageHandler(id);
 
   const hook = () => {
-    const url = '/api/v1/products/' + id;
-    console.log('request', url);
-
-    axios
-        .get(url)
-        .then((response) => {
-          console.log('got', response.data);
-          setProductData(response.data);
-        }).catch(function(error) {
-          console.log(error);
-        }).finally(function(error) {
-          setIsLoading(true);
-        });
+    dispatch(getCurrentProduct(id));
   };
 
   useEffect(hook, [id]);
-
   return (
     <Container minH="83vh">
-      {!isLoading &&
+      {isLoading &&
             <Text
               tag="h1"
               textSize="heading"
@@ -74,11 +64,11 @@ const ProductPage = () => {
             </Text>
       }
 
-      {Object.keys(productData).length ?
-      <ProductBody productData={productData} /> : null
+      {productData.product_pages &&
+        <ProductBody productData={productData}/>
       }
-      {Object.keys(productData).length ?
-      <ProductTabs productData={productData}/> : null
+      {productData.product_pages &&
+      <ProductTabs productData={productData}/>
       }
     </Container>
   );
