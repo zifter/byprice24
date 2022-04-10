@@ -10,6 +10,8 @@ from crawler.agent import Agent
 from crawler.models import ScrapingState
 from django.core.management import call_command
 from django.test import TestCase
+from marketplace.models import Marketplace
+from marketplace.models import ProductState
 from scraper.items import ProductScrapingResult
 
 
@@ -164,3 +166,22 @@ class AgentTestCase(TestCase):
 
         agent.process_scraping_result(item)     # check adding new ProductState
         agent.process_scraping_result(item)     # check updating ProductState.last_check field
+
+    def test_process_product__no_currency(self):
+        mock = FlowQueueBase()
+        agent = Agent(mock)
+
+        marketplace = Marketplace.objects.create(domain='www.test.by', price_currency='EU')
+
+        item = ProductScrapingResult(
+            url='https://www.test.by/test-url',
+            title='Test Product',
+            main_category='mobile',
+            description='test',
+            price=1049.0,
+            price_currency=None,
+        )
+        agent.process_scraping_result(item)     # check adding new ProductState
+
+        state = ProductState.objects.get(product_page__url=item.url)
+        assert state.price_currency == marketplace.price_currency

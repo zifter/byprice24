@@ -114,17 +114,15 @@ class StructuredDataMixin:
                      'aggregateRating' in properties else '0')
 
     @classmethod
-    def extract_price_currency(cls, offer, default_currency='BYN') -> str:
-        price_currency = ''
+    def extract_price_currency(cls, offer) -> Optional[str]:
+        price_currency = None
+
         if 'properties' in offer:
             price_currency = offer['properties']['priceCurrency']
 
         if price_currency == 'BYR':
             # gold apple is pretty strange
             price_currency = 'BYN'
-
-        if not price_currency:
-            price_currency = default_currency
 
         return price_currency
 
