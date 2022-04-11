@@ -392,24 +392,27 @@ def test_funtastik_by():
                 categories=[],
             ),
         ),
-        (
-            'lego-technic-42122.html',
-            ProductScrapingResult(
-                url='https://www.funtastik.by/igrushki/konstruktory-lego-30/konstruktor-lego-technic-42122-jeep-wrangler/',
-                title='Конструктор LEGO Technic 42122: Jeep Wrangler',
-                description='Конструктор LEGO Technic 42122: Jeep Wrangler\nОсобенности:\n- двери и капот открываются;\n- откидываются задние сиденья;\n- есть полноразмерное запасное колесо, лебедка и классические логотипы Jeep;\n- большие рифленые колеса обеспечивают отличное сцепление с поверхностями;\n- все детали прочно крепятся друг с другом;\n- можно объединять с другими наборами LEGO Technic.\nРазмер джипа в собранном виде: 24х13х12 см.\nМатериал: пластмасса.\nВ наборе: 665 деталей, инструкция.',
-                price=0.0,
-                price_currency='BYN',
-                availability=Availability.OutOfStock,
-                preview_url='https://www.funtastik.by/upload/resize_cache/iblock/e22/720_720_040cd750bba9870f18aada2478b24840a/e22f3755969a48d804ba1ef1cc8fd307.jpg',
-                main_category='buildingkit',
-                categories=[],
-            ),
-        ),
     ]
 
     for content_file, expected in tests:
         assert_spider(expected.url, content_file, expected)
+
+
+def test_spider_empty_price_currency():
+    url = 'https://www.funtastik.by/igrushki/konstruktory-lego-30/konstruktor-lego-technic-42122-jeep-wrangler/'
+    expected = ProductScrapingResult(
+        url=url,
+        title='Конструктор LEGO Technic 42122: Jeep Wrangler',
+        description='Конструктор LEGO Technic 42122: Jeep Wrangler\nОсобенности:\n- двери и капот открываются;\n- откидываются задние сиденья;\n- есть полноразмерное запасное колесо, лебедка и классические логотипы Jeep;\n- большие рифленые колеса обеспечивают отличное сцепление с поверхностями;\n- все детали прочно крепятся друг с другом;\n- можно объединять с другими наборами LEGO Technic.\nРазмер джипа в собранном виде: 24х13х12 см.\nМатериал: пластмасса.\nВ наборе: 665 деталей, инструкция.',
+        price=0.0,
+        price_currency=None,
+        availability=Availability.OutOfStock,
+        preview_url='https://www.funtastik.by/upload/resize_cache/iblock/e22/720_720_040cd750bba9870f18aada2478b24840a/e22f3755969a48d804ba1ef1cc8fd307.jpg',
+        main_category='buildingkit',
+        categories=[],
+    )
+
+    assert_spider(url, 'lego-technic-42122.html', expected)
 
 
 def test_spider_ozon_ru():

@@ -63,13 +63,12 @@ def test_result_ok():
     )
 
 
-def test_result_price_currency_is_not_empty():
-    with pytest.raises(ValueError):
-        ProductScrapingResult(
-            title='test',
-            main_category='mobile',
-            url='https://url.by',
-            description='test',
-            price=101.11,
-            price_currency='',
-        )
+def test_result_price_currency_is_empty():
+    result = ProductScrapingResult(
+        title='test',
+        main_category='mobile',
+        url='https://url.by',
+        description='test',
+        price=101.11,
+    )
+    assert result.price_currency is None
