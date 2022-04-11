@@ -5,7 +5,9 @@ from django.db import models
 from marketplace.models import Marketplace
 
 
-class ScrapingState(models.Model):
+class CrawlerState(models.Model):
+    class Meta:
+        db_table = 'crawlerstate'
     """
     General information about site
     """

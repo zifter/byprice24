@@ -1,12 +1,12 @@
 import abc
 
 from .structs import QueryRequest
-from .structs import ScrapingTarget
+from .structs import CrawlerTarget
 
 
 class FlowQueueBase:
     @abc.abstractmethod
-    def scrape(self, target: ScrapingTarget):
+    def scrape(self, target: CrawlerTarget):
         pass
 
     @abc.abstractmethod

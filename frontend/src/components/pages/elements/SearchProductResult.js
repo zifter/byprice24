@@ -36,8 +36,8 @@ const SearchProductResult = ({product}) => {
               textAlign={'right'}
               textWeight="700">
               <span className="span-from-price">От </span>
-              { product.min_offer.price } {' '}
-              { product.min_offer.price_currency}
+              { product.min_offer && product.min_offer.price } {' '}
+              { product.min_offer && product.min_offer.price_currency}
             </Text>
 
           </Col>

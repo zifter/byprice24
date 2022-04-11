@@ -1,4 +1,4 @@
-from crawler.models import ScrapingState
+from crawler.models import CrawlerState
 from marketplace.models import Marketplace
 
 
@@ -6,7 +6,7 @@ def test_scraping_state_printable_ok():
     marketplace = Marketplace(
         domain='www.test.by',
     )
-    state = ScrapingState(
+    state = CrawlerState(
         marketplace=marketplace,
     )
 

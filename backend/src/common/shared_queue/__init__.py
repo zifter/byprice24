@@ -3,7 +3,7 @@ from common.shared_queue.redis_queue import crawler_feed
 from common.shared_queue.redis_queue import crawler_result
 from common.shared_queue.redis_queue import FlowQueueRedis
 from common.shared_queue.redis_queue import search_query
-from common.shared_queue.structs import ScrapingTarget
+from common.shared_queue.structs import CrawlerTarget
 
 
 def get_flow_queue() -> FlowQueueBase:
@@ -12,6 +12,6 @@ def get_flow_queue() -> FlowQueueBase:
 
 __all__ = [
     'FlowQueueBase',
-    'ScrapingTarget',
+    'CrawlerTarget',
     'get_flow_queue',
 ]
