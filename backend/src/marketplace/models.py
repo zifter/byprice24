@@ -22,6 +22,7 @@ class Marketplace(models.Model):
     domain = models.CharField(max_length=32, unique=True)
     description = models.CharField(max_length=128, blank=True)
     logo_url = models.URLField()
+    delivery = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.domain)

@@ -10,6 +10,7 @@ marketplace = Marketplace(
     domain='www.test.by',
     description='too long',
     logo_url='https://test',
+    delivery=False
 )
 
 category = Category(

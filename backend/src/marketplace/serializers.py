@@ -14,6 +14,7 @@ class MarketplaceSerializer(serializers.ModelSerializer):
             'domain',
             'logo_url',
             'description',
+            'delivery',
         ]
 
 

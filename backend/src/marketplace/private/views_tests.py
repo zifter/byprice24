@@ -22,7 +22,8 @@ class MarketplaceViewTestCase(TestCase):
         ('id', 1),
         ('domain', 'www.21vek.by'),
         ('description', ''),
-        ('logo_url', 'https://www.21vek.by/img/up/logo_21vek.by.png')
+        ('logo_url', 'https://www.21vek.by/img/up/logo_21vek.by.png'),
+        ('delivery', True),
     ])
 
     def setUp(self):
