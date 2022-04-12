@@ -128,7 +128,7 @@ class Agent:
             created=data._result.timestamp,
             last_check=data._result.timestamp,
             price=data._result.price,
-            price_currency=data._result.price_currency,
+            price_currency=data._result.price_currency or marketplace.price_currency,
             rating=data._result.rating,
             review_count=data._result.review_count,
             availability=data._result.availability,
