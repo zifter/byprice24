@@ -22,8 +22,8 @@ setup-helm-diff-plugin:
 
 setup-helmfile:
 	$(info Install helmfile)
-	sudo wget "https://github.com/roboll/helmfile/releases/download/v0.140.0/helmfile_linux_amd64" -O /usr/bin/helmfile \
-	&& sudo chmod +x /usr/bin/helmfile
+	sudo wget "https://github.com/roboll/helmfile/releases/download/v0.140.0/helmfile_linux_amd64" -O /usr/local/bin/helmfile \
+	&& sudo chmod +x /usr/local/bin/helmfile
 
 setup-helmfile-mac:
 	$(info Install helmfile mac)
@@ -31,8 +31,8 @@ setup-helmfile-mac:
 
 setup-kind:
 	$(info Install kind)
-	sudo wget "https://github.com/kubernetes-sigs/kind/releases/download/v0.12.0/kind-linux-amd64" -O /usr/bin/kind \
-	&& sudo chmod +x /usr/bin/kind
+	sudo wget "https://github.com/kubernetes-sigs/kind/releases/download/v0.12.0/kind-linux-amd64" -O /usr/local/bin/kind \
+	&& sudo chmod +x /usr/local/bin/kind
 
 setup-kind-mac:
 	$(info Install kind mac)

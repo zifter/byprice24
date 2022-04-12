@@ -24,6 +24,7 @@ class MarketplaceViewTestCase(TestCase):
         ('description', ''),
         ('logo_url', 'https://www.21vek.by/img/up/logo_21vek.by.png'),
         ('delivery', True),
+        ('price_currency', 'BYN')
     ])
 
     def setUp(self):

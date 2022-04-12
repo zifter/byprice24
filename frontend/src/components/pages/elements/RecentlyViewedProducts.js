@@ -1,24 +1,26 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {
   Row, Col, Image,
   Text, Div,
 } from 'atomize';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
 import PropTypes from 'prop-types';
+import {useDispatch, useSelector} from 'react-redux';
+import {getRecentlyViewedProducts} from '../../../redux/productsReducer';
 
 const RecentlyViewedProduct = ({product}) => {
   return (
     <Div
-      border="0.3px solid"
-      borderColor="gray400"
-      rounded="sm"
+      border='0.3px solid'
+      borderColor='gray400'
+      rounded='sm'
       h='12rem'
-      hoverShadow="3"
+      hoverShadow='3'
       pos='relative'>
       <Image
         src={product.preview_url}
-        w="5rem"
+        w='5rem'
+        maxH='5rem'
         m={{t: '0.5rem'}}
       />
       {
@@ -45,7 +47,7 @@ const RecentlyViewedProduct = ({product}) => {
             w='80%'
             textWeight='400'
             m={{l: '1rem'}}
-            textTransform="capitalize"
+            textTransform='capitalize'
             textColor='gray900'
           >
             {product.category}
@@ -99,7 +101,9 @@ RecentlyViewedProducts.propTypes = {
 };
 
 const RecentlyViewedTab = () => {
-  const [recentlyViewedProducts, setRecentlyViewedProducts] = useState([]);
+  const recentlyViewedProducts = useSelector((state) =>
+    state.products.recentlyViewedProducts);
+  const dispatch = useDispatch();
 
   const recentlyViewed =
       JSON.parse(localStorage.getItem('recentlyViewed'));
@@ -112,17 +116,7 @@ const RecentlyViewedTab = () => {
   }
 
   const hook = () => {
-    const url = '/api/v1/products?id=' + listIds.join('&id=');
-    console.log('request', url);
-
-    axios
-        .get(url)
-        .then((response) => {
-          console.log('got', response.data);
-          setRecentlyViewedProducts(response.data);
-        }).catch(function(error) {
-          console.log(error);
-        });
+    dispatch(getRecentlyViewedProducts(listIds));
   };
   useEffect(hook, listIds);
   return (

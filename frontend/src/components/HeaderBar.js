@@ -1,6 +1,5 @@
 import React from 'react';
 import SearchBar from './elements/SearchBar.js';
-import PropTypes from 'prop-types';
 import {
   Container,
   Image,
@@ -11,7 +10,7 @@ import {
 } from 'atomize';
 import findPrice from './elements/find-price-gold.png';
 
-const HeaderBar = ({searchInModalWindow, setSearchInModalWindow}) => {
+const HeaderBar = () => {
   return (
     <Container
       pos="relative"
@@ -47,17 +46,11 @@ const HeaderBar = ({searchInModalWindow, setSearchInModalWindow}) => {
         </Col>
 
         <Col size={8}>
-          <SearchBar searchInModalWindow={searchInModalWindow}
-            setSearchInModalWindow={setSearchInModalWindow}/>
+          <SearchBar />
         </Col>
       </Row>
     </Container>
   );
-};
-
-HeaderBar.propTypes = {
-  searchInModalWindow: PropTypes.array,
-  setSearchInModalWindow: PropTypes.function,
 };
 
 export default HeaderBar;

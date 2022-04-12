@@ -4,6 +4,7 @@
 # https://docs.org/en/latest/topics/items.html
 from datetime import datetime
 from typing import List
+from typing import Optional
 
 import attr
 import pytz
@@ -26,7 +27,7 @@ class ProductScrapingResult:
     main_category: str = attr.ib(validator=attr.validators.instance_of(str))
     description: str = attr.ib(validator=attr.validators.instance_of(str))
     price: float = attr.ib(validator=attr.validators.instance_of(float))
-    price_currency: str = attr.ib(validator=[attr.validators.instance_of(str), is_not_empty])
+    price_currency: Optional[str] = attr.ib(default=None, validator=attr.validators.optional(attr.validators.instance_of(str)))
     timestamp: datetime = attr.ib(default=datetime.now(tz=pytz.UTC))
     availability: Availability = attr.ib(default=Availability.InStock, validator=attr.validators.instance_of(Availability))
     rating: float = attr.ib(default=0.0, validator=attr.validators.instance_of(float))

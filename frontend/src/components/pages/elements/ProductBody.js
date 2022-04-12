@@ -9,6 +9,7 @@ import {
   Col,
 } from 'atomize';
 
+
 const ProductBody = ({productData}) => {
   return (
     <Div p={{t: '1rem'}}>
