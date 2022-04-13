@@ -23,6 +23,7 @@ class MarketplaceViewTestCase(TestCase):
         ('domain', 'www.21vek.by'),
         ('description', ''),
         ('logo_url', 'https://www.21vek.by/img/up/logo_21vek.by.png'),
+        ('delivery', True),
         ('price_currency', 'BYN')
     ])
 

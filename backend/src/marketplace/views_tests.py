@@ -39,13 +39,13 @@ class ProductsViewTestCase(TestCase):
 
     def test_get_all_marketplaces(self):
         response = self.client.get('/api/v1/marketplaces')
-        marketplaces = [{'domain': 'www.21vek.by', 'logo_url': 'https://www.21vek.by/img/up/logo_21vek.by.png', 'description': ''},
-                        {'domain': 'www.ilp.by', 'logo_url': 'https://userimages.shopmanager.by/3100630/ilp-logo.png', 'description': ''}]
+        marketplaces = [{'domain': 'www.21vek.by', 'logo_url': 'https://www.21vek.by/img/up/logo_21vek.by.png', 'description': '', 'delivery': True},
+                        {'domain': 'www.ilp.by', 'logo_url': 'https://userimages.shopmanager.by/3100630/ilp-logo.png', 'description': '', 'delivery': True}]
         self.assertEqual(response.data, marketplaces)
 
     def test_get_marketplace(self):
         response = self.client.get('/api/v1/marketplaces/1')
-        marketplace = {'domain': 'www.21vek.by', 'logo_url': 'https://www.21vek.by/img/up/logo_21vek.by.png', 'description': ''}
+        marketplace = {'domain': 'www.21vek.by', 'logo_url': 'https://www.21vek.by/img/up/logo_21vek.by.png', 'description': '', 'delivery': True}
         self.assertEqual(response.data, marketplace)
 
     @patch('marketplace.counter_views.CounterViewsRedis.get_most_popular_products_id',

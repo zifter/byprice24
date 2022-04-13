@@ -4,48 +4,56 @@
     domain: www.21vek.by
     description: ''
     logo_url: https://www.21vek.by/img/up/logo_21vek.by.png
+    delivery: True
 - model: marketplace.marketplace
   pk: 2
   fields:
     domain: www.ilp.by
     description: ''
     logo_url: https://userimages.shopmanager.by/3100630/ilp-logo.png
+    delivery: True
 - model: marketplace.marketplace
   pk: 3
   fields:
     domain: www.amd.by
     description: ''
     logo_url: https://www.amd.by/image/catalog/img/logo1.png
+    delivery: True
 - model: marketplace.marketplace
   pk: 4
   fields:
     domain: www.funtastik.by
     description: ''
     logo_url: https://www.funtastik.by/bitrix/templates/funtastik5/images/logo.png
+    delivery: True
 - model: marketplace.marketplace
   pk: 5
   fields:
     domain: www.ozon.ru
     description: ''
     logo_url: https://cdn1.ozone.ru/s3/cms/05/t8f/wc200/doodle_1.pnggit
+    delivery: True
 - model: marketplace.marketplace
   pk: 6
   fields:
     domain: texus.by
     description: ''
     logo_url: https://texus.by/local/images/logo.png
+    delivery: True
 - model: marketplace.marketplace
   pk: 7
   fields:
     domain: goldapple.by
     description: ''
     logo_url: https://goldapple.by/static/version1640211628/frontend/Mygento/goldapple/ru_RU/images/app-logo.jpg
+    delivery: True
 - model: marketplace.marketplace
   pk: 8
   fields:
     domain: bukvaeshka.by
     description: ''
     logo_url: https://bukvaeshka.by/upload/CNext/9fe/%D0%9B%D0%9E%D0%93%D0%9E.jpg
+    delivery: True
 - model: marketplace.category
   pk: 3d_filament
   fields:
