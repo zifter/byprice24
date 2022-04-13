@@ -15,7 +15,8 @@ RUN npm run build
 
 # -----------------------------------------------------------------------------
 # SERVING IMAGE
-FROM fitiavana07/nginx-react
+FROM nginx:1.19.3-alpine
+COPY nginx.nginx /etc/nginx/conf.d/default.conf
 
 # Copy built files
 COPY --from=build-stage /app/build /usr/share/nginx/html

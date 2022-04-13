@@ -1,36 +1,18 @@
 architecture: standalone
-auth:
-  enabled: false
 
-cluster:
-  enabled: false
+serviceAccountName: elasticsearch
+serviceAccountCreate: true
 
-serviceAccount:
-  create: true
-  name: elasticsearch
+ES_JAVA_OPTS: "-Xms512m -Xmx768m"
 
-master:
-  resources:
-    limits:
-      memory: 768Mi
-    requests:
-      cpu: 150m
-      memory: 512Mi
+replicas: 1
 
-coordinating:
-  replicas: 1
-  resources:
-    limits:
-      memory: 768Mi
-    requests:
-      cpu: 50m
-      memory: 512Mi
+resources:
+  limits:
+    memory: 768Mi
+  requests:
+    cpu: 150m
+    memory: 512Mi
 
-data:
-  replicas: 1
-  resources:
-    limits:
-      memory: 2048Mi
-    requests:
-      cpu: 50m
-      memory: 2048Mi
+readinessProbe:
+  initialDelaySeconds: 30
