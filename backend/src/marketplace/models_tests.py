@@ -1,6 +1,7 @@
 import pytest
 from django.core.management import call_command
 from marketplace.models import Category
+from marketplace.models import CategoryGroup
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -16,6 +17,12 @@ marketplace = Marketplace(
 category = Category(
     name='electronic',
     keywords='electronic',
+)
+
+category_group = CategoryGroup(
+    category=category,
+    parent=None,
+    ru='Электроника',
 )
 
 product = Product(
@@ -43,6 +50,10 @@ def test_marketplace_is_printable_ok():
 
 def test_category_is_printable_ok():
     assert str(category) == 'electronic'
+
+
+def test_category_group_is_printable_ok():
+    assert str(category_group) == 'electronic'
 
 
 def test_product_is_printable_ok():

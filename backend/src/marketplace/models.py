@@ -36,6 +36,7 @@ class Category(models.Model):
     """
     name = models.CharField(max_length=128, unique=True, primary_key=True)
     keywords = models.CharField(max_length=512)
+    final = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = 'Category'
@@ -46,7 +47,27 @@ class Category(models.Model):
         return str(self.name)
 
     def __str__(self):
-        return str(self.name)
+        return self.semantic_id
+
+
+class CategoryGroup(models.Model):
+    """
+    General information about category
+    """
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    parent = models.ForeignKey(Category, related_name='childs', null=True, on_delete=models.CASCADE)
+    ru = models.CharField(max_length=128)
+
+    class Meta:
+        verbose_name = 'Category Group'
+        verbose_name_plural = 'Category Groups'
+
+    @property
+    def semantic_id(self) -> str:
+        return str(self.category)
+
+    def __str__(self):
+        return self.semantic_id
 
 
 class Product(models.Model):
@@ -60,14 +81,14 @@ class Product(models.Model):
 
     @property
     def semantic_id(self) -> str:
-        return f'{self.category.semantic_id}/{str(self.name).lower()}'
+        return f'{self.category}/{str(self.name).lower()}'
 
     @property
     def categories(self):
         return group_path(self.category)
 
     def __str__(self):
-        return str(self.name)
+        return self.semantic_id
 
 
 class ProductPage(models.Model):
