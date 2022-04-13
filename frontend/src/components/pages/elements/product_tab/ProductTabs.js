@@ -6,8 +6,8 @@ import {
   Container,
 } from 'atomize';
 
+
 const ProductTabs = ({productData}) => {
-  console.log(productData.product_pages[0].marketplace);
   return (
     <Container>
       <Div>

@@ -2,7 +2,7 @@ import django_rq
 from rq import Queue
 
 from .base import FlowQueueBase
-from .base import ScrapingTarget
+from .base import CrawlerTarget
 from .structs import QueryRequest
 
 CRAWLER_FEED = 'crawler-feed'
@@ -30,7 +30,7 @@ class FlowQueueRedis(FlowQueueBase):
         self.result = result
         self.query = query
 
-    def scrape(self, target: ScrapingTarget):
+    def scrape(self, target: CrawlerTarget):
         rq_job = self.feed.enqueue('crawler.tasks.scrape_target', target, job_timeout=-1, failure_ttl=-1)
         return rq_job.id
 

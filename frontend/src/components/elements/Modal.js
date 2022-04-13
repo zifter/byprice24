@@ -4,13 +4,23 @@ import {
   Div,
   Text,
 } from 'atomize';
-import PropTypes from 'prop-types';
 import './Modal.css';
+import {useDispatch, useSelector} from 'react-redux';
+import {setModal} from '../../redux/appReducer';
+import {setCurrentProductsAC} from '../../redux/productsReducer';
 
-
-const Modal = ({searchInModalWindow, setSearchInModalWindow}) => {
+const Modal = () => {
+  const autoCompleteSearch = useSelector((state) =>
+    state.products.autoCompleteSearch);
+  const isModalActive = useSelector((state) =>
+    state.app.isModalActive);
+  const dispatch = useDispatch();
+  const handleOnClick = () => {
+    dispatch(setModal(false));
+    dispatch(setCurrentProductsAC({id: 0}));
+  };
   return (<>
-    {searchInModalWindow && searchInModalWindow.map((t, i)=>{
+    {isModalActive && autoCompleteSearch.map((t, i)=>{
       return (<Div
         key={t.id}
         cursor="pointer"
@@ -18,7 +28,7 @@ const Modal = ({searchInModalWindow, setSearchInModalWindow}) => {
         pos="relative"
         p={{x: '1rem', y: '0.75rem'}}
         rounded={i === 0 ? {tl: 'md', tr: 'md'} :
-          (i === searchInModalWindow.length - 1) ?
+          (i === autoCompleteSearch.length - 1) ?
           {bl: 'md', br: 'md'}:''}
         bg="gray100"
         shadow="5"
@@ -26,9 +36,7 @@ const Modal = ({searchInModalWindow, setSearchInModalWindow}) => {
       >
         <Link to={`/products/${t.id}`}>
           <Text textColor="black"
-            onClick={()=>{
-              setSearchInModalWindow([]);
-            }}>{t.name}</Text>
+            onClick={handleOnClick}>{t.name}</Text>
         </Link>
       </Div>);
     })
@@ -37,8 +45,4 @@ const Modal = ({searchInModalWindow, setSearchInModalWindow}) => {
   );
 };
 
-Modal.propTypes = {
-  searchInModalWindow: PropTypes.array,
-  setSearchInModalWindow: PropTypes.function,
-};
 export default Modal;

@@ -1,5 +1,5 @@
 import pytest
-from common.shared_queue import ScrapingTarget
+from common.shared_queue import CrawlerTarget
 from crawler.tasks import process_product
 from crawler.tasks import scrape_target
 from marketplace.models import Category
@@ -9,7 +9,7 @@ from scraper.items import ProductScrapingResult
 
 @pytest.mark.django_db
 def test_scrape_target_ok():
-    target = ScrapingTarget(
+    target = CrawlerTarget(
         url='https://www.google.com',
         domain='www.amd.by',
         use_proxy=False,

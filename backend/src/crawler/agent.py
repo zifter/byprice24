@@ -5,8 +5,8 @@ from typing import List
 import pytz
 from common.shared_queue import FlowQueueBase
 from common.shared_queue import get_flow_queue
-from common.shared_queue import ScrapingTarget
-from crawler.models import ScrapingState
+from common.shared_queue import CrawlerTarget
+from crawler.models import CrawlerState
 from crawler.structs import ProductData
 from croniter import croniter
 from marketplace.models import Marketplace
@@ -35,7 +35,7 @@ class Agent:
         if marketplace:
             filter_args['marketplace'] = marketplace
 
-        objects: List[ScrapingState] = ScrapingState.objects.filter(**filter_args).order_by('pk')
+        objects: List[CrawlerState] = CrawlerState.objects.filter(**filter_args).order_by('pk')
 
         job_ids = []
 
@@ -45,7 +45,7 @@ class Agent:
             next_scraping = croniter(scraping_schedule, scraping.last_scraping).get_next(datetime)
 
             url = 'https://' + scraping.marketplace.domain if not url_page else url_page
-            target = ScrapingTarget(
+            target = CrawlerTarget(
                 url=url,
                 domain=scraping.marketplace.domain,
                 follow=follow,
@@ -58,7 +58,7 @@ class Agent:
 
         return job_ids
 
-    def scrape(self, target: ScrapingTarget):
+    def scrape(self, target: CrawlerTarget):
         logging.info('Scrape %s', target)
 
         settings = {
@@ -128,7 +128,7 @@ class Agent:
             created=data._result.timestamp,
             last_check=data._result.timestamp,
             price=data._result.price,
-            price_currency=data._result.price_currency,
+            price_currency=data._result.price_currency or marketplace.price_currency,
             rating=data._result.rating,
             review_count=data._result.review_count,
             availability=data._result.availability,

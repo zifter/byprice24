@@ -3,7 +3,8 @@
   fields:
     domain: www.21vek.by
     logo_url: https://www.21vek.by/img/up/logo_21vek.by.png
-- model: crawler.scrapingstate
+    delivery: True
+- model: crawler.crawlerstate
   pk: 1
   fields:
     marketplace: 1
@@ -14,7 +15,8 @@
   fields:
     domain: www.ilp.by
     logo_url: https://userimages.shopmanager.by/3100630/ilp-logo.png
-- model: crawler.scrapingstate
+    delivery: True
+- model: crawler.crawlerstate
   pk: 2
   fields:
     marketplace: 2
@@ -25,7 +27,8 @@
   fields:
     domain: www.amd.by
     logo_url: https://www.amd.by/image/catalog/img/logo1.png
-- model: crawler.scrapingstate
+    delivery: True
+- model: crawler.crawlerstate
   pk: 3
   fields:
     marketplace: 3
@@ -36,7 +39,8 @@
   fields:
     domain: www.funtastik.by
     logo_url: https://www.funtastik.by/bitrix/templates/funtastik5/images/logo.png
-- model: crawler.scrapingstate
+    delivery: True
+- model: crawler.crawlerstate
   pk: 4
   fields:
     marketplace: 4
@@ -47,7 +51,8 @@
   fields:
     domain: www.ozon.ru
     logo_url: https://cdn1.ozone.ru/s3/cms/05/t8f/wc200/doodle_1.pnggit
-- model: crawler.scrapingstate
+    delivery: True
+- model: crawler.crawlerstate
   pk: 5
   fields:
     marketplace: 5
@@ -58,7 +63,8 @@
   fields:
     domain: texus.by
     logo_url: https://texus.by/local/images/logo.png
-- model: crawler.scrapingstate
+    delivery: True
+- model: crawler.crawlerstate
   pk: 6
   fields:
     marketplace: 6
@@ -69,7 +75,8 @@
   fields:
     domain: goldapple.by
     logo_url: 	https://goldapple.by/static/version1640211628/frontend/Mygento/goldapple/ru_RU/images/app-logo.jpg
-- model: crawler.scrapingstate
+    delivery: True
+- model: crawler.crawlerstate
   pk: 7
   fields:
     marketplace: 7
@@ -80,7 +87,8 @@
   fields:
     domain: bukvaeshka.by
     logo_url: 	https://bukvaeshka.by/upload/CNext/9fe/%D0%9B%D0%9E%D0%93%D0%9E.jpg
-- model: crawler.scrapingstate
+    delivery: True
+- model: crawler.crawlerstate
   pk: 8
   fields:
     marketplace: 8
@@ -91,7 +99,8 @@
   fields:
     domain: ram.by
     logo_url: 	https://ram.by/images/logo.png
-- model: crawler.scrapingstate
+    delivery: True
+- model: crawler.crawlerstate
   pk: 9
   fields:
     marketplace: 9

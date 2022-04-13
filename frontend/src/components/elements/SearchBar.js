@@ -1,5 +1,9 @@
 import React, {useState} from 'react';
+import Modal from './Modal';
+import {useDispatch} from 'react-redux';
+import {setModal} from '../../redux/appReducer';
 import {useLocation, useNavigate} from 'react-router-dom';
+import {getAutoCompleteSearch} from '../../redux/productsReducer';
 import {
   Button,
   Input,
@@ -7,20 +11,18 @@ import {
   Div,
   Container,
 } from 'atomize';
-import axios from 'axios';
-import PropTypes from 'prop-types';
-import Modal from './Modal';
 
-const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
+const SearchBar = () => {
   const search = useLocation().search;
   const initialQuery = new URLSearchParams(search).get('q');
   const [query, setQuery] = useState(initialQuery);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    setSearchInModalWindow([]);
+    dispatch(setModal(false));
     if (query) {
       navigate({
         pathname: '/search',
@@ -31,19 +33,7 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
 
   const handleOnChange = (e) => {
     setQuery(e.target.value);
-    const url = '/api/v1/search-autocomplete/products?query=' + query;
-
-    axios
-        .get(url)
-        .then((response) => {
-          console.log('got', response.data);
-          setSearchInModalWindow([]);
-          setSearchInModalWindow(response.data);
-        }).catch(function(error) {
-          setSearchInModalWindow([]);
-          console.log(error);
-        }).finally(function(error) {
-        });
+    dispatch(getAutoCompleteSearch(query));
   };
 
   return (
@@ -61,6 +51,7 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
           id="input-search"
           placeholder="Искать"
           value={query}
+          autocomplete="off"
           onClick={handleOnChange}
           onChange={handleOnChange}
           suffix={
@@ -89,16 +80,10 @@ const SearchBar = ({searchInModalWindow, setSearchInModalWindow}) => {
           w="100%"
           rounded="md"
           bottom="0rem">
-          <Modal searchInModalWindow={searchInModalWindow}
-            setSearchInModalWindow={setSearchInModalWindow}/>
+          <Modal />
         </Div></form>
     </Container>
   );
-};
-
-SearchBar.propTypes = {
-  searchInModalWindow: PropTypes.array,
-  setSearchInModalWindow: PropTypes.function,
 };
 
 export default SearchBar;

@@ -1,11 +1,11 @@
-from common.shared_queue import ScrapingTarget
+from common.shared_queue import CrawlerTarget
 from crawler.agent import get_agent
 from django_rq import job
 from scraper.items import ProductScrapingResult
 
 
 @job
-def scrape_target(target: ScrapingTarget):
+def scrape_target(target: CrawlerTarget):
     agent = get_agent()
     agent.scrape(target)
 
