@@ -20,9 +20,9 @@ class MarketplaceViewTestCase(TestCase):
 
     expected = OrderedDict([
         ('id', 1),
-        ('domain', 'localhost'),
+        ('domain', 'www.21vek.by'),
         ('description', ''),
-        ('logo_url', 'https://www.test.by/')
+        ('logo_url', 'https://www.21vek.by/img/up/logo_21vek.by.png')
     ])
 
     def setUp(self):
@@ -36,7 +36,7 @@ class MarketplaceViewTestCase(TestCase):
         self.assertEqual(response.data['results'][0], MarketplaceViewTestCase.expected)
 
     def test_get_marketplace_ok(self):
-        response = self.client.get('/api/internal/marketplaces/localhost')
+        response = self.client.get('/api/internal/marketplaces/www.21vek.by')
         self.assertEqual(response.data, MarketplaceViewTestCase.expected)
 
     def test_get_marketplace_not_found(self):

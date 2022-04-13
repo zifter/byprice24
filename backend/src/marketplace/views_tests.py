@@ -1,3 +1,6 @@
+from unittest.mock import Mock
+from unittest.mock import patch
+
 from django.test import Client
 from django.test import TestCase
 
@@ -36,11 +39,24 @@ class ProductsViewTestCase(TestCase):
 
     def test_get_all_marketplaces(self):
         response = self.client.get('/api/v1/marketplaces')
-        marketplaces = [{'domain': 'localhost', 'logo_url': 'https://www.test.by/', 'description': ''},
-                        {'domain': '0.0.0.0', 'logo_url': 'https://www.test2.by/', 'description': ''}]
+        marketplaces = [{'domain': 'www.21vek.by', 'logo_url': 'https://www.21vek.by/img/up/logo_21vek.by.png', 'description': ''},
+                        {'domain': 'www.ilp.by', 'logo_url': 'https://userimages.shopmanager.by/3100630/ilp-logo.png', 'description': ''}]
         self.assertEqual(response.data, marketplaces)
 
     def test_get_marketplace(self):
         response = self.client.get('/api/v1/marketplaces/1')
-        marketplace = {'domain': 'localhost', 'logo_url': 'https://www.test.by/', 'description': ''}
+        marketplace = {'domain': 'www.21vek.by', 'logo_url': 'https://www.21vek.by/img/up/logo_21vek.by.png', 'description': ''}
         self.assertEqual(response.data, marketplace)
+
+    @patch('marketplace.counter_views.CounterViewsRedis.get_most_popular_products_id',
+           (lambda: Mock(return_value=[]))())
+    def test_get_no_popular_products(self):
+        response = self.client.get('/api/v1/popular-products')
+        self.assertEqual(response.status_code, 404)
+
+    @patch('marketplace.counter_views.CounterViewsRedis.get_most_popular_products_id',
+           (lambda: Mock(return_value=[2, 3, 4]))())
+    def test_get_popular_products(self):
+        response = self.client.get('/api/v1/popular-products')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data[0]['id'], 2)

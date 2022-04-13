@@ -29,7 +29,8 @@ TextContact.propTypes = {
 };
 const Contacts = () => {
   return (
-    <Container p="0" m={{t: '2rem', l: '12rem'}} d="flex"
+    <Container minH="80vh" p="0" m={{t: '2rem', l: '12rem'}}
+      d="flex"
       flexDir="column" align="flex-start">
       <TextContact tag={'h1'} text={'Контакты'} textSize={'display1'}
         bottomValue={'0.5rem'} textWeight={'600'}/>

@@ -31,7 +31,7 @@ setup-helmfile-mac:
 
 setup-kind:
 	$(info Install kind)
-	sudo wget "https://github.com/kubernetes-sigs/kind/releases/download/v0.11.1/kind-linux-amd64" -O /usr/bin/kind \
+	sudo wget "https://github.com/kubernetes-sigs/kind/releases/download/v0.12.0/kind-linux-amd64" -O /usr/bin/kind \
 	&& sudo chmod +x /usr/bin/kind
 
 setup-kind-mac:

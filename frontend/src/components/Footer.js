@@ -7,8 +7,8 @@ const Footer = () => {
   return (
     <Container
       pos="relative"
-      h="100%"
       p="0"
+      top="0rem"
       bottom="0">
       <Row
         d="flex"
@@ -33,6 +33,7 @@ const Footer = () => {
             m={{b: '0rem'}}
             textColor="black"
           >
+
               Kонтакты
 
           </Anchor>

@@ -1,3 +1,5 @@
+from django_redis import get_redis_connection
+from marketplace.counter_views import CounterViewsRedis
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.raw_queries import SELECT_PRODUCT_WITH_MIN_PRICE_BY_IDS
@@ -21,6 +23,11 @@ class ProductDetailsViewSet(RetrieveAPIView):
     ordering_fields = ('id',)
     ordering = ('id',)
 
+    def retrieve(self, request, *args, **kwargs):
+        resp = super().retrieve(request, *args, **kwargs)
+        CounterViewsRedis(get_redis_connection()).increment_product_views(kwargs['id'])
+        return resp
+
 
 class ProductsViewSet(ListAPIView):
     """
@@ -29,17 +36,6 @@ class ProductsViewSet(ListAPIView):
     model = Product
     queryset = Product.objects
     serializer_class = ProductListSerializer
-
-    def list(self, request, *args, **kwargs):
-        queryset = self.get_queryset()
-
-        page = self.paginate_queryset(queryset)
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
-
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
 
     def get_queryset(self):
         params = self.request.query_params.getlist('id')
@@ -53,6 +49,35 @@ class ProductsViewSet(ListAPIView):
             [
                 list_of_product_ids,  # To order products as the order of passed ids was
                 tuple(list_of_product_ids)  # To get products by ids
+            ])
+
+
+class PopularProductsViewSet(ListAPIView):
+    """
+    API Products for getting the most popular products
+    """
+    model = Product
+    queryset = Product.objects
+    serializer_class = ProductListSerializer
+    number_of_products = 5
+
+    def list(self, request, *args, **kwargs):
+        if not self.get_queryset():
+            return Response(status=404)
+        return super().list(request, *args, **kwargs)
+
+    def get_queryset(self):
+        counter_views_obj = CounterViewsRedis(get_redis_connection())
+        product_ids = counter_views_obj.get_most_popular_products_id(self.number_of_products)
+
+        if not product_ids:
+            return []
+
+        return self.model.objects.raw(
+            SELECT_PRODUCT_WITH_MIN_PRICE_BY_IDS,
+            [
+                product_ids,
+                tuple(product_ids)
             ])
 
 

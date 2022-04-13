@@ -49,7 +49,7 @@ def test_product_is_printable_ok():
 
 
 def test_semantic_id_ok():
-    assert product.semantic_id() == 'electronic/ipone'
+    assert product.semantic_id == 'electronic/ipone'
 
 
 def test_product_page_is_printable_ok():
@@ -67,5 +67,5 @@ def test_load_dump_ok():
 
 @pytest.mark.django_db
 def test_load_prod_ok():
-    call_command('loaddata', 'prod/markets.yaml')
     call_command('loaddata', 'prod/categories.yaml')
+    call_command('loaddata', 'prod/marketplaces.yaml')
