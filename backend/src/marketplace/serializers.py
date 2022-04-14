@@ -68,6 +68,7 @@ class ProductListSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     name = serializers.CharField()
     category = serializers.CharField()
+    category_tr = serializers.CharField()
     preview_url = serializers.CharField()
     min_offer = SerializerMethodField()
 
