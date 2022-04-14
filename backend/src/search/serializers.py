@@ -11,6 +11,7 @@ class ProductSearchSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     name = serializers.CharField()
     category = serializers.CharField()
+    category_tr = serializers.CharField()
     description = serializers.CharField()
     preview_url = serializers.CharField()
     marketplaces_count_instock = serializers.IntegerField()

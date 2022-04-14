@@ -11,6 +11,7 @@ from django.test import TestCase
 class SearchProductViewTestCase(TestCase):
     fixtures = [
         'test/categories.yaml',
+        'test/category_groups.yaml',
         'test/marketplaces.yaml',
         'test/products.yaml',
         'test/product_pages.yaml',
@@ -21,6 +22,7 @@ class SearchProductViewTestCase(TestCase):
         ('id', 2),
         ('name', 'Acer Extensa 15 EX215-53G-7014 NX.EGCER.009'),
         ('category', 'notebook'),
+        ('category_tr', 'Ноутбуки'),
         ('description', ''),
         ('preview_url', None),
         ('marketplaces_count_instock', 2),
@@ -36,6 +38,7 @@ class SearchProductViewTestCase(TestCase):
         ('id', 3),
         ('name', 'Acer Extensa 15 EX215-54-348Z NX.EGJER.00M'),
         ('category', 'notebook'),
+        ('category_tr', 'Ноутбуки'),
         ('description', ''),
         ('preview_url', None),
         ('marketplaces_count_instock', 1),

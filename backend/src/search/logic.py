@@ -8,9 +8,7 @@ from elasticsearch_dsl import Q
 from marketplace.models import Product
 
 from .documents import ProductDocument
-from .raw_queries import SELECT_PRODUCT_WITH_PAGES_AND_STATES
-from .raw_queries import SELECT_PRODUCT_WITH_PAGES_AND_STATES_ORDER_BY_PRICE_ASC
-from .raw_queries import SELECT_PRODUCT_WITH_PAGES_AND_STATES_ORDER_BY_PRICE_DESC
+from .raw_queries import SELECT_PRODUCTS_PAGINATION
 
 
 def threshold(title: str) -> float:
@@ -80,17 +78,21 @@ class ProductElasticSearch:
 
 class ProductSearch:
     ORDERING_SETTINGS = {
-        'price_desc': SELECT_PRODUCT_WITH_PAGES_AND_STATES_ORDER_BY_PRICE_DESC,
-        'price_asc': SELECT_PRODUCT_WITH_PAGES_AND_STATES_ORDER_BY_PRICE_ASC
+        'price_desc': 'ORDER BY MIN(price) DESC',
+        'price_asc': 'ORDER BY MIN(price) ASC',
     }
 
-    def get_queryset(self, query: str, page: int, page_size: int, ordering: str) -> Tuple[QuerySet, int]:
+    def get_raw_query(self, k) -> str:
+        order = ''
+        if k in self.ORDERING_SETTINGS:
+            order = self.ORDERING_SETTINGS[k]
+
+        return SELECT_PRODUCTS_PAGINATION.replace('%(order)', order)
+
+    def get_queryset(self, query: str, page: int, page_size: int, ordering: Optional[str]) -> Tuple[QuerySet, int]:
         ids, count = self.get_ids_of_matched_products(query, page, page_size)
         if ids:
-            raw_query = SELECT_PRODUCT_WITH_PAGES_AND_STATES
-            if ordering in self.ORDERING_SETTINGS.keys():
-                raw_query = self.ORDERING_SETTINGS[ordering]
-
+            raw_query = self.get_raw_query(ordering)
             return Product.objects.raw(raw_query, [tuple(ids)]), count
 
         return Product.objects.none(), count

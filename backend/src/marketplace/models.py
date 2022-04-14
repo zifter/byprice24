@@ -3,7 +3,6 @@ from datetime import datetime
 import pytz
 from common.item_types import Availability
 from django.db import models
-from marketplace.category_group import group_path
 
 """
 Some requirements and thoughts for data model:
@@ -54,7 +53,7 @@ class CategoryGroup(models.Model):
     """
     General information about category
     """
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, unique=True)
     parent = models.ForeignKey(Category, related_name='childs', null=True, on_delete=models.CASCADE)
     ru = models.CharField(max_length=128)
 
@@ -83,12 +82,8 @@ class Product(models.Model):
     def semantic_id(self) -> str:
         return f'{self.category}/{str(self.name).lower()}'
 
-    @property
-    def categories(self):
-        return group_path(self.category)
-
     def __str__(self):
-        return self.semantic_id
+        return str(self.name)
 
 
 class ProductPage(models.Model):
