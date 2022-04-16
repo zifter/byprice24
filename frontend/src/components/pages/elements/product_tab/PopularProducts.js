@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {useDispatch, useSelector} from 'react-redux';
 import {getPopularProducts} from '../../../../redux/productsReducer';
+import NotFound from '../../NotFound';
 
 const PopularProduct = ({product}) => {
   return (
@@ -109,6 +110,13 @@ const PopularTab = () => {
     dispatch(getPopularProducts());
   };
   useEffect(hook, []);
+
+  if (!popularProducts[0].name) {
+    return (
+      <NotFound/>
+    );
+  }
+
   return (
     <Container
       minH="83vh">

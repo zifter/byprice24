@@ -119,6 +119,15 @@ const RecentlyViewedTab = () => {
     dispatch(getRecentlyViewedProducts(listIds));
   };
   useEffect(hook, listIds);
+
+  if (!recentlyViewedProducts[0].name) {
+    return (
+      <Text textSize='display3' m={{t: '5rem'}}>
+        ДОБРО ПОЖАЛОВАТЬ!
+      </Text>
+    );
+  }
+
   return (
     <Row>
       <Row m={{b: '1rem'}}>
