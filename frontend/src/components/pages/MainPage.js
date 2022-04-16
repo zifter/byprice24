@@ -10,6 +10,7 @@ import MarketplaceTab from './MarketplacesPage';
 import {setModal} from '../../redux/appReducer';
 import {useDispatch, useSelector} from 'react-redux';
 import {Navigate, Route, Routes} from 'react-router-dom';
+import PopularTab from "./elements/product_tab/PopularProducts";
 import {
   Container,
 } from 'atomize';
@@ -36,6 +37,7 @@ function MainPage() {
         <Route path="*" element={<Navigate replace to="/404" />} />
         <Route exact path="/disclaimer" element={<DisclaimerPage />} />
         <Route exact path="/marketplace" element={<MarketplaceTab />} />
+        <Route exact path="/popular" element={<PopularTab />} />
       </Routes>
       <Container
         className="app-footer"
