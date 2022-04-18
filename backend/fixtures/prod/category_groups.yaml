@@ -25,16 +25,6 @@
     ru: Фитнес-браслеты
 - model: marketplace.categorygroup
   fields:
-    category: smartwatch
-    parent: smartwatch
-    ru: Умные часы
-- model: marketplace.categorygroup
-  fields:
-    category: smartwatch
-    parent: smartwatch
-    ru: Детские часы-телефон
-- model: marketplace.categorygroup
-  fields:
     category: portablecharger
     parent: smartwatch
     ru: Портативные зарядные устройства
@@ -85,19 +75,9 @@
     ru: Зарядные устройства
 - model: marketplace.categorygroup
   fields:
-    category: chargersmobile
-    parent: chargersmobile
-    ru: Беспроводные зарядные устройства
-- model: marketplace.categorygroup
-  fields:
     category: speakerdock
     parent: chargersmobile
     ru: Док-станции для смартфонов
-- model: marketplace.categorygroup
-  fields:
-    category: mobile
-    parent: speakerdock
-    ru: Кнопочные телефоны
 - model: marketplace.categorygroup
   fields:
     category: televidenie-i-video
@@ -170,11 +150,6 @@
     ru: Клавиатуры для Smart TV
 - model: marketplace.categorygroup
   fields:
-    category: cable
-    parent: keyboards
-    ru: Кабели, адаптеры для AV-аппаратуры
-- model: marketplace.categorygroup
-  fields:
     category: remote
     parent: cable
     ru: Универсальные пульты ДУ
@@ -205,26 +180,6 @@
     ru: Чехлы для планшетов
 - model: marketplace.categorygroup
   fields:
-    category: portablecharger
-    parent: tabletcase
-    ru: Портативные зарядные устройства
-- model: marketplace.categorygroup
-  fields:
-    category: memcards
-    parent: portablecharger
-    ru: Карты памяти
-- model: marketplace.categorygroup
-  fields:
-    category: cable
-    parent: memcards
-    ru: Кабели, адаптеры
-- model: marketplace.categorygroup
-  fields:
-    category: chargersmobile
-    parent: cable
-    ru: Зарядные устройства
-- model: marketplace.categorygroup
-  fields:
     category: wirelessadapter
     parent: chargersmobile
     ru: 4G и 3G-модемы
@@ -238,11 +193,6 @@
     category: audiotehnika
     parent: planshety-elektronnye-knigi
     ru: Аудиотехника
-- model: marketplace.categorygroup
-  fields:
-    category: headphones
-    parent: audiotehnika
-    ru: Наушники
 - model: marketplace.categorygroup
   fields:
     category: portableamp
@@ -265,11 +215,6 @@
     ru: Bluetooth колонки
 - model: marketplace.categorygroup
   fields:
-    category: wspeaker
-    parent: wspeaker
-    ru: Умные колонки
-- model: marketplace.categorygroup
-  fields:
     category: microphones
     parent: wspeaker
     ru: Микрофоны
@@ -280,11 +225,6 @@
     ru: Мультимедиа акустика
 - model: marketplace.categorygroup
   fields:
-    category: soundbar
-    parent: sound
-    ru: Саундбары и домашние кинотеатры
-- model: marketplace.categorygroup
-  fields:
     category: radio
     parent: soundbar
     ru: Радиоприемники
@@ -293,11 +233,6 @@
     category: hifiaudio
     parent: radio
     ru: Колонки для вечеринок (патибоксы)
-- model: marketplace.categorygroup
-  fields:
-    category: hifiaudio
-    parent: hifiaudio
-    ru: Музыкальные центры
 - model: marketplace.categorygroup
   fields:
     category: clockradio
@@ -315,34 +250,9 @@
     ru: Диктофоны
 - model: marketplace.categorygroup
   fields:
-    category: portableamp
-    parent: voicerecorder
-    ru: Bluetooth аудиоресиверы
-- model: marketplace.categorygroup
-  fields:
-    category: cable
-    parent: portableamp
-    ru: Аудиокабели
-- model: marketplace.categorygroup
-  fields:
     category: hi-fi-audio
     parent: audiotehnika
     ru: Hi-Fi аудио
-- model: marketplace.categorygroup
-  fields:
-    category: player
-    parent: hi-fi-audio
-    ru: Hi-Fi плееры
-- model: marketplace.categorygroup
-  fields:
-    category: headphones
-    parent: player
-    ru: Аудиофильские наушники
-- model: marketplace.categorygroup
-  fields:
-    category: portableamp
-    parent: headphones
-    ru: Настольные усилители для наушников
 - model: marketplace.categorygroup
   fields:
     category: hifisound
@@ -358,16 +268,6 @@
     category: recievers
     parent: insthornacoust
     ru: AV-ресиверы и процессоры
-- model: marketplace.categorygroup
-  fields:
-    category: recievers
-    parent: recievers
-    ru: Усилители, предусилители и стереоресиверы
-- model: marketplace.categorygroup
-  fields:
-    category: recievers
-    parent: recievers
-    ru: Ламповые усилители
 - model: marketplace.categorygroup
   fields:
     category: cd_player
@@ -393,11 +293,6 @@
     category: turntableaccess
     parent: phonopreamps
     ru: Звукосниматели и тонармы
-- model: marketplace.categorygroup
-  fields:
-    category: cable
-    parent: turntableaccess
-    ru: Акустические кабели
 - model: marketplace.categorygroup
   fields:
     category: foto--i-videotehnika
@@ -435,11 +330,6 @@
     ru: Фотопринтеры
 - model: marketplace.categorygroup
   fields:
-    category: printers
-    parent: printers
-    ru: Мобильные фотопринтеры
-- model: marketplace.categorygroup
-  fields:
     category: tripod
     parent: printers
     ru: Штативы
@@ -448,11 +338,6 @@
     category: tripod_acs
     parent: tripod
     ru: Aксессуары для штативов и стабилизаторов
-- model: marketplace.categorygroup
-  fields:
-    category: memcards
-    parent: tripod_acs
-    ru: Карты памяти
 - model: marketplace.categorygroup
   fields:
     category: photoframe
@@ -545,21 +430,6 @@
     ru: Геймпады для Xbox
 - model: marketplace.categorygroup
   fields:
-    category: controllers
-    parent: controllers
-    ru: Геймпады для PlayStation
-- model: marketplace.categorygroup
-  fields:
-    category: controllers
-    parent: controllers
-    ru: Зарядные устройства
-- model: marketplace.categorygroup
-  fields:
-    category: headphones
-    parent: controllers
-    ru: Геймерские наушники
-- model: marketplace.categorygroup
-  fields:
     category: office_chair
     parent: headphones
     ru: Игровые кресла
@@ -570,34 +440,9 @@
     ru: Игровые мыши
 - model: marketplace.categorygroup
   fields:
-    category: keyboards
-    parent: mouse
-    ru: Игровые клавиатуры
-- model: marketplace.categorygroup
-  fields:
-    category: controllers
-    parent: keyboards
-    ru: Чехлы для приставок
-- model: marketplace.categorygroup
-  fields:
     category: gamemerch
     parent: controllers
     ru: Фигурки-держатели для геймпадов и смартфонов
-- model: marketplace.categorygroup
-  fields:
-    category: controllers
-    parent: gamemerch
-    ru: Геймпады с держателем для телефона
-- model: marketplace.categorygroup
-  fields:
-    category: gamemerch
-    parent: controllers
-    ru: Светильники для фанатов
-- model: marketplace.categorygroup
-  fields:
-    category: gamemerch
-    parent: gamemerch
-    ru: Наклейки
 - model: marketplace.categorygroup
   fields:
     category: robots
@@ -610,16 +455,6 @@
     ru: Гаджеты
 - model: marketplace.categorygroup
   fields:
-    category: smartwatch
-    parent: gadzhety
-    ru: Умные часы
-- model: marketplace.categorygroup
-  fields:
-    category: smartwatch
-    parent: smartwatch
-    ru: Фитнес-браслеты
-- model: marketplace.categorygroup
-  fields:
     category: heart_rate
     parent: smartwatch
     ru: Пульсометры
@@ -628,11 +463,6 @@
     category: replacementstrap
     parent: heart_rate
     ru: Сменные ремешки и браслеты
-- model: marketplace.categorygroup
-  fields:
-    category: virtualreality
-    parent: replacementstrap
-    ru: Очки виртуальной реальности
 - model: marketplace.categorygroup
   fields:
     category: scales
@@ -673,16 +503,6 @@
     category: lightbulb
     parent: thermostat
     ru: Умные лампочки
-- model: marketplace.categorygroup
-  fields:
-    category: smart_home
-    parent: lightbulb
-    ru: Умные розетки
-- model: marketplace.categorygroup
-  fields:
-    category: wspeaker
-    parent: smart_home
-    ru: Умные колонки
 - model: marketplace.categorygroup
   fields:
     category: ipcamera
@@ -735,11 +555,6 @@
     ru: Телефония и связь
 - model: marketplace.categorygroup
   fields:
-    category: mobile
-    parent: telefonija-i-svjaz
-    ru: Смартфоны
-- model: marketplace.categorygroup
-  fields:
     category: dect
     parent: mobile
     ru: Радиотелефоны DECT
@@ -748,26 +563,6 @@
     category: phone
     parent: dect
     ru: Проводные телефоны
-- model: marketplace.categorygroup
-  fields:
-    category: phone
-    parent: phone
-    ru: Проводные IP-телефоны
-- model: marketplace.categorygroup
-  fields:
-    category: dect
-    parent: phone
-    ru: Беспроводные IP-телефоны
-- model: marketplace.categorygroup
-  fields:
-    category: mobile
-    parent: dect
-    ru: Кнопочные телефоны
-- model: marketplace.categorygroup
-  fields:
-    category: wirelessadapter
-    parent: mobile
-    ru: 3G-модемы
 - model: marketplace.categorygroup
   fields:
     category: fax
@@ -815,11 +610,6 @@
     ru: Гитарные комбоусилители
 - model: marketplace.categorygroup
   fields:
-    category: microphones
-    parent: guitarcombo
-    ru: Микрофоны
-- model: marketplace.categorygroup
-  fields:
     category: acoustic_acs
     parent: microphones
     ru: Аксессуары для акустики и микрофонов
@@ -860,39 +650,14 @@
     ru: Ноутбуки
 - model: marketplace.categorygroup
   fields:
-    category: notebook
-    parent: notebook
-    ru: Игровые ноутбуки
-- model: marketplace.categorygroup
-  fields:
-    category: tabletpc
-    parent: notebook
-    ru: Планшеты
-- model: marketplace.categorygroup
-  fields:
     category: monoblock
     parent: tabletpc
     ru: Моноблоки
 - model: marketplace.categorygroup
   fields:
-    category: desktoppc
-    parent: monoblock
-    ru: Компьютеры
-- model: marketplace.categorygroup
-  fields:
     category: display
     parent: desktoppc
     ru: Все мониторы
-- model: marketplace.categorygroup
-  fields:
-    category: display
-    parent: display
-    ru: Игровые мониторы
-- model: marketplace.categorygroup
-  fields:
-    category: display
-    parent: display
-    ru: Профессиональные мониторы
 - model: marketplace.categorygroup
   fields:
     category: komplektujuschie
@@ -970,16 +735,6 @@
     ru: Техника для печати и дизайна
 - model: marketplace.categorygroup
   fields:
-    category: printers
-    parent: tehnika-dlja-pechati-i-dizajna
-    ru: Принтеры и МФУ
-- model: marketplace.categorygroup
-  fields:
-    category: cable
-    parent: printers
-    ru: Кабели для принтеров
-- model: marketplace.categorygroup
-  fields:
     category: scanner
     parent: cable
     ru: Сканеры
@@ -1050,31 +805,6 @@
     ru: Манипуляторы и устройства ввода
 - model: marketplace.categorygroup
   fields:
-    category: mouse
-    parent: manipuljatory-i-ustrojstva-vvoda
-    ru: Мыши
-- model: marketplace.categorygroup
-  fields:
-    category: keyboards
-    parent: mouse
-    ru: Клавиатуры
-- model: marketplace.categorygroup
-  fields:
-    category: controllers
-    parent: keyboards
-    ru: Игровые контроллеры и аксессуары
-- model: marketplace.categorygroup
-  fields:
-    category: tablets
-    parent: controllers
-    ru: Графические планшеты
-- model: marketplace.categorygroup
-  fields:
-    category: stylus_pens
-    parent: tablets
-    ru: Стилусы и сменные наконечники
-- model: marketplace.categorygroup
-  fields:
     category: peripheralkits
     parent: stylus_pens
     ru: Наборы периферии (клавиатура + мышь)
@@ -1090,16 +820,6 @@
     ru: Хранение данных
 - model: marketplace.categorygroup
   fields:
-    category: ssd
-    parent: hranenie-dannyh
-    ru: SSD
-- model: marketplace.categorygroup
-  fields:
-    category: hdd
-    parent: ssd
-    ru: Жесткие диски
-- model: marketplace.categorygroup
-  fields:
     category: externalhdd
     parent: hdd
     ru: Внешние накопители (HDD и SSD)
@@ -1108,11 +828,6 @@
     category: usbflash
     parent: externalhdd
     ru: Флешки USB
-- model: marketplace.categorygroup
-  fields:
-    category: memcards
-    parent: usbflash
-    ru: Карты памяти
 - model: marketplace.categorygroup
   fields:
     category: hddbox
@@ -1125,11 +840,6 @@
     ru: Сетевые накопители (NAS)
 - model: marketplace.categorygroup
   fields:
-    category: optical
-    parent: nas
-    ru: Оптические приводы
-- model: marketplace.categorygroup
-  fields:
     category: opticaldisk
     parent: optical
     ru: Оптические диски
@@ -1140,39 +850,14 @@
     ru: USB-хабы и док-станции
 - model: marketplace.categorygroup
   fields:
-    category: cardreaders
-    parent: usbhub
-    ru: Карт-ридеры
-- model: marketplace.categorygroup
-  fields:
     category: multimedia-periferija
     parent: hranenie-dannyh
     ru: Мультимедиа периферия
 - model: marketplace.categorygroup
   fields:
-    category: sound
-    parent: multimedia-periferija
-    ru: Компьютерная акустика
-- model: marketplace.categorygroup
-  fields:
-    category: headphones
-    parent: sound
-    ru: Наушники
-- model: marketplace.categorygroup
-  fields:
     category: webcams
     parent: headphones
     ru: Веб-камеры
-- model: marketplace.categorygroup
-  fields:
-    category: ipcamera
-    parent: webcams
-    ru: IP-камеры
-- model: marketplace.categorygroup
-  fields:
-    category: audiointerface
-    parent: ipcamera
-    ru: Аудиоинтерфейсы
 - model: marketplace.categorygroup
   fields:
     category: setevoe-oborudovanie
@@ -1185,34 +870,9 @@
     ru: Беспроводные маршрутизаторы
 - model: marketplace.categorygroup
   fields:
-    category: wrouter
-    parent: wrouter
-    ru: 4G маршрутизаторы
-- model: marketplace.categorygroup
-  fields:
     category: wirelessap
     parent: wrouter
     ru: Беспроводные точки доступа
-- model: marketplace.categorygroup
-  fields:
-    category: wirelessap
-    parent: wirelessap
-    ru: Усилители Wi-Fi
-- model: marketplace.categorygroup
-  fields:
-    category: wirelessadapter
-    parent: wirelessap
-    ru: 4G и 3G-модемы
-- model: marketplace.categorygroup
-  fields:
-    category: wirelessadapter
-    parent: wirelessadapter
-    ru: Беспроводные адаптеры
-- model: marketplace.categorygroup
-  fields:
-    category: networkadapter
-    parent: wirelessadapter
-    ru: Сетевые адаптеры (Ethernet)
 - model: marketplace.categorygroup
   fields:
     category: switch
@@ -1223,21 +883,6 @@
     category: dslmodem
     parent: switch
     ru: DSL-модемы и маршрутизаторы
-- model: marketplace.categorygroup
-  fields:
-    category: nas
-    parent: dslmodem
-    ru: Сетевые накопители (NAS)
-- model: marketplace.categorygroup
-  fields:
-    category: ipcamera
-    parent: nas
-    ru: IP-камеры
-- model: marketplace.categorygroup
-  fields:
-    category: cable
-    parent: ipcamera
-    ru: Сетевые кабели
 - model: marketplace.categorygroup
   fields:
     category: household_tools
@@ -1275,34 +920,9 @@
     ru: Охлаждающие подставки
 - model: marketplace.categorygroup
   fields:
-    category: laptopstand
-    parent: laptopstand
-    ru: Подставки для ноутбуков, планшетов и телефонов
-- model: marketplace.categorygroup
-  fields:
-    category: cable
-    parent: laptopstand
-    ru: Кабели, адаптеры, разветвители
-- model: marketplace.categorygroup
-  fields:
-    category: mousepad
-    parent: cable
-    ru: Коврики для мыши
-- model: marketplace.categorygroup
-  fields:
-    category: office_chair
-    parent: mousepad
-    ru: Игровые кресла
-- model: marketplace.categorygroup
-  fields:
     category: notebatteries
     parent: office_chair
     ru: Аккумуляторы для ноутбуков
-- model: marketplace.categorygroup
-  fields:
-    category: chargersmobile
-    parent: notebatteries
-    ru: Универсальные зарядные устройства
 - model: marketplace.categorygroup
   fields:
     category: computer_cleanin
@@ -1325,21 +945,6 @@
     ru: Стабилизаторы и сетевые фильтры
 - model: marketplace.categorygroup
   fields:
-    category: notebatteries
-    parent: voltageregulator
-    ru: Аккумуляторы для ноутбуков
-- model: marketplace.categorygroup
-  fields:
-    category: chargersmobile
-    parent: notebatteries
-    ru: Зарядные устройства
-- model: marketplace.categorygroup
-  fields:
-    category: cable
-    parent: chargersmobile
-    ru: Кабели питания
-- model: marketplace.categorygroup
-  fields:
     category: ups_battery
     parent: cable
     ru: Аккумуляторы для ИБП
@@ -1350,29 +955,9 @@
     ru: Игры и программное обеспечение
 - model: marketplace.categorygroup
   fields:
-    category: pcgames
-    parent: igry-i-programmnoe-obespechenie
-    ru: Видеоигры для ПК
-- model: marketplace.categorygroup
-  fields:
-    category: games
-    parent: pcgames
-    ru: Видеоигры для консолей
-- model: marketplace.categorygroup
-  fields:
     category: antivirus
     parent: games
     ru: Антивирусы и безопасность
-- model: marketplace.categorygroup
-  fields:
-    category: paymentcard
-    parent: antivirus
-    ru: Карты оплаты и подписки
-- model: marketplace.categorygroup
-  fields:
-    category: gamemerch
-    parent: paymentcard
-    ru: Игровая атрибутика
 - model: marketplace.categorygroup
   fields:
     category: bytovaja-tehnika
@@ -1390,19 +975,9 @@
     ru: Холодильники
 - model: marketplace.categorygroup
   fields:
-    category: refrigerator
-    parent: refrigerator
-    ru: Морозильники
-- model: marketplace.categorygroup
-  fields:
     category: washingmachine
     parent: refrigerator
     ru: Стиральные машины
-- model: marketplace.categorygroup
-  fields:
-    category: washingmachine
-    parent: washingmachine
-    ru: Сушильные машины
 - model: marketplace.categorygroup
   fields:
     category: hoods
@@ -1445,26 +1020,6 @@
     ru: Духовые шкафы
 - model: marketplace.categorygroup
   fields:
-    category: hoods
-    parent: oven_cooker
-    ru: Вытяжки
-- model: marketplace.categorygroup
-  fields:
-    category: dishwasher
-    parent: hoods
-    ru: Посудомоечные машины
-- model: marketplace.categorygroup
-  fields:
-    category: refrigerator
-    parent: dishwasher
-    ru: Холодильники
-- model: marketplace.categorygroup
-  fields:
-    category: washingmachine
-    parent: refrigerator
-    ru: Стиральные машины
-- model: marketplace.categorygroup
-  fields:
     category: microvawe
     parent: washingmachine
     ru: Микроволновые печи
@@ -1480,11 +1035,6 @@
     ru: Измельчители пищевых отходов
 - model: marketplace.categorygroup
   fields:
-    category: largehomeapp_acs
-    parent: disposer
-    ru: Аксессуары для встраиваемой техники
-- model: marketplace.categorygroup
-  fields:
     category: uborka
     parent: vstraivaemaja-tehnika
     ru: Уборка
@@ -1498,16 +1048,6 @@
     category: robotcleaner
     parent: vacuumcleaner
     ru: Роботы-пылесосы
-- model: marketplace.categorygroup
-  fields:
-    category: vacuumcleaner
-    parent: robotcleaner
-    ru: Стеклоочистители
-- model: marketplace.categorygroup
-  fields:
-    category: robotcleaner
-    parent: vacuumcleaner
-    ru: Роботы для мытья окон
 - model: marketplace.categorygroup
   fields:
     category: steamcleaner
@@ -1545,16 +1085,6 @@
     ru: Утюги
 - model: marketplace.categorygroup
   fields:
-    category: steamcleaner
-    parent: iron
-    ru: Отпариватели
-- model: marketplace.categorygroup
-  fields:
-    category: steamcleaner
-    parent: steamcleaner
-    ru: Гладильные станции и прессы
-- model: marketplace.categorygroup
-  fields:
     category: sewingmachines
     parent: steamcleaner
     ru: Швейные машины
@@ -1563,11 +1093,6 @@
     category: overlock
     parent: sewingmachines
     ru: Оверлоки
-- model: marketplace.categorygroup
-  fields:
-    category: sewingmachines
-    parent: overlock
-    ru: Вышивальные и швейно-вышивальные машины
 - model: marketplace.categorygroup
   fields:
     category: lintshaver
@@ -1650,19 +1175,9 @@
     ru: Электронные уничтожители насекомых
 - model: marketplace.categorygroup
   fields:
-    category: climate_acs
-    parent: insect_killer
-    ru: Аксессуары для климатической техники
-- model: marketplace.categorygroup
-  fields:
     category: prigotovlenie-pischi
     parent: klimaticheskaja-tehnika
     ru: Приготовление пищи
-- model: marketplace.categorygroup
-  fields:
-    category: microvawe
-    parent: prigotovlenie-pischi
-    ru: Микроволновые печи
 - model: marketplace.categorygroup
   fields:
     category: multicooker
@@ -1750,21 +1265,6 @@
     ru: Приготовление кофе и чая
 - model: marketplace.categorygroup
   fields:
-    category: coffee
-    parent: prigotovlenie-kofe-i-chaja
-    ru: Кофемашины
-- model: marketplace.categorygroup
-  fields:
-    category: coffee
-    parent: coffee
-    ru: Кофеварки
-- model: marketplace.categorygroup
-  fields:
-    category: coffee
-    parent: coffee
-    ru: Капсульные кофеварки
-- model: marketplace.categorygroup
-  fields:
     category: kettle
     parent: coffee
     ru: Электрочайники и термопоты
@@ -1795,29 +1295,9 @@
     ru: Кофе в зернах
 - model: marketplace.categorygroup
   fields:
-    category: coffeejava
-    parent: coffeejava
-    ru: Молотый кофе
-- model: marketplace.categorygroup
-  fields:
-    category: coffeejava
-    parent: coffeejava
-    ru: Кофе в капсулах
-- model: marketplace.categorygroup
-  fields:
-    category: kitchen_acs
-    parent: coffeejava
-    ru: Аксессуары для кофемашин, кофеварок, чайников
-- model: marketplace.categorygroup
-  fields:
     category: hot_drinks
     parent: kitchen_acs
     ru: Кружки, чашки, стаканы для горячих напитков
-- model: marketplace.categorygroup
-  fields:
-    category: hot_drinks
-    parent: hot_drinks
-    ru: Посуда для кофейных напитков
 - model: marketplace.categorygroup
   fields:
     category: podgotovka-i-obrabotka-produktov
@@ -1880,11 +1360,6 @@
     ru: Маринаторы
 - model: marketplace.categorygroup
   fields:
-    category: kitchen_acs
-    parent: marinator
-    ru: Аксессуары для кухонной техники
-- model: marketplace.categorygroup
-  fields:
     category: uhod-za-volosami-i-telom
     parent: podgotovka-i-obrabotka-produktov
     ru: Уход за волосами и телом
@@ -1920,11 +1395,6 @@
     ru: Женские электробритвы и эпиляторы
 - model: marketplace.categorygroup
   fields:
-    category: scales
-    parent: ladyshaver
-    ru: Напольные весы
-- model: marketplace.categorygroup
-  fields:
     category: footbath
     parent: scales
     ru: Гидромассажные ванночки
@@ -1950,11 +1420,6 @@
     ru: Ингаляторы
 - model: marketplace.categorygroup
   fields:
-    category: toothbrush
-    parent: inhaler
-    ru: Электрические зубные щетки и ирригаторы
-- model: marketplace.categorygroup
-  fields:
     category: tonometers
     parent: toothbrush
     ru: Тонометры
@@ -1970,11 +1435,6 @@
     ru: Глюкометры
 - model: marketplace.categorygroup
   fields:
-    category: heart_rate
-    parent: glucosemeter
-    ru: Пульсометры, пульсоксиметры
-- model: marketplace.categorygroup
-  fields:
     category: contact_lense
     parent: heart_rate
     ru: Контактные линзы
@@ -1983,11 +1443,6 @@
     category: solutionlenses
     parent: contact_lense
     ru: Растворы для линз
-- model: marketplace.categorygroup
-  fields:
-    category: beauty_acs
-    parent: solutionlenses
-    ru: Аксессуары к товарам для красоты и здоровья
 - model: marketplace.categorygroup
   fields:
     category: aksessuary-i-soputstvujuschie-tovary
@@ -2015,74 +1470,9 @@
     ru: Средства для посудомоечных машин
 - model: marketplace.categorygroup
   fields:
-    category: kitchen_acs
-    parent: dishwashertablet
-    ru: Аксессуары для кофемашин, кофеварок, чайников
-- model: marketplace.categorygroup
-  fields:
-    category: kitchen_acs
-    parent: kitchen_acs
-    ru: Аксессуары для блендеров, комбайнов, мясорубок
-- model: marketplace.categorygroup
-  fields:
-    category: kitchen_acs
-    parent: kitchen_acs
-    ru: Аксессуары для вакуумных упаковщиков
-- model: marketplace.categorygroup
-  fields:
-    category: kitchen_acs
-    parent: kitchen_acs
-    ru: Аксессуары для мультиварок, аэрогрилей
-- model: marketplace.categorygroup
-  fields:
-    category: kitchen_acs
-    parent: kitchen_acs
-    ru: Сменные панели для сэндвичниц
-- model: marketplace.categorygroup
-  fields:
-    category: beauty_acs
-    parent: kitchen_acs
-    ru: Аксессуары для зубных щеток и ирригаторов
-- model: marketplace.categorygroup
-  fields:
-    category: beauty_acs
-    parent: beauty_acs
-    ru: Аксессуары для электробритв и машинок
-- model: marketplace.categorygroup
-  fields:
-    category: beauty_acs
-    parent: beauty_acs
-    ru: Аксессуары для приборов по уходу за кожей
-- model: marketplace.categorygroup
-  fields:
     category: razorsandblades
     parent: beauty_acs
     ru: Сменные лезвия для бритвенных станков
-- model: marketplace.categorygroup
-  fields:
-    category: vacuum_acs
-    parent: razorsandblades
-    ru: Аксессуары для пылесосов
-- model: marketplace.categorygroup
-  fields:
-    category: vacuum_acs
-    parent: vacuum_acs
-    ru: Аксессуары для пароочистителей
-- model: marketplace.categorygroup
-  fields:
-    category: largehomeapp_acs
-    parent: vacuum_acs
-    ru: Аксессуары для крупной бытовой и встраиваемой техники
-- model: marketplace.categorygroup
-  fields:
-    category: climate_acs
-    parent: largehomeapp_acs
-    ru: Аксессуары для утюгов, гладильных систем
-- model: marketplace.categorygroup
-  fields:
-    category: climate_acs
-    parent: climate_acs
-    ru: Аксессуары для климатической техники
 - model: marketplace.categorygroup
   fields:
     category: strojka-i-remont
@@ -2120,11 +1510,6 @@
     ru: Аккумуляторы и зарядные устройства для инструмента
 - model: marketplace.categorygroup
   fields:
-    category: drills
-    parent: tools_accum
-    ru: Дрели-миксеры
-- model: marketplace.categorygroup
-  fields:
     category: angle_grinder
     parent: drills
     ru: Угловые шлифмашины (болгарки)
@@ -2135,24 +1520,9 @@
     ru: Шлифмашины
 - model: marketplace.categorygroup
   fields:
-    category: grinder
-    parent: grinder
-    ru: Полировальные машины
-- model: marketplace.categorygroup
-  fields:
-    category: grinder
-    parent: grinder
-    ru: Мультифункциональные шлифмашины
-- model: marketplace.categorygroup
-  fields:
     category: electric_saw
     parent: grinder
     ru: Дисковые пилы
-- model: marketplace.categorygroup
-  fields:
-    category: electric_saw
-    parent: electric_saw
-    ru: Сабельные пилы
 - model: marketplace.categorygroup
   fields:
     category: fretsaw
@@ -2163,11 +1533,6 @@
     category: plane
     parent: fretsaw
     ru: Рубанки
-- model: marketplace.categorygroup
-  fields:
-    category: household_tools
-    parent: plane
-    ru: Строительный, слесарный, монтажный инструмент
 - model: marketplace.categorygroup
   fields:
     category: toolbox
@@ -2193,11 +1558,6 @@
     category: engraver
     parent: hotgluegun
     ru: Граверы
-- model: marketplace.categorygroup
-  fields:
-    category: vacuumcleaner
-    parent: engraver
-    ru: Хозяйственные пылесосы
 - model: marketplace.categorygroup
   fields:
     category: electricspraygun
@@ -2385,11 +1745,6 @@
     ru: Сварочные маски
 - model: marketplace.categorygroup
   fields:
-    category: vacuumcleaner
-    parent: weldingmask
-    ru: Хозяйственные пылесосы
-- model: marketplace.categorygroup
-  fields:
     category: barrow
     parent: vacuumcleaner
     ru: Строительные тачки
@@ -2413,11 +1768,6 @@
     category: platecompactor
     parent: measuringacs
     ru: Виброплиты
-- model: marketplace.categorygroup
-  fields:
-    category: jackhammer
-    parent: platecompactor
-    ru: Отбойные молотки
 - model: marketplace.categorygroup
   fields:
     category: powercutter
@@ -2580,11 +1930,6 @@
     ru: Биотуалеты
 - model: marketplace.categorygroup
   fields:
-    category: shower
-    parent: biotoilet
-    ru: Душевые системы и гарнитуры
-- model: marketplace.categorygroup
-  fields:
     category: shower_trays
     parent: shower
     ru: Душевые поддоны
@@ -2610,29 +1955,14 @@
     ru: Водоснабжение, канализация, вентиляция
 - model: marketplace.categorygroup
   fields:
-    category: waterheater
-    parent: vodosnabzhenie-kanalizatsija-ventiljatsija
-    ru: Водонагреватели
-- model: marketplace.categorygroup
-  fields:
     category: pump
     parent: waterheater
     ru: Насосы
 - model: marketplace.categorygroup
   fields:
-    category: exhaustfan
-    parent: pump
-    ru: Приточные и вытяжные вентиляторы
-- model: marketplace.categorygroup
-  fields:
     category: ventil_grates
     parent: exhaustfan
     ru: Вентиляционные решетки
-- model: marketplace.categorygroup
-  fields:
-    category: exhaustfan
-    parent: ventil_grates
-    ru: Приточные проветриватели
 - model: marketplace.categorygroup
   fields:
     category: hydroaccum
@@ -2653,11 +1983,6 @@
     category: metal_pipes
     parent: access_panel
     ru: Трубы водогазопроводные
-- model: marketplace.categorygroup
-  fields:
-    category: boiler
-    parent: metal_pipes
-    ru: Отопительные котлы
 - model: marketplace.categorygroup
   fields:
     category: radiators
@@ -2685,16 +2010,6 @@
     ru: Розетки, выключатели
 - model: marketplace.categorygroup
   fields:
-    category: voltageregulator
-    parent: wall_socket
-    ru: Удлинители
-- model: marketplace.categorygroup
-  fields:
-    category: voltageregulator
-    parent: voltageregulator
-    ru: Стабилизаторы и сетевые фильтры
-- model: marketplace.categorygroup
-  fields:
     category: multimeter
     parent: voltageregulator
     ru: Мультиметры, токовые клещи, индикаторные отвертки
@@ -2705,16 +2020,6 @@
     ru: Светильники, люстры, бра, споты
 - model: marketplace.categorygroup
   fields:
-    category: lightbulb
-    parent: luster
-    ru: Лампочки
-- model: marketplace.categorygroup
-  fields:
-    category: powerstations
-    parent: lightbulb
-    ru: Генераторы
-- model: marketplace.categorygroup
-  fields:
     category: electro_meter
     parent: powerstations
     ru: Счетчики электроэнергии
@@ -2723,26 +2028,6 @@
     category: otoplenie-teploizoljatsija
     parent: elektrosnabzhenie
     ru: Отопление, теплоизоляция
-- model: marketplace.categorygroup
-  fields:
-    category: boiler
-    parent: otoplenie-teploizoljatsija
-    ru: Отопительные котлы
-- model: marketplace.categorygroup
-  fields:
-    category: pump
-    parent: boiler
-    ru: Насосы для систем отопления
-- model: marketplace.categorygroup
-  fields:
-    category: radiators
-    parent: pump
-    ru: Радиаторы отопления
-- model: marketplace.categorygroup
-  fields:
-    category: radiators_acs
-    parent: radiators
-    ru: Аксессуары и комплектующие для радиаторов
 - model: marketplace.categorygroup
   fields:
     category: therminsulation
@@ -2760,39 +2045,14 @@
     ru: Теплые полы
 - model: marketplace.categorygroup
   fields:
-    category: towelrail
-    parent: heatedfloor
-    ru: Полотенцесушители
-- model: marketplace.categorygroup
-  fields:
-    category: thermostat
-    parent: towelrail
-    ru: Терморегуляторы
-- model: marketplace.categorygroup
-  fields:
     category: stove
     parent: thermostat
     ru: Дровяные камины, печи-камины, порталы
 - model: marketplace.categorygroup
   fields:
-    category: hydroaccum
-    parent: stove
-    ru: Расширительные баки
-- model: marketplace.categorygroup
-  fields:
     category: heatcarrier
     parent: hydroaccum
     ru: Теплоносители и промывка систем отопления
-- model: marketplace.categorygroup
-  fields:
-    category: tube_fitting
-    parent: heatcarrier
-    ru: Трубы, фитинг
-- model: marketplace.categorygroup
-  fields:
-    category: metal_pipes
-    parent: tube_fitting
-    ru: Трубы водогазопроводные
 - model: marketplace.categorygroup
   fields:
     category: gas_meter
@@ -2820,19 +2080,9 @@
     ru: Окна ПВХ
 - model: marketplace.categorygroup
   fields:
-    category: wall_socket
-    parent: vynilwindows
-    ru: Дверные звонки
-- model: marketplace.categorygroup
-  fields:
     category: pnevmoinstrumenty
     parent: dveri-okna
     ru: Пневмоинструменты
-- model: marketplace.categorygroup
-  fields:
-    category: compressor
-    parent: pnevmoinstrumenty
-    ru: Компрессоры
 - model: marketplace.categorygroup
   fields:
     category: spraygun
@@ -2843,11 +2093,6 @@
     category: wrench
     parent: spraygun
     ru: Гайковерты
-- model: marketplace.categorygroup
-  fields:
-    category: nailer
-    parent: wrench
-    ru: Скобозабиватели, гвоздезабиватели, степлеры
 - model: marketplace.categorygroup
   fields:
     category: pneumogrinder
@@ -2863,11 +2108,6 @@
     category: woodworking
     parent: stanki
     ru: Деревообрабатывающие и металлообрабатывающие станки
-- model: marketplace.categorygroup
-  fields:
-    category: tilecutter
-    parent: woodworking
-    ru: Плиткорезные станки
 - model: marketplace.categorygroup
   fields:
     category: benchgrinder
@@ -2925,19 +2165,9 @@
     ru: Обои
 - model: marketplace.categorygroup
   fields:
-    category: tile
-    parent: wallpapers
-    ru: Керамическая плитка, керамогранит
-- model: marketplace.categorygroup
-  fields:
     category: decorative_stone
     parent: tile
     ru: Декоративный камень и кирпич
-- model: marketplace.categorygroup
-  fields:
-    category: decorative_stone
-    parent: decorative_stone
-    ru: Гибкий камень
 - model: marketplace.categorygroup
   fields:
     category: paints
@@ -2968,11 +2198,6 @@
     category: pavers
     parent: caementum
     ru: Тротуарная плитка
-- model: marketplace.categorygroup
-  fields:
-    category: metal_pipes
-    parent: pavers
-    ru: Трубный металлопрокат
 - model: marketplace.categorygroup
   fields:
     category: sheetmetal
@@ -3008,11 +2233,6 @@
     category: xmaslights
     parent: tree
     ru: Электрические гирлянды
-- model: marketplace.categorygroup
-  fields:
-    category: xmaslights
-    parent: xmaslights
-    ru: Световые деревья, фигуры
 - model: marketplace.categorygroup
   fields:
     category: christmasdecor
@@ -3055,109 +2275,9 @@
     ru: Ванная комната и туалет
 - model: marketplace.categorygroup
   fields:
-    category: faucet
-    parent: vannaja-komnata-i-tualet
-    ru: Смесители
-- model: marketplace.categorygroup
-  fields:
-    category: bathtub
-    parent: faucet
-    ru: Ванны
-- model: marketplace.categorygroup
-  fields:
-    category: waterheater
-    parent: bathtub
-    ru: Водонагреватели
-- model: marketplace.categorygroup
-  fields:
-    category: towelrail
-    parent: waterheater
-    ru: Полотенцесушители
-- model: marketplace.categorygroup
-  fields:
-    category: showerbox
-    parent: towelrail
-    ru: Душевые кабины
-- model: marketplace.categorygroup
-  fields:
-    category: wcpan
-    parent: showerbox
-    ru: Унитазы
-- model: marketplace.categorygroup
-  fields:
-    category: washbasin
-    parent: wcpan
-    ru: Умывальники
-- model: marketplace.categorygroup
-  fields:
-    category: pedestal
-    parent: washbasin
-    ru: Пьедесталы для умывальников
-- model: marketplace.categorygroup
-  fields:
-    category: siphon
-    parent: pedestal
-    ru: Сифоны
-- model: marketplace.categorygroup
-  fields:
-    category: tile
-    parent: siphon
-    ru: Плитка для ванных комнат
-- model: marketplace.categorygroup
-  fields:
     category: bath_furniture
     parent: tile
     ru: Мебель для ванных комнат
-- model: marketplace.categorygroup
-  fields:
-    category: bidet
-    parent: bath_furniture
-    ru: Биде
-- model: marketplace.categorygroup
-  fields:
-    category: installations
-    parent: bidet
-    ru: Инсталляции для унитазов, раковин, биде и писсуаров
-- model: marketplace.categorygroup
-  fields:
-    category: flushing_system
-    parent: installations
-    ru: Клавиши и системы смыва
-- model: marketplace.categorygroup
-  fields:
-    category: toilet_shower
-    parent: flushing_system
-    ru: Электронные крышки-биде
-- model: marketplace.categorygroup
-  fields:
-    category: shower
-    parent: toilet_shower
-    ru: Душевые системы и гарнитуры
-- model: marketplace.categorygroup
-  fields:
-    category: shower
-    parent: shower
-    ru: Гигиенические души
-- model: marketplace.categorygroup
-  fields:
-    category: shower_trays
-    parent: shower
-    ru: Душевые поддоны
-- model: marketplace.categorygroup
-  fields:
-    category: exhaustfan
-    parent: shower_trays
-    ru: Вытяжные вентиляторы
-- model: marketplace.categorygroup
-  fields:
-    category: access_panel
-    parent: exhaustfan
-    ru: Сантехнические ревизионные люки
-- model: marketplace.categorygroup
-  fields:
-    category: biotoilet
-    parent: access_panel
-    ru: Биотуалеты
 - model: marketplace.categorygroup
   fields:
     category: toystorage
@@ -3180,44 +2300,9 @@
     ru: Кухня
 - model: marketplace.categorygroup
   fields:
-    category: kitchensink
-    parent: kuhnja
-    ru: Мойки
-- model: marketplace.categorygroup
-  fields:
-    category: faucet
-    parent: kitchensink
-    ru: Смесители
-- model: marketplace.categorygroup
-  fields:
-    category: tile
-    parent: faucet
-    ru: Керамическая плитка
-- model: marketplace.categorygroup
-  fields:
-    category: disposer
-    parent: tile
-    ru: Измельчители пищевых отходов
-- model: marketplace.categorygroup
-  fields:
     category: waterfilter
     parent: disposer
     ru: Фильтры и системы очистки воды
-- model: marketplace.categorygroup
-  fields:
-    category: waterfilter
-    parent: waterfilter
-    ru: Картриджи для фильтра воды
-- model: marketplace.categorygroup
-  fields:
-    category: dishwashertablet
-    parent: waterfilter
-    ru: Средства для посудомоечных машин
-- model: marketplace.categorygroup
-  fields:
-    category: exhaustfan
-    parent: dishwashertablet
-    ru: Вытяжные вентиляторы
 - model: marketplace.categorygroup
   fields:
     category: trashbin
@@ -3245,84 +2330,9 @@
     ru: Водоснабжение, отопление
 - model: marketplace.categorygroup
   fields:
-    category: pump
-    parent: vodosnabzhenie-otoplenie
-    ru: Насосы
-- model: marketplace.categorygroup
-  fields:
-    category: waterheater
-    parent: pump
-    ru: Водонагреватели
-- model: marketplace.categorygroup
-  fields:
-    category: boiler
-    parent: waterheater
-    ru: Отопительные котлы
-- model: marketplace.categorygroup
-  fields:
-    category: waterfilter
-    parent: boiler
-    ru: Фильтры и системы очистки воды
-- model: marketplace.categorygroup
-  fields:
-    category: radiators
-    parent: waterfilter
-    ru: Радиаторы отопления
-- model: marketplace.categorygroup
-  fields:
-    category: stove
-    parent: radiators
-    ru: Дровяные камины, печи-камины, порталы
-- model: marketplace.categorygroup
-  fields:
-    category: heater
-    parent: stove
-    ru: Обогреватели
-- model: marketplace.categorygroup
-  fields:
-    category: heat_gun
-    parent: heater
-    ru: Тепловые пушки
-- model: marketplace.categorygroup
-  fields:
-    category: electrofireplace
-    parent: heat_gun
-    ru: Электрокамины и биокамины
-- model: marketplace.categorygroup
-  fields:
-    category: hydroaccum
-    parent: electrofireplace
-    ru: Гидроаккумуляторы и расширительные баки
-- model: marketplace.categorygroup
-  fields:
-    category: motopump
-    parent: hydroaccum
-    ru: Мотопомпы
-- model: marketplace.categorygroup
-  fields:
-    category: tube_fitting
-    parent: motopump
-    ru: Трубы, фитинг
-- model: marketplace.categorygroup
-  fields:
-    category: metal_pipes
-    parent: tube_fitting
-    ru: Трубы водогазопроводные
-- model: marketplace.categorygroup
-  fields:
     category: mebel-dlja-doma
     parent: vodosnabzhenie-otoplenie
     ru: Мебель для дома
-- model: marketplace.categorygroup
-  fields:
-    category: office_chair
-    parent: mebel-dlja-doma
-    ru: Офисные кресла и стулья
-- model: marketplace.categorygroup
-  fields:
-    category: office_chair
-    parent: office_chair
-    ru: Геймерские кресла
 - model: marketplace.categorygroup
   fields:
     category: officechair_acs
@@ -3360,11 +2370,6 @@
     ru: Готовые кухни
 - model: marketplace.categorygroup
   fields:
-    category: coffee_table
-    parent: kitchenfurniture
-    ru: Журнальные столики
-- model: marketplace.categorygroup
-  fields:
     category: interior_chair
     parent: coffee_table
     ru: Кресла
@@ -3395,24 +2400,9 @@
     ru: Шкафы
 - model: marketplace.categorygroup
   fields:
-    category: wall_units
-    parent: wardrobes
-    ru: Мебель для прихожей
-- model: marketplace.categorygroup
-  fields:
-    category: dresser
-    parent: wall_units
-    ru: Тумбы под телевизор
-- model: marketplace.categorygroup
-  fields:
     category: dressing_table
     parent: dresser
     ru: Туалетные столики
-- model: marketplace.categorygroup
-  fields:
-    category: bath_furniture
-    parent: dressing_table
-    ru: Мебель для ванных комнат
 - model: marketplace.categorygroup
   fields:
     category: babycotbed
@@ -3423,11 +2413,6 @@
     category: kidsdesk
     parent: babycotbed
     ru: Детские столы и парты
-- model: marketplace.categorygroup
-  fields:
-    category: toystorage
-    parent: kidsdesk
-    ru: Ящики, корзины, органайзеры
 - model: marketplace.categorygroup
   fields:
     category: babydresser
@@ -3490,11 +2475,6 @@
     ru: Классические подушки для сна
 - model: marketplace.categorygroup
   fields:
-    category: pillows
-    parent: pillows
-    ru: Одеяла
-- model: marketplace.categorygroup
-  fields:
     category: plaid
     parent: pillows
     ru: Пледы, покрывала
@@ -3513,16 +2493,6 @@
     category: mobile_heater
     parent: mattresspad
     ru: Электрогрелки, электроодеяла, электропростыни
-- model: marketplace.categorygroup
-  fields:
-    category: pillows
-    parent: mobile_heater
-    ru: Подушки для беременных
-- model: marketplace.categorygroup
-  fields:
-    category: pillows
-    parent: pillows
-    ru: Декоративные подушки
 - model: marketplace.categorygroup
   fields:
     category: sadovaja-tehnika-i-instrumenty
@@ -3560,24 +2530,9 @@
     ru: Газонокосилки
 - model: marketplace.categorygroup
   fields:
-    category: tools_accum
-    parent: mowers
-    ru: Аккумуляторы и зарядные устройства для инструмента
-- model: marketplace.categorygroup
-  fields:
-    category: mowers
-    parent: tools_accum
-    ru: Аэраторы, скарификаторы
-- model: marketplace.categorygroup
-  fields:
     category: chainsaw
     parent: mowers
     ru: Цепные пилы
-- model: marketplace.categorygroup
-  fields:
-    category: vacuumcleaner
-    parent: chainsaw
-    ru: Хозяйственные пылесосы
 - model: marketplace.categorygroup
   fields:
     category: logsplitter
@@ -3615,11 +2570,6 @@
     ru: Воздуходувки
 - model: marketplace.categorygroup
   fields:
-    category: sweeper
-    parent: leafblower
-    ru: Садовые подметальные машины
-- model: marketplace.categorygroup
-  fields:
     category: gardentool
     parent: sweeper
     ru: Садовый инструмент
@@ -3638,16 +2588,6 @@
     category: sprayer
     parent: watering_system
     ru: Опрыскиватели
-- model: marketplace.categorygroup
-  fields:
-    category: barrow
-    parent: sprayer
-    ru: Садовые тачки
-- model: marketplace.categorygroup
-  fields:
-    category: stairandladder
-    parent: barrow
-    ru: Лестницы и стремянки
 - model: marketplace.categorygroup
   fields:
     category: otdyh-na-dache
@@ -3688,11 +2628,6 @@
     category: bbq_accessories
     parent: grill
     ru: Решетки и шампуры
-- model: marketplace.categorygroup
-  fields:
-    category: bbq_accessories
-    parent: bbq_accessories
-    ru: Принадлежности для барбекю, грилей, мангалов
 - model: marketplace.categorygroup
   fields:
     category: bathstove
@@ -3755,11 +2690,6 @@
     ru: Обустройство участка
 - model: marketplace.categorygroup
   fields:
-    category: garden_house
-    parent: obustrojstvo-uchastka
-    ru: Беседки
-- model: marketplace.categorygroup
-  fields:
     category: garden_cabin
     parent: garden_house
     ru: Дачные бытовки и хозблоки
@@ -3768,16 +2698,6 @@
     category: outdoor_light
     parent: garden_cabin
     ru: Уличное освещение и прожекторы
-- model: marketplace.categorygroup
-  fields:
-    category: linendryer
-    parent: outdoor_light
-    ru: Уличные сушки для белья
-- model: marketplace.categorygroup
-  fields:
-    category: insect_killer
-    parent: linendryer
-    ru: Уничтожители насекомых
 - model: marketplace.categorygroup
   fields:
     category: summer_shower
@@ -3790,24 +2710,9 @@
     ru: Дачные туалеты
 - model: marketplace.categorygroup
   fields:
-    category: biotoilet
-    parent: outdoor_toilet
-    ru: Биотуалеты
-- model: marketplace.categorygroup
-  fields:
     category: wc_liquid
     parent: biotoilet
     ru: Средства для биотуалетов, выгребных ям
-- model: marketplace.categorygroup
-  fields:
-    category: tile
-    parent: wc_liquid
-    ru: Клинкерная плитка
-- model: marketplace.categorygroup
-  fields:
-    category: pavers
-    parent: tile
-    ru: Тротуарная плитка
 - model: marketplace.categorygroup
   fields:
     category: flowerpot
@@ -3815,44 +2720,14 @@
     ru: Кашпо, горшки для растений
 - model: marketplace.categorygroup
   fields:
-    category: trashbin
-    parent: flowerpot
-    ru: Мусорки, урны, контейнеры для мусора
-- model: marketplace.categorygroup
-  fields:
-    category: rabitz
-    parent: trashbin
-    ru: Сетка-рабица
-- model: marketplace.categorygroup
-  fields:
     category: dekor-i-interer
     parent: obustrojstvo-uchastka
     ru: Декор и интерьер
 - model: marketplace.categorygroup
   fields:
-    category: clockradio
-    parent: dekor-i-interer
-    ru: Настенные и настольные часы
-- model: marketplace.categorygroup
-  fields:
     category: desk_lamp
     parent: clockradio
     ru: Настольные лампы, торшеры, ночники
-- model: marketplace.categorygroup
-  fields:
-    category: meteostations
-    parent: desk_lamp
-    ru: Метеостанции, гигрометры и термогигрометры
-- model: marketplace.categorygroup
-  fields:
-    category: electrofireplace
-    parent: meteostations
-    ru: Электрокамины и биокамины
-- model: marketplace.categorygroup
-  fields:
-    category: pillows
-    parent: electrofireplace
-    ru: Декоративные подушки
 - model: marketplace.categorygroup
   fields:
     category: houseplant
@@ -3880,114 +2755,9 @@
     ru: Освещение и электропитание
 - model: marketplace.categorygroup
   fields:
-    category: luster
-    parent: osveschenie-i-elektropitanie
-    ru: Светильники, люстры, бра, споты
-- model: marketplace.categorygroup
-  fields:
-    category: desk_lamp
-    parent: luster
-    ru: Настольные лампы, торшеры, ночники
-- model: marketplace.categorygroup
-  fields:
-    category: outdoor_light
-    parent: desk_lamp
-    ru: Уличное освещение и прожекторы
-- model: marketplace.categorygroup
-  fields:
-    category: lightbulb
-    parent: outdoor_light
-    ru: Лампочки
-- model: marketplace.categorygroup
-  fields:
-    category: wall_socket
-    parent: lightbulb
-    ru: Розетки, выключатели
-- model: marketplace.categorygroup
-  fields:
-    category: voltageregulator
-    parent: wall_socket
-    ru: Удлинители
-- model: marketplace.categorygroup
-  fields:
-    category: voltageregulator
-    parent: voltageregulator
-    ru: Стабилизаторы напряжения и сетевые фильтры
-- model: marketplace.categorygroup
-  fields:
-    category: powerstations
-    parent: voltageregulator
-    ru: Генераторы
-- model: marketplace.categorygroup
-  fields:
     category: umnyj-dom-i-bezopasnost
     parent: osveschenie-i-elektropitanie
     ru: Умный дом и безопасность
-- model: marketplace.categorygroup
-  fields:
-    category: smart_home
-    parent: umnyj-dom-i-bezopasnost
-    ru: Умный дом
-- model: marketplace.categorygroup
-  fields:
-    category: thermostat
-    parent: smart_home
-    ru: Умные терморегуляторы
-- model: marketplace.categorygroup
-  fields:
-    category: lightbulb
-    parent: thermostat
-    ru: Умные лампочки
-- model: marketplace.categorygroup
-  fields:
-    category: smart_home
-    parent: lightbulb
-    ru: Умные розетки
-- model: marketplace.categorygroup
-  fields:
-    category: wspeaker
-    parent: smart_home
-    ru: Умные колонки
-- model: marketplace.categorygroup
-  fields:
-    category: videodoorphone
-    parent: wspeaker
-    ru: Умные вызывные панели
-- model: marketplace.categorygroup
-  fields:
-    category: ipcamera
-    parent: videodoorphone
-    ru: IP-камеры
-- model: marketplace.categorygroup
-  fields:
-    category: videodoorphone
-    parent: ipcamera
-    ru: Видеодомофоны
-- model: marketplace.categorygroup
-  fields:
-    category: cctvcamera
-    parent: videodoorphone
-    ru: Камеры CCTV
-- model: marketplace.categorygroup
-  fields:
-    category: dvr
-    parent: cctvcamera
-    ru: Видеорегистраторы
-- model: marketplace.categorygroup
-  fields:
-    category: camera_traps
-    parent: dvr
-    ru: Фотоловушки
-- model: marketplace.categorygroup
-  fields:
-    category: steeldoor
-    parent: camera_traps
-    ru: Входные двери
-- model: marketplace.categorygroup
-  fields:
-    category: wall_socket
-    parent: steeldoor
-    ru: Дверные звонки
 - model: marketplace.categorygroup
   fields:
     category: extinguisher
@@ -4000,21 +2770,6 @@
     ru: Уход за одеждой
 - model: marketplace.categorygroup
   fields:
-    category: linendryer
-    parent: uhod-za-odezhdoj
-    ru: Сушилки для белья
-- model: marketplace.categorygroup
-  fields:
-    category: ironingboard
-    parent: linendryer
-    ru: Гладильные доски
-- model: marketplace.categorygroup
-  fields:
-    category: shoes_dryer
-    parent: ironingboard
-    ru: Электрические сушилки для обуви
-- model: marketplace.categorygroup
-  fields:
     category: shoe_care
     parent: shoes_dryer
     ru: Товары для ухода за обувью и одеждой
@@ -4025,16 +2780,6 @@
     ru: Стирка, уборка
 - model: marketplace.categorygroup
   fields:
-    category: washingpowder
-    parent: stirka-uborka
-    ru: Средства для стирки и ухода за бельем
-- model: marketplace.categorygroup
-  fields:
-    category: trashbag
-    parent: washingpowder
-    ru: Пакеты для мусора
-- model: marketplace.categorygroup
-  fields:
     category: cleaning_product
     parent: trashbag
     ru: Чистящие и моющие средства
@@ -4043,21 +2788,6 @@
     category: broomandscoop
     parent: cleaning_product
     ru: Веники, совки, щетки для пола
-- model: marketplace.categorygroup
-  fields:
-    category: mop
-    parent: broomandscoop
-    ru: Швабры и аксессуары
-- model: marketplace.categorygroup
-  fields:
-    category: air_fresheners
-    parent: mop
-    ru: Ароматизаторы и освежители воздуха
-- model: marketplace.categorygroup
-  fields:
-    category: dishwashliquid
-    parent: air_fresheners
-    ru: Средства для мытья посуды
 - model: marketplace.categorygroup
   fields:
     category: household_gloves
@@ -4078,11 +2808,6 @@
     category: pan
     parent: posuda-dlja-prigotovlenija
     ru: Сковороды
-- model: marketplace.categorygroup
-  fields:
-    category: pan
-    parent: pan
-    ru: Сотейники
 - model: marketplace.categorygroup
   fields:
     category: saucepan
@@ -4120,16 +2845,6 @@
     ru: Мармиты, фондю
 - model: marketplace.categorygroup
   fields:
-    category: kettles
-    parent: fondue
-    ru: Чайники
-- model: marketplace.categorygroup
-  fields:
-    category: teapot
-    parent: kettles
-    ru: Заварочные чайники, кофеварки, френч-прессы
-- model: marketplace.categorygroup
-  fields:
     category: breadpan
     parent: teapot
     ru: Формы для выпечки, противни
@@ -4140,11 +2855,6 @@
     ru: Крышки для посуды
 - model: marketplace.categorygroup
   fields:
-    category: lids
-    parent: lids
-    ru: Диски для индукционной плиты
-- model: marketplace.categorygroup
-  fields:
     category: stolovaja-posuda-i-pribory
     parent: posuda-dlja-prigotovlenija
     ru: Столовая посуда и приборы
@@ -4153,11 +2863,6 @@
     category: dishset
     parent: stolovaja-posuda-i-pribory
     ru: Тарелки, салатники, блюда и наборы
-- model: marketplace.categorygroup
-  fields:
-    category: hot_drinks
-    parent: dishset
-    ru: Кружки, чашки, стаканы для горячих напитков
 - model: marketplace.categorygroup
   fields:
     category: glassware
@@ -4238,61 +2943,6 @@
     category: kofe-chaj-kakao
     parent: kuhonnye-instrumenty-i-prinadlezhnosti
     ru: Кофе, чай, какао
-- model: marketplace.categorygroup
-  fields:
-    category: coffeejava
-    parent: kofe-chaj-kakao
-    ru: Весь кофе
-- model: marketplace.categorygroup
-  fields:
-    category: coffeejava
-    parent: coffeejava
-    ru: Кофе в зернах
-- model: marketplace.categorygroup
-  fields:
-    category: coffeejava
-    parent: coffeejava
-    ru: Кофе в капсулах
-- model: marketplace.categorygroup
-  fields:
-    category: coffeejava
-    parent: coffeejava
-    ru: Молотый кофе
-- model: marketplace.categorygroup
-  fields:
-    category: coffeejava
-    parent: coffeejava
-    ru: Растворимый кофе
-- model: marketplace.categorygroup
-  fields:
-    category: coffeejava
-    parent: coffeejava
-    ru: Кофе в чалдах
-- model: marketplace.categorygroup
-  fields:
-    category: coffeejava
-    parent: coffeejava
-    ru: Кофе без кофеина
-- model: marketplace.categorygroup
-  fields:
-    category: coffeejava
-    parent: coffeejava
-    ru: Оригинальные капсулы Nespresso
-- model: marketplace.categorygroup
-  fields:
-    category: coffeejava
-    parent: coffeejava
-    ru: Все капсулы Nespresso
-- model: marketplace.categorygroup
-  fields:
-    category: coffeejava
-    parent: coffeejava
-    ru: Капсулы Lavazza
-- model: marketplace.categorygroup
-  fields:
-    category: coffeejava
-    parent: coffeejava
-    ru: Кофе в дрип-пакетиках
 - model: marketplace.categorygroup
   fields:
     category: tea
@@ -4440,11 +3090,6 @@
     ru: Растениеводство
 - model: marketplace.categorygroup
   fields:
-    category: gardentool
-    parent: rastenievodstvo
-    ru: Садовый инструмент
-- model: marketplace.categorygroup
-  fields:
     category: greenhouse
     parent: gardentool
     ru: Теплицы и парники
@@ -4458,31 +3103,6 @@
     category: coveringmaterial
     parent: polycarbonate
     ru: Укрывной материал
-- model: marketplace.categorygroup
-  fields:
-    category: garden_hose
-    parent: coveringmaterial
-    ru: Поливочные шланги
-- model: marketplace.categorygroup
-  fields:
-    category: watering_system
-    parent: garden_hose
-    ru: Системы автоматического полива, распылители
-- model: marketplace.categorygroup
-  fields:
-    category: sprayer
-    parent: watering_system
-    ru: Опрыскиватели
-- model: marketplace.categorygroup
-  fields:
-    category: houseplant
-    parent: sprayer
-    ru: Комнатные растения, флорариумы
-- model: marketplace.categorygroup
-  fields:
-    category: flowerpot
-    parent: houseplant
-    ru: Кашпо, горшки для растений
 - model: marketplace.categorygroup
   fields:
     category: lawn
@@ -4505,24 +3125,9 @@
     ru: Саженцы плодовых деревьев и кустарников
 - model: marketplace.categorygroup
   fields:
-    category: shrubtree
-    parent: shrubtree
-    ru: Саженцы декоративных кустарников
-- model: marketplace.categorygroup
-  fields:
-    category: shrubtree
-    parent: shrubtree
-    ru: Саженцы хвойных растений
-- model: marketplace.categorygroup
-  fields:
     category: flowersseed
     parent: shrubtree
     ru: Семена цветов
-- model: marketplace.categorygroup
-  fields:
-    category: flowersseed
-    parent: flowersseed
-    ru: Луковицы цветов
 - model: marketplace.categorygroup
   fields:
     category: vegetableseed
@@ -4603,11 +3208,6 @@
     category: solvents
     parent: anticorrosive
     ru: Растворители, обезжириватели и преобразователи ржавчины
-- model: marketplace.categorygroup
-  fields:
-    category: grease
-    parent: solvents
-    ru: Размораживатели
 - model: marketplace.categorygroup
   fields:
     category: zapchasti
@@ -4700,16 +3300,6 @@
     ru: Усилители
 - model: marketplace.categorygroup
   fields:
-    category: carspeakers
-    parent: caramps
-    ru: Сабвуферы
-- model: marketplace.categorygroup
-  fields:
-    category: cable
-    parent: carspeakers
-    ru: Кабели для автоакустики
-- model: marketplace.categorygroup
-  fields:
     category: avtoelektronika
     parent: avtoakustika
     ru: Автоэлектроника
@@ -4733,11 +3323,6 @@
     category: caralarm
     parent: gps
     ru: Автосигнализации
-- model: marketplace.categorygroup
-  fields:
-    category: caralarm
-    parent: caralarm
-    ru: Мотосигнализации
 - model: marketplace.categorygroup
   fields:
     category: car_radio
@@ -4790,11 +3375,6 @@
     ru: Автомобильные компрессоры
 - model: marketplace.categorygroup
   fields:
-    category: tool_kits
-    parent: compressor_auto
-    ru: Наборы инструментов
-- model: marketplace.categorygroup
-  fields:
     category: start_charge
     parent: tool_kits
     ru: Пускозарядные устройства
@@ -4810,36 +3390,6 @@
     ru: Динамометрические ключи и отвертки
 - model: marketplace.categorygroup
   fields:
-    category: multimeter
-    parent: torque_wrenches
-    ru: Мультиметры, токовые клещи, индикаторные отвертки
-- model: marketplace.categorygroup
-  fields:
-    category: wrench
-    parent: multimeter
-    ru: Пневматические гайковерты
-- model: marketplace.categorygroup
-  fields:
-    category: pneumogrinder
-    parent: wrench
-    ru: Пневматические шлифмашины
-- model: marketplace.categorygroup
-  fields:
-    category: spraygun
-    parent: pneumogrinder
-    ru: Пневматические краскопульты
-- model: marketplace.categorygroup
-  fields:
-    category: electricspraygun
-    parent: spraygun
-    ru: Электрические краскопульты
-- model: marketplace.categorygroup
-  fields:
-    category: washers
-    parent: electricspraygun
-    ru: Мойки высокого давления
-- model: marketplace.categorygroup
-  fields:
     category: carlift
     parent: washers
     ru: Подъемники
@@ -4848,11 +3398,6 @@
     category: aksessuary
     parent: instrumenty-i-oborudovanie
     ru: Аксессуары
-- model: marketplace.categorygroup
-  fields:
-    category: carholder
-    parent: aksessuary
-    ru: Аксессуары для салона автомобиля
 - model: marketplace.categorygroup
   fields:
     category: arrefrigerator
@@ -4935,11 +3480,6 @@
     ru: Мотоциклы
 - model: marketplace.categorygroup
   fields:
-    category: electric_scooter
-    parent: motorcycle
-    ru: Электроскутеры
-- model: marketplace.categorygroup
-  fields:
     category: scooter
     parent: electric_scooter
     ru: Скутеры и мопеды
@@ -4953,16 +3493,6 @@
     category: motohelmet
     parent: quad
     ru: Мотошлемы
-- model: marketplace.categorygroup
-  fields:
-    category: moto_tires
-    parent: motohelmet
-    ru: Мотоциклетные шины
-- model: marketplace.categorygroup
-  fields:
-    category: motobatteries
-    parent: moto_tires
-    ru: Мотоциклетные аккумуляторы
 - model: marketplace.categorygroup
   fields:
     category: motoaccessories
@@ -4985,11 +3515,6 @@
     ru: Велосипеды
 - model: marketplace.categorygroup
   fields:
-    category: electrobike
-    parent: bike
-    ru: Электровелосипеды
-- model: marketplace.categorygroup
-  fields:
     category: kidsbike
     parent: electrobike
     ru: Детские велосипеды
@@ -5008,11 +3533,6 @@
     category: bikecomp
     parent: bikehelmet
     ru: Велокомпьютеры
-- model: marketplace.categorygroup
-  fields:
-    category: heart_rate
-    parent: bikecomp
-    ru: Пульсометры
 - model: marketplace.categorygroup
   fields:
     category: bikelock
@@ -5045,11 +3565,6 @@
     ru: Детские велокресла
 - model: marketplace.categorygroup
   fields:
-    category: bicyclerack
-    parent: bikeseat
-    ru: Велобагажники
-- model: marketplace.categorygroup
-  fields:
     category: bike_trailer
     parent: bicyclerack
     ru: Велоприцепы и буксиры
@@ -5063,16 +3578,6 @@
     category: bike_tools
     parent: bike_parts
     ru: Инструменты для ремонта и обслуживания велосипеда
-- model: marketplace.categorygroup
-  fields:
-    category: actioncamera
-    parent: bike_tools
-    ru: Экшен-камеры
-- model: marketplace.categorygroup
-  fields:
-    category: actioncamera_acs
-    parent: actioncamera
-    ru: Аксессуары и крепления для экшен-камер
 - model: marketplace.categorygroup
   fields:
     category: rolikovye-konki-skejtbordy-samokaty
@@ -5095,44 +3600,9 @@
     ru: Самокаты
 - model: marketplace.categorygroup
   fields:
-    category: sportsprotection
-    parent: kickscooter
-    ru: Спортивная защита
-- model: marketplace.categorygroup
-  fields:
-    category: actioncamera
-    parent: sportsprotection
-    ru: Экшен-камеры
-- model: marketplace.categorygroup
-  fields:
-    category: actioncamera_acs
-    parent: actioncamera
-    ru: Аксессуары и крепления для экшен-камер
-- model: marketplace.categorygroup
-  fields:
-    category: heart_rate
-    parent: actioncamera_acs
-    ru: Пульсометры
-- model: marketplace.categorygroup
-  fields:
     category: elektrotransport
     parent: rolikovye-konki-skejtbordy-samokaty
     ru: Электротранспорт
-- model: marketplace.categorygroup
-  fields:
-    category: electric_scooter
-    parent: elektrotransport
-    ru: Электросамокаты и электроскутеры
-- model: marketplace.categorygroup
-  fields:
-    category: segway
-    parent: electric_scooter
-    ru: Гироциклы
-- model: marketplace.categorygroup
-  fields:
-    category: electrobike
-    parent: segway
-    ru: Электровелосипеды
 - model: marketplace.categorygroup
   fields:
     category: chasy-sumki-i-prochie-aksessuary
@@ -5145,24 +3615,9 @@
     ru: Наручные часы
 - model: marketplace.categorygroup
   fields:
-    category: smartwatch
-    parent: watch
-    ru: Умные часы
-- model: marketplace.categorygroup
-  fields:
     category: caskets
     parent: smartwatch
     ru: Шкатулки для украшений и часов
-- model: marketplace.categorygroup
-  fields:
-    category: backpack
-    parent: caskets
-    ru: Рюкзаки
-- model: marketplace.categorygroup
-  fields:
-    category: notebookcase
-    parent: backpack
-    ru: Женские и мужские сумки
 - model: marketplace.categorygroup
   fields:
     category: suitcase
@@ -5180,11 +3635,6 @@
     ru: Кошельки
 - model: marketplace.categorygroup
   fields:
-    category: wallet
-    parent: wallet
-    ru: Визитницы
-- model: marketplace.categorygroup
-  fields:
     category: umbrella
     parent: wallet
     ru: Зонты
@@ -5198,41 +3648,6 @@
     category: conte
     parent: cigarettelighter
     ru: Мужские носки DiWaRi
-- model: marketplace.categorygroup
-  fields:
-    category: conte
-    parent: conte
-    ru: Женские носки Conte
-- model: marketplace.categorygroup
-  fields:
-    category: conte
-    parent: conte
-    ru: Детские носки и колготки Conte-kids
-- model: marketplace.categorygroup
-  fields:
-    category: conte
-    parent: conte
-    ru: Мужские подследники DiWaRi
-- model: marketplace.categorygroup
-  fields:
-    category: conte
-    parent: conte
-    ru: Женские подследники Conte
-- model: marketplace.categorygroup
-  fields:
-    category: conte
-    parent: conte
-    ru: Гольфы и гольфины Conte
-- model: marketplace.categorygroup
-  fields:
-    category: conte
-    parent: conte
-    ru: Колготки Conte
-- model: marketplace.categorygroup
-  fields:
-    category: conte
-    parent: conte
-    ru: Чулки Conte
 - model: marketplace.categorygroup
   fields:
     category: kosmetika-parfjumerija-aksessuary
@@ -5360,24 +3775,9 @@
     ru: Косметички и органайзеры для косметики
 - model: marketplace.categorygroup
   fields:
-    category: cosmeticbag
-    parent: cosmeticbag
-    ru: Бьюти-холодильники
-- model: marketplace.categorygroup
-  fields:
     category: zdorove
     parent: kosmetika-parfjumerija-aksessuary
     ru: Здоровье
-- model: marketplace.categorygroup
-  fields:
-    category: smartwatch
-    parent: zdorove
-    ru: Фитнес-браслеты
-- model: marketplace.categorygroup
-  fields:
-    category: toothbrush
-    parent: smartwatch
-    ru: Электрические зубные щетки и ирригаторы
 - model: marketplace.categorygroup
   fields:
     category: manualtoothbrush
@@ -5385,64 +3785,9 @@
     ru: Зубные щетки и аксессуары
 - model: marketplace.categorygroup
   fields:
-    category: toothpaste
-    parent: manualtoothbrush
-    ru: Средства для ухода за полостью рта
-- model: marketplace.categorygroup
-  fields:
-    category: massagechair
-    parent: toothpaste
-    ru: Массажеры и массажные кресла
-- model: marketplace.categorygroup
-  fields:
-    category: mobile_heater
-    parent: massagechair
-    ru: Электрогрелки, электроодеяла, электропростыни
-- model: marketplace.categorygroup
-  fields:
-    category: inhaler
-    parent: mobile_heater
-    ru: Ингаляторы
-- model: marketplace.categorygroup
-  fields:
-    category: tonometers
-    parent: inhaler
-    ru: Тонометры
-- model: marketplace.categorygroup
-  fields:
-    category: medthermometer
-    parent: tonometers
-    ru: Термометры
-- model: marketplace.categorygroup
-  fields:
-    category: glucosemeter
-    parent: medthermometer
-    ru: Глюкометры
-- model: marketplace.categorygroup
-  fields:
-    category: heart_rate
-    parent: glucosemeter
-    ru: Пульсоксиметры
-- model: marketplace.categorygroup
-  fields:
     category: physical_therapy
     parent: heart_rate
     ru: Приборы для физиотерапии
-- model: marketplace.categorygroup
-  fields:
-    category: nitrate
-    parent: physical_therapy
-    ru: Нитратомеры, дозиметры, экотестеры
-- model: marketplace.categorygroup
-  fields:
-    category: contact_lense
-    parent: nitrate
-    ru: Контактные линзы
-- model: marketplace.categorygroup
-  fields:
-    category: solutionlenses
-    parent: contact_lense
-    ru: Растворы для линз
 - model: marketplace.categorygroup
   fields:
     category: tampons
@@ -5480,16 +3825,6 @@
     ru: Бутылки для воды
 - model: marketplace.categorygroup
   fields:
-    category: sleepgood
-    parent: water_bottles
-    ru: Гаджеты для сна
-- model: marketplace.categorygroup
-  fields:
-    category: firstaidkit
-    parent: sleepgood
-    ru: Аптечки
-- model: marketplace.categorygroup
-  fields:
     category: uflamp
     parent: firstaidkit
     ru: Рециркуляторы, бактерицидные светильники
@@ -5500,99 +3835,14 @@
     ru: Приборы по уходу за телом
 - model: marketplace.categorygroup
   fields:
-    category: hairclipper
-    parent: pribory-po-uhodu-za-telom
-    ru: Машинки для стрижки волос
-- model: marketplace.categorygroup
-  fields:
-    category: styler
-    parent: hairclipper
-    ru: Плойки, стайлеры, щипцы
-- model: marketplace.categorygroup
-  fields:
-    category: styler
-    parent: styler
-    ru: Расчески с ионизацией
-- model: marketplace.categorygroup
-  fields:
-    category: hairdryer
-    parent: styler
-    ru: Фены
-- model: marketplace.categorygroup
-  fields:
-    category: manualtoothbrush
-    parent: hairdryer
-    ru: Зубные щетки и аксессуары
-- model: marketplace.categorygroup
-  fields:
-    category: toothbrush
-    parent: manualtoothbrush
-    ru: Электрические зубные щетки и ирригаторы
-- model: marketplace.categorygroup
-  fields:
-    category: shaver
-    parent: toothbrush
-    ru: Мужские электробритвы
-- model: marketplace.categorygroup
-  fields:
-    category: ladyshaver
-    parent: shaver
-    ru: Женские электробритвы и эпиляторы
-- model: marketplace.categorygroup
-  fields:
-    category: razorsandblades
-    parent: ladyshaver
-    ru: Бритвенные станки и лезвия
-- model: marketplace.categorygroup
-  fields:
-    category: scales
-    parent: razorsandblades
-    ru: Напольные весы
-- model: marketplace.categorygroup
-  fields:
-    category: footbath
-    parent: scales
-    ru: Гидромассажные ванночки
-- model: marketplace.categorygroup
-  fields:
-    category: manicure
-    parent: footbath
-    ru: Аппараты для маникюра и педикюра
-- model: marketplace.categorygroup
-  fields:
     category: skin_care_app
     parent: manicure
     ru: Приборы для ухода за кожей
 - model: marketplace.categorygroup
   fields:
-    category: cosmetic_mirror
-    parent: skin_care_app
-    ru: Косметические зеркала
-- model: marketplace.categorygroup
-  fields:
-    category: beauty_acs
-    parent: cosmetic_mirror
-    ru: Аксессуары для зубных щеток и ирригаторов
-- model: marketplace.categorygroup
-  fields:
-    category: beauty_acs
-    parent: beauty_acs
-    ru: Аксессуары для электробритв и машинок
-- model: marketplace.categorygroup
-  fields:
-    category: beauty_acs
-    parent: beauty_acs
-    ru: Аксессуары для приборов по уходу за кожей
-- model: marketplace.categorygroup
-  fields:
     category: hobbi
     parent: pribory-po-uhodu-za-telom
     ru: Хобби
-- model: marketplace.categorygroup
-  fields:
-    category: smoke
-    parent: hobbi
-    ru: Электронные парогенераторы
 - model: marketplace.categorygroup
   fields:
     category: fidget_spinner
@@ -5613,11 +3863,6 @@
     category: puzzles
     parent: scale_model
     ru: Пазлы
-- model: marketplace.categorygroup
-  fields:
-    category: robots
-    parent: puzzles
-    ru: Роботы, трансформеры, фигурки
 - model: marketplace.categorygroup
   fields:
     category: boardgame
@@ -5645,36 +3890,6 @@
     ru: Радиоуправляемые судомодели
 - model: marketplace.categorygroup
   fields:
-    category: sewingmachines
-    parent: radiomodelwater
-    ru: Швейные машины
-- model: marketplace.categorygroup
-  fields:
-    category: overlock
-    parent: sewingmachines
-    ru: Оверлоки
-- model: marketplace.categorygroup
-  fields:
-    category: radio
-    parent: overlock
-    ru: Радиоприемники
-- model: marketplace.categorygroup
-  fields:
-    category: telescope
-    parent: radio
-    ru: Телескопы
-- model: marketplace.categorygroup
-  fields:
-    category: optic
-    parent: telescope
-    ru: Бинокли, подзорные трубы и приборы ночного видения
-- model: marketplace.categorygroup
-  fields:
-    category: guitar
-    parent: optic
-    ru: Гитары
-- model: marketplace.categorygroup
-  fields:
     category: hookahs
     parent: guitar
     ru: Кальяны
@@ -5698,16 +3913,6 @@
     category: tents
     parent: turizm-i-kemping
     ru: Палатки
-- model: marketplace.categorygroup
-  fields:
-    category: backpack
-    parent: tents
-    ru: Туристические рюкзаки
-- model: marketplace.categorygroup
-  fields:
-    category: airbed
-    parent: backpack
-    ru: Надувная мебель
 - model: marketplace.categorygroup
   fields:
     category: camp_furniture
@@ -5740,19 +3945,9 @@
     ru: Термосы, термокружки
 - model: marketplace.categorygroup
   fields:
-    category: water_bottles
-    parent: thermosbottle
-    ru: Бутылки для воды
-- model: marketplace.categorygroup
-  fields:
     category: camping_cookware
     parent: water_bottles
     ru: Туристическая посуда
-- model: marketplace.categorygroup
-  fields:
-    category: kazan
-    parent: camping_cookware
-    ru: Казаны
 - model: marketplace.categorygroup
   fields:
     category: gascylinder
@@ -5760,49 +3955,9 @@
     ru: Туристические горелки и плиты
 - model: marketplace.categorygroup
   fields:
-    category: grill
-    parent: gascylinder
-    ru: Мангалы, грили, барбекю
-- model: marketplace.categorygroup
-  fields:
-    category: arrefrigerator
-    parent: grill
-    ru: Автохолодильники, термобоксы, термосумки
-- model: marketplace.categorygroup
-  fields:
-    category: bbq_accessories
-    parent: arrefrigerator
-    ru: Принадлежности для барбекю, грилей, мангалов
-- model: marketplace.categorygroup
-  fields:
-    category: portableradio
-    parent: bbq_accessories
-    ru: Портативные радиостанции
-- model: marketplace.categorygroup
-  fields:
-    category: radio
-    parent: portableradio
-    ru: Радиоприемники
-- model: marketplace.categorygroup
-  fields:
     category: travelgps
     parent: radio
     ru: Туристические навигаторы
-- model: marketplace.categorygroup
-  fields:
-    category: optic
-    parent: travelgps
-    ru: Бинокли, подзорные трубы и приборы ночного видения
-- model: marketplace.categorygroup
-  fields:
-    category: telescope
-    parent: optic
-    ru: Телескопы
-- model: marketplace.categorygroup
-  fields:
-    category: camera_traps
-    parent: telescope
-    ru: Фотоловушки
 - model: marketplace.categorygroup
   fields:
     category: rybalka-vodnyj-sport
@@ -5905,26 +4060,6 @@
     ru: Перчатки для бокса и единоборств
 - model: marketplace.categorygroup
   fields:
-    category: sportsprotection
-    parent: glovesmartialart
-    ru: Спортивная защита
-- model: marketplace.categorygroup
-  fields:
-    category: trampoline
-    parent: sportsprotection
-    ru: Батуты
-- model: marketplace.categorygroup
-  fields:
-    category: kidwallbars
-    parent: trampoline
-    ru: Шведские стенки
-- model: marketplace.categorygroup
-  fields:
-    category: ball
-    parent: kidwallbars
-    ru: Гимнастические мячи
-- model: marketplace.categorygroup
-  fields:
     category: yoga_mat
     parent: ball
     ru: Коврики для йоги и фитнеса
@@ -5958,11 +4093,6 @@
     category: igrovye-vidy-sporta
     parent: sportivnoe-pitanie
     ru: Игровые виды спорта
-- model: marketplace.categorygroup
-  fields:
-    category: ball
-    parent: igrovye-vidy-sporta
-    ru: Спортивные мячи
 - model: marketplace.categorygroup
   fields:
     category: tabletennis
@@ -6040,11 +4170,6 @@
     ru: Хоккейные клюшки
 - model: marketplace.categorygroup
   fields:
-    category: sportsprotection
-    parent: hockeystick
-    ru: Защита
-- model: marketplace.categorygroup
-  fields:
     category: skigoggles
     parent: sportsprotection
     ru: Аксессуары для горнолыжного спорта
@@ -6080,49 +4205,14 @@
     ru: Автокресла
 - model: marketplace.categorygroup
   fields:
-    category: car_intcover
-    parent: childcarseat
-    ru: Защитные накидки на сидения
-- model: marketplace.categorygroup
-  fields:
     category: babycarrier
     parent: car_intcover
     ru: Рюкзаки-переноски (кенгуру)
 - model: marketplace.categorygroup
   fields:
-    category: bikeseat
-    parent: babycarrier
-    ru: Велокресла
-- model: marketplace.categorygroup
-  fields:
-    category: bike_trailer
-    parent: bikeseat
-    ru: Детские велоприцепы
-- model: marketplace.categorygroup
-  fields:
     category: detskij-transport
     parent: progulki-i-poezdki
     ru: Детский транспорт
-- model: marketplace.categorygroup
-  fields:
-    category: kickscooter
-    parent: detskij-transport
-    ru: Самокаты
-- model: marketplace.categorygroup
-  fields:
-    category: kidsbike
-    parent: kickscooter
-    ru: Детские велосипеды-каталки
-- model: marketplace.categorygroup
-  fields:
-    category: kidsbike
-    parent: kidsbike
-    ru: Трехколесные велосипеды
-- model: marketplace.categorygroup
-  fields:
-    category: sled
-    parent: kidsbike
-    ru: Санки
 - model: marketplace.categorygroup
   fields:
     category: balancebike
@@ -6150,11 +4240,6 @@
     ru: Детская мебель
 - model: marketplace.categorygroup
   fields:
-    category: babycotbed
-    parent: detskaja-mebel
-    ru: Кроватки
-- model: marketplace.categorygroup
-  fields:
     category: highchair
     parent: babycotbed
     ru: Стульчики для кормления
@@ -6163,26 +4248,6 @@
     category: playpen
     parent: highchair
     ru: Манежи
-- model: marketplace.categorygroup
-  fields:
-    category: bed
-    parent: playpen
-    ru: Детские кровати
-- model: marketplace.categorygroup
-  fields:
-    category: kidsdesk
-    parent: bed
-    ru: Столы и парты
-- model: marketplace.categorygroup
-  fields:
-    category: babydresser
-    parent: kidsdesk
-    ru: Детские комоды
-- model: marketplace.categorygroup
-  fields:
-    category: toystorage
-    parent: babydresser
-    ru: Комоды для игрушек
 - model: marketplace.categorygroup
   fields:
     category: babyswing
@@ -6200,31 +4265,6 @@
     ru: Детский сон
 - model: marketplace.categorygroup
   fields:
-    category: babycotbed
-    parent: detskij-son
-    ru: Кроватки
-- model: marketplace.categorygroup
-  fields:
-    category: bed
-    parent: babycotbed
-    ru: Детские кровати
-- model: marketplace.categorygroup
-  fields:
-    category: bedlinen
-    parent: bed
-    ru: Детское постельное белье
-- model: marketplace.categorygroup
-  fields:
-    category: pillows
-    parent: bedlinen
-    ru: Подушки
-- model: marketplace.categorygroup
-  fields:
-    category: mattress
-    parent: pillows
-    ru: Детские матрасы
-- model: marketplace.categorygroup
-  fields:
     category: babymonitor
     parent: mattress
     ru: Радионяни и видеоняни
@@ -6233,16 +4273,6 @@
     category: nastolnye-igry-i-razvivajuschie-igrushki
     parent: detskij-son
     ru: Настольные игры и развивающие игрушки
-- model: marketplace.categorygroup
-  fields:
-    category: boardgame
-    parent: nastolnye-igry-i-razvivajuschie-igrushki
-    ru: Настольные игры
-- model: marketplace.categorygroup
-  fields:
-    category: buildingkit
-    parent: boardgame
-    ru: Конструкторы
 - model: marketplace.categorygroup
   fields:
     category: edu_toys
@@ -6255,26 +4285,6 @@
     ru: Развивающие коврики
 - model: marketplace.categorygroup
   fields:
-    category: scale_model
-    parent: playmats
-    ru: Сборные модели
-- model: marketplace.categorygroup
-  fields:
-    category: logic_puzzles
-    parent: scale_model
-    ru: Логические игры, головоломки
-- model: marketplace.categorygroup
-  fields:
-    category: 3d_pen
-    parent: logic_puzzles
-    ru: 3D-ручки
-- model: marketplace.categorygroup
-  fields:
-    category: fidget_spinner
-    parent: 3d_pen
-    ru: Игрушки антистресс
-- model: marketplace.categorygroup
-  fields:
     category: science_kits
     parent: fidget_spinner
     ru: Игры-опыты, эксперименты
@@ -6283,11 +4293,6 @@
     category: igrushki-i-igry
     parent: nastolnye-igry-i-razvivajuschie-igrushki
     ru: Игрушки и игры
-- model: marketplace.categorygroup
-  fields:
-    category: robots
-    parent: igrushki-i-igry
-    ru: Роботы, трансформеры, фигурки
 - model: marketplace.categorygroup
   fields:
     category: doll
@@ -6310,24 +4315,9 @@
     ru: Игрушечный транспорт
 - model: marketplace.categorygroup
   fields:
-    category: radioautomodel
-    parent: toy_cars
-    ru: Радиоуправляемые машинки
-- model: marketplace.categorygroup
-  fields:
-    category: radiocontrolair
-    parent: radioautomodel
-    ru: Радиоуправляемые самолеты и вертолеты
-- model: marketplace.categorygroup
-  fields:
     category: kidsrailroad
     parent: radiocontrolair
     ru: Детские железные дороги
-- model: marketplace.categorygroup
-  fields:
-    category: stuffedtoys
-    parent: kidsrailroad
-    ru: Мягкие игрушки
 - model: marketplace.categorygroup
   fields:
     category: interactive_toys
@@ -6335,24 +4325,9 @@
     ru: Интерактивные игрушки и роботы
 - model: marketplace.categorygroup
   fields:
-    category: radiomodelwater
-    parent: interactive_toys
-    ru: Радиоуправляемые катера
-- model: marketplace.categorygroup
-  fields:
     category: playhouse
     parent: radiomodelwater
     ru: Игровые домики и палатки
-- model: marketplace.categorygroup
-  fields:
-    category: airhockey
-    parent: playhouse
-    ru: Аэрохоккей, настольный футбол, мини-бильярд
-- model: marketplace.categorygroup
-  fields:
-    category: playhouse
-    parent: airhockey
-    ru: Сухие бассейны
 - model: marketplace.categorygroup
   fields:
     category: bath_toys
@@ -6363,11 +4338,6 @@
     category: toy_weapon
     parent: bath_toys
     ru: Игрушечное оружие
-- model: marketplace.categorygroup
-  fields:
-    category: puzzles
-    parent: toy_weapon
-    ru: Пазлы
 - model: marketplace.categorygroup
   fields:
     category: musical_toys
@@ -6435,94 +4405,14 @@
     ru: Игрушки для песочницы
 - model: marketplace.categorygroup
   fields:
-    category: active_games
-    parent: sandbox_toys
-    ru: Активные игры
-- model: marketplace.categorygroup
-  fields:
     category: igry-na-ulitse-i-sport
     parent: igrushki-i-igry
     ru: Игры на улице и спорт
 - model: marketplace.categorygroup
   fields:
-    category: pool
-    parent: igry-na-ulitse-i-sport
-    ru: Бассейны
-- model: marketplace.categorygroup
-  fields:
-    category: kidwallbars
-    parent: pool
-    ru: Шведские стенки
-- model: marketplace.categorygroup
-  fields:
-    category: kidwallbars
-    parent: kidwallbars
-    ru: Уличные комплексы и горки
-- model: marketplace.categorygroup
-  fields:
-    category: trampoline
-    parent: kidwallbars
-    ru: Батуты
-- model: marketplace.categorygroup
-  fields:
-    category: ball
-    parent: trampoline
-    ru: Мячи
-- model: marketplace.categorygroup
-  fields:
-    category: playhouse
-    parent: ball
-    ru: Игровые домики и палатки
-- model: marketplace.categorygroup
-  fields:
-    category: skates
-    parent: playhouse
-    ru: Коньки
-- model: marketplace.categorygroup
-  fields:
-    category: rollerskates
-    parent: skates
-    ru: Роликовые коньки
-- model: marketplace.categorygroup
-  fields:
-    category: kickscooter
-    parent: rollerskates
-    ru: Самокаты
-- model: marketplace.categorygroup
-  fields:
-    category: skis
-    parent: kickscooter
-    ru: Лыжи
-- model: marketplace.categorygroup
-  fields:
-    category: hockeystick
-    parent: skis
-    ru: Хоккейные клюшки
-- model: marketplace.categorygroup
-  fields:
-    category: sportsprotection
-    parent: hockeystick
-    ru: Спортивная защита
-- model: marketplace.categorygroup
-  fields:
-    category: active_games
-    parent: sportsprotection
-    ru: Активные игры
-- model: marketplace.categorygroup
-  fields:
-    category: sandbox_toys
-    parent: active_games
-    ru: Игрушки для песочницы
-- model: marketplace.categorygroup
-  fields:
     category: uhod-za-novorozhdennymi
     parent: igry-na-ulitse-i-sport
     ru: Уход за новорожденными
-- model: marketplace.categorygroup
-  fields:
-    category: bedlinen
-    parent: uhod-za-novorozhdennymi
-    ru: Комплекты для выписки
 - model: marketplace.categorygroup
   fields:
     category: diapers
@@ -6533,11 +4423,6 @@
     category: underpads
     parent: diapers
     ru: Пеленки для новорожденных
-- model: marketplace.categorygroup
-  fields:
-    category: babymonitor
-    parent: underpads
-    ru: Радионяни и видеоняни
 - model: marketplace.categorygroup
   fields:
     category: babyscales
@@ -6558,16 +4443,6 @@
     category: bottlesterilizer
     parent: babyfoodmaker
     ru: Подогреватели и стерилизаторы бутылочек
-- model: marketplace.categorygroup
-  fields:
-    category: medthermometer
-    parent: bottlesterilizer
-    ru: Термометры
-- model: marketplace.categorygroup
-  fields:
-    category: washingpowder
-    parent: medthermometer
-    ru: Детские стиральные порошки
 - model: marketplace.categorygroup
   fields:
     category: breast_pump
@@ -6595,31 +4470,6 @@
     ru: Детские рюкзаки, носки, колготки, часы
 - model: marketplace.categorygroup
   fields:
-    category: backpack
-    parent: detskie-rjukzaki-noski-kolgotki-chasy
-    ru: Школьные рюкзаки
-- model: marketplace.categorygroup
-  fields:
-    category: smartwatch
-    parent: backpack
-    ru: Умные часы для детей
-- model: marketplace.categorygroup
-  fields:
-    category: conte
-    parent: smartwatch
-    ru: Колготки Conte-kids
-- model: marketplace.categorygroup
-  fields:
-    category: conte
-    parent: conte
-    ru: Носки Conte-kids
-- model: marketplace.categorygroup
-  fields:
-    category: conte
-    parent: conte
-    ru: Гольфы и гольфины Conte-kids
-- model: marketplace.categorygroup
-  fields:
     category: rabota-i-ofis
     parent: detjam-i-mamam
     ru: Работа и офис
@@ -6630,49 +4480,9 @@
     ru: Офисная техника и расходные материалы
 - model: marketplace.categorygroup
   fields:
-    category: printers
-    parent: ofisnaja-tehnika-i-rashodnye-materialy
-    ru: Принтеры и МФУ
-- model: marketplace.categorygroup
-  fields:
-    category: fax
-    parent: printers
-    ru: Факсы
-- model: marketplace.categorygroup
-  fields:
-    category: scanner
-    parent: fax
-    ru: Сканеры
-- model: marketplace.categorygroup
-  fields:
-    category: phone
-    parent: scanner
-    ru: Проводные IP-телефоны
-- model: marketplace.categorygroup
-  fields:
-    category: dect
-    parent: phone
-    ru: Беспроводные IP-телефоны
-- model: marketplace.categorygroup
-  fields:
-    category: cartridges
-    parent: dect
-    ru: Картриджи для принтеров
-- model: marketplace.categorygroup
-  fields:
     category: shredder
     parent: cartridges
     ru: Уничтожители бумаг (шредеры)
-- model: marketplace.categorygroup
-  fields:
-    category: photopaper
-    parent: shredder
-    ru: Бумага и материалы для печати
-- model: marketplace.categorygroup
-  fields:
-    category: consumablespaper
-    parent: photopaper
-    ru: Расходные материалы для ламинаторов и брошюровщиков
 - model: marketplace.categorygroup
   fields:
     category: officeboard_acs
@@ -6685,54 +4495,14 @@
     ru: Резаки для бумаги
 - model: marketplace.categorygroup
   fields:
-    category: bindingmachines
-    parent: papercutter
-    ru: Брошюровщики
-- model: marketplace.categorygroup
-  fields:
-    category: 3dprinter
-    parent: bindingmachines
-    ru: 3D-принтеры
-- model: marketplace.categorygroup
-  fields:
-    category: 3d_filament
-    parent: 3dprinter
-    ru: Расходные материалы для 3D-печати
-- model: marketplace.categorygroup
-  fields:
-    category: voltageregulator
-    parent: 3d_filament
-    ru: Сетевые фильтры-удлинители
-- model: marketplace.categorygroup
-  fields:
     category: ofisnaja-mebel
     parent: ofisnaja-tehnika-i-rashodnye-materialy
     ru: Офисная мебель
 - model: marketplace.categorygroup
   fields:
-    category: office_chair
-    parent: ofisnaja-mebel
-    ru: Офисные кресла, стулья
-- model: marketplace.categorygroup
-  fields:
-    category: table
-    parent: office_chair
-    ru: Офисные столы
-- model: marketplace.categorygroup
-  fields:
-    category: divan
-    parent: table
-    ru: Офисные диваны
-- model: marketplace.categorygroup
-  fields:
     category: furnituresafes
     parent: divan
     ru: Сейфы
-- model: marketplace.categorygroup
-  fields:
-    category: officeboard
-    parent: furnituresafes
-    ru: Офисные доски, флипчарты
 - model: marketplace.categorygroup
   fields:
     category: torgovlja-i-finansy
@@ -6760,11 +4530,6 @@
     ru: Детекторы валют
 - model: marketplace.categorygroup
   fields:
-    category: matrixprinter
-    parent: currencydetector
-    ru: Матричные принтеры
-- model: marketplace.categorygroup
-  fields:
     category: thermal
     parent: matrixprinter
     ru: Принтеры на этикетках и чеках
@@ -6780,11 +4545,6 @@
     ru: Торговые холодильники
 - model: marketplace.categorygroup
   fields:
-    category: canopy_tents
-    parent: commfrige
-    ru: Шатры, тенты для торговли
-- model: marketplace.categorygroup
-  fields:
     category: aircurtain
     parent: canopy_tents
     ru: Тепловые завесы
@@ -6795,69 +4555,9 @@
     ru: Издательство и печать
 - model: marketplace.categorygroup
   fields:
-    category: printers
-    parent: izdatelstvo-i-pechat
-    ru: Принтеры и МФУ
-- model: marketplace.categorygroup
-  fields:
-    category: laminator
-    parent: printers
-    ru: Ламинаторы
-- model: marketplace.categorygroup
-  fields:
-    category: bindingmachines
-    parent: laminator
-    ru: Брошюровщики
-- model: marketplace.categorygroup
-  fields:
-    category: tablets
-    parent: bindingmachines
-    ru: Графические планшеты
-- model: marketplace.categorygroup
-  fields:
-    category: stylus_pens
-    parent: tablets
-    ru: Стилусы и сменные наконечники
-- model: marketplace.categorygroup
-  fields:
-    category: photopaper
-    parent: stylus_pens
-    ru: Офисная бумага
-- model: marketplace.categorygroup
-  fields:
-    category: photopaper
-    parent: photopaper
-    ru: Самоклеящаяся бумага
-- model: marketplace.categorygroup
-  fields:
-    category: photopaper
-    parent: photopaper
-    ru: Термотрансферная бумага
-- model: marketplace.categorygroup
-  fields:
-    category: photopaper
-    parent: photopaper
-    ru: Фотобумага
-- model: marketplace.categorygroup
-  fields:
-    category: consumablespaper
-    parent: photopaper
-    ru: Расходные материалы для ламинаторов и брошюровщиков
-- model: marketplace.categorygroup
-  fields:
     category: gigiena-i-pitanie
     parent: izdatelstvo-i-pechat
     ru: Гигиена и питание
-- model: marketplace.categorygroup
-  fields:
-    category: dispenser
-    parent: gigiena-i-pitanie
-    ru: Аксессуары для ванной и туалета
-- model: marketplace.categorygroup
-  fields:
-    category: handsdryer
-    parent: dispenser
-    ru: Сушилки для рук, волос
 - model: marketplace.categorygroup
   fields:
     category: water_cooler
@@ -6865,54 +4565,9 @@
     ru: Кулеры для воды
 - model: marketplace.categorygroup
   fields:
-    category: coffee
-    parent: water_cooler
-    ru: Кофемашины и кофеварки
-- model: marketplace.categorygroup
-  fields:
-    category: coffeejava
-    parent: coffee
-    ru: Кофе
-- model: marketplace.categorygroup
-  fields:
-    category: refrigerator
-    parent: coffeejava
-    ru: Холодильники
-- model: marketplace.categorygroup
-  fields:
-    category: microvawe
-    parent: refrigerator
-    ru: Микроволновые печи
-- model: marketplace.categorygroup
-  fields:
-    category: trashbin
-    parent: microvawe
-    ru: Мусорки, урны, контейнеры для мусора
-- model: marketplace.categorygroup
-  fields:
     category: videonabljudenie
     parent: gigiena-i-pitanie
     ru: Видеонаблюдение
-- model: marketplace.categorygroup
-  fields:
-    category: ipcamera
-    parent: videonabljudenie
-    ru: IP-камеры
-- model: marketplace.categorygroup
-  fields:
-    category: cctvcamera
-    parent: ipcamera
-    ru: Камеры CCTV
-- model: marketplace.categorygroup
-  fields:
-    category: dvr
-    parent: cctvcamera
-    ru: Видеорегистраторы
-- model: marketplace.categorygroup
-  fields:
-    category: videodoorphone
-    parent: dvr
-    ru: Видеодомофоны
 - model: marketplace.categorygroup
   fields:
     category: transport-i-perevozki
@@ -6920,94 +4575,14 @@
     ru: Транспорт и перевозки
 - model: marketplace.categorygroup
   fields:
-    category: gps_tracker
-    parent: transport-i-perevozki
-    ru: GPS-трекеры
-- model: marketplace.categorygroup
-  fields:
-    category: videoregistrator
-    parent: gps_tracker
-    ru: Видеорегистраторы
-- model: marketplace.categorygroup
-  fields:
-    category: gps
-    parent: videoregistrator
-    ru: GPS-навигаторы
-- model: marketplace.categorygroup
-  fields:
-    category: breathalyzer
-    parent: gps
-    ru: Алкотестеры
-- model: marketplace.categorygroup
-  fields:
     category: promyshlennost-i-stroitelstvo
     parent: transport-i-perevozki
     ru: Промышленность и строительство
 - model: marketplace.categorygroup
   fields:
-    category: woodworking
-    parent: promyshlennost-i-stroitelstvo
-    ru: Деревообрабатывающие и металлообрабатывающие станки
-- model: marketplace.categorygroup
-  fields:
-    category: metal_cutter
-    parent: woodworking
-    ru: Электрические ножницы по металлу
-- model: marketplace.categorygroup
-  fields:
-    category: benchgrinder
-    parent: metal_cutter
-    ru: Заточные станки (точила)
-- model: marketplace.categorygroup
-  fields:
-    category: powercutter
-    parent: benchgrinder
-    ru: Электро- и бензорезы
-- model: marketplace.categorygroup
-  fields:
-    category: metal_pipes
-    parent: powercutter
-    ru: Трубный металлопрокат
-- model: marketplace.categorygroup
-  fields:
-    category: sheetmetal
-    parent: metal_pipes
-    ru: Листовой металлопрокат
-- model: marketplace.categorygroup
-  fields:
-    category: armatura
-    parent: sheetmetal
-    ru: Арматура
-- model: marketplace.categorygroup
-  fields:
-    category: rabitz
-    parent: armatura
-    ru: Строительные сетки
-- model: marketplace.categorygroup
-  fields:
-    category: buildingmaterial
-    parent: rabitz
-    ru: Общестроительные материалы
-- model: marketplace.categorygroup
-  fields:
-    category: bricks
-    parent: buildingmaterial
-    ru: Кирпич
-- model: marketplace.categorygroup
-  fields:
-    category: pavers
-    parent: bricks
-    ru: Тротуарная плитка
-- model: marketplace.categorygroup
-  fields:
     category: books
     parent: null
     ru: Книги
-- model: marketplace.categorygroup
-  fields:
-    category: boardgame
-    parent: null
-    ru: настольные игры
 - model: marketplace.categorygroup
   fields:
     category: pen

@@ -123,11 +123,26 @@ class CategoryExtractor:
 
 class CategoryTransform:
     def __init__(self, categories: List[Dict]):
-        self._cs = categories
+        self._cs = self.filtered_raw(categories)
 
-    def transform(self) -> Dict:
+    def remove_duplicated(self, cs: List[Dict], categories: Dict) -> List[Dict]:
+        filtered: List[Dict] = []
+        for c in cs:
+            if c['name'] in categories:
+                print(f'duplicated {c["name"]}')
+                continue
+
+            categories[c['name']] = True
+            if 'child' in c:
+                c['child'] = self.remove_duplicated(c['child'], categories)
+
+            filtered.append(c)
+
+        return filtered
+
+    def filtered_raw(self, cs: List[Dict]) -> List[Dict]:
         filtered = []
-        for c in self._cs:
+        for c in cs:
             if c['ru'] in ('Еда',):
                 continue
 
@@ -158,10 +173,13 @@ class CategoryTransform:
             'keywords': ['unknown']
         })
 
-        categories = self.category_by_name(filtered)
+        return filtered
+
+    def transform(self) -> Dict:
+        categories = self.category_by_name(self._cs)
         return {
-            'categories': self.categories_fixuture(categories),
-            'group': self.group_fixture(filtered, categories),
+            'categories': self.categories_fixture(categories),
+            'group': self.group_fixture(self.remove_duplicated(self._cs, {}), categories),
         }
 
     def category_by_name(self, cs):
@@ -175,7 +193,7 @@ class CategoryTransform:
                 category_by_name[name] = r
         return category_by_name
 
-    def categories_fixuture(self, category_by_name):
+    def categories_fixture(self, category_by_name):
         result = []
         for r in category_by_name.values():
             result.append({
