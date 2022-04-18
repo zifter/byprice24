@@ -1,3 +1,4 @@
+from drf_spectacular.utils import extend_schema_field
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -71,6 +72,7 @@ class ProductListSerializer(serializers.Serializer):
     preview_url = serializers.CharField()
     min_offer = SerializerMethodField()
 
+    @extend_schema_field(OfferSerializer)
     def get_min_offer(self, obj):
         serializer = OfferSerializer(data=dict(price=obj.price, price_currency=obj.price_currency))
         serializer.is_valid(raise_exception=True)

@@ -64,6 +64,7 @@ class SearchProductQueryAutocompleteView(APIView):
     """
     page_size = 5
 
+    @extend_schema(responses=ProductQueryAutocompleteSerializer)
     def get(self, request, *args, **kwargs):
         params = ProductQueryAutocompleteSerializer(data={'query': self.request.query_params.get('query')})
         params.is_valid(raise_exception=True)

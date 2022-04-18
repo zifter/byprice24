@@ -60,6 +60,7 @@ class PopularProductsViewSet(ListAPIView):
     queryset = Product.objects
     serializer_class = ProductListSerializer
     number_of_products = 5
+    pagination_class = None
 
     def list(self, request, *args, **kwargs):
         if not self.get_queryset():
