@@ -37,6 +37,15 @@ prometheus:
     enabled: true
     ingressClassName: nginx
 
+kube-state-metrics:
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "250Mi"
+    limits:
+      cpu: "100m"
+      memory: "250Mi"
+
 # Alertmanager settings
 alertmanager:
   enabled: true
