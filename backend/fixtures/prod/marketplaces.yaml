@@ -105,3 +105,14 @@
   fields:
     marketplace: 9
     scraping_schedule: 0 0 * * 3
+
+#- model: marketplace.marketplace
+#  pk: 10
+#  fields:
+#    domain: beltexno.by
+#    image_logo_url: https://beltexno.by/ckfinder2.4/userfiles/images/logo_tip/1/5242322.png
+#    delivery: True
+#- model: crawler.crawlerstate
+#  fields:
+#    marketplace: 10
+#    scraping_schedule: 0 0 * * 3

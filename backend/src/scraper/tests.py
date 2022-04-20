@@ -433,6 +433,24 @@ def test_spider_ozon_ru():
 
     assert_spider(url, 'Infinix-HOT-10-Lite.html', expected)
 
+def test_spider_beltexno():
+    url = 'https://beltexno.by/catalog/smartfon-huawei-nova-5t-yal-l21-6gb-128gb-glubokii-sinii'
+    expected = ProductScrapingResult(
+        url=url,
+        title='Смартфон Huawei Nova 5T YAL-L21 6GB/128GB (глубокий синий)',
+        description='Купить Смартфон Huawei Nova 5T YAL-L21 6GB/128GB (глубокий синий) с  2 600 МГц и размером экрана  6.26\'. Большой выбор, гарантийное сопровождение и бесплатная доставка.',
+        price=1507.25,
+        price_currency='BYN',
+        availability=Availability.InStock,
+        preview_url='https://beltexno.by/catalog/smartfon-huawei-nova-5t-yal-l21-6gb-128gb-glubokii-sinii',
+        main_category='mobile',
+        rating=5.0,
+        review_count=1,
+        categories=['Смартфоны'],
+    )
+
+    assert_spider(url, 'huawei-nova-5t-yal-l21-6gb-128gb-glubokii-sinii.html', expected)
+
 
 def test_spider_ilp_image():
     url = 'https://www.ilp.by/notebook/msi/a11mt092ru'
