@@ -47,7 +47,7 @@
   fields:
     category: phoneaccum
     parent: protectiveglass
-    ru: Аккумуляторы
+    ru: Аккумуляторы для телефонов
 - model: marketplace.categorygroup
   fields:
     category: bt
@@ -372,7 +372,7 @@
   fields:
     category: batteries
     parent: cardreaders
-    ru: Аккумуляторы
+    ru: Аккумуляторы, ЗУ для фото/видеотехники
 - model: marketplace.categorygroup
   fields:
     category: photofilter
@@ -522,7 +522,7 @@
   fields:
     category: dvr
     parent: cctvcamera
-    ru: Видеорегистраторы
+    ru: Видеорегистраторы наблюдения
 - model: marketplace.categorygroup
   fields:
     category: camera_traps
@@ -3217,7 +3217,7 @@
   fields:
     category: carbattery
     parent: zapchasti
-    ru: Аккумуляторы
+    ru: Автомобильные аккумуляторы
 - model: marketplace.categorygroup
   fields:
     category: autolamps
@@ -3307,7 +3307,7 @@
   fields:
     category: videoregistrator
     parent: avtoelektronika
-    ru: Видеорегистраторы
+    ru: Автомобильные видеорегистраторы
 - model: marketplace.categorygroup
   fields:
     category: radar

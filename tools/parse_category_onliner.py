@@ -123,7 +123,7 @@ class CategoryExtractor:
 
 class CategoryTransform:
     def __init__(self, categories: List[Dict]):
-        self._cs = self.filtered_raw(categories)
+        self._cs = self.fix(self.filtered_raw(categories))
 
     def remove_duplicated(self, cs: List[Dict], categories: Dict) -> List[Dict]:
         filtered: List[Dict] = []
@@ -174,6 +174,29 @@ class CategoryTransform:
         })
 
         return filtered
+
+    def fix(self, cs: List[Dict]) -> List[Dict]:
+        # TODO Parse it directly from page
+        for c in self.iter(cs):
+            if c['name'] == 'carbattery':
+                c['ru'] = 'Автомобильные аккумуляторы'
+            elif c['name'] == 'phoneaccum':
+                c['ru'] = 'Аккумуляторы для телефонов'
+            elif c['name'] == 'batteries':
+                c['ru'] = 'Аккумуляторы, ЗУ для фото/видеотехники'
+            elif c['name'] == 'dvr':
+                c['ru'] = 'Видеорегистраторы наблюдения'
+            elif c['name'] == 'videoregistrator':
+                c['ru'] = 'Автомобильные видеорегистраторы'
+
+        return cs
+
+    def iter(self, cs: List[Dict]):
+        for c in cs:
+            yield c
+
+            if 'child' in c:
+                yield from self.iter(c['child'])
 
     def transform(self) -> Dict:
         categories = self.category_by_name(self._cs)

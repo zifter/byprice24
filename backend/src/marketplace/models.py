@@ -55,7 +55,7 @@ class CategoryGroup(models.Model):
     """
     category = models.ForeignKey(Category, on_delete=models.CASCADE, unique=True)
     parent = models.ForeignKey(Category, related_name='childs', null=True, on_delete=models.CASCADE)
-    ru = models.CharField(max_length=128)
+    ru = models.CharField(max_length=128, unique=True)
 
     class Meta:
         verbose_name = 'Category Group'
