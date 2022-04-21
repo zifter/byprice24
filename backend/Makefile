@@ -85,7 +85,9 @@ createuser:
 
 load-fixtures:
 	$(info Load fixtures to database)
-	pipenv run ./src/manage.py loaddata fixtures/prod/*.yaml
+	pipenv run ./src/manage.py loaddata fixtures/prod/marketplaces.yaml
+	pipenv run ./src/manage.py loaddata fixtures/prod/categories.yaml
+	pipenv run ./src/manage.py loaddata fixtures/prod/category_groups.yaml
 
 load-fixtures-dump:
 	$(info Load test fixtures to database)
@@ -108,3 +110,15 @@ rebuild_index:
 	pipenv run ./src/manage.py search_index --rebuild -f
 
 cms-init: createuser rebuild_index load-fixtures
+
+
+###########
+# Backend Local Dev
+setup-test-env:
+	$(info Setup test env)
+	make docker-compose-down
+	make docker-compose-prune
+	make docker-compose-up
+	make migrate
+	make cms-init
+	make load-fixtures-dump

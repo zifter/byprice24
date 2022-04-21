@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.utils.safestring import mark_safe
 from marketplace.models import Category
+from marketplace.models import CategoryGroup
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -13,6 +14,7 @@ from marketplace.models import ProductState
 
 admin.site.register(Marketplace)
 admin.site.register(Category)
+admin.site.register(CategoryGroup)
 admin.site.register(Product)
 
 
