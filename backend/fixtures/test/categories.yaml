@@ -1,16 +1,80 @@
 - model: marketplace.category
   fields:
+    name: elektronika
+    keywords: электроника
+    final: false
+- model: marketplace.category
+  fields:
+    name: mobilnye-telefony-i-aksessuary
+    keywords: мобильные телефоны и аксессуары
+    final: false
+- model: marketplace.category
+  fields:
+    name: headphones
+    keywords: аудиофильские наушники, геймерские наушники, наушники
+    final: true
+- model: marketplace.category
+  fields:
+    name: noutbuki-kompjutery-monitory
+    keywords: ноутбуки, компьютеры, мониторы
+    final: false
+- model: marketplace.category
+  fields:
+    name: books
+    keywords: книга
+    final: true
+- model: marketplace.category
+  fields:
+    name: kompjutery-i-seti
+    keywords: компьютеры и сети
+    final: false
+- model: marketplace.category
+  fields:
+    name: ebook
+    keywords: электронные книги
+    final: true
+- model: marketplace.category
+  fields:
+    name: media
+    keywords: медиаплееры и тв-приставки
+    final: true
+- model: marketplace.category
+  fields:
+    name: tabletpc
+    keywords: планшеты
+    final: true
+- model: marketplace.category
+  fields:
+    name: planshety-elektronnye-knigi
+    keywords: планшеты, электронные книги
+    final: false
+- model: marketplace.category
+  fields:
+    name: projectors
+    keywords: проекторы
+    final: true
+- model: marketplace.category
+  fields:
+    name: televidenie-i-video
+    keywords: телевидение и видео
+    final: false
+- model: marketplace.category
+  fields:
     name: mobile
     keywords: кнопочные телефоны, смартфоны
+    final: true
 - model: marketplace.category
   fields:
     name: notebook
     keywords: игровые ноутбуки, ноутбуки
+    final: true
 - model: marketplace.category
   fields:
     name: coffee
     keywords: капсульные кофеварки, кофеварки, кофемашины, кофемашины и кофеварки
+    final: true
 - model: marketplace.category
   fields:
     name: tv
     keywords: телевизоры
+    final: true

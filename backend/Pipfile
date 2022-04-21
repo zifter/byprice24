@@ -25,6 +25,7 @@ pytz = '==2021.3'
 sentry-sdk = "==1.5.5"
 scrapy-fake-useragent = "==1.4.4"
 drf-spectacular = "==0.21.2"
+mashumaro = "==3.0"
 
 [dev-packages]
 pytest = "==7.0.1"

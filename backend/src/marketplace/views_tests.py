@@ -8,6 +8,7 @@ from django.test import TestCase
 class ProductsViewTestCase(TestCase):
     fixtures = [
         'test/categories.yaml',
+        'test/category_groups.yaml',
         'test/marketplaces.yaml',
         'test/products.yaml',
         'test/product_pages.yaml',
@@ -60,3 +61,25 @@ class ProductsViewTestCase(TestCase):
         response = self.client.get('/api/v1/popular-products')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data[0]['id'], 2)
+
+    def test_categories_list(self):
+        response = self.client.get('/api/v1/categories')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data), 3)
+
+    def test_category_mobile_ok(self):
+        response = self.client.get('/api/v1/categories/mobile')
+        self.assertEqual(response.status_code, 200)
+
+        expected = {
+            'category': {
+                'name': 'mobile'
+            },
+            'parent': 'mobilnye-telefony-i-aksessuary',
+            'ru': 'Смартфоны',
+        }
+        self.assertEqual(response.data, expected)
+
+    def test_category_unknown_ok(self):
+        response = self.client.get('/api/v1/categories/unknown123')
+        self.assertEqual(response.status_code, 404)

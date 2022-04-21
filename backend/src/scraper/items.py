@@ -11,11 +11,6 @@ import pytz
 from common.item_types import Availability
 
 
-def is_not_empty(instance, attribute, value):
-    if not value:
-        raise ValueError('value must be not empty.')
-
-
 @attr.s(on_setattr=attr.setters.validate)
 class ProductScrapingResult:
     """

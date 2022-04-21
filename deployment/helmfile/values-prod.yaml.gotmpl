@@ -1,7 +1,7 @@
 namespace: prod
 release: {{ env "RELEASE_TAG" | default "local" }}
 monitoring:
-  enabled: true
+  enabled: false
   grafana:
     user: {{ requiredEnv "GRAFANA_USER" | quote }}
     pass: {{ requiredEnv "GRAFANA_PASS" | quote }}
