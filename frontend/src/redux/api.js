@@ -28,8 +28,8 @@ export const api = {
   },
   searchPopularProducts() {
     const url = 'popular-products';
-    return instance.get(url)
-  }
+    return instance.get(url);
+  },
 };
 
 

@@ -10,7 +10,7 @@ import MarketplaceTab from './MarketplacesPage';
 import {setModal} from '../../redux/appReducer';
 import {useDispatch, useSelector} from 'react-redux';
 import {Navigate, Route, Routes} from 'react-router-dom';
-import PopularTab from "./elements/product_tab/PopularProducts";
+import PopularTab from './elements/product_tab/PopularProducts';
 import {
   Container,
 } from 'atomize';
