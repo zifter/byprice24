@@ -1,3 +1,4 @@
+from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
 
@@ -17,6 +18,7 @@ class ProductSearchSerializer(serializers.Serializer):
     marketplaces_count_instock = serializers.IntegerField()
     min_offer = SerializerMethodField()
 
+    @extend_schema_field(OfferSerializer)
     def get_min_offer(self, obj):
         serializer = OfferSerializer(data=dict(price=obj.price, price_currency=obj.price_currency))
         serializer.is_valid(raise_exception=True)

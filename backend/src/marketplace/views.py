@@ -1,4 +1,6 @@
 from django_redis import get_redis_connection
+from drf_spectacular.utils import extend_schema
+from drf_spectacular.utils import OpenApiParameter
 from marketplace.counter_views import CounterViewsRedis
 from marketplace.models import CategoryGroup
 from marketplace.models import Marketplace
@@ -34,10 +36,19 @@ class ProductDetailsViewSet(RetrieveAPIView):
 class ProductsViewSet(ListAPIView):
     """
     API Products for getting list of products, by their ids with order as passed ids had
+
+    Example of request: api/v1/products?id=2&id=3
     """
     model = Product
     queryset = Product.objects
     serializer_class = ProductListSerializer
+    pagination_class = None
+
+    @extend_schema(
+        parameters=[OpenApiParameter(name='id', required=True, type=int)],
+    )
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
 
     def get_queryset(self):
         params = self.request.query_params.getlist('id')
@@ -62,6 +73,7 @@ class PopularProductsViewSet(ListAPIView):
     queryset = Product.objects
     serializer_class = ProductListSerializer
     number_of_products = 5
+    pagination_class = None
 
     def list(self, request, *args, **kwargs):
         if not self.get_queryset():
