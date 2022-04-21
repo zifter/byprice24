@@ -18,11 +18,3 @@ spec:
           annotations:
             summary: Kubernetes pod crash looping (instance {{`{{`}} $labels.instance {{`}}`}})
             description: Pod {{`{{`}} $labels.pod {{`}}`}} is crash looping\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS= {{`{{`}} $labels {{`}}`}}
-        - alert: CrawlerResultJobFailed
-          expr: sum(rq_jobs{queue=~"crawler-result|search-query",status="failed"}) > 0
-          for: 1m
-          labels:
-            severity: critical
-          annotations:
-            summary: Crawler-result job failed (instance {{`{{`}} $labels.instance {{`}}`}})
-            description: Pod {{`{{`}} $labels.pod {{`}}`}} is failing\n Number of failed jobs -  VALUE = {{`{{`}} $value {{`}}`}}\n
