@@ -1,3 +1,4 @@
+from marketplace.constants import LAST_CHECK_DATE_FORMATE
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -69,6 +70,7 @@ class ProductListSerializer(serializers.Serializer):
     name = serializers.CharField()
     category = serializers.CharField()
     preview_url = serializers.CharField()
+    last_check = serializers.DateTimeField(format=LAST_CHECK_DATE_FORMATE)
     min_offer = SerializerMethodField()
 
     def get_min_offer(self, obj):

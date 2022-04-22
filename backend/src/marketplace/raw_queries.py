@@ -4,7 +4,8 @@ SELECT p.id,
   p.category_id,
   p.preview_url,
   Min(ps.price) AS price,
-  ps.price_currency AS price_currency
+  ps.price_currency AS price_currency,
+  ps.last_check AS last_check
 FROM marketplace_product p
   join (
   select unnest, ordinality
@@ -26,6 +27,7 @@ GROUP BY p.id,
   p.category_id,
   p.preview_url,
   ps.price_currency,
+  ps.last_check,
   x.ordering
 ORDER BY x.ordering
 """

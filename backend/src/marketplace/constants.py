@@ -1,0 +1,1 @@
+LAST_CHECK_DATE_FORMATE = '%Y-%m-%d %H:%M:%S'

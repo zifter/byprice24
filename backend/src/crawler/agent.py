@@ -3,9 +3,9 @@ from datetime import datetime
 from typing import List
 
 import pytz
+from common.shared_queue import CrawlerTarget
 from common.shared_queue import FlowQueueBase
 from common.shared_queue import get_flow_queue
-from common.shared_queue import CrawlerTarget
 from crawler.models import CrawlerState
 from crawler.structs import ProductData
 from croniter import croniter
@@ -136,7 +136,12 @@ class Agent:
         if not last_product_state or not models_has_equal_fields(
                 last_product_state,
                 new_product_state,
-                'price', 'price_currency', 'rating', 'review_count', 'availability'):
+                'price',
+                'price_currency',
+                'rating',
+                'review_count',
+                'availability',
+        ):
             new_product_state.save(force_insert=True, using=ProductState.objects.db)
         else:
             setattr(last_product_state, 'last_check', data._result.timestamp)
