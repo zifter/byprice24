@@ -5,6 +5,7 @@ const SET_SEARCH_PRODUCTS = 'SET_SEARCH_PRODUCTS';
 const SET_CURRENT_PRODUCT = 'SET_CURRENT_PRODUCT';
 const SET_RECENTLY_VIEWED_PRODUCT = 'SET_RECENTLY_VIEWED_PRODUCT';
 const SET_AUTO_COMPETE_SEARCH_PRODUCT = 'SET_AUTO_COMPETE_SEARCH_PRODUCT';
+const SET_POPULAR_PRODUCTS = 'SET_POPULAR_PRODUCTS';
 
 const initialState = {
   count: 0,
@@ -75,6 +76,20 @@ const initialState = {
         preview_url: '',
       },
     ],
+  popularProducts:
+    [
+      {
+        id: 0,
+        name: '',
+        category: '',
+        preview_url: '',
+        min_offer: {
+          price: '0',
+          price_currency: '0',
+        },
+      },
+    ],
+
 };
 
 export const productsReducer = (state = initialState, action) => {
@@ -105,6 +120,9 @@ export const productsReducer = (state = initialState, action) => {
     case SET_AUTO_COMPETE_SEARCH_PRODUCT: {
       return {...state, autoCompleteSearch: action.data};
     }
+    case SET_POPULAR_PRODUCTS: {
+      return {...state, popularProducts: action.data};
+    }
     default:
       return state;
   }
@@ -124,6 +142,10 @@ export const setRecentlyViewedProductsAC = (data) => ({
 });
 export const setAutoCompeteSearchAC = (data) => ({
   type: SET_AUTO_COMPETE_SEARCH_PRODUCT,
+  data,
+});
+export const setPopularProductsAC = (data) => ({
+  type: SET_POPULAR_PRODUCTS,
   data,
 });
 
@@ -178,5 +200,18 @@ export const getAutoCompleteSearch = (query) => async (dispatch)=> {
     dispatch(setError(error));
   } finally {
 
+  }
+};
+export const getPopularProducts = () => async (dispatch)=> {
+  try {
+    dispatch(setLoaderStatus(true));
+    dispatch(setCurrentProductsAC({id: 0}));
+    const res = await api.searchPopularProducts();
+    dispatch(setPopularProductsAC(res.data));
+  } catch (error) {
+    console.log(error);
+    dispatch(setError(error));
+  } finally {
+    dispatch(setLoaderStatus(false));
   }
 };

@@ -1,14 +1,15 @@
 import React, {useEffect} from 'react';
 import {
   Row, Col, Image,
-  Text, Div,
+  Text, Div, Container,
 } from 'atomize';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {useDispatch, useSelector} from 'react-redux';
-import {getRecentlyViewedProducts} from '../../../redux/productsReducer';
+import {getPopularProducts} from '../../../../redux/productsReducer';
+import NotFound from '../../NotFound';
 
-const RecentlyViewedProduct = ({product}) => {
+const PopularProduct = ({product}) => {
   return (
     <Div
       border='0.3px solid'
@@ -68,7 +69,7 @@ const RecentlyViewedProduct = ({product}) => {
     </Div>
   );
 };
-RecentlyViewedProduct.propTypes = {
+PopularProduct.propTypes = {
   product: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
@@ -81,66 +82,57 @@ RecentlyViewedProduct.propTypes = {
   }),
 };
 
-const RecentlyViewedProducts = ({recentlyViewedProducts}) => {
+const PopularProducts = ({popularProducts}) => {
   return (
     <Row w='100%'>
       {
-        recentlyViewedProducts.slice(0, 4).map((product, i) =>
+        popularProducts.map((product, i) =>
           <Col size={{xs: 12, lg: 3}}
             key={product.id}
           >
-            <RecentlyViewedProduct product={product}/>
+            <PopularProduct product={product}/>
 
           </Col>)
       }
     </Row>
   );
 };
-RecentlyViewedProducts.propTypes = {
-  recentlyViewedProducts: PropTypes.array,
+PopularProducts.propTypes = {
+  popularProducts: PropTypes.array,
 };
 
-const RecentlyViewedTab = () => {
-  const recentlyViewedProducts = useSelector((state) =>
-    state.products.recentlyViewedProducts);
+const PopularTab = () => {
+  const popularProducts = useSelector((state) =>
+    state.products.popularProducts);
   const dispatch = useDispatch();
 
-  const recentlyViewed =
-      JSON.parse(localStorage.getItem('recentlyViewed'));
-
-  const listIds = [];
-  if (recentlyViewed) {
-    for (let el = 0; el < recentlyViewed['products'].length; el ++) {
-      listIds.push(recentlyViewed['products'][el]['id']);
-    }
-  }
-
   const hook = () => {
-    dispatch(getRecentlyViewedProducts(listIds));
+    dispatch(getPopularProducts());
   };
-  useEffect(hook, listIds);
+  useEffect(hook, []);
 
-  if (!recentlyViewedProducts[0].name) {
+  if (!popularProducts[0].name) {
     return (
-      <Text textSize='display3' m={{t: '5rem'}}>
-        ДОБРО ПОЖАЛОВАТЬ!
-      </Text>
+      <NotFound/>
     );
   }
 
   return (
-    <Row>
-      <Row m={{b: '1rem'}}>
-        <Text
-          textSize='title'
-          m={{t: '2rem', l: '0.5rem'}}>
-            Недавно просмотренные
-        </Text>
+    <Container
+      minH="83vh">
+      <Row>
+        <Row m={{b: '1rem'}}>
+          <Text
+            textSize='title'
+            m={{t: '2rem', l: '0.5rem'}}>
+            Популярные товары
+          </Text>
+        </Row>
+        <PopularProducts
+          popularProducts={popularProducts}/>
       </Row>
-      <RecentlyViewedProducts
-        recentlyViewedProducts={recentlyViewedProducts}/>
-    </Row>
+    </Container>
   );
 };
 
-export default RecentlyViewedTab;
+export default PopularTab;

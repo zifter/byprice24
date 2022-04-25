@@ -40,12 +40,35 @@ const Footer = () => {
         </Col></Row>
       <Col>
         <Anchor
-          href="/"
+          href="/marketplace"
           textColor="black"
+          m={{b: '0rem', l: '0rem'}}
         >
-            2022 by zifter
+            Магазины
 
         </Anchor>
+
+        <Anchor
+          href="/"
+          m={{b: '0rem', r: '25rem', l: '25rem'}}
+          textColor="black"
+        >
+
+              2022 by zifter
+
+        </Anchor>
+
+        <Anchor
+          href="/popular"
+          m={{b: '0rem'}}
+          textColor="black"
+        >
+
+                  Популярные товары
+
+        </Anchor>
+
+
       </Col>
 
 
