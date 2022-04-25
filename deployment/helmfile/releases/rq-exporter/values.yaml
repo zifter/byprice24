@@ -9,3 +9,12 @@ resources:
 rq:
   - name: rq
     host: redis-master
+
+rules:
+  enabled: true
+  failedJobs:
+    enabled: true
+    threshold: 0
+    queues:
+      - crawler-result
+      - search-query
