@@ -4,8 +4,8 @@ from unittest.mock import MagicMock
 
 import pytz
 from common.item_types import Availability
-from common.shared_queue import FlowQueueBase
 from common.shared_queue import CrawlerTarget
+from common.shared_queue import FlowQueueBase
 from crawler.agent import Agent
 from crawler.models import CrawlerState
 from django.core.management import call_command

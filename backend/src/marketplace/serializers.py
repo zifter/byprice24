@@ -1,4 +1,5 @@
 from drf_spectacular.utils import extend_schema_field
+from marketplace.constants import LAST_CHECK_DATE_FORMATE
 from marketplace.models import Category
 from marketplace.models import CategoryGroup
 from marketplace.models import Marketplace
@@ -93,6 +94,7 @@ class ProductListSerializer(serializers.Serializer):
     category = serializers.CharField()
     category_tr = serializers.CharField()
     preview_url = serializers.CharField()
+    last_check = serializers.DateTimeField(format=LAST_CHECK_DATE_FORMATE)
     min_offer = SerializerMethodField()
 
     @extend_schema_field(OfferSerializer)
