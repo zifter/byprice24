@@ -1,0 +1,79 @@
+- model: marketplace.categorygroup
+  fields:
+    category: elektronika
+    parent: null
+    ru: Электроника
+- model: marketplace.categorygroup
+  fields:
+    category: mobilnye-telefony-i-aksessuary
+    parent: elektronika
+    ru: Мобильные телефоны и аксессуары
+- model: marketplace.categorygroup
+  fields:
+    category: mobile
+    parent: mobilnye-telefony-i-aksessuary
+    ru: Смартфоны
+- model: marketplace.categorygroup
+  fields:
+    category: headphones
+    parent: mobilnye-telefony-i-aksessuary
+    ru: Наушники
+- model: marketplace.categorygroup
+  fields:
+    category: televidenie-i-video
+    parent: elektronika
+    ru: Телевидение и видео
+- model: marketplace.categorygroup
+  fields:
+    category: tv
+    parent: televidenie-i-video
+    ru: Телевизоры
+- model: marketplace.categorygroup
+  fields:
+    category: projectors
+    parent: televidenie-i-video
+    ru: Проекторы
+- model: marketplace.categorygroup
+  fields:
+    category: media
+    parent: televidenie-i-video
+    ru: Медиаплееры и ТВ-приставки
+- model: marketplace.categorygroup
+  fields:
+    category: planshety-elektronnye-knigi
+    parent: elektronika
+    ru: Планшеты, электронные книги
+- model: marketplace.categorygroup
+  fields:
+    category: tabletpc
+    parent: planshety-elektronnye-knigi
+    ru: Планшеты
+- model: marketplace.categorygroup
+  fields:
+    category: ebook
+    parent: planshety-elektronnye-knigi
+    ru: Электронные книги
+
+- model: marketplace.categorygroup
+  fields:
+    category: kompjutery-i-seti
+    parent: null
+    ru: Компьютеры и сети
+
+- model: marketplace.categorygroup
+  fields:
+    category: noutbuki-kompjutery-monitory
+    parent: kompjutery-i-seti
+    ru: Ноутбуки, компьютеры, мониторы
+
+- model: marketplace.categorygroup
+  fields:
+    category: notebook
+    parent: noutbuki-kompjutery-monitory
+    ru: Ноутбуки
+
+- model: marketplace.categorygroup
+  fields:
+    category: books
+    parent: null
+    ru: Книги

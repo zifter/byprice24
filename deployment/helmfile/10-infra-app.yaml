@@ -28,7 +28,7 @@ releases:
     namespace: {{ .Values.namespace }}
     chart: zifter/rq-exporter
     installed: {{ .Values.monitoring.enabled | toYaml }}
-    version: 0.1.0
+    version: 0.2.1
     needs:
       - prometheus-stack
     values:

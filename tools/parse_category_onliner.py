@@ -16,7 +16,7 @@ def get_context():
     parser = ArgumentParser()
     parser.add_argument('--source-file', default=DATA_DIR / 'onliner-25-01-2022.html')
     parser.add_argument('--output-categories', default=BACKEND_FIXTURES_DIR / 'prod' / 'categories.yaml')
-    parser.add_argument('--output-group', default=BACKEND_FIXTURES_DIR / 'group.yaml')
+    parser.add_argument('--output-group', default=BACKEND_FIXTURES_DIR / 'prod' / 'category_groups.yaml')
     return parser.parse_args()
 
 
@@ -123,11 +123,26 @@ class CategoryExtractor:
 
 class CategoryTransform:
     def __init__(self, categories: List[Dict]):
-        self._cs = categories
+        self._cs = self.fix(self.filtered_raw(categories))
 
-    def transform(self) -> Dict:
+    def remove_duplicated(self, cs: List[Dict], categories: Dict) -> List[Dict]:
+        filtered: List[Dict] = []
+        for c in cs:
+            if c['name'] in categories:
+                print(f'duplicated {c["name"]}')
+                continue
+
+            categories[c['name']] = True
+            if 'child' in c:
+                c['child'] = self.remove_duplicated(c['child'], categories)
+
+            filtered.append(c)
+
+        return filtered
+
+    def filtered_raw(self, cs: List[Dict]) -> List[Dict]:
         filtered = []
-        for c in self._cs:
+        for c in cs:
             if c['ru'] in ('Еда',):
                 continue
 
@@ -136,33 +151,96 @@ class CategoryTransform:
         filtered.append({
             'name': 'books',
             'ru': 'Книги',
+            'parent': None,
             'keywords': ['книга', ]
         })
+        filtered.append({
+            'name': 'boardgame',
+            'ru': 'настольные игры',
+            'parent': None,
+            'keywords': ['настольные', 'игры']
+        })
+        filtered.append({
+            'name': 'pen',
+            'ru': 'pen',
+            'parent': None,
+            'keywords': ['ручка', 'шариковая ручка', 'автоматическая ручка']
+        })
+        filtered.append({
+            'name': 'unknown',
+            'ru': 'unknown',
+            'parent': None,
+            'keywords': ['unknown']
+        })
 
+        return filtered
+
+    def fix(self, cs: List[Dict]) -> List[Dict]:
+        # TODO Parse it directly from page
+        for c in self.iter(cs):
+            if c['name'] == 'carbattery':
+                c['ru'] = 'Автомобильные аккумуляторы'
+            elif c['name'] == 'phoneaccum':
+                c['ru'] = 'Аккумуляторы для телефонов'
+            elif c['name'] == 'batteries':
+                c['ru'] = 'Аккумуляторы, ЗУ для фото/видеотехники'
+            elif c['name'] == 'dvr':
+                c['ru'] = 'Видеорегистраторы наблюдения'
+            elif c['name'] == 'videoregistrator':
+                c['ru'] = 'Автомобильные видеорегистраторы'
+
+        return cs
+
+    def iter(self, cs: List[Dict]):
+        for c in cs:
+            yield c
+
+            if 'child' in c:
+                yield from self.iter(c['child'])
+
+    def transform(self) -> Dict:
+        categories = self.category_by_name(self._cs)
         return {
-            'categories': self.categories(filtered),
-            'group': self.group(filtered),
+            'categories': self.categories_fixture(categories),
+            'group': self.group_fixture(self.remove_duplicated(self._cs, {}), categories),
         }
 
-    def categories(self, cs):
+    def category_by_name(self, cs):
         category_by_name = {}
         # deduplication
-        for r in self.leaf(cs):
+        for r in self.all(cs):
             name = r['name']
             if name in category_by_name:
                 category_by_name[name]['keywords'].update(r['keywords'])
             else:
                 category_by_name[name] = r
+        return category_by_name
 
+    def categories_fixture(self, category_by_name):
         result = []
         for r in category_by_name.values():
             result.append({
                 'model': 'marketplace.category',
                 'fields': {
                     'name': r['name'],
-                    'keywords': ', '.join(sorted(list(r['keywords'])))
+                    'keywords': ', '.join(sorted(list(r['keywords']))),
+                    'final': r['final'],
                 }
             })
+
+        return result
+
+    def all(self, categories: List[Dict]) -> List[Dict]:
+        result = []
+        for c in categories:
+            result.append({
+                'name': c['name'],
+                'keywords': c['keywords'],
+                'final': 'child' not in c,
+            })
+
+            if 'child' in c:
+                result.extend(self.all(c['child']))
 
         return result
 
@@ -179,18 +257,20 @@ class CategoryTransform:
 
         return result
 
-    def group(self, cs: List[Dict]):
+    def group_fixture(self, cs: List[Dict], categories):
         result = []
         for c in cs:
-            r = {
-                'name': c['name'],
-                'ru': c['ru'],
-            }
+            result.append({
+                'model': 'marketplace.categorygroup',
+                'fields': {
+                    'category': c['name'],
+                    'parent': c['parent'],
+                    'ru': c['ru'],
+                },
+            })
 
             if 'child' in c:
-                r['child'] = self.group(c['child'])
-
-            result.append(r)
+                result.extend(self.group_fixture(c['child'], categories))
 
         return result
 

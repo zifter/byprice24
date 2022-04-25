@@ -90,7 +90,7 @@ validate-local:
 	helmfile -e local lint
 	helmfile -e local template
 
-helmfile-prod: RELEASE_TAG := latest
+validate-prod: RELEASE_TAG := latest
 validate-prod:
 	$(info Validate helmfile for prod)
 	make helmfile-prod ARGS=build

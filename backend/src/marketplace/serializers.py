@@ -1,4 +1,7 @@
+from drf_spectacular.utils import extend_schema_field
 from marketplace.constants import LAST_CHECK_DATE_FORMATE
+from marketplace.models import Category
+from marketplace.models import CategoryGroup
 from marketplace.models import Marketplace
 from marketplace.models import Product
 from marketplace.models import ProductPage
@@ -16,6 +19,26 @@ class MarketplaceSerializer(serializers.ModelSerializer):
             'logo_url',
             'description',
             'delivery',
+        ]
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = [
+            'name',
+        ]
+
+
+class CategoryGroupSerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
+
+    class Meta:
+        model = CategoryGroup
+        fields = [
+            'category',
+            'parent',
+            'ru',
         ]
 
 
@@ -61,7 +84,7 @@ class ProductDetailsSerializer(serializers.ModelSerializer):
         return response
 
 
-class IdSerializer(serializers.Serializer):
+class ProductsQuerySerializer(serializers.Serializer):
     id = serializers.IntegerField()
 
 
@@ -69,10 +92,12 @@ class ProductListSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     name = serializers.CharField()
     category = serializers.CharField()
+    category_tr = serializers.CharField()
     preview_url = serializers.CharField()
     last_check = serializers.DateTimeField(format=LAST_CHECK_DATE_FORMATE)
     min_offer = SerializerMethodField()
 
+    @extend_schema_field(OfferSerializer)
     def get_min_offer(self, obj):
         serializer = OfferSerializer(data=dict(price=obj.price, price_currency=obj.price_currency))
         serializer.is_valid(raise_exception=True)
