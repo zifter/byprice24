@@ -28,7 +28,7 @@ class ProductScrapingResult:
     price: float = attr.ib(validator=attr.validators.instance_of(float))
     price_currency: str = attr.ib(validator=[attr.validators.instance_of(str), is_not_empty])
     timestamp: datetime = attr.ib(default=datetime.now(tz=pytz.UTC))
-    availability: Availability = attr.ib(default=Availability.InStock, validator=attr.validators.instance_of(Availability))
+    availability: str = attr.ib(default=Availability.InStock.value, validator=attr.validators.instance_of(str))
     rating: float = attr.ib(default=0.0, validator=attr.validators.instance_of(float))
     review_count: int = attr.ib(default=0, validator=attr.validators.instance_of(int))
     preview_url: str = attr.ib(default='', validator=attr.validators.instance_of(str))
