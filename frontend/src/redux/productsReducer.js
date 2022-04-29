@@ -14,7 +14,7 @@ const initialState = {
   results:
     [
       {
-        id: 0,
+        id: null,
         name: '',
         category: '',
         marketplaces_count_instock: 0,
@@ -152,6 +152,7 @@ export const setPopularProductsAC = (data) => ({
 export const getSearchProducts = (query, page, ordering) => async (dispatch)=> {
   try {
     dispatch(setLoaderStatus(true));
+    dispatch(setError(null));
     const res = await api.searchProducts(query, page, ordering);
     dispatch(setProductsAC(res.data));
   } catch (error) {
@@ -165,6 +166,7 @@ export const getSearchProducts = (query, page, ordering) => async (dispatch)=> {
 export const getCurrentProduct = (id) => async (dispatch)=> {
   try {
     dispatch(setLoaderStatus(true));
+    dispatch(setError(null));
     const res = await api.searchCurrentProduct(id);
     dispatch(setCurrentProductsAC(res.data));
   } catch (error) {
@@ -178,6 +180,7 @@ export const getCurrentProduct = (id) => async (dispatch)=> {
 export const getRecentlyViewedProducts = (id) => async (dispatch)=> {
   try {
     dispatch(setLoaderStatus(true));
+    dispatch(setError(null));
     dispatch(setCurrentProductsAC({id: 0}));
     const res = await api.searchRecentlyViewedProducts(id);
     dispatch(setRecentlyViewedProductsAC(res.data));
@@ -190,6 +193,7 @@ export const getRecentlyViewedProducts = (id) => async (dispatch)=> {
 };
 export const getAutoCompleteSearch = (query) => async (dispatch)=> {
   try {
+    dispatch(setError(null));
     const res = await api.autoCompleteSearchProducts(query);
     dispatch(setAutoCompeteSearchAC(res.data));
     if (res.data.length) {
@@ -205,6 +209,7 @@ export const getAutoCompleteSearch = (query) => async (dispatch)=> {
 export const getPopularProducts = () => async (dispatch)=> {
   try {
     dispatch(setLoaderStatus(true));
+    dispatch(setError(null));
     dispatch(setCurrentProductsAC({id: 0}));
     const res = await api.searchPopularProducts();
     dispatch(setPopularProductsAC(res.data));
