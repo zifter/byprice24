@@ -44,13 +44,14 @@ const SearchResultTabs = ({
   orderingComponent,
   paginationComponent}) => {
   const count = useSelector((state) => state.products.count);
-  const searchResult = useSelector((state) => state.products.results);
+  const errorResult = useSelector((state) => state.app.error);
   const [activeTab, setActiveTab] = useState('productTab');
 
   const handleProductTab= () => {
     // update the state to tab1
     setActiveTab('productTab');
   };
+
   return (
     <Div>
       <div className="tab">
@@ -75,7 +76,7 @@ const SearchResultTabs = ({
 
       <div id="product-tab" className={activeTab === 'productTab' ?
           'tabcontent-expanded': 'tabcontent-collapsed'}>
-        {searchResult.length > 0 ?
+        {errorResult && !errorResult.message ?
         <ResultBody /> :
         <ResultIsEmpty />
         }
